@@ -981,7 +981,7 @@ module do_the_thing()
         echo();
         echo(" * * * WARNING! * * *");
         echo(" Device dimensions are too large to fit the selected rack width.");
-        echo(str(" Width increased from ", rack_cage_width, "\" to ", rack_cage_width_required, "\"."));
+        echo(str(" Width increased from ", rack_cage_width, " to ", rack_cage_width_required, "."));
         echo(" Double-check your settings, especially for bolt-together faceplates.");
         echo();
         echo();
@@ -1959,3 +1959,4 @@ if (split_cage_into_two_halves)
 
 
 /* END! */
+
