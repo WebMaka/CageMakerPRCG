@@ -1508,7 +1508,7 @@ module do_the_thing()
             // 1x2 Keystone
             if (safe_mod_one_type == "1x2Keystone")
             {
-                translate([safe_mod_one_offset, 2.5 - 12.375,, 5.5])
+                translate([safe_mod_one_offset, 2.5 - 12.375, 5.5])
                     cube([19, 27, 11], center=true);
                 
                 translate([safe_mod_one_offset, 2.5 + 12.375, 5.5])
@@ -1959,3 +1959,4 @@ if (split_cage_into_two_halves)
 
 
 /* END! */
+
