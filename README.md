@@ -1,13 +1,21 @@
-# CageMaker PRCG: The Parametric Rack Cage Generator
- Copyright © 2025-2026 by WebMaka - this file is licensed under CC BY-NC-SA 4.0.
- To view a copy of this license, visit
-   https://creativecommons.org/licenses/by-nc-sa/4.0/
-   
+<img width="835" height="157" alt="cagemaker_full_logotype" src="https://github.com/user-attachments/assets/ce93d3e3-ebee-4622-8a0a-d32a5959471d" />
+
+&nbsp;
+
+Copyright © 2025-2026 by WebMaka - this file is licensed under CC BY-NC-SA 4.0.
+To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+&nbsp;
+
 Quickly create a 3D-printable object file for a rack cage for any device of a given size. Simply provide the device's dimensions, and optionally tweak a few settings, then press F6 then F7 to generate and save a STL file.
 
- If this is useful to you, please consider donating or subscribing to my Patreon. I fund my projects entirely out-of-pocket, and any additional funding will help.
+&nbsp;
+
+If this is useful to you, please consider donating or subscribing to my Patreon. I fund my projects entirely out-of-pocket, and any additional funding will help.
  
-   https://patreon.com/webmaka
+https://patreon.com/webmaka
+
+&nbsp;
 
 <img width="624" height="301" src="https://github.com/user-attachments/assets/3aff54f1-7faa-4a80-82e3-aabe52922683" />
 
@@ -15,11 +23,11 @@ Quickly create a 3D-printable object file for a rack cage for any device of a gi
 
 ![20251217_104725](https://github.com/user-attachments/assets/2d5cb894-1762-4182-ab1b-7aa4efc9a020)
 
-
+&nbsp;
 
 ## Installation &amp; Usage
 
-This script was built to work with/in OpenSCAD version 2021.01, but may well work with other versions or as an import into FreeCAD, although this has not been tested. To obtain a copy of OpenSCAD, visit this URL:
+This script was built to work with/in OpenSCAD version 2021.01. To obtain a copy of OpenSCAD, visit this URL:
 
   https://openscad.org/
 
@@ -32,6 +40,7 @@ To use this script:
 5. Press F7 to save the created object as a STL file.
 6. Slice and print the object.
 
+&nbsp;
 
 ## Documentation
 
