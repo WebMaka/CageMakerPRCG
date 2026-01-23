@@ -328,14 +328,15 @@ module four_rounded_corner_plate(plate_height, plate_width, plate_thickness, cor
 // Create faceplate slotted screw hole (sized for M5 or 10-32 screws)
 module faceplate_screw_hole_slot(xx, yy, zz)
 {
-    linear_extrude(10 + (heavy_device * support_cage_heavy_device_multiplier), center=false, twist=0, $fn=this_fn)
-        hull()
-        {
-            translate([-2.5, 0, 0])
-                circle(d=5.5, $fn=this_fn, false);
-            translate([2.5, 0, 0])
-                circle(d=5.5, $fn=this_fn, false);    
-        }
+    translate([xx, yy, zz])
+        linear_extrude(10 + (heavy_device * support_cage_heavy_device_multiplier), center=false, twist=0, $fn=this_fn)
+            hull()
+            {
+                translate([-2.5, 0, 0])
+                    circle(d=5.5, $fn=this_fn, false);
+                translate([2.5, 0, 0])
+                    circle(d=5.5, $fn=this_fn, false);    
+            }
 }
 
 // Create a blank faceplate of a given unit count in height. This module also
@@ -2221,3 +2222,4 @@ else
 
 
 /* END! */
+
