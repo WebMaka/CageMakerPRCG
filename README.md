@@ -11,6 +11,11 @@ Quickly create a 3D-printable object file for a rack cage for any device of a gi
 
 &nbsp;
 
+> [!NOTE]
+> :no_entry_sign::robot: NO AI - This project is human-produced - no AI assistance or vibe coding has been employed in its development.
+
+&nbsp;
+
 ## Cagemaker PRCG + OpenSCAD Playground
 
 I'm happy to announce that CageMaker PRCG is now available in a fork of the Java-based OpenSCAD port [OpenSCAD Playground](https://github.com/openscad/openscad-playground). This allows using CageMaker PRCG right from a web browser without having to install any additional software. The full feature set of CageMaker PRGC is available, and Playground can even export completed STL files for slicing and printing.
