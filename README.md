@@ -7,7 +7,7 @@ To view a copy of this license, visit https://creativecommons.org/licenses/by-nc
 
 &nbsp;
 
-Quickly create a 3D-printable object file for a rack cage for any device of a given size. Simply provide the device's dimensions, and optionally tweak a few settings, then press F6 then F7 to generate and save a STL file.
+Quickly create a 3D-printable object file for a rack cage for any device of a given size that can fit into practically any size rack or rack system. Simply provide the device's dimensions, and optionally tweak a few settings, then press F6 then F7 to generate and save a STL file.
 
 &nbsp;
 
@@ -16,11 +16,31 @@ Quickly create a 3D-printable object file for a rack cage for any device of a gi
 
 &nbsp;
 
-## Cagemaker PRCG + OpenSCAD Playground
+## CageMaker PRCG + OpenSCAD Playground
 
 I'm happy to announce that CageMaker PRCG is now available in a fork of the Java-based OpenSCAD port [OpenSCAD Playground](https://github.com/openscad/openscad-playground). This allows using CageMaker PRCG right from a web browser without having to install any additional software. The full feature set of CageMaker PRGC is available, and Playground can even export completed STL files for slicing and printing.
 
 Be sure to [check out the quick-start guide](https://github.com/WebMaka/CageMakerPRCG/blob/main/openscad_playground_quick_start_guide.md), or [jump over to the Playground and start creating cages](https://cagemaker.org/playground/).
+
+&nbsp;
+
+## Minimum & Maximum Sizes
+
+These are the size limits for printing a complete cage of a given width that is one unit (1.75"/44.45mm) tall and complies with EIA-310-D. These assume default settings for all options, but most notably the **heavy device** setting as this thickens all surfaces and reduces available working space.
+
+By default, CageMaker PRCG creates a support structure around the device's dimensions that adds 12-20mm to those dimensions, and also enforces a safe mounting space of 5/8" or 15.875mm on either side - the maximum width value listed here is the greatest device width that fits the given rack width setting before automatically scaling to the next wider size. For example, when creating a cage for a 19" rack, a device wider than 67mm won't fit into a quarter-width bolt-together but will fit in a third-width.
+
+| Rack Width | Maximum Device Width | Minimum Build Volume For Split Cages | Minimum Build Volume For Full-Width Cages |
+| --- | :---: | :---: | :---: |
+| Quarter-19" Bolt-Together (4.75") | 67mm | 100mm | 130mm |
+| 5" Micro-Rack | 80mm | 100mm | 130mm |
+| Half-10" Bolt-Together (5") | 80mm | 100mm | 130mm |
+| 6" Micro-Rack | 107mm | 110mm | 160mm |
+| Third-19" Bolt-Together (6.33") | 117mm | 110mm | 170mm |
+| 7" Micro-Rack | 132mm | 120mm | 180mm |
+| Half-19" Bolt-Together (9.5") | 197mm | 150mm | 250mm |
+| 10" Mini-Rack | 207mm | 150mm | 260mm |
+| 19" Full Rack | 417mm | 270mm | 490mm |
 
 &nbsp;
 
