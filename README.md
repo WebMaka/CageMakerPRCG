@@ -34,7 +34,7 @@ By default, CageMaker PRCG creates a support structure around the device's dimen
 | --- | :---: | :---: | :---: |
 | Quarter-19" Bolt-Together (4.75") | 67mm | 100mm | 130mm |
 | 5" Micro-Rack | 80mm | 100mm | 130mm |
-| Half-10" Bolt-Together (5") | 80mm | 100mm | 130mm |
+| Half-19" Bolt-Together (5") | 80mm | 100mm | 130mm |
 | 6" Micro-Rack | 107mm | 110mm | 160mm |
 | Third-19" Bolt-Together (6.33") | 117mm | 110mm | 170mm |
 | 7" Micro-Rack | 132mm | 120mm | 180mm |
