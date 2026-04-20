@@ -20,7 +20,7 @@ Quickly create a 3D-printable object file for a rack cage for any device of a gi
 
 I'm happy to announce that CageMaker PRCG is now available in a fork of the Java-based OpenSCAD port [OpenSCAD Playground](https://github.com/openscad/openscad-playground). This allows using CageMaker PRCG right from a web browser without having to install any additional software. The full feature set of CageMaker PRGC is available, and Playground can even export completed STL files for slicing and printing.
 
-Be sure to [check out the quick-start guide](https://github.com/WebMaka/CageMakerPRCG/blob/main/openscad_playground_quick_start_guide.md), or [jump over to the Playground and start creating cages](https://cagemaker.org/playground/).
+Be sure to [check out the quick-start guide](https://github.com/WebMaka/CageMakerPRCG/blob/main/openscad_playground_quick_start_guide.md), or [jump over to the Playground and start creating cages](https://cagemaker.org/playground/). Not sure what the options are for? The wiki's [Configuration Options](https://github.com/WebMaka/CageMakerPRCG/wiki/ConfigOptions) page has a complete breakdown of the options, with screenshots of what they do.
 
 &nbsp;
 
@@ -65,6 +65,9 @@ https://patreon.com/webmaka
 This script was built to work with/in OpenSCAD version 2021.01. To obtain a copy of OpenSCAD, visit this URL:
 
   https://openscad.org/
+
+> [!TIP]
+> To make CageMaker PRCG's massive number of options easier to understand, make sure OpenSCAD's Customizer is set to show descriptions by changing the dropdown setting next to the "Reset" button atop the Customizer panel to "Show Details" or "Description Only". Consult the [Configuration Options](https://github.com/WebMaka/CageMakerPRCG/wiki/ConfigOptions) for detailed explanations with screenshots of the function and purpose of each option.
 
 To use this script:
 
