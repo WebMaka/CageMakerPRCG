@@ -1,5 +1,6 @@
 # These are supported funding model platforms
 
+thanks_dev: webmaka
 # github: # Replace with up to 4 GitHub Sponsors-enabled usernames e.g., [user1, user2]
 patreon: WebMaka
 # open_collective: # Replace with a single Open Collective username
@@ -10,6 +11,4 @@ patreon: WebMaka
 # issuehunt: # Replace with a single IssueHunt username
 # lfx_crowdfunding: # Replace with a single LFX Crowdfunding project-name e.g., cloud-foundry
 # polar: # Replace with a single Polar username
-buy_me_a_coffee: webmaka
-thanks_dev: webmaka
 # custom: # Replace with up to 4 custom sponsorship URLs e.g., ['link1', 'link2']
