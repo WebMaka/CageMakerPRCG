@@ -18,7 +18,7 @@
    https://github.com/WebMaka/CageMakerPRCG
 
 
- If this is useful to you, please consider donating or subscribing to my
+ If this is useful to you, please consider donating and/or subscribing to my
  Patreon. I fund my projects entirely out-of-pocket, and any additional
  funding will help.
 
@@ -59,20 +59,20 @@ manual_device_width = 150.0; // [15:1:450]
 // Height (top-to-bottom) of device in mm. - NOTE: Swap this setting and device_width above to mount the device vertically. - NOTE: Selecting a device preset overrides this setting.
 manual_device_height = 45.0; // [15:1:500]
 
-// Number of devices to cage - by default, one cage holds one device, but this setting multiplies this. Excellent for side-by-side mounting of smaller devices, e.g., Raspberry Pis, especially when mounted vertically by swapping the device height and width parameters. - NOTE: CageMaker will insert a wall the width of the "heavy device" setting plus the "multiple device gap" setting between each device. - WARNING: CageMaker will enforce safe boundaries so as to not push a cage into mounting space or off the edge of the faceplate.
+// Number of devices to cage - by default, one cage holds one device, but this setting multiplies this. Excellent for side-by-side mounting of smaller devices, e.g., Raspberry Pis, especially when mounted vertically by swapping the device height and width parameters. - NOTE: CageMaker will insert a wall the width of the "surface thickness" setting plus the "multiple device gap" setting between each device. - WARNING: CageMaker will enforce safe boundaries so as to not push a cage into mounting space or off the edge of the faceplate.
 number_of_devices = 1; // [1:1:16]
 
-// Additional gap space between devices - by default, multiple devices are separated by a wall whose thickness is set by the "heavy device" setting, and this setting adds to that distance. - WARNING: This can dramatically increase cage complexity, which in turn substantially increases both print time and filament consumption.
+// Additional gap space between devices - by default, multiple devices are separated by a wall whose thickness is set by the "surface thickness" setting, and this setting adds to that distance. - WARNING: This can dramatically increase cage complexity, which in turn substantially increases both print time and filament consumption.
 multiple_device_gap = 0.0; // [0:1:50]
 
 
 /* [Overall Structure && Geometry] */
 
-// Support Structure Base Size (Geometry) - determines how the cage proper is generated and significantly affects overall strength/rigidity. Lower values require less space and allow using larger devices without expanding to the next unit of height, but trades strength and weight capacity for compactness. - NOTE: Actual width of the support structure is expanded further based on the "heavy device" setting below, which increases the thickness of all surfaces. Values given are based on the default 4mm "heavy device" setting. - NOTE: Selecting a device preset overrides this setting.
+// Support Structure Base Size (Geometry) - determines how the cage proper is generated and significantly affects overall strength/rigidity. Lower values require less space and allow using larger devices without expanding to the next unit of height, but trades strength and weight capacity for compactness. - NOTE: Actual width of the support structure is expanded further based on the "surface thickness" setting below, which increases the thickness of all surfaces. Values given are based on the default 4mm "surface thickness" setting. - NOTE: Selecting a device preset overrides this setting.
 manual_support_cage_base_size = 4; // [0:"Plain Box (weakest) - Adds 8mm by default to device dimensions",2:"Box With Ribbed Corners - Adds 10mm by default to device dimensions",4:"Plus-Shaped - DEFAULT - Adds 12mm by default to device dimensions",6:"Expanded Plus-Shaped - Adds 14mm by default to device dimensions",8:"Widened Plus-Shaped (strongest) - Adds 16mm by default to device dimensions"]
 
-// Heavy device - thicken all surfaces to support additional weight. - NOTE: Selecting a device preset overrides this setting.
-manual_heavy_device = 0; // [-0.875:"3.125mm (1/8-in.) For Small Lightweight Devices",0:"Standard 4mm Thickness - DEFAULT",1:"Thickened 5mm Thickness",2:"Super-Thick 6mm Thickness",4:"Ultra-thick 8mm Thickness"]
+// Surface thickness - thicken all surfaces to support additional weight. - NOTE: Selecting a device preset overrides this setting.
+manual_surface_thickness = 0; // [-0.875:"3.125mm (1/8-in.) For Small Lightweight Devices",0:"Standard 4mm Thickness - DEFAULT",1:"Thickened 5mm Thickness",2:"Super-Thick 6mm Thickness",4:"Ultra-thick 8mm Thickness"]
 
 
 /* [Rulers/Guides] */
@@ -96,7 +96,7 @@ print_cage_separately = false;
 /* [Rack Settings] */
 
 // Rack geometry - this sets basic rack dimensions, namely "unit" height and mounting-hole spacing. - NOTE: The default setting is EIA-310-D, which is the established standard for 19" racks and de facto standard for most mini- and micro-rack systems.
-rack_geometry = "EIA-310"; // ["EIA-310":"EIA-310-D Standard Layout - DEFAULT","EIA-310-LH":"EIA-310-D Standard Layout With Large Screw Holes (M6 or 1/4-20) ","EIA-310-1T":"EIA-310 Modified - Single Centered Hole At Top Per Unit","EIA-310-1C":"EIA-310 Modified - Single Centered Hole At Center Per Unit","EIA-310-2":"EIA-310 Modified - Two Holes Per Unit","EIA-310-2020":"EIA-310 Modified - 2020 Extrusion Frame (Reduced Internal Width)","HALF-EIA-310":"EIA-310-D Standard Layout Scaled Down 50%","12mm":"12mm Unit Height, Hole At 6mm","15mm":"15mm Unit Height, Hole At 7.5mm - Homeracker","16mm":"16mm Unit Height, Hole At 8mm","16.5mm":"16.5mm Unit Height, Hole At 8.25mm - MR248 248mm Mini-Rack","20mm":"20mm Unit Height, Hole At 10mm","20mm_2h":"20mm Unit Height, Holes At 5mm/15mm","24mm":"24mm Unit Height, Hole At 12mm","25mm":"25mm Unit Height, Hole At 12.5mm","30mm":"30mm Unit Height, Hole At 15mm","36mm":"36mm Unit Height, Hole At 18mm","40mm":"40mm Unit Height, Hole At 20mm","50mm":"50mm Unit Height, Hole At 25mm"]
+rack_geometry = "EIA-310"; // ["EIA-310":"EIA-310-D Standard Layout - DEFAULT","EIA-310-LH":"EIA-310-D Standard Layout With Large Screw Holes (M6 or 1/4-20) ","EIA-310-1T":"EIA-310 Modified - Single Centered Hole At Top Per Unit","EIA-310-1C":"EIA-310 Modified - Single Centered Hole At Center Per Unit","EIA-310-2":"EIA-310 Modified - Two Holes Per Unit","EIA-310-2020":"EIA-310 Modified - 2020 Extrusion Frame (Reduced Internal Width)","HALF-EIA-310":"EIA-310-D Standard Layout Scaled Down 50%","12mm":"12mm Unit Height, Hole At 6mm","15mm":"15mm Unit Height, Hole At 7.5mm - Homeracker","16mm":"16mm Unit Height, Hole At 8mm","16.5mm":"16.5mm Unit Height, Hole At 8.25mm - MR248 248mm Mini-Rack","20mm":"20mm Unit Height, Hole At 10mm","20mm_2h":"20mm Unit Height, Holes At 5mm/15mm","24mm":"24mm Unit Height, Hole At 12mm","25mm":"25mm Unit Height, Hole At 12.5mm","25mm_2h":"25mm Unit Height, Holes At 6.25mm/18.75mm","30mm":"30mm Unit Height, Hole At 15mm","30mm_2h":"30mm Unit Height, Holes At 7.5mm/22.5mm","36mm":"36mm Unit Height, Hole At 18mm","40mm":"40mm Unit Height, Hole At 20mm","40mm_2h":"40mm Unit Height, Holes At 10mm/30mm","50mm":"50mm Unit Height, Hole At 25mm","50mm_2h":"50mm Unit Height, Holes At 12.5mm/37.5mm"]
 
 // Rack cage width (NOTE: INCHES) - NOTE: CageMaker will automatically enable right-angle mounting ears on one or both sides of partial-width cages depending on where they may be required. - IMPORTANT: Options that affect the number of mounting holes will also affect the holes in these ears.
 rack_cage_width = 10; // [4.75:"4.75 in. Wide - OUTER Quarter-Width for 19 in. Full-Size Rack",4.75001:"4.75 in. Wide - INNER Quarter-Width for 19 in. Full-Size Rack",5:"5 in. Micro-Rack",5.001:"5 in. Half-Width for 10 in. Mini-Rack",6:"6 in. Micro-Rack",6.33:"6.33 in. OUTER Wide - Third-Width for 19 in. Full-Size Rack",6.33001:"6.33 in. CENTER Wide - Third-Width for 19 in. Full-Size Rack",7:"7 in. Micro-Rack",9.5:"9.5 in. Wide - Half-Width for 19 in. Full-Size Rack",9.76378:"MR248 248mm Mini-Rack",10:"10 in. Mini-Rack",12:"12 in. Custom Rack",12.66:"12.66 in. Wide - Two-Thirds-Width for 19 in. Full-Size Rack",14:"14 in. Custom Rack",16:"16 in. Custom Rack",19:"19 in. Full Rack"]
@@ -104,6 +104,9 @@ rack_cage_width = 10; // [4.75:"4.75 in. Wide - OUTER Quarter-Width for 19 in. F
 
 // Tapping or heat-set insert holes - sets hole diameters on split cages or bolt-together faceplate ears for tapping, or expands hole diameters to allow the use of heat-set threaded inserts instead of raw bolts. - NOTE: This setting should match the recommended hole diameter of the bolt or insert to be used, or use the next smaller diameter. - ALSO NOTE: This setting is only used for bolt-together cages (split in half or with bolt-together ears).
 tap_or_heat_set_holes = 5.25; // [5.25:"M5 Clearance (5.25mm hole) - DEFAULT",0.00:" ",0.00:"Clearance Holes",3.15:"  M3 Clearance (3.15mm hole)", 4.20:"  M4 Clearance (4.2mm hole)", 5.25:"  M5 Clearance (5.25mm hole) - DEFAULT", 6.30:"  M6 Clearance (6.3mm hole)", 2.95:"  4-40 Clearance (.1160 in. hole)", 3.66:"  6-32 Clearance (.144 in. hole)",4.31:"  8-32 Clearance (.1695 in. hole)", 4.98:"  10-24/10-32 Clearance (.1960 in. hole)", 6.53:"  1/4-20 Clearance (.257 in. hole)", 0.00:" ",0.00:"Tapped/Threadcutting Holes",2.50:"  M3 Tapped/Threadcutting (2.5mm hole)", 3.50:"  M4 Tapped/Threadcutting (3.5mm hole)", 4.40:"  M5 Tapped/Threadcutting (4.4mm hole)", 5.00:"  M6 Tapped/Threadcutting (5.0mm hole)", 2.07:"  4-40 Tapped/Threadcutting (0.0813 in. hole)", 2.53:"  6-32 Tapped/Threadcutting (.0997 in. hole)", 3.19:"  8-32 Tapped/Threadcutting (.1257 in. hole)", 3.53:"  10-24/10-32 Tapped/Threadcutting (.1389 in. hole)", 4.79:"  1/4-20 Tapped/Threadcutting (.1887 in. hole)",0.00:" ",0.00:"Heat-Set Inserts",3.98:"  M3 Heat-Set (4mm hole)", 4.10:"  M3 Heat-Set (4.1mm hole)", 4.80:"  M3 Heat-Set (4.8mm hole)", 5.60:"  M4 Heat-Set (5.6mm hole)", 5.70:"  M4 Heat-Set (5.7mm hole)", 6.40:"  M5 Heat-Set (6.4mm hole)", 6.50:"  M5 Heat-Set (6.5mm hole)", 8.00:"  M6 Heat-Set (8mm hole)", 8.10:"  M6 Heat-Set (8.1mm hole)", 3.99:"  4-40 Heat-Set (0.157 in. hole)", 4.03:"  4-40 Heat-Set (0.159 in. hole)", 4.76:"  6-32 Heat-Set (0.1875 in. hole)",  4.85:"  6-32 Heat-Set (0.191 in. hole)", 5.61:"  8-32 Heat-Set (0.221 in. hole)", 5.74:"  8-32 Heat-Set (0.226 in. hole)", 6.41:"  10-24/10-32 Heat-Set (0.252 in. hole)", 6.51:"  10-24/10-32 Heat-Set (0.256 in. hole)", 8.01:"  1/4-20 Heat-Set (0.315 in. hole)", 8.11:"  1/4-20 Heat-Set (0.319 in. hole)"]
+
+// Add alignment pin holes to edges for split, half-width, and third-width cages - this adds 5mm deep 1.75mm diameter holes to mating surfaces for multi-part cages, with the idea that short lengths of filament can be used as alignment dowels. - NOTE: holes will probably need to be chased with a suitable drill bit (e.g., #51/1.702mm or #50/1.78mm). This adds complexity to the object but makes for a cleaner alignment of multiple parts. Recommended for gluing parts together in particular.
+add_alignment_pin_holes = false;
 
 // Top and bottom holes only - by default, CageMaker populates all hole spaces on a faceplate regardless of height. Enabling this setting causes CageMaker to only populate the top-most and bottom-most holes on the faceplate. - NOTE: This aligns to the edges of FULL unit heights, so if the "allow half heights" option is enabled, the bottom-most holes will be at the top holes of the bottom-most half-unit.
 top_and_bottom_holes_only = false;
@@ -116,9 +119,6 @@ allow_half_heights = false;
 
 // Vertically shift mounting holes - by default, mounting holes are centered relative to each unit. This setting shifts the center point up by half a unit, essentially flipping a half-unit-height-multiple cage. Useful for situations such as half-unit-multiple cages that have alignment concerns or to compensate for upside-down Keystone receptacles.
 vertically_shift_mounting_holes = false;
-
-// Add alignment pin holes to edges for split, half-width, and third-width cages - this adds 5mm deep 1.75mm diameter holes to mating surfaces for multi-part cages, with the idea that short lengths of filament can be used as alignment dowels. - NOTE: holes will probably need to be chased with a suitable drill bit (e.g., #51/1.702mm or #50/1.78mm). This adds complexity to the object but makes for a cleaner alignment of multiple parts. Recommended for gluing parts together in particular.
-add_alignment_pin_holes = false;
 
 
 /* [Faceplate Options] */
@@ -300,7 +300,7 @@ rear_support_overlap = 12; // [0:1:500]
 /* [Additional Faceplate Modifications] */
 
 // CENTERED Mod Type - add a new connector, port, or opening of some form onto the faceplate. - IMPORTANT: This option is only available when cage generation is disabled by setting "faceplate only" to a height value. Make sure the height setting is tall enough to clear. - NOTE: Be aware of fitment, as if there isn't sufficient room for the modification to fit on the faceplate, CageMaker will remove it.
-centered_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
+centered_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Single-Board Computers (Raspberry Pi And Similar)","SBC85x58_H":"   85x58mm SBCs (Raspberry Pi, etc.) - Horizontal","SBC85x58_VR":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Right Oriented)","SBC85x58_VL":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Left Oriented)","None":" ","None":"PC Motherboard Cutouts","RearIO":"   Rear Panel IO Shield","PCISlot":"   Full-Height PCI Slot","PCISlot_LP":"   Low-Profile PCI Slot","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
 
 // CENTERED mod grid column count - how many copies of the above modification will be placed into a row on the faceplate? - IMPORTANT: This option is only available when cage generation is disabled by setting "faceplate only" to a height value. Make sure the height setting is tall enough to clear. - NOTE: Be aware of fitment, as if there isn't sufficient room for the modification to fit on the faceplate, CageMaker will remove it.
 centered_mod_grid_columns = 1; // [1:12]
@@ -309,7 +309,7 @@ centered_mod_grid_columns = 1; // [1:12]
 centered_mod_grid_rows = 1; // [1:4]
 
 // LEFT Side Mod Type - add a new connector, port, or opening of some form onto the faceplate. - NOTE: Be aware of fitment, as the device cage takes priority over any modifications selected here and if there isn't sufficient room for the modification CageMaker will remove it.
-left_side_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
+left_side_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Single-Board Computers (Raspberry Pi And Similar)","SBC85x58_H":"   85x58mm SBCs (Raspberry Pi, etc.) - Horizontal","SBC85x58_VR":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Right Oriented)","SBC85x58_VL":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Left Oriented)","None":" ","None":"PC Motherboard Cutouts","RearIO":"   Rear Panel IO Shield","PCISlot":"   Full-Height PCI Slot","PCISlot_LP":"   Low-Profile PCI Slot","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
 
 // LEFT Side mod grid column count - how many copies of the above modification will be placed into a row on the faceplate? - WARNING: CageMaker will enforce safe boundaries so as to not push a modification into mounting space, the actual cage itself, or off the edge of the faceplate.
 left_side_mod_grid_columns = 1; // [1:12]
@@ -324,7 +324,7 @@ left_side_mod_horizontal_offset = 0.00; // [-240.00:1:240.0]
 left_side_mod_vertical_offset = 0.00; // [-75.00:1:75.0]
 
 // RIGHT Side Mod Type - add a new connector, port, or opening of some form onto the faceplate. - NOTE: Be aware of fitment, as the device cage takes priority over any modifications selected here and if there isn't sufficient room for the modification CageMaker will remove it.
-right_side_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
+right_side_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Single-Board Computers (Raspberry Pi And Similar)","SBC85x58_H":"   85x58mm SBCs (Raspberry Pi, etc.) - Horizontal","SBC85x58_VR":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Right Oriented)","SBC85x58_VL":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Left Oriented)","None":" ","None":"PC Motherboard Cutouts","RearIO":"   Rear Panel IO Shield","PCISlot":"   Full-Height PCI Slot","PCISlot_LP":"   Low-Profile PCI Slot","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
 
 // RIGHT Side mod grid column count - how many copies of the above modification will be placed into a row on the faceplate? - WARNING: CageMaker will enforce safe boundaries so as to not push a modification into mounting space, the actual cage itself, or off the edge of the faceplate.
 right_side_mod_grid_columns = 1; // [1:12]
@@ -575,21 +575,21 @@ preconfg_options = [
 //  ["NAME", depth, width, height, 4, 0, 0],
 ];
 // For adding new equipment options, the format is:
-//  ["model#", depth, width, height, default_base_size, default_heavy_device, force_solid_bottom]
+//  ["model#", depth, width, height, default_base_size, default_surface_thickness, force_solid_bottom]
 // Where:
 //   "model#" is as selected in the preconfigured_device variable.
 //   depth, width, and height are the dimensions of the device in mm.
 //   default_base_size sets the cage corner-reinforcing geometry (4 by default).
-//   default_heavy_device sets the heavy_device parameter that sets the thickness of all structures (4 by default).
+//   default_surface_thickness sets the surface_thickness parameter that sets the thickness of all structures (4 by default).
 //   force_solid_bottom forces the bottom of the cage to "Solid" if set to true (1).
 
-// Set the dimensions, cage's base size, and heavy_device setting to the selected preconfigured device info if a device is selected. Otherwise, use the manual settings.
+// Set the dimensions, cage's base size, and surface_thickness setting to the selected preconfigured device info if a device is selected. Otherwise, use the manual settings.
 use_preconfig = (preconfigured_device != "");
 device_depth = use_preconfig ? preconfg_options[search([preconfigured_device], preconfg_options)[0]][1] : manual_device_depth;
 device_width = use_preconfig ? preconfg_options[search([preconfigured_device], preconfg_options)[0]][2] : manual_device_width;
 device_height = use_preconfig ? preconfg_options[search([preconfigured_device], preconfg_options)[0]][3] : manual_device_height;
 support_cage_base_size = use_preconfig ? preconfg_options[search([preconfigured_device], preconfg_options)[0]][4] : manual_support_cage_base_size;
-heavy_device = use_preconfig ? preconfg_options[search([preconfigured_device], preconfg_options)[0]][5] : manual_heavy_device;
+surface_thickness = use_preconfig ? preconfg_options[search([preconfigured_device], preconfg_options)[0]][5] : manual_surface_thickness;
 
 // Making the bottom a solid plane is forced if required but optional otherwise.
 cage_bottom_geometry_override = use_preconfig ? (preconfg_options[search([preconfigured_device], preconfg_options)[0]][6] == 0 ? cage_bottom_geometry : "Solid") : cage_bottom_geometry;
@@ -610,10 +610,15 @@ rack_geometry_options = [
   ["20mm", 20.00, [10.00], 5.25, 16],
   ["20mm_2h", 20.00, [5.00, 15.00], 5.25, 16],
   ["24mm", 24.00, [12.00], 5.25, 16],
-  ["25mm", 25.00, [6.25, 18.75], 5.25, 16],
-  ["30mm", 30.00, [7.5, 22.5], 5.25, 16],
-  ["40mm", 40.00, [10.00, 30.00], 5.25, 16],
-  ["50mm", 50.00, [12.50, 37.50], 5.25, 16],
+  ["25mm", 25.00, [12.50], 5.25, 16],
+  ["25mm_2h", 25.00, [6.25, 18.75], 5.25, 16],
+  ["30mm", 30.00, [15.00], 5.25, 16],
+  ["30mm_2h", 30.00, [7.5, 22.5], 5.25, 16],
+  ["36mm", 30.00, [18.0], 5.25, 16],
+  ["40mm", 40.00, [20.00], 5.25, 16],
+  ["40mm_2h", 40.00, [10.00, 30.00], 5.25, 16],
+  ["50mm", 50.00, [25.00], 5.25, 16],
+  ["50mm_2h", 50.00, [12.50, 37.50], 5.25, 16],
 ];
 // For adding new custom entries, the format is:
 //  ["Name", unit_height, [first_hole, second_hole, third_hole, etc.], mounting_hole_diameter, mounting_reservation_space]
@@ -632,8 +637,8 @@ mounting_reservation_space = rack_geometry_options[search([rack_geometry], rack_
 // Side/top/bottom cutout edge thickness in mm (higher number makes the cutout smaller) - NOTE: This should not normally need to be changed.
 cutout_edge = 5;
 
-// Plate thickness - default is 4mm, but the heavy_device setting adds to this. Increasing this base value makes everything thicker and stronger, but above around 8mm other settings (most critically, support_cage_base_size) have to be adjusted.
-plate_thickness = 4 + heavy_device;
+// Plate thickness - default is 4mm, but the surface_thickness setting adds to this. Increasing this base value makes everything thicker and stronger, but above around 8mm other settings (most critically, support_cage_base_size) have to be adjusted.
+plate_thickness = 4 + surface_thickness;
 
 // Rear support cage override - generating a rear support cage is disabled if we're either splitting
 // the cage or printing the cage separately from the faceplate.
@@ -645,10 +650,18 @@ safe_generate_rear_support_cage = (split_cage_into_two_halves || print_cage_sepa
 // The format is simple:
 // ["ModName", width, height],
 mod_sizes = [
-  ["None",0, 0],      
+  ["None", 0, 0],
 
   ["Keystone", 21, 28],
   ["DSeries", 26, 31],
+
+  ["SBC85x58_H", 60, 30],
+  ["SBC85x58_VR", 30, 60],
+  ["SBC85x58_VL", 30, 60],
+
+  ["RearIO", 160, 49],
+  ["PCISlot", 16.51, 125],
+  ["PCISlot_LP", 16.51, 85],
 
   ["30mmFan", 34, 34],
   ["40mmFan", 44, 44],
@@ -958,11 +971,11 @@ module faceplate_screw_hole_slot(mounting_hole_diameter, xx, yy, zz)
 }
 
 // Create a hollow tube of a given diameter/height with a given wall thickness
-module tube(diameter, height, wall_thickness, facet_count)
+module tube(diameter, height, wall_thickness, facet_count, cone=false)
 {
     difference()
     {
-        cylinder(h=height, d=diameter, center=true, $fn=facet_count);
+        cylinder(h=height, d1=diameter, d2=diameter * (cone ? 2 : 1), center=true, $fn=facet_count);
         cylinder(h=height + 0.002, d=diameter - (wall_thickness * 2), center=true, $fn=facet_count);
     }
 }
@@ -1449,17 +1462,73 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
 
             // Neutrik D-Series Cutout
             if (mod_type == "DSeries")
-            {                    
-                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + heavy_device])
+            {
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
                     cylinder(16, d=24, center=true, $fn=this_fn);
                 translate([horizontal_offset + x_offset, vertical_offset + y_offset, 0])
                     rect_screws(19, 24, 3.2);
             }
+            
+            
+            // PC Motherboards - Rear IO
+            if (mod_type == "RearIO")
+            {
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
+                    cube([159, 44.7, 12], center=true);
+            }
+            
+            // PC Motherboards - PCI Slot
+            if (mod_type == "PCISlot")
+            {
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset + 5, 5 + surface_thickness])
+                    cube([12, 90, 12], center=true);
+                translate([horizontal_offset + x_offset + 2.54, vertical_offset + y_offset + 60, 5 + surface_thickness])
+                    cube([22, 5, 12], center=true);
+            }
+            
+            // PC Motherboards - PCI Slot
+            if (mod_type == "PCISlot_LP")
+            {
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset + 5, 5 + surface_thickness])
+                    cube([12, 55, 12], center=true);
+                translate([horizontal_offset + x_offset + 2.54, vertical_offset + y_offset + 40, 5 + surface_thickness])
+                    cube([22, 5, 12], center=true);
+            }
+            
+            
+            
+            // 85x58 SBCs - Horizontal
+            if (mod_type == "SBC85x58_H")
+            {
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset - 1.75, 3 + (surface_thickness / 2)])
+                    cube([56, 22, 3 + surface_thickness], center=true);
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset - 3.0, 5 /*+ surface_thickness*/])
+                    cube([54, 17, 12], center=true);
+            }
+            
+            // 85x58 SBCs - Verical (Right Oriented)
+            if (mod_type == "SBC85x58_VR")
+            {
+                translate([horizontal_offset + x_offset + 1.75, vertical_offset + y_offset, 3 + (surface_thickness / 2)])
+                        cube([22, 56, 3 + surface_thickness], center=true);
+                translate([horizontal_offset + x_offset + 3.0, vertical_offset + y_offset, 5 /*+ surface_thickness*/])
+                        cube([17, 54, 12], center=true);
+            }
+            
+            // 85x58 SBCs - Verical (Left Oriented)
+            if (mod_type == "SBC85x58_VL")
+            {
+                translate([horizontal_offset + x_offset - 1.75, vertical_offset + y_offset, 3 + (surface_thickness / 2)])
+                        cube([22, 56, 3 + surface_thickness], center=true);
+                translate([horizontal_offset + x_offset - 3.0, vertical_offset + y_offset, 5 /*+ surface_thickness*/])
+                        cube([17, 54, 12], center=true);
+            }
+
 
             // 30mm fan
             if (mod_type == "30mmFan")
             {
-                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + heavy_device])
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
                     cube([30.2, 30.2, 3], center=true);
                 translate([horizontal_offset + x_offset, vertical_offset + y_offset, 0])
                 {
@@ -1471,7 +1540,7 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
             // 40mm fan
             if (mod_type == "40mmFan")
             {
-                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + heavy_device])
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
                     cube([40.2, 40.2, 3], center=true);
                 translate([horizontal_offset + x_offset, vertical_offset + y_offset, 0])
                 {
@@ -1483,7 +1552,7 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
             // 60mm fan
             if (mod_type == "60mmFan")
             {
-                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + heavy_device])
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
                     cube([60.2, 60.2, 3], center=true);
                 translate([horizontal_offset + x_offset, vertical_offset + y_offset, 0])
                 {
@@ -1495,7 +1564,7 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
             // 80mm fan
             if (mod_type == "80mmFan")
             {
-                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + heavy_device])
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
                     cube([80.2, 80.2, 3], center=true);
                 translate([horizontal_offset + x_offset, vertical_offset + y_offset, 0])
                 {
@@ -1507,7 +1576,7 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
             // 92mm fan
             if (mod_type == "92mmFan")
             {
-                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + heavy_device])
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
                     cube([92.2, 92.2, 3], center=true);
                 translate([horizontal_offset + x_offset, vertical_offset + y_offset, 0])
                 {
@@ -1519,7 +1588,7 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
             // 120mm fan
             if (mod_type == "120mmFan")
             {
-                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + heavy_device])
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
                     cube([120.2, 120.2, 3], center=true);
                 translate([horizontal_offset + x_offset, vertical_offset + y_offset, 0])
                 {
@@ -1531,7 +1600,7 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
             // 140mm fan
             if (mod_type == "140mmFan")
             {
-                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + heavy_device])
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
                     cube([140.2, 140.2, 3], center=true);
                 translate([horizontal_offset + x_offset, vertical_offset + y_offset, 0])
                 {
@@ -1543,27 +1612,27 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
 
             // 10mm Hole (For Button/Light/etc.)
             if (mod_type == "10mmButton")
-                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + heavy_device])
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
                     cylinder(16, d=10, center=true, $fn=this_fn);
 
             // 12mm Hole (For Button/Light/etc.)
             if (mod_type == "12mmButton")
-                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + heavy_device])
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
                     cylinder(16, d=12, center=true, $fn=this_fn);
 
             // 16mm Hole (For Button/Light/etc.)
             if (mod_type == "16mmButton")
-                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + heavy_device])
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
                     cylinder(16, d=16, center=true, $fn=this_fn);
 
             // 19mm Hole (For Button/Light/etc.)
             if (mod_type == "19mmButton")
-                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + heavy_device])
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
                     cylinder(16, d=19, center=true, $fn=this_fn);
 
             // 24mm Hole (For Button/Light/etc.)
             if (mod_type == "24mmButton")
-                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + heavy_device])
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
                     cylinder(16, d=24, center=true, $fn=this_fn);
 
 
@@ -1612,7 +1681,7 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
             // 16A (20A NA) Power Inlet - 3-Wire
             if (mod_type == "16A3")
             {
-                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + heavy_device])
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
                     cylinder(16, d=50, center=true, $fn=this_fn);
                 translate([horizontal_offset + x_offset, vertical_offset + y_offset, 0])
                     fan_screws(47, 5.5);
@@ -1621,7 +1690,7 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
             // 16A (20A NA) Power Inlet - 4-7-Wire
             if (mod_type == "16A4")
             {
-                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + heavy_device])
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
                     cylinder(16, d=67, center=true, $fn=this_fn);
                 translate([horizontal_offset + x_offset, vertical_offset + y_offset, 0])
                     fan_screws(60, 5.5);
@@ -1630,7 +1699,7 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
             // 32A (30A NA) Power Inlet - 3-Wire
             if (mod_type == "32A3")
             {
-                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + heavy_device])
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
                     cylinder(16, d=71, center=true, $fn=this_fn);
                 translate([horizontal_offset + x_offset, vertical_offset + y_offset, 0])
                     fan_screws(60, 5.5);
@@ -1639,7 +1708,7 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
             // 32A (30A NA) Power Inlet - 4-7-Wire
             if (mod_type == "32A4")
             {
-                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + heavy_device])
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
                     cylinder(16, d=71, center=true, $fn=this_fn);
                 translate([horizontal_offset + x_offset, vertical_offset + y_offset, 0])
                     fan_screws(60, 5.5);
@@ -1762,10 +1831,10 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
                 corner_radius = custom_cutout_a_corner_radius <= corner_radius_max ? custom_cutout_a_corner_radius : corner_radius_max;
                 if (custom_cutout_a_shape == "Round")
                 {
-                    translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + heavy_device])
+                    translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
                         cylinder(16, d=custom_cutout_a_diameter_height, center=true, $fn=this_fn);
                     if (custom_cutout_a_snap_in_recess)
-                        translate([horizontal_offset + x_offset, vertical_offset + y_offset, 4 + heavy_device])
+                        translate([horizontal_offset + x_offset, vertical_offset + y_offset, 4 + surface_thickness])
                             cylinder(plate_thickness, d=custom_cutout_a_diameter_height + 6, center=true, $fn=this_fn);
                 }
                 else
@@ -1785,10 +1854,10 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
                 corner_radius = custom_cutout_b_corner_radius <= corner_radius_max ? custom_cutout_b_corner_radius : corner_radius_max;
                 if (custom_cutout_b_shape == "Round")
                 {
-                    translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + heavy_device])
+                    translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
                         cylinder(16, d=custom_cutout_b_diameter_height, center=true, $fn=this_fn);
                     if (custom_cutout_b_snap_in_recess)
-                        translate([horizontal_offset + x_offset, vertical_offset + y_offset, 4 + heavy_device])
+                        translate([horizontal_offset + x_offset, vertical_offset + y_offset, 4 + surface_thickness])
                             cylinder(plate_thickness, d=custom_cutout_b_diameter_height + 6, center=true, $fn=this_fn);
                 }
                 else
@@ -1808,10 +1877,10 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
                 corner_radius = custom_cutout_c_corner_radius <= corner_radius_max ? custom_cutout_c_corner_radius : corner_radius_max;
                 if (custom_cutout_c_shape == "Round")
                 {
-                    translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + heavy_device])
+                    translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
                         cylinder(16, d=custom_cutout_c_diameter_height, center=true, $fn=this_fn);
                     if (custom_cutout_c_snap_in_recess)
-                        translate([horizontal_offset + x_offset, vertical_offset + y_offset, 4 + heavy_device])
+                        translate([horizontal_offset + x_offset, vertical_offset + y_offset, 4 + surface_thickness])
                             cylinder(plate_thickness, d=custom_cutout_c_diameter_height + 6, center=true, $fn=this_fn);
                 }
                 else
@@ -1855,6 +1924,139 @@ module faceplate_mod_addition(mod_type, horizontal_offset, vertical_offset, mod_
             if (mod_type == "Keystone")
                 translate([horizontal_offset + x_offset, vertical_offset + 2.5 + y_offset, 5.5001])
                     cube([19, 28, 11], center=true);
+
+
+            // 85x58 SBCs - Horizontal
+            if (mod_type == "SBC85x58_H")
+            {
+                // Support frame
+                difference()
+                {
+                    translate([horizontal_offset + x_offset, vertical_offset + y_offset + 11.25, 46.5 /*+ surface_thickness*/])
+                        rotate([90, 0, 0])
+                            ventilated_side_plate(87, 58, 4, 10, 5, 5, false);
+
+                    // Through holes for support screws
+                    translate([horizontal_offset + x_offset + 24.5, vertical_offset + y_offset + 8.1, 26.5 /*+ surface_thickness*/])
+                        rotate([0, 90, 90])
+                            cylinder(h=12, d=1.6, center=true, $fn=this_fn);
+                    translate([horizontal_offset + x_offset - 24.5, vertical_offset + y_offset + 8.1, 26.5 /*+ surface_thickness*/])
+                        rotate([0, 90, 90])
+                            cylinder(h=12, d=1.6, center=true, $fn=this_fn);
+                    translate([horizontal_offset + x_offset + 24.5, vertical_offset + y_offset + 8.1, 84.5 /*+ surface_thickness*/])
+                        rotate([0, 90, 90])
+                            cylinder(h=12, d=1.6, center=true, $fn=this_fn);
+                    translate([horizontal_offset + x_offset - 24.5, vertical_offset + y_offset + 8.1, 84.5 /*+ surface_thickness*/])
+                        rotate([0, 90, 90])
+                            cylinder(h=12, d=1.6, center=true, $fn=this_fn);
+                }
+                
+                // M2 screw bosses, 4mm tall, 49x58mm pattern
+                translate([horizontal_offset + x_offset + 24.5, vertical_offset + y_offset + 8.1, 26.5 /*+ surface_thickness*/])
+                    rotate([0, 90, 90])
+                        tube(4, 4, 1.2, this_fn, true);
+                translate([horizontal_offset + x_offset - 24.5, vertical_offset + y_offset + 8.1, 26.5 /*+ surface_thickness*/])
+                    rotate([0, 90, 90])
+                        tube(4, 4, 1.2, this_fn, true);
+                translate([horizontal_offset + x_offset + 24.5, vertical_offset + y_offset + 8.1, 84.5 /*+ surface_thickness*/])
+                    rotate([0, 90, 90])
+                        tube(4, 4, 1.2, this_fn, true);
+                translate([horizontal_offset + x_offset - 24.5, vertical_offset + y_offset + 8.1, 84.5 /*+ surface_thickness*/])
+                    rotate([0, 90, 90])
+                        tube(4, 4, 1.2, this_fn, true);
+            }
+
+            // 85x58 SBCs - Vertical (Right Oriented)
+            if (mod_type == "SBC85x58_VR")
+            {
+                // Support frame
+                difference()
+                {
+                    translate([horizontal_offset + x_offset - 11.25, vertical_offset + y_offset, 46.5 /*+ surface_thickness*/])
+                        rotate([90, 0, 90])
+                            ventilated_side_plate(87, 58, 4, 10, 5, 5, false);
+                
+                    // Through holes for support screws
+                    translate([horizontal_offset + x_offset - 8.1, vertical_offset + y_offset + 24.5, 26.5 /*+ surface_thickness*/])
+                        rotate([0, 270, 0])
+                            cylinder(h=12, d=1.6, center=true, $fn=this_fn);
+                    translate([horizontal_offset + x_offset - 8.1, vertical_offset + y_offset - 24.5, 26.5 /*+ surface_thickness*/])
+                        rotate([0, 270, 0])
+                            cylinder(h=12, d=1.6, center=true, $fn=this_fn);
+                    translate([horizontal_offset + x_offset - 8.1, vertical_offset + y_offset + 24.5, 84.5 /*+ surface_thickness*/])
+                        rotate([0, 270, 0])
+                            cylinder(h=12, d=1.6, center=true, $fn=this_fn);
+                    translate([horizontal_offset + x_offset - 8.1, vertical_offset + y_offset - 24.5, 84.5 /*+ surface_thickness*/])
+                        rotate([0, 270, 0])
+                            cylinder(h=12, d=1.6, center=true, $fn=this_fn);
+                }
+                // M2 screw bosses, 4mm tall, 49x58mm pattern
+                translate([horizontal_offset + x_offset - 8.1, vertical_offset + y_offset + 24.5, 26.5 /*+ surface_thickness*/])
+                    rotate([0, 270, 0])
+                        tube(4, 4, 1.2, this_fn, true);
+                translate([horizontal_offset + x_offset - 8.1, vertical_offset + y_offset - 24.5, 26.5 /*+ surface_thickness*/])
+                    rotate([0, 270, 0])
+                        tube(4, 4, 1.2, this_fn, true);
+                translate([horizontal_offset + x_offset - 8.1, vertical_offset + y_offset + 24.5, 84.5 /*+ surface_thickness*/])
+                    rotate([0, 270, 0])
+                        tube(4, 4, 1.2, this_fn, true);
+                translate([horizontal_offset + x_offset - 8.1, vertical_offset + y_offset - 24.5, 84.5 /*+ surface_thickness*/])
+                    rotate([0, 270, 0])
+                        tube(4, 4, 1.2, this_fn, true);
+            }
+
+            // 85x58 SBCs - Vertical (Left Oriented)
+            if (mod_type == "SBC85x58_VL")
+            {
+                // Support frame
+                difference()
+                {
+                    translate([horizontal_offset + x_offset + 11.25, vertical_offset + y_offset, 46.5 /*+ surface_thickness*/])
+                        rotate([90, 0, 90])
+                            ventilated_side_plate(87, 58, 4, 10, 5, 5, false);
+                
+                    // Through holes for support screws
+                    translate([horizontal_offset + x_offset + 8.1, vertical_offset + y_offset + 24.5, 26.5 /*+ surface_thickness*/])
+                        rotate([0, 90, 0])
+                            cylinder(h=12, d=1.6, center=true, $fn=this_fn);
+                    translate([horizontal_offset + x_offset + 8.1, vertical_offset + y_offset - 24.5, 26.5 /*+ surface_thickness*/])
+                        rotate([0, 90, 0])
+                            cylinder(h=12, d=1.6, center=true, $fn=this_fn);
+                    translate([horizontal_offset + x_offset + 8.1, vertical_offset + y_offset + 24.5, 84.5 /*+ surface_thickness*/])
+                        rotate([0, 90, 0])
+                            cylinder(h=12, d=1.6, center=true, $fn=this_fn);
+                    translate([horizontal_offset + x_offset + 8.1, vertical_offset + y_offset - 24.5, 84.5 /*+ surface_thickness*/])
+                        rotate([0, 90, 0])
+                            cylinder(h=12, d=1.6, center=true, $fn=this_fn);
+                }
+
+                // M2 screw bosses, 4mm tall, 49x58mm pattern
+                translate([horizontal_offset + x_offset + 8.1, vertical_offset + y_offset + 24.5, 26.5 /*+ surface_thickness*/])
+                    rotate([0, 90, 0])
+                        tube(4, 4, 1.2, this_fn, true);
+                translate([horizontal_offset + x_offset + 8.1, vertical_offset + y_offset - 24.5, 26.5 /*+ surface_thickness*/])
+                    rotate([0, 90, 0])
+                        tube(4, 4, 1.2, this_fn, true);
+                translate([horizontal_offset + x_offset + 8.1, vertical_offset + y_offset + 24.5, 84.5 /*+ surface_thickness*/])
+                    rotate([0, 90, 0])
+                        tube(4, 4, 1.2, this_fn, true);
+                translate([horizontal_offset + x_offset + 8.1, vertical_offset + y_offset - 24.5, 84.5 /*+ surface_thickness*/])
+                    rotate([0, 90, 0])
+                        tube(4, 4, 1.2, this_fn, true);
+            }
+
+            // PC Motherboards - PCI Slot
+//            if (mod_type == "PCISlot")
+//            {
+//                difference()
+//                {
+//                    translate([horizontal_offset + x_offset, vertical_offset + y_offset, 9.5 + surface_thickness])
+//                        cube([22, 120, 13], center=true);
+//                    translate([horizontal_offset + x_offset, vertical_offset + y_offset + 5, 8 + surface_thickness])
+//                        cube([12, 90, 18], center=true);
+//                }
+//            }
+
         }
 }
 
@@ -1941,7 +2143,7 @@ module ruler_and_outline(unit_height)
         {    
             // Create dead zone indicators for the mounting area reservations on either side of
             // the faceplate. 
-            translate([rack_cage_width_mm / 2 - (mounting_reservation_space / 2), 0, heavy_device + 4.5])
+            translate([rack_cage_width_mm / 2 - (mounting_reservation_space / 2), 0, surface_thickness + 4.5])
                 color("red", 1)
                     intersection()
                     {
@@ -1951,7 +2153,7 @@ module ruler_and_outline(unit_height)
                                 rotate([0, 0, 45])
                                         cube([mounting_reservation_space * 2, 1, 1], center=true);
                     }
-            translate([0 - (rack_cage_width_mm / 2) + (mounting_reservation_space / 2), 0, heavy_device + 4.5])
+            translate([0 - (rack_cage_width_mm / 2) + (mounting_reservation_space / 2), 0, surface_thickness + 4.5])
                 color("red", 1)
                     intersection()
                     {
@@ -1991,7 +2193,7 @@ module ruler_and_outline(unit_height)
             // Create the horizontal-axis ruler grid
             for (i= [0 - ceil((rack_cage_width_mm / 2) / 5) * 5:5:ceil((rack_cage_width_mm / 2) / 5) * 5])
             {
-                translate([i, 0, 6 + heavy_device])
+                translate([i, 0, 6 + surface_thickness])
                 {
                     if (i % 10 == 0)
                         color("red", 0.5)
@@ -2001,18 +2203,18 @@ module ruler_and_outline(unit_height)
                             cube([0.1, unit_height * unit_height_in_mm + 3, 0.5], center=true);
                     if (i % 25 == 0)
                     {
-                        translate([i / (rack_cage_width_mm / 2), (unit_height * unit_height_in_mm) / 2 + 9, 0.5 + heavy_device])
+                        translate([i / (rack_cage_width_mm / 2), (unit_height * unit_height_in_mm) / 2 + 9, 0.5 + surface_thickness])
                             color("red")
                                 linear_extrude(height=1, center=true)
                                     text(str(i), halign="center", valign="center", size=5);   
-                        translate([i / (rack_cage_width_mm / 2), 0 - (unit_height * unit_height_in_mm) / 2 - 9, 0.5 + heavy_device])
+                        translate([i / (rack_cage_width_mm / 2), 0 - (unit_height * unit_height_in_mm) / 2 - 9, 0.5 + surface_thickness])
                             color("red")
                                 linear_extrude(height=1, center=true)
                                     text(str(i), halign="center", valign="center", size=5);
-                        translate([i / (rack_cage_width_mm / 2), (unit_height * unit_height_in_mm) / 2 + 9, heavy_device])
+                        translate([i / (rack_cage_width_mm / 2), (unit_height * unit_height_in_mm) / 2 + 9, surface_thickness])
                             color("white")
                                 four_rounded_corner_plate(10, 16, 1, 2.5);
-                        translate([i / (rack_cage_width_mm / 2), 0 - (unit_height * unit_height_in_mm) / 2 - 9, heavy_device])
+                        translate([i / (rack_cage_width_mm / 2), 0 - (unit_height * unit_height_in_mm) / 2 - 9, surface_thickness])
                             color("white")
                                 four_rounded_corner_plate(10, 16, 1, 2.5);
                     }
@@ -2022,7 +2224,7 @@ module ruler_and_outline(unit_height)
             // Create the vertical-axis ruler grid
             for (i= [0- ceil(((unit_height * unit_height_in_mm) / 2) / 5) * 5 - expand_faceplate_upward :5:ceil(((unit_height * unit_height_in_mm) / 2) / 5) * 5 + expand_faceplate_downward])
             {
-                translate([0, i, 6 + heavy_device])
+                translate([0, i, 6 + surface_thickness])
                 {
                     if (i % 10 == 0)
                         color("green", 0.5)
@@ -2032,18 +2234,18 @@ module ruler_and_outline(unit_height)
                             cube([rack_cage_width_mm + 3, 0.1, 0.5], center=true);
                     if (i % 25 == 0)
                     {
-                        translate([(rack_cage_width_mm / 2) + 12, i / (unit_height * unit_height_in_mm / 2), 0.5 + heavy_device])
+                        translate([(rack_cage_width_mm / 2) + 12, i / (unit_height * unit_height_in_mm / 2), 0.5 + surface_thickness])
                             color("green")
                                 linear_extrude(height=1, center=true)
                                     text(str(i), halign="center", valign="center", size=5);   
-                        translate([(0 - rack_cage_width_mm / 2) - 12, i / (unit_height * unit_height_in_mm / 2 - 9), 0.5 + heavy_device])
+                        translate([(0 - rack_cage_width_mm / 2) - 12, i / (unit_height * unit_height_in_mm / 2 - 9), 0.5 + surface_thickness])
                             color("green")
                                 linear_extrude(height=1, center=true)
                                     text(str(i), halign="center", valign="center", size=5);
-                        translate([(rack_cage_width_mm / 2) + 12,  i / (unit_height * unit_height_in_mm / 2 + 9), heavy_device])
+                        translate([(rack_cage_width_mm / 2) + 12,  i / (unit_height * unit_height_in_mm / 2 + 9), surface_thickness])
                             color("white")
                                 four_rounded_corner_plate(10, 16, 1, 2.5);
-                        translate([0 - (rack_cage_width_mm / 2) - 12,  i / (unit_height * unit_height_in_mm / 2 + 9), heavy_device])
+                        translate([0 - (rack_cage_width_mm / 2) - 12,  i / (unit_height * unit_height_in_mm / 2 + 9), surface_thickness])
                             color("white")
                                 four_rounded_corner_plate(10, 16, 1, 2.5);
                     }
@@ -2697,6 +2899,7 @@ module create_device_cage(oversize=false)
                                     ventilated_side_plate(panel_depth, top_bottom_panel_width, plate_thickness + expand, 8 + support_cage_base_size, 0.001, 5, extra_support);
                                 else if (cage_bottom_geometry_override == "Solid")
                                     two_rounded_corner_plate(panel_depth, top_bottom_panel_width, plate_thickness + expand, 0.001);
+                                    
                                 else if (cage_bottom_geometry_override == "Structure")
                                     ventilated_side_plate(panel_depth, top_bottom_panel_width, plate_thickness + expand, 2 + support_cage_base_size, 0.001, 0.001, extra_support);
                                 else
@@ -3146,7 +3349,7 @@ module create_object()
     // Time to determine where to put things and whether things will fit...
 
     // Sanity check - cage fitting within the given rack width.
-    if (total_cage_width > working_width)
+    if ((faceplate_only == 0.0)  && (total_cage_width > working_width))
         error_message("Cage is too wide to fit within the given rack width.");
 
     // Sanity check - cage offsets fitting within the given rack width. Note the
@@ -3242,6 +3445,10 @@ module create_object()
         error_message("Right-side mod's size, row count, and/or vertical offset is pushing the mod off the faceplate.");
     if ((right_side_mod_type != "None") && (right_side_mod_grid_left_edge > (working_width / 2)))
         error_message("Right-side mod's size, row count, and/or horizontal offset is pushing the mod off the faceplate.");
+    if ((centered_mod_type != "None") && (centered_mod_grid_top_edge > (mod_working_height / 2)))
+        error_message("Right-side mod's size, row count, and/or vertical offset is pushing the mod off the faceplate.");
+    if ((centered_mod_type != "None") && (centered_mod_grid_bottom_edge > (mod_working_height / 2)))
+        error_message("Centered mod's size, row count, and/or vertical offset is pushing the mod off the faceplate.");
 
     // Determine sizes of the cage's panels, which will be needed later.
     top_bottom_panel_width = device_width + (plate_thickness * 2) + support_cage_base_size + device_clearance;
@@ -3544,7 +3751,7 @@ echo();
 echo();
 
 
-//max_device_width
+
 // Are we doing a flat plane for a faceplate?
 if ((reduce_faceplate_to_2d) && ((faceplate_only != 0.0)))
     projection()
@@ -3562,10 +3769,10 @@ if (($preview) && (!no_logotype))
     total_height_required = device_height + support_cage_base_size + (plate_thickness * 2);
     height_required_in_units = faceplate_only == 0.0 ? (ceil(total_height_required * (allow_half_heights ? 2:1) / unit_height_in_mm)) / (allow_half_heights ? 2:1) : faceplate_only;
 
-    translate([0, 0 - ((height_required_in_units + 0.5 + ((split_cage_into_two_halves || print_cage_separately ||safe_generate_rear_support_cage) ? 0.75 : 0)) * unit_height_in_mm), -50])
+    translate([0, 0 - (((height_required_in_units / 2) + 0.5 + ((split_cage_into_two_halves || print_cage_separately ||safe_generate_rear_support_cage) ? 0.75 : 0)) * unit_height_in_mm), -150])
     {
         translate([-220, -85, -0.01])
-            color("black", 0.25)
+            color("lightslategray")
                 linear_extrude(height=0.25) 
                     offset(0.35)
                         scale([1.5, 1.5, 1.0])
@@ -3592,26 +3799,75 @@ if (($preview) && (!no_logotype))
                             );
 
         translate([-92, -5, -0.01])
-            color("black", 0.25)
+            color("lightslategray")
                 linear_extrude(height=0.25) 
                     scale([1.5, 1.5, 1.0])
                         text("CageMaker PRCG", size=15, font = "Liberation Sans:style=Bold Italic");
 
         translate([-90, -25, -0.01])
-            color("black", 0.25)
+            color("lightslategray")
                 linear_extrude(height=0.25) 
                     scale([1.5, 1.5, 1.0])
                         text("Parametric Rack Cage Generator", size=8.4, font = "Liberation Sans");
 
         translate([-90, -40, -0.01])
-            color("black", 0.25)
+            color("lightslategray")
                 linear_extrude(height=0.25) 
                     scale([1.5, 1.5, 1.0])
                         text("Version 0.7 • cagemaker.org • github.com/WebMaka/CageMakerPRCG", size=3.95, font = "Liberation Sans");
 
         translate([-0, -10, -1])
-            color("white", 0.25)
+            color("white")
                 four_rounded_corner_plate(80, 360, 2, 10);
+                
+        translate([-92, -15, -3])
+            rotate([0, 180, 180])
+                color("lightslategray")
+                    linear_extrude(height=0.25) 
+                        scale([1.5, 1.5, 1.0])
+                            text("CageMaker PRCG", size=15, font = "Liberation Sans:style=Bold Italic");
+
+        translate([-90, 5, -3])
+            rotate([0, 180, 180])
+                color("lightslategray")
+                    linear_extrude(height=0.25) 
+                        scale([1.5, 1.5, 1.0])
+                            text("Parametric Rack Cage Generator", size=8.4, font = "Liberation Sans");
+
+        translate([-90, 20, -3])
+            rotate([0, 180, 180])
+                color("lightslategray")
+                    linear_extrude(height=0.25) 
+                        scale([1.5, 1.5, 1.0])
+                            text("Version 0.7 • cagemaker.org • github.com/WebMaka/CageMakerPRCG", size=3.95, font = "Liberation Sans");
+
+        translate([-220, 65, -3])
+            rotate([0, 180, 180])
+                color("lightslategray")
+                    linear_extrude(height=0.25) 
+                        offset(0.35)
+                            scale([1.5, 1.5, 1.0])
+                                polygon(
+                                    points=[
+                                        [39.0439,59.9711],[48.8312,65.6218],[78.7814,48.3300],
+                                        [69.0904,42.7349],[45.0321,62.3427],[46.6585,61.4037],
+                                        [41.1274,60.0847],[42.7538,59.1457],[48.6040,64.4183],
+                                        [50.2304,63.4793],[71.2259,47.0790],[72.8523,46.1400],
+                                        [67.5948,44.9122],[69.2212,43.9732],[75.0714,49.1546],
+                                        [76.6978,48.2156],[45.0044,58.2333],[51.8555,62.1888],
+                                        [72.8207,50.0845],[66.0370,46.1680],[45.0044,47.3032],
+                                        [66.0258,35.2332],[72.8207,39.1544],[66.0370,35.2378],
+                                        [45.0044,51.2720],[66.0258,39.2020],[66.0534,39.1835],
+                                        [66.0370,39.2067],[39.0439,58.7805],[69.0840,41.4693],
+                                        [78.7814,47.1394],[69.0904,41.5443]
+                                    ],
+                                    paths=[
+                                        [0,1,2,3,0],[4,5,4],[6,7,6],[8,9,8],[10,11,10],[12,13,12],
+                                        [14,15,14],[16,17,18,19,16],[20,21,22,23,20],[24,25,26,27,24],
+                                        [28,29,30,31,28]
+                                    ],
+                                    convexity=10
+                            );
     }
 }
 
