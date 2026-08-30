@@ -47,7 +47,9 @@ By default, CageMaker PRCG creates a support structure around the device's dimen
 ## Please Support The Developer!
 
 If this is useful to you, please consider donating or subscribing to my Patreon. I fund my projects entirely out-of-pocket, and any additional funding will help.
- 
+
+https://ko-fi.com/webmaka
+https://thanks.dev/webmaka
 https://patreon.com/webmaka
 
 &nbsp;
