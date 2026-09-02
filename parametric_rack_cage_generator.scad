@@ -96,7 +96,18 @@ print_cage_separately = false;
 /* [Rack Settings] */
 
 // Rack geometry - this sets basic rack dimensions, namely "unit" height and mounting-hole spacing. - NOTE: The default setting is EIA-310-D, which is the established standard for 19" racks and de facto standard for most mini- and micro-rack systems.
-rack_geometry = "EIA-310"; // ["EIA-310":"EIA-310-D Standard Layout - DEFAULT","EIA-310-LH":"EIA-310-D Standard Layout With Large Screw Holes (M6 or 1/4-20) ","EIA-310-1T":"EIA-310 Modified - Single Centered Hole At Top Per Unit","EIA-310-1C":"EIA-310 Modified - Single Centered Hole At Center Per Unit","EIA-310-2":"EIA-310 Modified - Two Holes Per Unit","EIA-310-2020":"EIA-310 Modified - 2020 Extrusion Frame (Reduced Internal Width)","HALF-EIA-310":"EIA-310-D Standard Layout Scaled Down 50%","12mm":"12mm Unit Height, Hole At 6mm","15mm":"15mm Unit Height, Hole At 7.5mm - Homeracker","16mm":"16mm Unit Height, Hole At 8mm","16.5mm":"16.5mm Unit Height, Hole At 8.25mm - MR248 248mm Mini-Rack","20mm":"20mm Unit Height, Hole At 10mm","20mm_2h":"20mm Unit Height, Holes At 5mm/15mm","24mm":"24mm Unit Height, Hole At 12mm","25mm":"25mm Unit Height, Hole At 12.5mm","25mm_2h":"25mm Unit Height, Holes At 6.25mm/18.75mm","30mm":"30mm Unit Height, Hole At 15mm","30mm_2h":"30mm Unit Height, Holes At 7.5mm/22.5mm","36mm":"36mm Unit Height, Hole At 18mm","40mm":"40mm Unit Height, Hole At 20mm","40mm_2h":"40mm Unit Height, Holes At 10mm/30mm","50mm":"50mm Unit Height, Hole At 25mm","50mm_2h":"50mm Unit Height, Holes At 12.5mm/37.5mm"]
+rack_geometry = "EIA-310"; // ["EIA-310":"EIA-310-D Standard Layout - DEFAULT","EIA-310-LH":"EIA-310-D Standard Layout With Large Screw Holes (M6 or 1/4-20) ","EIA-310-1T":"EIA-310 Modified - Single Centered Hole At Top Per Unit","EIA-310-1C":"EIA-310 Modified - Single Centered Hole At Center Per Unit","EIA-310-2":"EIA-310 Modified - Two Holes Per Unit","EIA-310-2020":"EIA-310 Modified - 2020 Extrusion Frame (Reduced Internal Width)","HALF-EIA-310":"EIA-310-D Standard Layout Scaled Down 50%","12mm":"12mm Unit Height, Hole At 6mm","15mm":"15mm Unit Height, Hole At 7.5mm - Homeracker","16mm":"16mm Unit Height, Hole At 8mm","16.5mm":"16.5mm Unit Height, Hole At 8.25mm - MR248 248mm Mini-Rack","20mm":"20mm Unit Height, Hole At 10mm","20mm_2h":"20mm Unit Height, Holes At 5mm/15mm","24mm":"24mm Unit Height, Hole At 12mm","25mm":"25mm Unit Height, Hole At 12.5mm","25mm_2h":"25mm Unit Height, Holes At 6.25mm/18.75mm","30mm":"30mm Unit Height, Hole At 15mm","30mm_2h":"30mm Unit Height, Holes At 7.5mm/22.5mm","36mm":"36mm Unit Height, Hole At 18mm","40mm":"40mm Unit Height, Hole At 20mm","40mm_2h":"40mm Unit Height, Holes At 10mm/30mm","50mm":"50mm Unit Height, Hole At 25mm","50mm_2h":"50mm Unit Height, Holes At 12.5mm/37.5mm","EIA-310":" ","Custom":"Custom-Defined Rack Geometry"]
+
+// Custom rack geometry settings - Set the unit height, mounting hole diameter, and vertical hole spacing pattern for one unit. Note that the hole pattern must be in the form of [value_1, value_2, etc.] in mm from the top of each unit - NOTE: Requires that "rack geometry" be set to "custom."
+custom_rack_geometry_unit_height = 44.45;
+
+custom_rack_geometry_mounting_reservation_area = 15.875;
+
+custom_mounting_hole_center_difference = 17.4625;
+
+custom_rack_geometry_mounting_hole_diameter = 5.25;
+
+custom_rack_geometry_mounting_hole_pattern = [6.35, 22.225, 38.1, 0.00, 0.00];
 
 // Rack cage width (NOTE: INCHES) - NOTE: CageMaker will automatically enable right-angle mounting ears on one or both sides of partial-width cages depending on where they may be required. - IMPORTANT: Options that affect the number of mounting holes will also affect the holes in these ears.
 rack_cage_width = 10; // [4.75:"4.75 in. Wide - OUTER Quarter-Width for 19 in. Full-Size Rack",4.75001:"4.75 in. Wide - INNER Quarter-Width for 19 in. Full-Size Rack",5:"5 in. Micro-Rack",5.001:"5 in. Half-Width for 10 in. Mini-Rack",6:"6 in. Micro-Rack",6.33:"6.33 in. OUTER Wide - Third-Width for 19 in. Full-Size Rack",6.33001:"6.33 in. CENTER Wide - Third-Width for 19 in. Full-Size Rack",7:"7 in. Micro-Rack",9.5:"9.5 in. Wide - Half-Width for 19 in. Full-Size Rack",9.76378:"MR248 248mm Mini-Rack",10:"10 in. Mini-Rack",12:"12 in. Custom Rack",12.66:"12.66 in. Wide - Two-Thirds-Width for 19 in. Full-Size Rack",14:"14 in. Custom Rack",16:"16 in. Custom Rack",19:"19 in. Full Rack"]
@@ -111,7 +122,7 @@ add_alignment_pin_holes = false;
 // Top and bottom holes only - by default, CageMaker populates all hole spaces on a faceplate regardless of height. Enabling this setting causes CageMaker to only populate the top-most and bottom-most holes on the faceplate. - NOTE: This aligns to the edges of FULL unit heights, so if the "allow half heights" option is enabled, the bottom-most holes will be at the top holes of the bottom-most half-unit.
 top_and_bottom_holes_only = false;
 
-// Use a simple hole instead of a 5mm wide slot for mounting. NOTE: This may cause interference issues for racks whose mounting centers aren't dimensionally accurate, such as for extrusion-frame racks.
+// Use a simple hole instead of a 5mm wide slot for mounting. NOTE: This may cause interference issues for racks whose mounting centers aren't dimensionally accurate.
 hole_instead_of_slot = false;
 
 // Allow half-unit heights - by default, height scales in even unit increments, but this setting enables half-heights, which might be useful for small devices in compact miniracks. - NOTE: This makes the resulting cage vertically asymmetric!
@@ -201,6 +212,15 @@ cage_top_lid_screw_holes = 2.50; // [0.00:"Clearance Holes",3.15:"  M3 Clearance
 // Cage BOTTOM geometry - make the bottom of the cage, solid, open, or ventilated. - WARNING: Grid options may require signifiantly longer time to generate the cage, and can dramatically increase print time. - WARNING: Selecting "no bottom at all" removes the entire bottom along with its support structure, which can reduce the strength of the cage.
 cage_bottom_geometry = "Open"; // ["Open":"Open Bottom - DEFAULT","Solid":"Solid Bottom (No Ventilation Cutout)","Structure":"Structure Only, Completely Open","None":"No Bottom At All - CAUTION","":"","":"Ventilation Grids","Hex":"  Hexagonal Grid","Round":"  Round Holes","Staggered":"  Tiled Holes In Offset Pattern","Grid":"  Square Holes in a Grid Pattern","Isometric":"  Isometric/Diamond Grid","Triangle":"  Triangle/Isometric Grid","Octagon":"  Octagonal Holes"]
 
+//// Cage BOTTOM mounting studs - up to twelve stud locations can be defined by providing their coordinates in mm. Studs are automatically set up as tapered cones for better strength, with walls that are 2.5x the screw diameter. - NOTE: Format must be [x_1,y_1,x_2,y_2, etc.] and the zero point is at the front-left corner of the bottom of the cage. - NOTE: Requires that the cage bottom geometry be set to "solid."
+//cage_bottom_studs = [];
+//
+//// Cage BOTTOM mounting stud height - Sets the height above the surface of the cage bottom. - NOTE: Requires that the cage bottom geometry be set to "solid."
+//cage_bottom_stud_height = 5; // [2:0.5:15]
+//
+//// Cage BOTTOM mounting stud screw hole diameter - Sets the home size for the studs, and by extension, the outer diameter of the studs. - NOTE: Requires that the cage bottom geometry be set to "solid."
+//cage_bottom_stud_screw_holes = 2.50; // [2.50:"Clearance Holes",3.15:"  M3 Clearance (3.15mm hole)", 4.20:"  M4 Clearance (4.2mm hole)", 5.25:"  M5 Clearance (5.25mm hole)", 6.30:"  M6 Clearance (6.3mm hole)", 2.95:"  4-40 Clearance (.1160 in. hole)", 3.66:"  6-32 Clearance (.144 in. hole)",4.31:"  8-32 Clearance (.1695 in. hole)", 4.98:"  10-24/10-32 Clearance (.1960 in. hole)", 6.53:"  1/4-20 Clearance (.257 in. hole)", 0.00:" ",0.00:"Tapped/Threadcutting Holes",2.50:"  M3 Tapped/Threadcutting (2.5mm hole) - DEFAULT", 3.50:"  M4 Tapped/Threadcutting (3.5mm hole)", 4.40:"  M5 Tapped/Threadcutting (4.4mm hole)", 5.00:"  M6 Tapped/Threadcutting (5.0mm hole)", 2.07:"  4-40 Tapped/Threadcutting (0.0813 in. hole)", 2.53:"  6-32 Tapped/Threadcutting (.0997 in. hole)", 3.19:"  8-32 Tapped/Threadcutting (.1257 in. hole)", 3.53:"  10-24/10-32 Tapped/Threadcutting (.1389 in. hole)", 4.79:"  1/4-20 Tapped/Threadcutting (.1887 in. hole)",0.00:" ",0.00:"Heat-Set Inserts",3.98:"  M3 Heat-Set (4mm hole)", 4.10:"  M3 Heat-Set (4.1mm hole)", 4.80:"  M3 Heat-Set (4.8mm hole)", 5.60:"  M4 Heat-Set (5.6mm hole)", 5.70:"  M4 Heat-Set (5.7mm hole)", 6.40:"  M5 Heat-Set (6.4mm hole)", 6.50:"  M5 Heat-Set (6.5mm hole)", 8.00:"  M6 Heat-Set (8mm hole)", 8.10:"  M6 Heat-Set (8.1mm hole)", 3.99:"  4-40 Heat-Set (0.157 in. hole)", 4.03:"  4-40 Heat-Set (0.159 in. hole)", 4.76:"  6-32 Heat-Set (0.1875 in. hole)",  4.85:"  6-32 Heat-Set (0.191 in. hole)", 5.61:"  8-32 Heat-Set (0.221 in. hole)", 5.74:"  8-32 Heat-Set (0.226 in. hole)", 6.41:"  10-24/10-32 Heat-Set (0.252 in. hole)", 6.51:"  10-24/10-32 Heat-Set (0.256 in. hole)", 8.01:"  1/4-20 Heat-Set (0.315 in. hole)", 8.11:"  1/4-20 Heat-Set (0.319 in. hole)"]
+
 // Cage TOP & BOTTOM vent hole size (outer diameter for hexagonal holes), in mm - NOTE: increasing this value creates better ventilation but reduces strength.
 cage_top_bottom_vent_hole_size = 9.0; // [1.0:0.25:25.0]
 
@@ -247,7 +267,7 @@ cage_sides_vent_grid_angle = 0.0; // [-180:5:180]
 cage_back_geometry = "Open"; // ["Open":"Open Back - DEFAULT","Solid":"Solid Back (No Ventilation Cutout) - REQUIRED for back-of-cage modifications","Sides":"Mostly Open Back With 6mm Retention Lips On Both Sides","None":"No Back At All"]
 
 // Back-Of-Cage CENTERED Mod Type - add a new connector, port, or opening of some form onto the faceplate. - IMPORTANT: This option is only available when the back-of-cage geometry is set to solid. - NOTE: Be aware of fitment, as if there isn't sufficient room for the modification to fit on the faceplate, CageMaker will remove it.
-cage_back_centered_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
+cage_back_centered_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector (Lock Tab Down)","KeystoneFlipped":"  Keystone Connector (Lock Tab Up)","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
 
 // Back-Of-Cage CENTERED mod grid column count - how many copies of the above modification will be placed into a row on the faceplate? - IMPORTANT: This option is only available when cage generation is disabled by setting "faceplate only" to a height value. Make sure the height setting is tall enough to clear. - NOTE: Be aware of fitment, as if there isn't sufficient room for the modification to fit on the faceplate, CageMaker will remove it.
 cage_back_centered_mod_grid_columns = 1; // [1:12]
@@ -256,7 +276,7 @@ cage_back_centered_mod_grid_columns = 1; // [1:12]
 cage_back_centered_mod_grid_rows = 1; // [1:4]
 
 // Back-Of-Cage LEFT Side Mod Type - add a new connector, port, or opening of some form onto the faceplate. - NOTE: This option is only available when the back-of-cage geometry is set to solid.
-cage_back_left_side_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
+cage_back_left_side_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector (Lock Tab Down)","KeystoneFlipped":"  Keystone Connector (Lock Tab Up)","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
 
 // Back-Of-Cage LEFT Side mod grid column count - how many copies of the above modification will be placed into a row on the faceplate? - WARNING: CageMaker will enforce safe boundaries so as to not push a modification into mounting space, the actual cage itself, or off the edge of the faceplate.
 cage_back_left_side_mod_grid_columns = 1; // [1:12]
@@ -271,7 +291,7 @@ cage_back_left_side_mod_horizontal_offset = 0.00; // [-240.00:1:240.0]
 cage_back_left_side_mod_vertical_offset = 0.00; // [-75.00:1:75.0]
 
 // Back-Of-Cage RIGHT Side Mod Type - add a new connector, port, or opening of some form onto the faceplate. - IMPORTANT: This option is only available when the back-of-cage geometry is set to solid.
-cage_back_right_side_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
+cage_back_right_side_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector (Lock Tab Down)","KeystoneFlipped":"  Keystone Connector (Lock Tab Up)","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
 
 // Back-Of-Cage RIGHT Side mod grid column count - how many copies of the above modification will be placed into a row on the faceplate? - WARNING: CageMaker will enforce safe boundaries so as to not push a modification into mounting space, the actual cage itself, or off the edge of the faceplate.
 cage_back_right_side_mod_grid_columns = 1; // [1:12]
@@ -300,7 +320,7 @@ rear_support_overlap = 12; // [0:1:500]
 /* [Additional Faceplate Modifications] */
 
 // CENTERED Mod Type - add a new connector, port, or opening of some form onto the faceplate. - IMPORTANT: This option is only available when cage generation is disabled by setting "faceplate only" to a height value. Make sure the height setting is tall enough to clear. - NOTE: Be aware of fitment, as if there isn't sufficient room for the modification to fit on the faceplate, CageMaker will remove it.
-centered_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Single-Board Computers (Raspberry Pi And Similar)","SBC85x58_H":"   85x58mm SBCs (Raspberry Pi, etc.) - Horizontal","SBC85x58_VR":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Right Oriented)","SBC85x58_VL":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Left Oriented)","None":" ","None":"PC Motherboard Cutouts","RearIO":"   Rear Panel IO Shield","PCISlot":"   Full-Height PCI Slot","PCISlot_LP":"   Low-Profile PCI Slot","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
+centered_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector (Lock Tab Down)","KeystoneFlipped":"  Keystone Connector (Lock Tab Up)","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Single-Board Computers (Raspberry Pi And Similar)","SBC85x58_H":"   85x58mm SBCs (Raspberry Pi, etc.) - Horizontal","SBC85x58_VR":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Right Oriented)","SBC85x58_VL":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Left Oriented)","None":" ","None":"PC Motherboard Cutouts","RearIO":"   Rear Panel IO Shield","PCISlot":"   Full-Height PCI Slot","PCISlot_LP":"   Low-Profile PCI Slot","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
 
 // CENTERED mod grid column count - how many copies of the above modification will be placed into a row on the faceplate? - IMPORTANT: This option is only available when cage generation is disabled by setting "faceplate only" to a height value. Make sure the height setting is tall enough to clear. - NOTE: Be aware of fitment, as if there isn't sufficient room for the modification to fit on the faceplate, CageMaker will remove it.
 centered_mod_grid_columns = 1; // [1:12]
@@ -309,7 +329,7 @@ centered_mod_grid_columns = 1; // [1:12]
 centered_mod_grid_rows = 1; // [1:4]
 
 // LEFT Side Mod Type - add a new connector, port, or opening of some form onto the faceplate. - NOTE: Be aware of fitment, as the device cage takes priority over any modifications selected here and if there isn't sufficient room for the modification CageMaker will remove it.
-left_side_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Single-Board Computers (Raspberry Pi And Similar)","SBC85x58_H":"   85x58mm SBCs (Raspberry Pi, etc.) - Horizontal","SBC85x58_VR":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Right Oriented)","SBC85x58_VL":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Left Oriented)","None":" ","None":"PC Motherboard Cutouts","RearIO":"   Rear Panel IO Shield","PCISlot":"   Full-Height PCI Slot","PCISlot_LP":"   Low-Profile PCI Slot","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
+left_side_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector (Lock Tab Down)","KeystoneFlipped":"  Keystone Connector (Lock Tab Up)","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Single-Board Computers (Raspberry Pi And Similar)","SBC85x58_H":"   85x58mm SBCs (Raspberry Pi, etc.) - Horizontal","SBC85x58_VR":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Right Oriented)","SBC85x58_VL":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Left Oriented)","None":" ","None":"PC Motherboard Cutouts","RearIO":"   Rear Panel IO Shield","PCISlot":"   Full-Height PCI Slot","PCISlot_LP":"   Low-Profile PCI Slot","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
 
 // LEFT Side mod grid column count - how many copies of the above modification will be placed into a row on the faceplate? - WARNING: CageMaker will enforce safe boundaries so as to not push a modification into mounting space, the actual cage itself, or off the edge of the faceplate.
 left_side_mod_grid_columns = 1; // [1:12]
@@ -324,7 +344,7 @@ left_side_mod_horizontal_offset = 0.00; // [-240.00:1:240.0]
 left_side_mod_vertical_offset = 0.00; // [-75.00:1:75.0]
 
 // RIGHT Side Mod Type - add a new connector, port, or opening of some form onto the faceplate. - NOTE: Be aware of fitment, as the device cage takes priority over any modifications selected here and if there isn't sufficient room for the modification CageMaker will remove it.
-right_side_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Single-Board Computers (Raspberry Pi And Similar)","SBC85x58_H":"   85x58mm SBCs (Raspberry Pi, etc.) - Horizontal","SBC85x58_VR":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Right Oriented)","SBC85x58_VL":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Left Oriented)","None":" ","None":"PC Motherboard Cutouts","RearIO":"   Rear Panel IO Shield","PCISlot":"   Full-Height PCI Slot","PCISlot_LP":"   Low-Profile PCI Slot","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
+right_side_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector (Lock Tab Down)","KeystoneFlipped":"  Keystone Connector (Lock Tab Up)","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Single-Board Computers (Raspberry Pi And Similar)","SBC85x58_H":"   85x58mm SBCs (Raspberry Pi, etc.) - Horizontal","SBC85x58_VR":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Right Oriented)","SBC85x58_VL":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Left Oriented)","None":" ","None":"PC Motherboard Cutouts","RearIO":"   Rear Panel IO Shield","PCISlot":"   Full-Height PCI Slot","PCISlot_LP":"   Low-Profile PCI Slot","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
 
 // RIGHT Side mod grid column count - how many copies of the above modification will be placed into a row on the faceplate? - WARNING: CageMaker will enforce safe boundaries so as to not push a modification into mounting space, the actual cage itself, or off the edge of the faceplate.
 right_side_mod_grid_columns = 1; // [1:12]
@@ -596,43 +616,53 @@ cage_bottom_geometry_override = use_preconfig ? (preconfg_options[search([precon
 
 // Rack geometry - this sets the "unit" height and mounting hole pattern based on the mode selected by the rack_geometry setting. By default, the size of a single "unit" of rack space is set to 1.75" or 44.45mm, and mounting hole pattern is set to 6.35, 22.225, and 38.1mm relative to the "top" edge of each "unit," for EIA-310-D standard racks.
 rack_geometry_options = [
-  ["EIA-310", 44.45, [6.35, 22.225, 38.1], 5.25, 15.875],
-  ["EIA-310-LH", 44.45, [6.35, 22.225, 38.1], 6.53, 15.875],
-  ["EIA-310-1T", 44.45, [6.35], 5.25, 15.875],
-  ["EIA-310-1C", 44.45, [22.225], 5.25, 15.875],
-  ["EIA-310-2", 44.45, [6.35, 38.1], 5.25, 15.875],
-  ["EIA-310-2020", 44.45, [6.35, 22.225, 38.1], 5.25, 20],
-  ["HALF-EIA-310", 22.225, [3.175, 11.1125, 19.05], 3.15, 8],
-  ["12mm", 12.00, [6.00], 5.25, 16],
-  ["15mm", 15.00, [7.50], 5.25, 16],
-  ["16mm", 16.00, [8.00], 5.25, 16],
-  ["16.5mm", 16.50, [8.25], 5.25, 20],
-  ["20mm", 20.00, [10.00], 5.25, 16],
-  ["20mm_2h", 20.00, [5.00, 15.00], 5.25, 16],
-  ["24mm", 24.00, [12.00], 5.25, 16],
-  ["25mm", 25.00, [12.50], 5.25, 16],
-  ["25mm_2h", 25.00, [6.25, 18.75], 5.25, 16],
-  ["30mm", 30.00, [15.00], 5.25, 16],
-  ["30mm_2h", 30.00, [7.5, 22.5], 5.25, 16],
-  ["36mm", 30.00, [18.0], 5.25, 16],
-  ["40mm", 40.00, [20.00], 5.25, 16],
-  ["40mm_2h", 40.00, [10.00, 30.00], 5.25, 16],
-  ["50mm", 50.00, [25.00], 5.25, 16],
-  ["50mm_2h", 50.00, [12.50, 37.50], 5.25, 16],
+  ["EIA-310", 44.45, [6.35, 22.225, 38.1], 17.4625, 5.25, 15.875],
+  ["EIA-310-LH", 44.45, [6.35, 22.225, 38.1], 17.4625, 6.53, 15.875],
+  ["EIA-310-1T", 44.45, [6.35], 17.4625, 5.25, 15.875],
+  ["EIA-310-1C", 44.45, [22.225], 17.4625, 5.25, 15.875],
+  ["EIA-310-2", 44.45, [6.35, 38.1], 17.4625, 5.25, 15.875],
+  ["EIA-310-2020", 44.45, [6.35, 22.225, 38.1], 20.0, 5.25, 20],
+  ["HALF-EIA-310", 22.225, [3.175, 11.1125, 19.05], 8.73125, 3.15, 8],
+  ["12mm", 12.00, [6.00], 17.4625, 5.25, 16],
+  ["15mm", 15.00, [7.50], 17.4625, 5.25, 16],
+  ["16mm", 16.00, [8.00], 17.4625, 5.25, 16],
+  ["16.5mm", 16.50, [8.25], 17.4625, 5.25, 20],
+  ["20mm", 20.00, [10.00], 17.4625, 5.25, 16],
+  ["20mm_2h", 20.00, [5.00, 15.00], 17.4625, 5.25, 16],
+  ["24mm", 24.00, [12.00], 17.4625, 5.25, 16],
+  ["25mm", 25.00, [12.50], 17.4625, 5.25, 16],
+  ["25mm_2h", 25.00, [6.25, 18.75], 17.4625, 5.25, 16],
+  ["30mm", 30.00, [15.00], 17.4625, 5.25, 16],
+  ["30mm_2h", 30.00, [7.5, 22.5], 17.4625, 5.25, 16],
+  ["36mm", 30.00, [18.0], 17.4625, 5.25, 16],
+  ["40mm", 40.00, [20.00], 17.4625, 5.25, 16],
+  ["40mm_2h", 40.00, [10.00, 30.00], 17.4625, 5.25, 16],
+  ["50mm", 50.00, [25.00], 17.4625, 5.25, 16],
+  ["50mm_2h", 50.00, [12.50, 37.50], 17.4625, 5.25, 16],
 ];
 // For adding new custom entries, the format is:
-//  ["Name", unit_height, [first_hole, second_hole, third_hole, etc.], mounting_hole_diameter, mounting_reservation_space]
+//  ["Name", unit_height, [first_hole, second_hole, third_hole, etc.], mounting_hole_center_difference, mounting_hole_diameter, mounting_reservation_space]
 // Where:
 //   "Name" is as selected in the rack_geometry variable.
 //   unit_height is what the name implies, what the rack system considers one "unit" of height.
 //   first_hole, second-hole, etc. are the mounting hole spacing in mm from the topmost edge of the unit.
+//   mounting_hole_center_difference is the difference between rack width and mounting centerline. For
+//     example, for an EIA-310 rack the mounting centers are 18-5/16" for a 19" rack, or 0.6875" (11/16")
+//     less than the width.
 //   mounting_hole_diameter is also what the name implies.
 //   mounting_reservation_space is the area behind the left and right side of the faceplate that is
 //     reserved for mounting space, e.g., the portion of the faceplate that rests against rack rails.
-unit_height_in_mm = rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][1];
-mounting_hole_pattern = rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][2];
-mounting_hole_diameter = rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][3];
-mounting_reservation_space = rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][4];
+unit_height_in_mm = rack_geometry == "Custom" ? custom_rack_geometry_unit_height : rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][1];
+mounting_hole_pattern = rack_geometry == "Custom" ? custom_rack_geometry_mounting_hole_pattern : rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][2];
+mounting_hole_center_difference = rack_geometry == "Custom" ? (rack_cage_width - custom_mounting_hole_center_difference) : rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][3];
+mounting_hole_diameter = rack_geometry == "Custom" ? custom_rack_geometry_mounting_hole_diameter : rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][4];
+mounting_reservation_space = rack_geometry == "Custom" ? custom_rack_geometry_mounting_reservation_area : rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][5];
+
+//unit_height_in_mm = rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][1];
+//mounting_hole_pattern = rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][2];
+//mounting_hole_diameter = rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][3];
+//mounting_reservation_space = rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][4];
+
 
 // Side/top/bottom cutout edge thickness in mm (higher number makes the cutout smaller) - NOTE: This should not normally need to be changed.
 cutout_edge = 5;
@@ -653,6 +683,7 @@ mod_sizes = [
   ["None", 0, 0],
 
   ["Keystone", 21, 28],
+  ["KeystoneFlipped", 21, 28],
   ["DSeries", 26, 31],
 
   ["SBC85x58_H", 60, 30],
@@ -806,7 +837,7 @@ module error_message(error_text)
     height_required_in_units = faceplate_only == 0.0 ? (ceil(total_height_required * (allow_half_heights ? 2:1) / unit_height_in_mm)) / (allow_half_heights ? 2:1) : faceplate_only;
 
     units_required = (faceplate_only == 0.0 ? ((ceil(total_height_required * (allow_half_heights ? 2:1) / unit_height_in_mm)) / (allow_half_heights ? 2:1)) : ((ceil((total_height_required * 2) / unit_height_in_mm)) / 2));
-    units_required_in_mm = units_required * unit_height_in_mm;
+    units_required_in_mm = (units_required + 1) * unit_height_in_mm;
 
     if (!ignore_errors)
     {
@@ -1426,6 +1457,9 @@ function to_mm(inches) = inches * 25.4;
 
 function units_to_mm(height_required_in_units) = height_required_in_units * unit_height_in_mm;
 
+//function select(vector, indices) = [ for (index = indices) vector[index] ];
+//    
+//function cat(L1, L2) = [for(L=[L1, L2], a=L) a];
 
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
@@ -1456,9 +1490,14 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
     for(y_offset = [-half_height:mod_height:half_height])
         for(x_offset = [-half_width:mod_width:half_width])
         {
-            // Keystone Receptacle
+            // Keystone Receptacle - Lock-Down
             if (mod_type == "Keystone")
                 place_keystone(horizontal_offset + x_offset, vertical_offset + 1.5 + y_offset, 0);
+
+            // Keystone Receptacle - Lock-Up
+            if (mod_type == "KeystoneFlipped")
+                rotate([0, 0, 180])
+                    place_keystone(horizontal_offset + x_offset, vertical_offset + 1.5 + y_offset, 0);
 
             // Neutrik D-Series Cutout
             if (mod_type == "DSeries")
@@ -1924,6 +1963,9 @@ module faceplate_mod_addition(mod_type, horizontal_offset, vertical_offset, mod_
             if (mod_type == "Keystone")
                 translate([horizontal_offset + x_offset, vertical_offset + 2.5 + y_offset, 5.5001])
                     cube([19, 28, 11], center=true);
+            if (mod_type == "KeystoneFlipped")
+                translate([horizontal_offset + x_offset, vertical_offset - 2.5 + y_offset, 5.5001])
+                    cube([19, 28, 11], center=true);
 
 
             // 85x58 SBCs - Horizontal
@@ -2044,19 +2086,6 @@ module faceplate_mod_addition(mod_type, horizontal_offset, vertical_offset, mod_
                     rotate([0, 90, 0])
                         tube(4, 4, 1.2, this_fn, true);
             }
-
-            // PC Motherboards - PCI Slot
-//            if (mod_type == "PCISlot")
-//            {
-//                difference()
-//                {
-//                    translate([horizontal_offset + x_offset, vertical_offset + y_offset, 9.5 + surface_thickness])
-//                        cube([22, 120, 13], center=true);
-//                    translate([horizontal_offset + x_offset, vertical_offset + y_offset + 5, 8 + surface_thickness])
-//                        cube([12, 90, 18], center=true);
-//                }
-//            }
-
         }
 }
 
@@ -2433,9 +2462,9 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
             // 1/2-5/8-5/8 center spacing, sized for 10-24/M5 screws.
             // 
             // If we're not doing only the top/bottom holes, populate every hole.
-            if (!top_and_bottom_holes_only)
+            if ((!top_and_bottom_holes_only) || (vertically_shift_mounting_holes))
             {
-                // Note that we're deliberately overslooting by a full unit more, above AND below, than
+                // Note that we're deliberately overshooting by a full unit more, above AND below, than
                 // the actual number of units required for this faceplate. This allows for vertical hole
                 // shifting of up to a full unit.
                 for (unit_number = [-1:round(height_in_units)])
@@ -2460,7 +2489,7 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
                         }
                         else
                             // If there isn't an ear on this side, create screw holes normally.
-                            faceplate_screw_hole_slot(mounting_hole_diameter, 0 - ((width_in_mm / 2) - 8), top_edge + (unit_number * unit_height_in_mm) + y + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
+                            faceplate_screw_hole_slot(mounting_hole_diameter, 0 - ((width_in_mm / 2) - (mounting_hole_center_difference / 2)), top_edge + (unit_number * unit_height_in_mm) + y + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
 
                         if (right_ear)
                         {
@@ -2476,7 +2505,7 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
 
                         }
                         else
-                            faceplate_screw_hole_slot(mounting_hole_diameter, ((width_in_mm / 2) - 8),top_edge + (unit_number * unit_height_in_mm) + y + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
+                            faceplate_screw_hole_slot(mounting_hole_diameter, ((width_in_mm / 2) - (mounting_hole_center_difference / 2)),top_edge + (unit_number * unit_height_in_mm) + y + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
                     }
                 }
             }
@@ -2485,6 +2514,8 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
                 // If we're only placing top and bottom holes, the situation is a little more
                 // complicated - we have to either use the bottom hole of the bottom-most unit
                 // OR the topmost hole on the bottom-most unit if it's a half-unit multiple.
+                // And the situation becomes even more complicated if we're shifting the mounting
+                // holes, as that suddenly throws everything off.
                 if (left_ear)
                 {
                     translate([0 - ((width_in_mm / 2) - plate_thickness), top_edge + mounting_hole_pattern[0] + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), plate_thickness + 8])
@@ -2898,8 +2929,30 @@ module create_device_cage(oversize=false)
                                 if (cage_bottom_geometry_override == "Open")
                                     ventilated_side_plate(panel_depth, top_bottom_panel_width, plate_thickness + expand, 8 + support_cage_base_size, 0.001, 5, extra_support);
                                 else if (cage_bottom_geometry_override == "Solid")
+                                {
                                     two_rounded_corner_plate(panel_depth, top_bottom_panel_width, plate_thickness + expand, 0.001);
                                     
+//                                    // Generate bottom studs, if enabled.
+//                                    // This is tricky because we need to enumerate a simple list of
+//                                    // coordinates, then place a stud. The reason we have to deal
+//                                    // with all this is that the customizer doesn't like nested
+//                                    // lists with variable lengths, but doesn't mind a flat list.
+//                                    if (cage_bottom_geometry_override == "Solid")
+//                                        for (index = [0:2:len(cage_bottom_studs) - 2])
+//                                        {
+//                                            // Grab the next pair of entries.
+//                                            coord_x = cage_bottom_studs[index];
+//                                            coord_y = cage_bottom_studs[index + 1];
+//                                            
+//                                            // If the resulting vector is empty, skip it.
+//                                            if ((coord_x != 0.00) || (coord_y != 0.00))
+//                                            {
+//                                                translate([0 - (device_width / 2) + coord_x, 0 - (device_depth / 2) + coord_y, (cage_bottom_stud_height / 2) + 1])
+//                                                    rotate([0, 180, 0])
+//                                                        tube(cage_bottom_stud_screw_holes * 2.5, cage_bottom_stud_height, ((cage_bottom_stud_screw_holes * 2.5) - cage_bottom_stud_screw_holes) / 2, this_fn, true);
+//                                            }
+//                                        }
+                                }
                                 else if (cage_bottom_geometry_override == "Structure")
                                     ventilated_side_plate(panel_depth, top_bottom_panel_width, plate_thickness + expand, 2 + support_cage_base_size, 0.001, 0.001, extra_support);
                                 else
@@ -3557,14 +3610,14 @@ module create_object()
                     // Carve out holes in the faceplate to acommodate the device(s) to cage.
                     // If the retention lip is enabled, stop 1mm short of punching through
                     // completely so we can form the lip.
-                    if (faceplate_only == 0.0)
-                        translate([0 - ((cage_width / 2) * (number_of_devices - 1)) - ((multiple_device_gap / 2) * (number_of_devices - 1)) + cage_horizontal_offset, cage_vertical_offset, device_clearance - 1.75])
-                            union()
-                                for (index = [1:number_of_devices])
-                                    translate([0 + ((cage_width + multiple_device_gap) * (index - 1)), 0, plate_thickness * 1.5])
-                                        linear_extrude(plate_thickness * 4, center=true)
-                                            offset(r=faceplate_rounded_corners + 0.001, $fn=this_fn)
-                                                square([device_width + device_clearance - (faceplate_rounded_corners * 2), device_height + device_clearance - (faceplate_rounded_corners * 2)], center=true);
+//                    if (faceplate_only == 0.0)
+//                        translate([0 - ((cage_width / 2) * (number_of_devices - 1)) - ((multiple_device_gap / 2) * (number_of_devices - 1)) + cage_horizontal_offset, cage_vertical_offset, device_clearance - 1.75])
+//                            union()
+//                                for (index = [1:number_of_devices])
+//                                    translate([0 + ((cage_width + multiple_device_gap) * (index - 1)), 0, plate_thickness * 1.5])
+//                                        linear_extrude(plate_thickness * 4, center=true)
+//                                            offset(r=faceplate_rounded_corners + 0.001, $fn=this_fn)
+//                                                square([device_width + device_clearance - (faceplate_rounded_corners * 2), device_height + device_clearance - (faceplate_rounded_corners * 2)], center=true);
                 } // difference end
 
             // Show a print height marker over the rear support cage.
