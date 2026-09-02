@@ -119,7 +119,7 @@ tap_or_heat_set_holes = 5.25; // [5.25:"M5 Clearance (5.25mm hole) - DEFAULT",0.
 // Add alignment pin holes to edges for split, half-width, and third-width cages - this adds 5mm deep 1.75mm diameter holes to mating surfaces for multi-part cages, with the idea that short lengths of filament can be used as alignment dowels. - NOTE: holes will probably need to be chased with a suitable drill bit (e.g., #51/1.702mm or #50/1.78mm). This adds complexity to the object but makes for a cleaner alignment of multiple parts. Recommended for gluing parts together in particular.
 add_alignment_pin_holes = false;
 
-// Top and bottom holes only - by default, CageMaker populates all hole spaces on a faceplate regardless of height. Enabling this setting causes CageMaker to only populate the top-most and bottom-most holes on the faceplate. - NOTE: This aligns to the edges of FULL unit heights, so if the "allow half heights" option is enabled, the bottom-most holes will be at the top holes of the bottom-most half-unit.
+// Top and bottom holes only - by default, CageMaker populates all hole spaces on a faceplate regardless of height. Enabling this setting causes CageMaker to only populate the top-most and bottom-most holes on the faceplate. - NOTE: This aligns to the edges of FULL unit heights, so if the "allow half heights" option is enabled, the bottom-most holes will be at the top holes of the bottom-most half-unit. - WARNING: Vertically shifting holes for alignment of half-unit racks overrides this option.
 top_and_bottom_holes_only = false;
 
 // Use a simple hole instead of a 5mm wide slot for mounting. NOTE: This may cause interference issues for racks whose mounting centers aren't dimensionally accurate.
@@ -128,7 +128,7 @@ hole_instead_of_slot = false;
 // Allow half-unit heights - by default, height scales in even unit increments, but this setting enables half-heights, which might be useful for small devices in compact miniracks. - NOTE: This makes the resulting cage vertically asymmetric!
 allow_half_heights = false;
 
-// Vertically shift mounting holes - by default, mounting holes are centered relative to each unit. This setting shifts the center point up by half a unit, essentially flipping a half-unit-height-multiple cage. Useful for situations such as half-unit-multiple cages that have alignment concerns or to compensate for upside-down Keystone receptacles.
+// Vertically shift mounting holes - by default, mounting holes are centered relative to each unit. This setting shifts the center point up by half a unit, essentially flipping a half-unit-height-multiple cage. Useful for situations such as half-unit-multiple cages that have alignment concerns or to compensate for upside-down Keystone receptacles. - WARNING: This setting overrides the "top and bottom holes only" option.
 vertically_shift_mounting_holes = false;
 
 
@@ -1497,7 +1497,10 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
             // Keystone Receptacle - Lock-Up
             if (mod_type == "KeystoneFlipped")
                 rotate([0, 0, 180])
-                    place_keystone(horizontal_offset + x_offset, vertical_offset + 1.5 + y_offset, 0);
+                    // Because we're flipping the keystone object, we have to invert the X-axis 
+                    // placement so it's positioned properly because the rotate call rotates about the
+                    // placement axis, which is the center of the "world."
+                    place_keystone(0 - horizontal_offset + x_offset, vertical_offset + 1.5 + y_offset, 0);
 
             // Neutrik D-Series Cutout
             if (mod_type == "DSeries")
