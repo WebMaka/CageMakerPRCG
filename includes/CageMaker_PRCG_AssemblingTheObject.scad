@@ -144,7 +144,7 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
                         }
                         else
                             // If there isn't an ear on this side, create screw holes normally.
-                            faceplate_screw_hole_slot(mounting_hole_diameter, 0 - ((width_in_mm / 2) - (mounting_hole_center_difference / 2)), top_edge + (unit_number * unit_height_in_mm) + y + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
+                            faceplate_screw_hole_slot(mounting_hole_diameter, 0 - ((width_in_mm / 2) - mounting_hole_center_difference), top_edge + (unit_number * unit_height_in_mm) + y + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
 
                         if (right_ear)
                         {
@@ -160,7 +160,7 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
 
                         }
                         else
-                            faceplate_screw_hole_slot(mounting_hole_diameter, ((width_in_mm / 2) - (mounting_hole_center_difference / 2)),top_edge + (unit_number * unit_height_in_mm) + y + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
+                            faceplate_screw_hole_slot(mounting_hole_diameter, ((width_in_mm / 2) - mounting_hole_center_difference),top_edge + (unit_number * unit_height_in_mm) + y + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
                     }
                 }
             }
@@ -194,8 +194,8 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
                 }
                 else
                 {
-                    faceplate_screw_hole_slot(mounting_hole_diameter, 0 - ((width_in_mm / 2) - 8), top_edge + mounting_hole_pattern[0] + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
-                    faceplate_screw_hole_slot(mounting_hole_diameter, 0 - ((width_in_mm / 2) - 8), top_edge + ((round(height_in_units) - 1) * unit_height_in_mm) + mounting_hole_pattern[half_unit ? 0 : len(mounting_hole_pattern) - 1] + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
+                    faceplate_screw_hole_slot(mounting_hole_diameter, 0 - ((width_in_mm / 2) - mounting_hole_center_difference), top_edge + mounting_hole_pattern[0] + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
+                    faceplate_screw_hole_slot(mounting_hole_diameter, 0 - ((width_in_mm / 2) - mounting_hole_center_difference), top_edge + ((round(height_in_units) - 1) * unit_height_in_mm) + mounting_hole_pattern[half_unit ? 0 : len(mounting_hole_pattern) - 1] + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
                 }
 
                 if (right_ear)
@@ -221,8 +221,8 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
                 }
                 else
                 {
-                    faceplate_screw_hole_slot(mounting_hole_diameter, (width_in_mm / 2) - 8, top_edge + mounting_hole_pattern[0] + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
-                    faceplate_screw_hole_slot(mounting_hole_diameter, (width_in_mm / 2 - 8), top_edge + ((round(height_in_units) - 1) * unit_height_in_mm) + mounting_hole_pattern[half_unit ? 0 : len(mounting_hole_pattern) - 1] + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
+                    faceplate_screw_hole_slot(mounting_hole_diameter, (width_in_mm / 2) - mounting_hole_center_difference, top_edge + mounting_hole_pattern[0] + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
+                    faceplate_screw_hole_slot(mounting_hole_diameter, (width_in_mm / 2 - mounting_hole_center_difference), top_edge + ((round(height_in_units) - 1) * unit_height_in_mm) + mounting_hole_pattern[half_unit ? 0 : len(mounting_hole_pattern) - 1] + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
                 }
             }
 
@@ -269,15 +269,15 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
                             // corners of the cage area.
                             if (print_cage_separately)
                             {
-                                translate([0 - (device_width / 2) - (support_cage_base_size / 2) - 2, 0 + cage_vertical_offset + (device_height / 2) + (support_cage_base_size / 2) + 2, 3])
-                                    cube([plate_thickness + support_cage_base_size + 4, plate_thickness + support_cage_base_size + 4, 21], center=true);
-                                translate([0 + (device_width / 2) + (support_cage_base_size / 2) + 2, 0 + cage_vertical_offset + (device_height / 2) + (support_cage_base_size / 2) + 2, 3])
-                                    cube([plate_thickness + support_cage_base_size + 4, plate_thickness + support_cage_base_size + 4, 21], center=true);
+                                translate([0 - (device_width / 2) - (support_cage_base_size / 2) - 2, 0 + cage_vertical_offset + (device_height / 2) + (support_cage_base_size / 2) + 0.75, 3])
+                                    cube([plate_thickness + support_cage_base_size + 4, plate_thickness + support_cage_base_size + 1.5, 21], center=true);
+                                translate([0 + (device_width / 2) + (support_cage_base_size / 2) + 2, 0 + cage_vertical_offset + (device_height / 2) + (support_cage_base_size / 2) + 0.75, 3])
+                                    cube([plate_thickness + support_cage_base_size + 4, plate_thickness + support_cage_base_size + 1.5, 21], center=true);
                                 
-                                translate([0 - (device_width / 2) - (support_cage_base_size / 2) - 2, 0 - (cage_vertical_offset + (device_height / 2) + (support_cage_base_size / 2)) - 2, 3])
-                                    cube([plate_thickness + support_cage_base_size + 4, plate_thickness + support_cage_base_size + 4, 21], center=true);
-                                translate([0 + (device_width / 2) + (support_cage_base_size / 2) + 2, 0 - (cage_vertical_offset + (device_height / 2) + (support_cage_base_size / 2)) - 2, 3])
-                                    cube([plate_thickness + support_cage_base_size + 4, plate_thickness + support_cage_base_size + 4, 21], center=true);
+                                translate([0 - (device_width / 2) - (support_cage_base_size / 2) - 2, 0 - (cage_vertical_offset + (device_height / 2) + (support_cage_base_size / 2)) - 0.75, 3])
+                                    cube([plate_thickness + support_cage_base_size + 4, plate_thickness + support_cage_base_size + 1.5, 21], center=true);
+                                translate([0 + (device_width / 2) + (support_cage_base_size / 2) + 2, 0 - (cage_vertical_offset + (device_height / 2) + (support_cage_base_size / 2)) - 0.75, 3])
+                                    cube([plate_thickness + support_cage_base_size + 4, plate_thickness + support_cage_base_size + 1.5, 21], center=true);
                             }
                         }
                     }
@@ -292,7 +292,7 @@ module create_device_cage(oversize=false)
     // Determine sizes of the panels.
     top_bottom_panel_width = device_width + (plate_thickness * 2) + (generate_rear_support_cage ? 8 : support_cage_base_size);
     left_right_panel_width = device_height + (plate_thickness * 2) + support_cage_base_size;
-    panel_depth = device_depth + plate_thickness + support_cage_base_size - 2 + device_clearance;
+    panel_depth = device_depth + plate_thickness + support_cage_base_size - 2 + device_clearance + (add_retention_lip ? 1 : 0);
 
     // Determine how far on the Z-axis to move the panels so that they land 1mm above 
     // zero height.
@@ -303,9 +303,9 @@ module create_device_cage(oversize=false)
     expand = oversize ? snap_fit_tolerance : 0;
 
 
-    // With the addition of backplate modifications in version 0.8, we essentially have to
-    // duplicate the positioning and santy/error checking for these that we do for the mods
-    // to the faceplate.
+    // With the addition of backplate modifications in version 0.7, we essentially have to
+    // duplicate the same positioning and santy/error checking for these that we do for the
+    // mods to the faceplate.
 
     // Determine the working area for the backplate minus mounting area.
     mod_working_height = device_height;
@@ -333,11 +333,12 @@ module create_device_cage(oversize=false)
     safe_cage_back_left_side_mod_horizontal_offset = cage_back_left_side_mod_horizontal_offset == 0.0 ? left_mod_centerpoint : cage_back_left_side_mod_horizontal_offset;
     safe_cage_back_right_side_mod_horizontal_offset = cage_back_right_side_mod_horizontal_offset == 0.0 ? right_mod_centerpoint : cage_back_right_side_mod_horizontal_offset;
 
-    // Show position markers for mods' centers.
-    if (cage_back_geometry == "Solid")
+    // Show position markers for backplate mods' centers.
+    if ((cage_back_geometry == "Solid") && (!print_cage_separately))
     {
-        mod_offset_marker(safe_cage_back_left_side_mod_horizontal_offset, device_depth + plate_thickness, 2, "L MOD CENTER", (cage_back_left_side_mod_horizontal_offset == 0.0));
-        mod_offset_marker(safe_cage_back_right_side_mod_horizontal_offset, device_depth + plate_thickness, 2, "R MOD CENTER", (cage_back_right_side_mod_horizontal_offset == 0.0));
+		mod_offset_marker(safe_cage_back_left_side_mod_horizontal_offset, device_depth + plate_thickness, 2, "BACKPLATE L MOD CENTER", (cage_back_left_side_mod_horizontal_offset == 0.0));
+
+		mod_offset_marker(safe_cage_back_right_side_mod_horizontal_offset, device_depth + plate_thickness, 2, "BACKPLATE R MOD CENTER", (cage_back_right_side_mod_horizontal_offset == 0.0));
     }
 
     // Determine where modification array edges land. This creates a bounding box 
@@ -652,7 +653,7 @@ module create_device_cage(oversize=false)
                                 }
 
                     // And finally, the back.
-                    translate([x_offset, 0, device_depth + (plate_thickness / 2)])
+                    translate([x_offset, 0, device_depth + (plate_thickness / 2) + (add_retention_lip ? 1 : 0)])
                         if (cage_back_geometry == "Solid")
                             difference()
                             {
@@ -808,7 +809,7 @@ module create_completed_cage(height_required_in_units, safe_left_side_mod_horizo
     // Determine sizes of the panels.
     top_bottom_panel_width = device_width + (plate_thickness * 2) + support_cage_base_size;
     left_right_panel_width = device_height + (plate_thickness * 2) + support_cage_base_size;
-    panel_depth = device_depth + plate_thickness + support_cage_base_size - 2 + device_clearance;
+    panel_depth = device_depth + plate_thickness + support_cage_base_size - 2 + device_clearance + (add_retention_lip ? 1 : 0);
 
     // The generator uses two differences and two unions. The inner pair create the 
     // faceplate and cage(s), and the outer two perform post-processing on what the
@@ -837,8 +838,8 @@ module create_completed_cage(height_required_in_units, safe_left_side_mod_horizo
                                 // perform the subtraction. Otherwise, ventilation grids might be
                                 // left cut into the faceplate reinforcing, which would not work 
                                 // well.
-                                translate([0, 0, 15])
-                                    linear_extrude(25, center=true, convexity=10)
+                                translate([0, 0, 20])
+                                    linear_extrude(35, center=true, convexity=10)
                                         projection()
                                             create_device_cage(true);
                             }
@@ -856,7 +857,7 @@ module create_completed_cage(height_required_in_units, safe_left_side_mod_horizo
 
                             // Show a print height marker if the ruler is enabled.
                             if ((show_ruler) && ($preview) && (!split_cage_into_two_halves))
-                                print_height_marker((device_depth + plate_thickness + support_cage_base_size + device_clearance) + (print_cage_separately ? -1.5 : 0));
+                                print_height_marker((device_depth + plate_thickness + support_cage_base_size + device_clearance) + (add_retention_lip ? 0.5 : 0));
                         }
 
 
@@ -1021,7 +1022,7 @@ module create_object()
 
     // Determine the height in units that will be required to accommodate the device
     // to be caged, or, set the unit height to the faceplate_only setting.
-    total_height_required = device_height + support_cage_base_size + (plate_thickness * 2);
+    total_height_required = device_height + support_cage_base_size + (plate_thickness * 2) + (print_cage_separately ?support_cage_base_size / 2 : 0);
     height_required_in_units = faceplate_only == 0.0 ? (ceil(total_height_required * (allow_half_heights ? 2:1) / unit_height_in_mm)) / (allow_half_heights ? 2:1) : faceplate_only;
     height_required_in_mm = height_required_in_units * unit_height_in_mm;
 
@@ -1107,8 +1108,8 @@ module create_object()
     {
         if (faceplate_only == 0.0)
             mod_offset_marker(cage_horizontal_offset, plate_thickness + 16, height_required_in_units, "CAGE(S) CENTER", (left_side_mod_horizontal_offset == 0.0));
-        mod_offset_marker(safe_left_side_mod_horizontal_offset, plate_thickness + 12, height_required_in_units, "L MOD CENTER", (left_side_mod_horizontal_offset == 0.0));
-        mod_offset_marker(safe_right_side_mod_horizontal_offset, plate_thickness + 12, height_required_in_units, "R MOD CENTER", (right_side_mod_horizontal_offset == 0.0));
+        mod_offset_marker(safe_left_side_mod_horizontal_offset, plate_thickness + 12, height_required_in_units, "FACEPLATE L MOD CENTER", (left_side_mod_horizontal_offset == 0.0));
+        mod_offset_marker(safe_right_side_mod_horizontal_offset, plate_thickness + 12, height_required_in_units, "FACEPLATE R MOD CENTER", (right_side_mod_horizontal_offset == 0.0));
     }
 
     // Determine where modification array edges land. This creates a bounding box 

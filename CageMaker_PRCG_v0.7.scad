@@ -103,7 +103,7 @@ custom_rack_geometry_unit_height = 44.45;
 
 custom_rack_geometry_mounting_reservation_area = 15.875;
 
-custom_mounting_hole_center_difference = 17.4625;
+custom_mounting_hole_center_difference = 8.73125;
 
 custom_rack_geometry_mounting_hole_diameter = 5.25;
 

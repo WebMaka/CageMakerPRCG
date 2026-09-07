@@ -104,9 +104,9 @@ module ventilated_back_plate(plate_height, plate_width, plate_thickness, side_th
 // Create faceplate slotted screw hole
 module faceplate_screw_hole_slot(mounting_hole_diameter, xx, yy, zz)
 {
-    // Calculate how wide the holes need to be to produce a slot width of 5mm regardless of
-    // screw size.
-    slot_width = 5 - (mounting_hole_diameter / 2);
+    // Calculate how wide the holes need to be to produce a slot width of
+	// the screw diameter regardless of screw size.
+    slot_width = (mounting_hole_diameter) - (mounting_hole_diameter / 2);
 
     translate([xx, yy, zz])
         linear_extrude(plate_thickness + 2, center=true, twist=0, $fn=this_fn)

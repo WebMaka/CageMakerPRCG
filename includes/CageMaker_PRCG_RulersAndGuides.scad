@@ -266,7 +266,7 @@ module mod_offset_marker(marker_offset, marker_height, units_required, marker_la
                                 text(str(marker_offset, auto_marker ? " (AUTO)" : ""), halign="center");
             translate([marker_offset, 0 - (units_required * unit_height_in_mm) / 2 - 20, marker_height + 1])
                 translate([0, 0, 0])
-                    scale([0.5, 0.5, 1.0])
+                    scale([0.4, 0.4, 1.0])
                         color("green")
                             linear_extrude(height=1, center=true)
                                 text(marker_label, halign="center");   
