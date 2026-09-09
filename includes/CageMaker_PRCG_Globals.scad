@@ -251,8 +251,8 @@ mod_sizes = [
   ["SBC85x58_VL", 30, 60],
 
   ["RearIO", 160, 49],
-  ["PCISlot", 16.51, 125],
-  ["PCISlot_LP", 16.51, 85],
+  ["PCISlot", 16.51, 116],
+  ["PCISlot_LP", 16.51, 76],
 
   ["30mmFan", 34, 34],
   ["40mmFan", 44, 44],

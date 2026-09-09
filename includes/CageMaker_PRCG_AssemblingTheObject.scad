@@ -260,9 +260,9 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
                         {
                             difference()
                             {
-                                cube([device_width + (plate_thickness * 2) + (generate_rear_support_cage ? 8 : support_cage_base_size) + (print_cage_separately ? 4 : 0), device_height + (plate_thickness * 2) + support_cage_base_size + (print_cage_separately ? 2 : 0), plate_thickness + (print_cage_separately ? 12 : 6)], center=true);
+                                cube([device_width + (plate_thickness * 2) + (generate_rear_support_cage ? 8 : support_cage_base_size) + (print_cage_separately ? 4 : 0), 1 + device_height + (plate_thickness * 2) + support_cage_base_size + (print_cage_separately ? 2 : 0), plate_thickness + (print_cage_separately ? 12 : 6)], center=true);
 //                                if (closed_faceplate)
-                                cube([device_width - (plate_thickness * 1) + support_cage_base_size + (print_cage_separately ? 4 : 0) + device_clearance, device_height - (plate_thickness * 1) + support_cage_base_size + (print_cage_separately ? 2 : 0) + device_clearance, plate_thickness + (print_cage_separately ? 12 : 6) + 2], center=true);
+                                cube([device_width - (plate_thickness * 1) + support_cage_base_size + (print_cage_separately ? 4 : 0) + device_clearance, 1 + device_height - (plate_thickness * 1) + support_cage_base_size + (print_cage_separately ? 2 : 0) + device_clearance, plate_thickness + (print_cage_separately ? 12 : 6) + 2], center=true);
                             }
 
                             // If we're printing the cage separately, place support/reinforcing blocks on the
@@ -804,7 +804,7 @@ module create_completed_cage(height_required_in_units, safe_left_side_mod_horizo
     // Determine the height and width of cage(s).
     cage_width = (device_width + (plate_thickness * 2) + support_cage_base_size);
     total_cage_width = (cage_width * number_of_devices) + (multiple_device_gap * (number_of_devices - 1)) + (print_cage_separately ? 4 : 0);
-    cage_height = device_height + (plate_thickness * 2) + support_cage_base_size;
+    cage_height = 2 + device_height + (plate_thickness * 2) + support_cage_base_size;
 
     // Determine sizes of the panels.
     top_bottom_panel_width = device_width + (plate_thickness * 2) + support_cage_base_size;
@@ -838,7 +838,7 @@ module create_completed_cage(height_required_in_units, safe_left_side_mod_horizo
                                 // perform the subtraction. Otherwise, ventilation grids might be
                                 // left cut into the faceplate reinforcing, which would not work 
                                 // well.
-                                translate([0, 0, 20])
+                                translate([0, 0, 21.501])
                                     linear_extrude(35, center=true, convexity=10)
                                         projection()
                                             create_device_cage(true);
@@ -1022,7 +1022,7 @@ module create_object()
 
     // Determine the height in units that will be required to accommodate the device
     // to be caged, or, set the unit height to the faceplate_only setting.
-    total_height_required = device_height + support_cage_base_size + (plate_thickness * 2) + (print_cage_separately ?support_cage_base_size / 2 : 0);
+    total_height_required = device_height + support_cage_base_size + (plate_thickness * 2) + (print_cage_separately ? support_cage_base_size / 2 + 2.5 : 1);
     height_required_in_units = faceplate_only == 0.0 ? (ceil(total_height_required * (allow_half_heights ? 2:1) / unit_height_in_mm)) / (allow_half_heights ? 2:1) : faceplate_only;
     height_required_in_mm = height_required_in_units * unit_height_in_mm;
 
