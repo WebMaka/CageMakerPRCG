@@ -2,6 +2,11 @@
 
 &nbsp;
 
+> [!IMPORTANT]
+> This is the EXPERIMENTAL BRANCH - the version of CageMaker PRCG in this branch is a work-in-progress, and may (read: almost certainly will) be buggy and not ready for wide use.
+> 
+> USE THE EXPERIMENTAL BUILD WITH CAUTION, AND VERIFY THE RESULTS OF ANY GENERATED CAGES BEFORE SLICING PRINTING.
+
 Copyright © 2025-2026 by WebMaka - this file is licensed under CC BY-NC-SA 4.0.
 To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-sa/4.0/
 
