@@ -2,6 +2,10 @@
 
 &nbsp;
 
+### :star2: 500 STARS! THANK YOU FOR YOUR SUPPORT! :star2:
+
+&nbsp;
+
 > [!IMPORTANT]
 > This is the EXPERIMENTAL BRANCH - the version of CageMaker PRCG in this branch is a work-in-progress, and may (read: almost certainly will) be buggy and not ready for wide use.
 > 
