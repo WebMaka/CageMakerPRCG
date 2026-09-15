@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Configuration Options :: Rack Settings :: CageMaker PRCG Documentation</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="w3-theme-indigo.css">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+
+</head>
+
+<script>
+function w3_open() {
+  document.getElementById("main").style.marginLeft = "25%";
+  document.getElementById("nav_sidebar").style.width = "25%";
+  document.getElementById("nav_sidebar").style.display = "block";
+  document.getElementById("nav_button").style.display = 'none';
+}
+function w3_close() {
+  document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("nav_sidebar").style.display = "none";
+  document.getElementById("nav_button").style.display = "inline-block";
+}
+</script>
+
+<body>
+  <!-- Navigation --!>
+  <div class="w3-sidebar w3-bar-block w3-card-4 w3-animate-left w3-padding" style="display:none" id="nav_sidebar">
+    <div class="w3-theme-dark w3-flex" style="align-items:center">
+      <div class="w3-padding">
+        Site Navigation
+      </div>
+      <div class="" style="margin-left:auto; align-self:center">
+        <a href="#" class="w3-bar-item w3-button w3-hover-red w3-crimson w3-xlarge" onclick="w3_close();">
+          &times;
+        </a>
+      </div>
+    </div>
+    <p>
+      <a href="QuickStartGuide.htm">Quick-Start Guide</a>
+      <br>
+      <a href="BestPractices.htm">Best Practices</a>
+      <br>
+      <a href="MaximumSupportedSizes.htm">Maximum Supported Sizes</a>
+      <br>
+      <a href="SupportedModifications.htm">Supported Modifications</a>
+      <br>
+      <a href="FAQ.htm">FAQ</a>
+    </p>
+    <p>
+      <a href="ConfigOptions.htm">Configuration Options</a>
+      <br>
+      <a href="ConfigOptions_TargetDevicePresets.htm">&rsaquo; Target Device Presets</a>
+      <br>
+      <a href="ConfigOptions_TargetDeviceDimensions.htm">&rsaquo; Target Device Dimensions &amp; Geometry</a>
+      <br>
+      <a href="ConfigOptions_OverallStructureGeometry.htm">&rsaquo; Overall Structure &amp; Geometry</a>
+      <br>
+      <a href="ConfigOptions_RulersGuides.htm">&rsaquo; Rulers/Guides</a>
+      <br>
+      <a href="ConfigOptions_3DPrinterSupport.htm">&rsaquo; 3D Printer Support</a>
+      <br>
+      <a href="ConfigOptions_RackSettings.htm">&rsaquo; Rack Settings</a>
+      <br>
+      <a href="ConfigOptions_FaceplateOptions.htm">&rsaquo; Faceplate Options</a>
+      <br>
+      <a href="ConfigOptions_FaceplateVentilationOptions.htm">&rsaquo; Faceplate Ventillation Options</a>
+      <br>
+      <a href="ConfigOptions_CageOptions.htm">&rsaquo; Cage Options</a>
+      <br>
+      <a href="ConfigOptions_CageTopBottomOptions.htm">&rsaquo; Cage TOP and BOTTOM Geometry &amp; Ventillation Options</a>
+      <br>
+      <a href="ConfigOptions_CageLeftRightOptions.htm">&rsaquo; Cage LEFT and RIGHT SIDE Geometry &amp; Ventillation Options</a>
+      <br>
+      <a href="ConfigOptions_CageBackOptions.htm">&rsaquo; Cage BACK Geometry &amp; Modifications</a>
+      <br>
+      <a href="ConfigOptions_RearSupportOptions.htm">&rsaquo; Rear Support Options</a>
+      <br>
+      <a href="ConfigOptions_AdditionalFaceplateModifications.htm">&rsaquo; Additional Faceplate Modifications</a>
+      <br>
+      <a href="ConfigOptions_CustomCutoutOptions.htm">&rsaquo; Custom Cutout Options</a>
+      <br>
+      <a href="ConfigOptions_IgnoreErrors.htm">&rsaquo; Ignore Errors</a>
+      <br>
+      <a href="ConfigOptions_RarelyChangedOptions.htm">&rsaquo; Rarely-Changed Options</a>
+    </p>
+    <p>
+      <a href="Features.htm">Features</a>
+      <br>
+      <a href="History.htm">History</a>
+      <br>
+      <a href="Credits.htm">Credits</a>
+      <br>
+      <a href="License.htm">License</a>
+    </p>
+  </div>
+
+  <div id="main" style="min-height: 820px;">
+    
+    <!-- Header --!>
+    <div class="w3-container w3-theme-dark w3-padding-small">
+      <img id="nav_button" onclick="w3_open();" src="images/bars-solid.png" alt="Site Navigation">
+      <a href="index.htm"><img src="images/logotype_white_small.png" alt="CageMaker PRCG"></a>
+    </div>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, #20295b, rgba(255,0,0,0));">
+      &nbsp;
+    </div>
+  
+    <!-- Content --!>
+    <div id="content" class="w3-container" style="min-height: 820px;">
+      <div class="w3-container w3-section" style="background-color: transparent;">
+        <!-- START CONTENT AREA -->
+      
+        <h1>Configuration Options :: Rack Settings</h1>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <p>These settings tell CageMaker PRCG about the rack it should generate cages to fit, when possible.</p>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="rack_geometry"></a><strong>rack geometry</strong><br>By default, CageMaker PRCG will create rack cages that comply with the EIA-310-D standard. This is the established standard used for 19" racks and has become the <em>de facto</em> "standard" for 10" mini-racks. This setting selects modifications to the standard, or as an alternative, ignoring the standard entirely for cases where a rack system has geometries that don't follow it.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-blue">
+                <div class="w3-cobalt w3-padding w3-round-xlarge">
+                  <img src="images/lightbulb.png" alt="Tip">
+                </div>
+                <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
+                  <p>When building cages for non-compliant rack systems, select the "unit" height and mounting hole spacing that matches those of the rack system. Note that the vast majority of racks and rack systems are EIA-310 compliant, and non-compliant cages will not fit on EIA-310 compliant racks, so this option should only be used if it's absolutely necessary.</p>
+                </div>
+              </div>
+              
+              <p><img src="images/config_geometry.png" class="w3-card"></p>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="custom_rack_geometry_unit_height"></a><strong>custom rack geometry unit height</strong><br><strong>custom rack geometry mounting reservation area</strong><br><strong>custom rack geometry mounting hole center difference</strong><br><strong>custom rack geometry mounting hole diameter</strong><br><strong>custom rack geometry mounting hole pattern</strong><br><img src="images/new.png"> <em>new for version 0.70</em> :: These settings configure custom rack geometry, for situations where a preset doesn't exist. They are as follows:</p>
+              <ul>
+                <li><strong>custom rack geometry unit height</strong> determines the height of one rack "unit."</li>
+                <li><strong>custom rack geometry mounting reservation area</strong> sets the space on both sides that CageMaker PRCG reserves for mounting.</li>
+                <li><strong>custom rack geometry mounting hole center inset</strong> sets how far in from the edges the rack rail's mounting holes land.</li>
+                <li><strong>custom rack geometry mounting hole diameter</strong> sets the screw hole diameter for the mounting holes, e.g., 5,25mm for a M5 screw.</li>
+                <li><strong>custom rack geometry mounting hole pattern</strong> sets how many mounting screw holes are created and how far down from the top edge of each unit a hole is positioned. This setting must consist of one or more values (in mm) separated by commas and surrounded by [square braces, such as [6.35, 22.225, 38.1] for an EIA-310 standard hole pattern.</li>
+              </ul>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>These settings only take effect when <strong>rack geometry</strong> is set to "custom."</p>
+                </div>
+              </div>
+              <p>The specific aspects of a custom rack's geometry that CageMaker PRCG will use are illustrated here:</p>
+              <p><img src="images/rackmount_dimensions.png" class="w3-card w3-padding"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="rack_cage_width"></a><strong>rack cage width</strong><br>This determines the target size of the rack into which the cage is to be mounted. 5", 6", 7", 10", 12", 14", 16", and 19" will generate cages whose faceplates will cover the full rack width, 4.75" is a quarter-width cage for 19" racks, 5" is a half-width cage for 10" racks, 6.33" is a third-width cage for 19" racks, 9.5" is a half-width cage for 19" racks, and 12.66" is a two-thirds-width cage for 19" racks.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>CageMaker PRCG will verify that this setting is wide enough to accommodate the device(s) to be caged plus the structure for the cage itself, multiplied by the number of devices to be caged, and will display a warning message in the console if the total size required is too large to fit within the selected rack size. Be aware that the support structure to hold the device will add 16-20mm to its dimensions depending on the current <strong>surface thickness</strong> setting, so a 120mm side device that's 35mm tall will require 136-140mm of width and 51-55mm of height to safely enclose, so be sure to compensate for the extra size requirements when planning on rack-mounting devices.</p>
+                </div>
+              </div>
+
+              <div class="w3-container w3-section" style="background-color: transparent;">
+                &nbsp;
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-blue">
+                <div class="w3-cobalt w3-padding w3-round-xlarge">
+                  <img src="images/lightbulb.png" alt="Tip">
+                </div>
+                <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
+                  <p>Half-, third-, and quarter-width cages will automatically include right-angle ears on one or both sides to allow partial-width cages to be bolted together to become a single unit the full width of the rack, so make sure to change the <strong>tap or heat set holes</strong> setting to select the fasteners to use to bolt these together - Ideally, select a clearance screw size for one side and the corresponding threading or insert size for the other.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_default.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="tap_or_heat_set_holes"></a><strong>tap or heat set holes</strong><br>This setting determines the sizes of holes CageMaker PRCG creates for bolting partial-widths or split cages together. By default, the setting is 5.25mm, which is a close-tolerance clearance fit for M5. When choosing hardware for bolt-together half- and third-width cages, it's a good idea to select the desired bolt size's clearance fit for one side and the corresponding bolt size's tapping or heat-set insert diameter for the other side. When selecting hardware for split cages, CageMaker PRCG will automatically apply the close-tolerance clearance size to the tabs that bolt the cage halves together and use this setting for the tab-slot side.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-blue">
+                <div class="w3-cobalt w3-padding w3-round-xlarge">
+                  <img src="images/lightbulb.png" alt="Tip">
+                </div>
+                <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
+                  <p>Ensure the proper hardware is selected <em>before</em> rendering the completed cage object! If this is properly configured, holes for hardware should need minimal or no chasing with a drill, except in cases where the hole in the printed cage isn't adequately round because of how 3D printers handle holes on the same plane as the build plate.</p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-blue">
+                <div class="w3-cobalt w3-padding w3-round-xlarge">
+                  <img src="images/lightbulb.png" alt="Tip">
+                </div>
+                <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
+                  <p>If the <strong>add alignment pin holes</strong> option is enabled, alignment pin holes will be added to the bolt-together ears below each bolt hole.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_ear_holes.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="add_alignment_pin_holes"></a><strong>add alignment pin holes</strong><br>This setting will enable the addition of 1.75mm holes along mating surfaces for bolt-together and split cages, into which short lengths of filament can be inserted to act as alignment pins or dowels. This makes aligning the front (faceplate) of multiple cages or a multi-part cage assembly much easier.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>The holes will probably need to be chased to ensure proper size and roundness. The ideal drill bit size for this is to start with a #51 bit (1.702mm) and follow with a #50 bit (1.78mm) if needed. The holes are 5mm deep, so segments of filament used as alignment pins need only be around 8-10mm long.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_alignment_pins.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="top_and_bottom_holes_only"></a><strong>top and bottom holes only</strong><br>By default, CageMaker PRCG will create mounting hardware holes (slotted for #10/M5 screws) for every screw hole location regardless of height, which is likely overkill for small lightweight devices. Enabling this setting instructs CageMaker PRCG to only create holes for the top-most and bottom-most hole locations.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>Please note that this option also affects the generation of holes on bolt-together ears for partial-width cages.</p>
+                  <p>Do not use this option with partial-width cages when mixing heights, e.g., bolting two 1U halves to a single 2U half, as this option will also remove the needed bolt holes from the bolt-together ears.</p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge" style="background-color: #E6E6FA;">
+                <div class="w3-deep-purple w3-padding w3-round-xlarge">
+                  <img src="images/circle-info.png" alt="Info">
+                </div>
+                <div class="w3-padding w3-round-xlarge" style="flex:1; background-color: #E6E6FA;">
+                  <p>When the <strong>allow half heights</strong> option is enabled and the generated cage is a multiple of half units tall, the bottom-most hole will be the topmost hole closest to the top edge of the half-unit at the bottom of the cage. This is intentional as it prevents creating screw holes in weird places that may not align with screw holes or cage nuts on the rack's rails.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_top_bottom_slots.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="hole_instead_of_slot"></a><strong>hole instead of slot</strong><br><img src="images/new.png"> <em>new for version 0.70</em> :: This setting changes the hole generation to produce single mounting holes instead of 5mm wide slots. While this may be aesthetically more pleasing, it has the disadvantage of potential alignment issues when the rack does not adequately comply with EIA-310 with regard to mounting centers.</p>
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_holes_not_slots.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="allow_half_heights"></a><strong>allow half heights</strong><br>This setting will instruct CageMaker PRCG to allow half-unit-height (0.5U or 7/8" or 22.225mm) multiples for cage heights instead of insisting on full units. This can make more compact racks, especially for mini (10") and micro (5"/6"/7") rack setups where the equipment in the rack is generally significantly smaller than typical equipment in a 19" rack. This makes completed cages asymmetrical vertically, however, but two half-unit-multiple cages can be mounted one above the other by flipping one of the two so that the stacked cages' half-holes meet.</p>
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_half_unit.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="vertically_shift_mounting_holes"></a><strong>vertically shift mounting holes</strong><br><img src="images/new.png"> <em>new for version 0.70</em> :: When <strong>allow half heights</strong> is enabled, the cages CageMaker PRCG generates are vertically asymmetric. While in most cases this won't cause issues - two half-unit-multiple cages can simply butt against each other - this may cause issues in rare cases such as when Keystone receptacles are used. Enabling this setting moves the mounting holes by the equivalent of one half-unit, essentially "un-flipping" the cage.</p>
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_shift_holes.png" class="w3-card"></p>
+          </div>
+        </div>
+
+
+        <!-- END CONTENT AREA -->        
+      </div>
+    </div>
+
+    <!-- Footer --!>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, rgba(255,0,0,0), #20295b);">
+      &nbsp;
+    </div>
+    <div class="w3-container w3-theme-dark w3-flex w3-small" style="gap:16px; align-items:flex-start">
+      <div>
+        <p>
+          <a href="#"><img src="images/circle-up.png" alt="Back To Top"> Back To Top</a>
+        </p>
+        <p>
+          <a href="#" onclick="window.scroll(0,0); w3_open();"><img src="images/map.png" alt="Navigate Site"> Navigate Site</a>
+        </p>
+      </div>
+      <div style="flex:1">
+        <p>&nbsp;</p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/github-icon.png" alt="Github Logo"> Source Code
+        </p>
+        <p>
+          <!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/WebMaka/CageMakerPRCG" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star WebMaka/CageMakerPRCG on GitHub">Star Us On Github!</a>
+          <br>
+          <a href="https://github.com/WebMaka/CageMakerPRCG/issues">Report A Bug/Issue</a>
+          <br>
+          <a href="https://github.com/WebMaka/CageMakerPRCG">Github Repository</a>
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/gift.png" alt="Support"> Support This Project
+        </p>
+        <p>
+          <a href="https://ko-fi.com/webmaka">Donate via Ko-Fi</a>
+          <br>
+          <a href="https://thanks.dev/webmaka">Donate via thanks.dev</a>
+          <br>
+          <a href="https://patreon.com/WebMaka">Join Patreon</a>
+          <br>
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/comments.png" alt="Community"> Community
+        </p>
+        <p>
+          <a href="https://github.com/WebMaka/CageMakerPRCG/discussions">Github Discussions</a>
+          <br>
+          <a href="mailto:general@cagemaker.org?subject=docs" alt="Contact">Contact Devs via email</a>
+        </p>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/gavel.png" alt="Legal"> Legal Notices & Information
+        </p>
+        <p>
+          <a href="Credits.htm">Credits</a> | 
+          <a href="License.htm">License</a>  
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/copyright.png" alt="Copyright"> Copyright/Trademarks
+        </p>
+        <p>
+          This website and its contents are Copyright &copy; 2026 by WebMaka,<br>
+          unless otherwise mentioned. All Rights Reserved.
+        </p>
+        <p>
+          Icons provided by <a href="https://fontawesome.com">Font Awesome</a>. 
+          CSS stylesheets provided by <a href="https://www.w3schools.com/w3css/default.asp">W3C</a>.
+        </p>
+        <p>
+          Any trademarks are the property of their respective owners.
+        </p>
+      </div>
+    </div>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, #20295b, #000000);">
+      &nbsp;
+    </div>
+  </div>
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+</body>
+
+</html>

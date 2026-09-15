@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Configuration Options :: Faceplate Options :: CageMaker PRCG Documentation</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="w3-theme-indigo.css">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+
+</head>
+
+<script>
+function w3_open() {
+  document.getElementById("main").style.marginLeft = "25%";
+  document.getElementById("nav_sidebar").style.width = "25%";
+  document.getElementById("nav_sidebar").style.display = "block";
+  document.getElementById("nav_button").style.display = 'none';
+}
+function w3_close() {
+  document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("nav_sidebar").style.display = "none";
+  document.getElementById("nav_button").style.display = "inline-block";
+}
+</script>
+
+<body>
+  <!-- Navigation --!>
+  <div class="w3-sidebar w3-bar-block w3-card-4 w3-animate-left w3-padding" style="display:none" id="nav_sidebar">
+    <div class="w3-theme-dark w3-flex" style="align-items:center">
+      <div class="w3-padding">
+        Site Navigation
+      </div>
+      <div class="" style="margin-left:auto; align-self:center">
+        <a href="#" class="w3-bar-item w3-button w3-hover-red w3-crimson w3-xlarge" onclick="w3_close();">
+          &times;
+        </a>
+      </div>
+    </div>
+    <p>
+      <a href="QuickStartGuide.htm">Quick-Start Guide</a>
+      <br>
+      <a href="BestPractices.htm">Best Practices</a>
+      <br>
+      <a href="MaximumSupportedSizes.htm">Maximum Supported Sizes</a>
+      <br>
+      <a href="SupportedModifications.htm">Supported Modifications</a>
+      <br>
+      <a href="FAQ.htm">FAQ</a>
+    </p>
+    <p>
+      <a href="ConfigOptions.htm">Configuration Options</a>
+      <br>
+      <a href="ConfigOptions_TargetDevicePresets.htm">&rsaquo; Target Device Presets</a>
+      <br>
+      <a href="ConfigOptions_TargetDeviceDimensions.htm">&rsaquo; Target Device Dimensions &amp; Geometry</a>
+      <br>
+      <a href="ConfigOptions_OverallStructureGeometry.htm">&rsaquo; Overall Structure &amp; Geometry</a>
+      <br>
+      <a href="ConfigOptions_RulersGuides.htm">&rsaquo; Rulers/Guides</a>
+      <br>
+      <a href="ConfigOptions_3DPrinterSupport.htm">&rsaquo; 3D Printer Support</a>
+      <br>
+      <a href="ConfigOptions_RackSettings.htm">&rsaquo; Rack Settings</a>
+      <br>
+      <a href="ConfigOptions_FaceplateOptions.htm">&rsaquo; Faceplate Options</a>
+      <br>
+      <a href="ConfigOptions_FaceplateVentilationOptions.htm">&rsaquo; Faceplate Ventillation Options</a>
+      <br>
+      <a href="ConfigOptions_CageOptions.htm">&rsaquo; Cage Options</a>
+      <br>
+      <a href="ConfigOptions_CageTopBottomOptions.htm">&rsaquo; Cage TOP and BOTTOM Geometry &amp; Ventillation Options</a>
+      <br>
+      <a href="ConfigOptions_CageLeftRightOptions.htm">&rsaquo; Cage LEFT and RIGHT SIDE Geometry &amp; Ventillation Options</a>
+      <br>
+      <a href="ConfigOptions_CageBackOptions.htm">&rsaquo; Cage BACK Geometry &amp; Modifications</a>
+      <br>
+      <a href="ConfigOptions_RearSupportOptions.htm">&rsaquo; Rear Support Options</a>
+      <br>
+      <a href="ConfigOptions_AdditionalFaceplateModifications.htm">&rsaquo; Additional Faceplate Modifications</a>
+      <br>
+      <a href="ConfigOptions_CustomCutoutOptions.htm">&rsaquo; Custom Cutout Options</a>
+      <br>
+      <a href="ConfigOptions_IgnoreErrors.htm">&rsaquo; Ignore Errors</a>
+      <br>
+      <a href="ConfigOptions_RarelyChangedOptions.htm">&rsaquo; Rarely-Changed Options</a>
+    </p>
+    <p>
+      <a href="Features.htm">Features</a>
+      <br>
+      <a href="History.htm">History</a>
+      <br>
+      <a href="Credits.htm">Credits</a>
+      <br>
+      <a href="License.htm">License</a>
+    </p>
+  </div>
+
+  <div id="main" style="min-height: 820px;">
+    
+    <!-- Header --!>
+    <div class="w3-container w3-theme-dark w3-padding-small">
+      <img id="nav_button" onclick="w3_open();" src="images/bars-solid.png" alt="Site Navigation">
+      <a href="index.htm"><img src="images/logotype_white_small.png" alt="CageMaker PRCG"></a>
+    </div>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, #20295b, rgba(255,0,0,0));">
+      &nbsp;
+    </div>
+  
+    <!-- Content --!>
+    <div id="content" class="w3-container" style="min-height: 820px;">
+      <div class="w3-container w3-section" style="background-color: transparent;">
+        <!-- START CONTENT AREA -->
+      
+        <h1>Configuration Options :: Faceplate Options</h1>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <p>Everything in a rack hangs off a faceplate.</p>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="faceplate_only"></a><strong>faceplate only</strong><br>CageMaker PRCG can generate faceplates without a cage to hold a device, which is helpful for creating "blanks" or customized cageless faceplates to hold things like cooling fans or connectors. Since CageMaker PRCG normally determines heights automatically based on the size of the device, this setting instructs CageMaker PRCG to generate a faceplate without a cage and manually sets the height to the given number of units.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge" style="background-color: #E6E6FA;">
+                <div class="w3-deep-purple w3-padding w3-round-xlarge">
+                  <img src="images/circle-info.png" alt="Info">
+                </div>
+                <div class="w3-padding w3-round-xlarge" style="flex:1; background-color: #E6E6FA;">
+                  <p>When using this option along with faceplate modifications, keep in mind that the left and right side faceplate modifications CageMaker PRCG generates are <em>not</em> horizontally centered on the faceplate. Instead, use the <strong>centered mod type</strong> option to center a modification on the faceplate.</p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>Creating a cageless faceplate will naturally disable all cage-centric options.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_faceplate_only.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="reinforce_faceplate"></a><strong>reinforce faceplate</strong><br>This setting enables the addition of right-angle reinforcing ribs along the top and bottom of the back side of the faceplate, above and below the cage. This stiffens the faceplate against rotational forces from the cantilevering effect of suspending a weight out from a flat plane. When the cage is a partial width, the ribs will extend from the folded ears to form a box-like structure.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>While CageMaker PRCG does automatically position the reinforcing ribs to clear rack rails and avoid hardware on bolt-together ears on partial-width cages, there may be interference issues that require some modifications such as trimming for fastener clearance.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_reinforce_faceplate.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="faceplate_rounded_corners"></a><strong>faceplate rounded corners</strong><br>Since some devices have rounded corners, this option instructs CageMaker PRCG to round the corners of the faceplate opening. The ventilation opening in the bottom of the cage is also reduced in size so that the bottom edges of the device will be supported.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-blue">
+                <div class="w3-cobalt w3-padding w3-round-xlarge">
+                  <img src="images/lightbulb.png" alt="Tip">
+                </div>
+                <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
+                  <p>Use a radius gauge to determine the proper setting for this option, as an incorrect setting could produce an initially unusable cage that requires modification.</p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge" style="background-color: #E6E6FA;">
+                <div class="w3-deep-purple w3-padding w3-round-xlarge">
+                  <img src="images/circle-info.png" alt="Info">
+                </div>
+                <div class="w3-padding w3-round-xlarge" style="flex:1; background-color: #E6E6FA;">
+                  <p>This only affects the faceplate - it does not round the inside corners of the cage proper. It may be necessary to enable the <strong>extra support</strong> option and/or set the <strong>cage bottom geometry</strong> option to solid to more fully support the device depending on how it is shaped.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_rounded_corders.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="add_retention_lip"></a><strong>add retention lip</strong><br>When this setting is enabled, CageMaker PRCG will generate a 1mm "lip" around the perimeter of the faceplate to act as a retainer for the device in the cage. This should produce a tight friction fit during insertion, and help hold the device in the cage. To compensate for this, the cage will be generated 1mm deeper and the device recessed into the cage accordingly.</p>
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_retention_lip.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="closed_faceplate"></a><strong>closed faceplate</strong><br><img src="images/new.png"> <em>new for version 0.7</em> :: In cases where it might be necessary or desirable to have a cage that is not open at the front, such as an enclosure for an electronic project whose internals are accessed through an open cage top, this option allows for disabling generating a device cutout through the faceplate.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-red">
+                <div class="w3-crimson w3-padding w3-round-xlarge">
+                  <img src="images/warning.png" alt="WARNING">
+                </div>
+                <div class="w3-pale-red w3-padding w3-round-xlarge" style="flex:1">
+                  <p>Enabling this option also enables using a centered faceplate modification with a cage, but also disables overlap checking of faceplate modifications with the cage proper. Care must be taken to avoid positioning faceplate modifications where they will cut into the sides of the cage.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_closed_faceplate.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="reduce_faceplate_to_2d"></a><strong>reduce faceplate to 2d</strong><br>Reduces a cageless faceplate to a 2D object for export. (OpenSCAD can export 2D objects to SVG, DXF, PDF, and CSG.) Ideal for creating a 2D pattern for engraving or laser-cutting.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge" style="background-color: #E6E6FA;">
+                <div class="w3-deep-purple w3-padding w3-round-xlarge">
+                  <img src="images/circle-info.png" alt="Info">
+                </div>
+                <div class="w3-padding w3-round-xlarge" style="flex:1; background-color: #E6E6FA;">
+                  <p>This option can only be enabled when the <strong>faceplate only</strong> option is set to generate a cageless faceplate. After rendering a completed faceplate with this option enabled, use "File" menu &gt; "Export" in O        <div class="w3-flex w3-margin w3-card w3-round-xlarge" style="background-color: #E6E6FA;">
+          <div class="w3-deep-purple w3-padding w3-round-xlarge">
+            <img src="images/circle-info.png" alt="Info">
+          </div>
+          <div class="w3-padding w3-round-xlarge" style="flex:1; background-color: #E6E6FA;">
+penSCAD to export the resulting faceplate to a 2D-file format.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_2d_faceplate.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="narrow_edge_centered_holes"></a><strong>narrow edge centered holes</strong><br>Some subrack systems employ additional screws to retain modules in special rack cages. This setting enables the generation of the corresponding screw holes along the narrower edges of the cage's faceplate opening. The holes are aligned with the edges of the faceplate opening and automatically include tabs that protrude into the opening.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-blue">
+                <div class="w3-cobalt w3-padding w3-round-xlarge">
+                  <img src="images/lightbulb.png" alt="Tip">
+                </div>
+                <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
+                  <p>Select the hardware size to suit the hardware to be used to secure the subrack module. Hole and tab sizes are automatically scaled to suit.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_edge_screw_holes.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="edge_corner_holes"></a><strong>edge corner holes</strong><br>Some subrack systems employ additional screws to retain modules in special rack cages. This setting enables the generation of the corresponding screw holes in each corner of the cage's faceplate opening. The holes are aligned with the edges of the faceplate opening and automatically include tabs that protrude into the opening.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-blue">
+                <div class="w3-cobalt w3-padding w3-round-xlarge">
+                  <img src="images/lightbulb.png" alt="Tip">
+                </div>
+                <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
+                  <p>Select the hardware size to suit the hardware to be used to secure the subrack module. Hole and tab sizes are automatically scaled to suit.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_corner_screw_holes.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="expand_faceplate_upward"></a><strong>expand faceplate upward</strong><br><img src="images/new.png"> <em>new for version 0.7</em> :: Expands the faceplate upward a given distance (in mm) without adding more holes. Useful for rare situations where a rack has unit space that overlaps structures such as reinforcing bars.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge" style="background-color: #E6E6FA;">
+                <div class="w3-deep-purple w3-padding w3-round-xlarge">
+                  <img src="images/circle-info.png" alt="Info">
+                </div>
+                <div class="w3-padding w3-round-xlarge" style="flex:1; background-color: #E6E6FA;">
+                  <p>The cage generator will not consider this extra space to be usable and will pretend it does not exist. It cannot be used for extra space for cage offsets, modifications, etc.</p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge" style="background-color: #E6E6FA;">
+                <div class="w3-deep-purple w3-padding w3-round-xlarge">
+                  <img src="images/circle-info.png" alt="Info">
+                </div>
+                <div class="w3-padding w3-round-xlarge" style="flex:1; background-color: #E6E6FA;">
+                  <p>The additional space will not receive additional mounting holes unless the <strong>vertically shift mounting holes</strong> option is used, in which case the faceplate generator will place additional holes into this space as it shifts hole positions.</p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>This should only be used when and where needed as it will cause fitment issues with the space above where this cage is mounted.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_expand_upward.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="expand_faceplate_downward"></a><strong>expand faceplate downward</strong><br>:new: <em>new for version 0.7</em> :: Expands the faceplate downward a given distance (in mm) without adding more holes. Useful for rare situations where a rack has unit space that overlaps structures such as reinforcing bars, which may be common in some rack systems such as Homeracker.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-blue">
+                <div class="w3-cobalt w3-padding w3-round-xlarge">
+                  <img src="images/lightbulb.png" alt="Tip">
+                </div>
+                <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
+                  <p>Setting this to 15 will emulate Homeracker's "flush to bottom" functionality.</p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge" style="background-color: #E6E6FA;">
+                <div class="w3-deep-purple w3-padding w3-round-xlarge">
+                  <img src="images/circle-info.png" alt="Info">
+                </div>
+                <div class="w3-padding w3-round-xlarge" style="flex:1; background-color: #E6E6FA;">
+                  <p>The cage generator will not consider this extra space to be usable and will pretend it does not exist. It cannot be used for extra space for cage offsets, modifications, etc.</p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge" style="background-color: #E6E6FA;">
+                <div class="w3-deep-purple w3-padding w3-round-xlarge">
+                  <img src="images/circle-info.png" alt="Info">
+                </div>
+                <div class="w3-padding w3-round-xlarge" style="flex:1; background-color: #E6E6FA;">
+                  <p>The additional space will not receive additional mounting holes unless the <strong>vertically shift mounting holes</strong> option is used, in which case the faceplate generator will place additional holes into this space as it shifts hole positions.</p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>This should only be used when and where needed as it will cause fitment issues with the space above where this cage is mounted.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_expand_downward.png" class="w3-card"></p>
+          </div>
+        </div>
+
+
+        <!-- END CONTENT AREA -->        
+      </div>
+    </div>
+
+    <!-- Footer --!>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, rgba(255,0,0,0), #20295b);">
+      &nbsp;
+    </div>
+    <div class="w3-container w3-theme-dark w3-flex w3-small" style="gap:16px; align-items:flex-start">
+      <div>
+        <p>
+          <a href="#"><img src="images/circle-up.png" alt="Back To Top"> Back To Top</a>
+        </p>
+        <p>
+          <a href="#" onclick="window.scroll(0,0); w3_open();"><img src="images/map.png" alt="Navigate Site"> Navigate Site</a>
+        </p>
+      </div>
+      <div style="flex:1">
+        <p>&nbsp;</p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/github-icon.png" alt="Github Logo"> Source Code
+        </p>
+        <p>
+          <!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/WebMaka/CageMakerPRCG" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star WebMaka/CageMakerPRCG on GitHub">Star Us On Github!</a>
+          <br>
+          <a href="https://github.com/WebMaka/CageMakerPRCG/issues">Report A Bug/Issue</a>
+          <br>
+          <a href="https://github.com/WebMaka/CageMakerPRCG">Github Repository</a>
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/gift.png" alt="Support"> Support This Project
+        </p>
+        <p>
+          <a href="https://ko-fi.com/webmaka">Donate via Ko-Fi</a>
+          <br>
+          <a href="https://thanks.dev/webmaka">Donate via thanks.dev</a>
+          <br>
+          <a href="https://patreon.com/WebMaka">Join Patreon</a>
+          <br>
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/comments.png" alt="Community"> Community
+        </p>
+        <p>
+          <a href="https://github.com/WebMaka/CageMakerPRCG/discussions">Github Discussions</a>
+          <br>
+          <a href="mailto:general@cagemaker.org?subject=docs" alt="Contact">Contact Devs via email</a>
+        </p>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/gavel.png" alt="Legal"> Legal Notices & Information
+        </p>
+        <p>
+          <a href="Credits.htm">Credits</a> | 
+          <a href="License.htm">License</a>  
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/copyright.png" alt="Copyright"> Copyright/Trademarks
+        </p>
+        <p>
+          This website and its contents are Copyright &copy; 2026 by WebMaka,<br>
+          unless otherwise mentioned. All Rights Reserved.
+        </p>
+        <p>
+          Icons provided by <a href="https://fontawesome.com">Font Awesome</a>. 
+          CSS stylesheets provided by <a href="https://www.w3schools.com/w3css/default.asp">W3C</a>.
+        </p>
+        <p>
+          Any trademarks are the property of their respective owners.
+        </p>
+      </div>
+    </div>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, #20295b, #000000);">
+      &nbsp;
+    </div>
+  </div>
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+</body>
+
+</html>

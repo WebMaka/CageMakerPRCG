@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Configuration Options :: Target Device Presets :: CageMaker PRCG Documentation</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="w3-theme-indigo.css">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+
+</head>
+
+<script>
+function w3_open() {
+  document.getElementById("main").style.marginLeft = "25%";
+  document.getElementById("nav_sidebar").style.width = "25%";
+  document.getElementById("nav_sidebar").style.display = "block";
+  document.getElementById("nav_button").style.display = 'none';
+}
+function w3_close() {
+  document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("nav_sidebar").style.display = "none";
+  document.getElementById("nav_button").style.display = "inline-block";
+}
+</script>
+
+<body>
+  <!-- Navigation --!>
+  <div class="w3-sidebar w3-bar-block w3-card-4 w3-animate-left w3-padding" style="display:none" id="nav_sidebar">
+    <div class="w3-theme-dark w3-flex" style="align-items:center">
+      <div class="w3-padding">
+        Site Navigation
+      </div>
+      <div class="" style="margin-left:auto; align-self:center">
+        <a href="#" class="w3-bar-item w3-button w3-hover-red w3-crimson w3-xlarge" onclick="w3_close();">
+          &times;
+        </a>
+      </div>
+    </div>
+    <p>
+      <a href="QuickStartGuide.htm">Quick-Start Guide</a>
+      <br>
+      <a href="BestPractices.htm">Best Practices</a>
+      <br>
+      <a href="MaximumSupportedSizes.htm">Maximum Supported Sizes</a>
+      <br>
+      <a href="SupportedModifications.htm">Supported Modifications</a>
+      <br>
+      <a href="FAQ.htm">FAQ</a>
+    </p>
+    <p>
+      <a href="ConfigOptions.htm">Configuration Options</a>
+      <br>
+      <a href="ConfigOptions_TargetDevicePresets.htm">&rsaquo; Target Device Presets</a>
+      <br>
+      <a href="ConfigOptions_TargetDeviceDimensions.htm">&rsaquo; Target Device Dimensions &amp; Geometry</a>
+      <br>
+      <a href="ConfigOptions_OverallStructureGeometry.htm">&rsaquo; Overall Structure &amp; Geometry</a>
+      <br>
+      <a href="ConfigOptions_RulersGuides.htm">&rsaquo; Rulers/Guides</a>
+      <br>
+      <a href="ConfigOptions_3DPrinterSupport.htm">&rsaquo; 3D Printer Support</a>
+      <br>
+      <a href="ConfigOptions_RackSettings.htm">&rsaquo; Rack Settings</a>
+      <br>
+      <a href="ConfigOptions_FaceplateOptions.htm">&rsaquo; Faceplate Options</a>
+      <br>
+      <a href="ConfigOptions_FaceplateVentilationOptions.htm">&rsaquo; Faceplate Ventillation Options</a>
+      <br>
+      <a href="ConfigOptions_CageOptions.htm">&rsaquo; Cage Options</a>
+      <br>
+      <a href="ConfigOptions_CageTopBottomOptions.htm">&rsaquo; Cage TOP and BOTTOM Geometry &amp; Ventillation Options</a>
+      <br>
+      <a href="ConfigOptions_CageLeftRightOptions.htm">&rsaquo; Cage LEFT and RIGHT SIDE Geometry &amp; Ventillation Options</a>
+      <br>
+      <a href="ConfigOptions_CageBackOptions.htm">&rsaquo; Cage BACK Geometry &amp; Modifications</a>
+      <br>
+      <a href="ConfigOptions_RearSupportOptions.htm">&rsaquo; Rear Support Options</a>
+      <br>
+      <a href="ConfigOptions_AdditionalFaceplateModifications.htm">&rsaquo; Additional Faceplate Modifications</a>
+      <br>
+      <a href="ConfigOptions_CustomCutoutOptions.htm">&rsaquo; Custom Cutout Options</a>
+      <br>
+      <a href="ConfigOptions_IgnoreErrors.htm">&rsaquo; Ignore Errors</a>
+      <br>
+      <a href="ConfigOptions_RarelyChangedOptions.htm">&rsaquo; Rarely-Changed Options</a>
+    </p>
+    <p>
+      <a href="Features.htm">Features</a>
+      <br>
+      <a href="History.htm">History</a>
+      <br>
+      <a href="Credits.htm">Credits</a>
+      <br>
+      <a href="License.htm">License</a>
+    </p>
+  </div>
+
+  <div id="main" style="min-height: 820px;">
+    
+    <!-- Header --!>
+    <div class="w3-container w3-theme-dark w3-padding-small">
+      <img id="nav_button" onclick="w3_open();" src="images/bars-solid.png" alt="Site Navigation">
+      <a href="index.htm"><img src="images/logotype_white_small.png" alt="CageMaker PRCG"></a>
+    </div>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, #20295b, rgba(255,0,0,0));">
+      &nbsp;
+    </div>
+  
+    <!-- Content --!>
+    <div id="content" class="w3-container" style="min-height: 820px;">
+      <div class="w3-container w3-section" style="background-color: transparent;">
+        <!-- START CONTENT AREA -->
+      
+        <h1>Configuration Options :: Target Device Presets</h1>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <p>The easiest custom rack generation ever - pick a device from a list and immediately get a ready-to-render basic cage for mounting that device into a 10" rack without requiring any additional work.</p>
+        </div>
+
+        <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+          <div class="w3-deep-orange w3-padding w3-round-xlarge">
+            <img src="images/circle-exclamation.png" alt="IMPORTANT">
+          </div>
+          <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+            <p>Selecting a device preset will automatically set the device dimensions (height, width, and depth) and override the settings for <strong>manual support cage base size</strong> and <strong>manual surface thickness</strong> in order to suit the typical needs for supporting the selected device. For some devices, <strong>cage bottom geometry</strong> will also be set to solid - this should be expected if the device has a non-flat bottom.</p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="preconfigured_device"></a><strong>preconfigured device</strong><br>Select a device from the list to automatically configure a cage to contain it.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>Please be aware that this only presets the cage for the size, shape, and weight of the device, and other settings may need to be adjusted for best results.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_preselect.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-container w3-section" style="background-color: transparent;">
+        <p>As of version 0.70, dimensions and basic settings for the following devices are available as presets:</p>
+        <p>Routers/Gateways</p>
+        <ul>
+          <li><p>Mikrotik CRS309-1G-8S+IN</p>
+          </li>
+          <li><p>Mikrotik hEX Series (EXCEPT PoE)</p>
+          </li>
+          <li><p>Mikrotik hEX PoE</p>
+          </li>
+          <li><p>Mikrotik RB4011iGS+RM</p>
+          </li>
+          <li><p>SonicWall TZ Series (Smaller Desktop)</p>
+          </li>
+          <li><p>SonicWall TZ570/TX670 (Larger Desktop)</p>
+          </li>
+          <li><p>TP-Link Omada ER605</p>
+          </li>
+          <li><p>TP-Link Omada ER7206 (1U Ultra-Compact)</p>
+          </li>
+          <li><p>Ubiquiti UniFi EdgeRouter 4</p>
+          </li>
+          <li><p>Ubiquiti UniFi EdgeRouter X SFP</p>
+          </li>
+          <li><p>Ubiquiti UniFi Express 7 (NOTE: Forces solid cage bottom!)</p>
+          </li>
+          <li><p>Ubiquiti UniFi UCG Fiber (NOTE: Forces solid cage bottom!)</p>
+          </li>
+          <li><p>Ubiquiti UniFi UCG Max/Ultra (NOTE: Forces solid cage bottom!)</p>
+          </li>
+          <li><p>Ubiquiti UniFi UISP Router</p>
+          </li>
+        </ul>
+        <p>5-Port Switches</p>
+        <ul>
+          <li><p>D-Link DES-105</p>
+          </li>
+          <li><p>D-Link DGS-105</p>
+          </li>
+          <li><p>D-Link DGS-105GL</p>
+          </li>
+          <li><p>D-Link DMS-105</p>
+          </li>
+          <li><p>Netgear GS105</p>
+          </li>
+          <li><p>Netgear GS105E v2</p>
+          </li>
+          <li><p>Netgear GS105PE</p>
+          </li>
+          <li><p>Netgear GS305</p>
+          </li>
+          <li><p>Linksys SE3005 v1</p>
+          </li>
+          <li><p>Linksys SE3005 v2</p>
+          </li>
+          <li><p>TP-Link LS105G</p>
+          </li>
+          <li><p>TP-Link LS1005G</p>
+          </li>
+          <li><p>TP-Link Omada T-ES206X-M2</p>
+          </li>
+          <li><p>TP-Link SG105S/SG105MPE</p>
+          </li>
+        </ul>
+        <p>8-Port Switches</p>
+        <ul>
+          <li><p>Cudy GS108</p>
+          </li>
+          <li><p>D-Link DES-108</p>
+          </li>
+          <li><p>D-Link DGS-108</p>
+          </li>
+          <li><p>D-Link DGS-108GL</p>
+          </li>
+          <li><p>D-Link DMS-108</p>
+          </li>
+          <li><p>Linksys SE3008 v1</p>
+          </li>
+          <li><p>Linksys SE3008 v2</p>
+          </li>
+          <li><p>Netgear GS108</p>
+          </li>
+          <li><p>Netgear GS108E v3</p>
+          </li>
+          <li><p>Netgear GS308LP/GS308PP</p>
+          </li>
+          <li><p>Netgear GS308</p>
+          </li>
+          <li><p>TP-Link LS108G</p>
+          </li>
+          <li><p>TP-Link LS1008G</p>
+          </li>
+          <li><p>TP-Link Omada ES210X-M2</p>
+          </li>
+          <li><p>TrendNET TEG-S381</p>
+          </li>
+          <li><p>TrendNET TEG-S82g</p>
+          </li>
+          <li><p>UniFi UISP Switch</p>
+          </li>
+          <li><p>UniFi US-8-150W</p>
+          </li>
+          <li><p>Zyxel GS1100-10HP</p>
+          </li>
+        </ul>
+        <p>12-16-Port Switches</p>
+        <ul>
+          <li>Zyxel GS1100-16</li>
+          </ul>
+          <p>SFP Switches</p>
+          <ul>
+          <li><p>Mikrotik CRS305-1G-4S+IN</p>
+          </li>
+          <li><p>TrendNET TEG-S5 Series</p>
+          </li>
+          <li><p>Ubiquiti UniFi UISP Switch Plus</p>
+          </li>
+        </ul>
+        <p>Small Form Factor PCs</p>
+        <ul>
+          <li><p>Apple MAC Mini M4+ (NOTE: Forces solid cage bottom!)</p>
+          </li>
+          <li><p>Apple MAC Studio M3+ (NOTE: Forces solid cage bottom!)</p>
+          </li>
+          <li><p>Dell OptiPlex USFF Chassis</p>
+          </li>
+          <li><p>Dell OptiPlex M (Micro) Chassis (1U Ultra-Compact)</p>
+          </li>
+          <li><p>HP Elite/Pro G3/G6/G9 Mini Chassis (1U Ultra-Compact)</p>
+          </li>
+          <li><p>HP Z2 G9 Mini Chassis</p>
+          </li>
+          <li><p>Intel NUC Pro Chassis</p>
+          </li>
+          <li><p>Intel NUC Slim Chassis</p>
+          </li>
+          <li><p>Intel NUC Tall/Dual-LAN Chassis</p>
+          </li>
+          <li><p>Lenovo ThinkCentre Tiny (1U Ultra-Compact)</p>
+          </li>
+          <li><p>Minisforum MS-01/MS-A2/MS-R1</p>
+          </li>
+          <li><p>Minisforum MS-A1</p>
+          </li>
+        </ul>
+        <p>Miscellaneous</p>
+        <ul>
+          <li><p>2.5-Inch Drive Bay (Horizontal or Vertical)</p>
+          </li>
+          <li><p>2.5-Inch Half-Height Drive Bay (Horizontal or Vertical)</p>
+          </li>
+          <li><p>3.5-Inch Drive Bay (Horizontal or Vertical)</p>
+          </li>
+          <li><p>E1.S-9.5mm (Enterprise SSD) Drive Bay (Horizontal or Vertical)</p>
+          </li>
+          <li><p>E1.S-15mm (Enterprise SSD) Drive Bay (Horizontal or Vertical)</p>
+          </li>
+          <li><p>E1.S-25mm (Enterprise SSD) Drive Bay (Horizontal or Vertical)</p>
+          </li>
+          <li><p>E1.L-9.5mm (Enterprise SSD) Drive Bay (Horizontal or Vertical)</p>
+          </li>
+          <li><p>E1.L-18mm (Enterprise SSD) Drive Bay (Horizontal or Vertical)</p>
+          </li>
+          <li><p>E3.S (Enterprise SSD) Drive Bay (Horizontal or Vertical)</p>
+          </li>
+          <li><p>E3.S-2T (Enterprise SSD) Drive Bay (Horizontal or Vertical)</p>
+          </li>
+          <li><p>E3.L (Enterprise SSD) Drive Bay (Horizontal or Vertical)</p>
+          </li>
+          <li><p>E3.L-2T (Enterprise SSD) Drive Bay (Horizontal or Vertical)</p>
+          </li>
+        </ul>
+        </div>
+
+
+        <!-- END CONTENT AREA -->        
+      </div>
+    </div>
+
+    <!-- Footer --!>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, rgba(255,0,0,0), #20295b);">
+      &nbsp;
+    </div>
+    <div class="w3-container w3-theme-dark w3-flex w3-small" style="gap:16px; align-items:flex-start">
+      <div>
+        <p>
+          <a href="#"><img src="images/circle-up.png" alt="Back To Top"> Back To Top</a>
+        </p>
+        <p>
+          <a href="#" onclick="window.scroll(0,0); w3_open();"><img src="images/map.png" alt="Navigate Site"> Navigate Site</a>
+        </p>
+      </div>
+      <div style="flex:1">
+        <p>&nbsp;</p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/github-icon.png" alt="Github Logo"> Source Code
+        </p>
+        <p>
+          <!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/WebMaka/CageMakerPRCG" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star WebMaka/CageMakerPRCG on GitHub">Star Us On Github!</a>
+          <br>
+          <a href="https://github.com/WebMaka/CageMakerPRCG/issues">Report A Bug/Issue</a>
+          <br>
+          <a href="https://github.com/WebMaka/CageMakerPRCG">Github Repository</a>
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/gift.png" alt="Support"> Support This Project
+        </p>
+        <p>
+          <a href="https://ko-fi.com/webmaka">Donate via Ko-Fi</a>
+          <br>
+          <a href="https://thanks.dev/webmaka">Donate via thanks.dev</a>
+          <br>
+          <a href="https://patreon.com/WebMaka">Join Patreon</a>
+          <br>
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/comments.png" alt="Community"> Community
+        </p>
+        <p>
+          <a href="https://github.com/WebMaka/CageMakerPRCG/discussions">Github Discussions</a>
+          <br>
+          <a href="mailto:general@cagemaker.org?subject=docs" alt="Contact">Contact Devs via email</a>
+        </p>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/gavel.png" alt="Legal"> Legal Notices & Information
+        </p>
+        <p>
+          <a href="Credits.htm">Credits</a> | 
+          <a href="License.htm">License</a>  
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/copyright.png" alt="Copyright"> Copyright/Trademarks
+        </p>
+        <p>
+          This website and its contents are Copyright &copy; 2026 by WebMaka,<br>
+          unless otherwise mentioned. All Rights Reserved.
+        </p>
+        <p>
+          Icons provided by <a href="https://fontawesome.com">Font Awesome</a>. 
+          CSS stylesheets provided by <a href="https://www.w3schools.com/w3css/default.asp">W3C</a>.
+        </p>
+        <p>
+          Any trademarks are the property of their respective owners.
+        </p>
+      </div>
+    </div>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, #20295b, #000000);">
+      &nbsp;
+    </div>
+  </div>
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+</body>
+
+</html>

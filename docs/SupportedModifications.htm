@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Supported Modifications :: CageMaker PRCG Documentation</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="w3-theme-indigo.css">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+
+</head>
+
+<script>
+function w3_open() {
+  document.getElementById("main").style.marginLeft = "25%";
+  document.getElementById("nav_sidebar").style.width = "25%";
+  document.getElementById("nav_sidebar").style.display = "block";
+  document.getElementById("nav_button").style.display = 'none';
+}
+function w3_close() {
+  document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("nav_sidebar").style.display = "none";
+  document.getElementById("nav_button").style.display = "inline-block";
+}
+</script>
+
+<body>
+  <!-- Navigation --!>
+  <div class="w3-sidebar w3-bar-block w3-card-4 w3-animate-left w3-padding" style="display:none" id="nav_sidebar">
+    <div class="w3-theme-dark w3-flex" style="align-items:center">
+	  <div class="w3-padding">
+	    Site Navigation
+	  </div>
+	  <div class="" style="margin-left:auto; align-self:center">
+        <a href="#" class="w3-bar-item w3-button w3-hover-red w3-crimson w3-xlarge" onclick="w3_close();">
+		  &times;
+		</a>
+	  </div>
+    </div>
+	<p>
+      <a href="QuickStartGuide.htm">Quick-Start Guide</a>
+	  <br>
+      <a href="BestPractices.htm">Best Practices</a>
+	  <br>
+	  <a href="MaximumSupportedSizes.htm">Maximum Supported Sizes</a>
+	  <br>
+	  <a href="SupportedModifications.htm">Supported Modifications</a>
+	  <br>
+	  <a href="FAQ.htm">FAQ</a>
+	</p>
+	<p>
+	  <a href="ConfigOptions.htm">Configuration Options</a>
+	  <br>
+	  <a href="ConfigOptions_TargetDevicePresets.htm">&rsaquo; Target Device Presets</a>
+	  <br>
+	  <a href="ConfigOptions_TargetDeviceDimensions.htm">&rsaquo; Target Device Dimensions &amp; Geometry</a>
+	  <br>
+	  <a href="ConfigOptions_OverallStructureGeometry.htm">&rsaquo; Overall Structure &amp; Geometry</a>
+	  <br>
+	  <a href="ConfigOptions_RulersGuides.htm">&rsaquo; Rulers/Guides</a>
+	  <br>
+	  <a href="ConfigOptions_3DPrinterSupport.htm">&rsaquo; 3D Printer Support</a>
+	  <br>
+	  <a href="ConfigOptions_RackSettings.htm">&rsaquo; Rack Settings</a>
+	  <br>
+	  <a href="ConfigOptions_FaceplateOptions.htm">&rsaquo; Faceplate Options</a>
+	  <br>
+	  <a href="ConfigOptions_FaceplateVentilationOptions.htm">&rsaquo; Faceplate Ventillation Options</a>
+	  <br>
+	  <a href="ConfigOptions_CageOptions.htm">&rsaquo; Cage Options</a>
+	  <br>
+	  <a href="ConfigOptions_CageTopBottomOptions.htm">&rsaquo; Cage TOP and BOTTOM Geometry &amp; Ventillation Options</a>
+	  <br>
+	  <a href="ConfigOptions_CageLeftRightOptions.htm">&rsaquo; Cage LEFT and RIGHT SIDE Geometry &amp; Ventillation Options</a>
+	  <br>
+	  <a href="ConfigOptions_CageBackOptions.htm">&rsaquo; Cage BACK Geometry &amp; Modifications</a>
+	  <br>
+	  <a href="ConfigOptions_RearSupportOptions.htm">&rsaquo; Rear Support Options</a>
+	  <br>
+	  <a href="ConfigOptions_AdditionalFaceplateModifications.htm">&rsaquo; Additional Faceplate Modifications</a>
+	  <br>
+	  <a href="ConfigOptions_CustomCutoutOptions.htm">&rsaquo; Custom Cutout Options</a>
+	  <br>
+	  <a href="ConfigOptions_IgnoreErrors.htm">&rsaquo; Ignore Errors</a>
+	  <br>
+	  <a href="ConfigOptions_RarelyChangedOptions.htm">&rsaquo; Rarely-Changed Options</a>
+	</p>
+	<p>
+	  <a href="Features.htm">Features</a>
+	  <br>
+	  <a href="History.htm">History</a>
+	  <br>
+	  <a href="Credits.htm">Credits</a>
+	  <br>
+	  <a href="License.htm">License</a>
+    </p>
+  </div>
+
+  <div id="main" style="min-height: 820px;">
+	
+    <!-- Header --!>
+    <div class="w3-container w3-theme-dark w3-padding-small">
+      <img id="nav_button" onclick="w3_open();" src="images/bars-solid.png" alt="Site Navigation">
+      <a href="index.htm"><img src="images/logotype_white_small.png" alt="CageMaker PRCG"></a>
+    </div>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, #20295b, rgba(255,0,0,0));">
+      &nbsp;
+    </div>
+
+    <!-- Content --!>
+    <div id="content" class="w3-container" style="min-height: 820px;">
+      <div class="w3-container w3-section" style="background-color: transparent;">
+	    <!-- START CONTENT AREA -->
+      
+        <h1>Supported Modifications</h1>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <p>As of the current release (0.7), CageMaker PRCG supports the following modifications to faceplates and optionally cage backs:</p>
+          <ul>
+            <li>Keystone connectors in lock-tab-up or lock-tab-down orientation.</li>
+            <li>Neutrik D-Series connectors, with both two- and four-screw configurations supported.</li>
+            <li><img src="images/new.png"> <em>new for version 0.7</em> :: 85mm x 58mm Single-Board Computers (SBCs) in the Raspberry Pi form factor, in horizontal and two vertical orientations.</li>
+            <li><img src="images/new.png"> <em>new for version 0.7</em> :: Short and tall height cable combs in narrow- and wide-runway configurations.</li>
+            <li><img src="images/new.png"> <em>new for version 0.7</em> :: ATX-standard 159mm x 44.7mm rear-panel IO shield cutout.</li>
+            <li><img src="images/new.png"> <em>new for version 0.7</em> :: PC expansion slot (PCI) in both standard and low-profile heights.</li>
+            <li>Cooling fans in 30 mm, 40 mm, 60 mm, 80 mm, 92 mm, 120 mm, and 140 mm sizes.</li>
+            <li>Ready-to-use round holes for pushbuttons, indicator lights, etc. in 10 mm, 12 mm, 16 mm, 19 mm, and 24 mm sizes.</li>
+            <li>VESA-FDMI mounting bolt patterns, in MIS-B/C/D/E/F sizes.</li>
+            <li>Fractional-DIN cutouts in 1/32-DIN, 1/16-DIN, 1/8-DIN, and 1/4-DIN sizes. Rectangular cutouts are available in both horizontal and vertical orientations.</li>
+            <li>IEC-60309 industrial power inlets in both 16A and 32A capacities, with both three-wire and 4-7-wire sizes supported.</li>
+            <li>IEC-60320 C13/C14/C19/C20 power sockets/outlets, in both screw-mount and snap-in forms, and in both horizontal and vertical orientations.</li>
+            <li>Three user-defined custom cutouts, which can be round or rectangular/square with rounded corners as an option. These cutouts can also be set to include a recessed channel for snap-in panel-mount connectors.</li>
+          </ul>
+        </div>
+
+	    <!-- END CONTENT AREA -->		
+      </div>
+      <div class="w3-container w3-section" style="background-color: transparent;">
+	    &nbsp;
+      </div>
+    </div>
+
+    <!-- Footer --!>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, rgba(255,0,0,0), #20295b);">
+      &nbsp;
+    </div>
+    <div class="w3-container w3-theme-dark w3-flex w3-small" style="gap:16px; align-items:flex-start">
+      <div>
+        <p>
+          <a href="#"><img src="images/circle-up.png" alt="Back To Top"> Back To Top</a>
+        </p>
+        <p>
+          <a href="#" onclick="window.scroll(0,0); w3_open();"><img src="images/map.png" alt="Navigate Site"> Navigate Site</a>
+        </p>
+      </div>
+      <div style="flex:1">
+        <p>&nbsp;</p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/github-icon.png" alt="Github Logo"> Source Code
+        </p>
+        <p>
+          <!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/WebMaka/CageMakerPRCG" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star WebMaka/CageMakerPRCG on GitHub">Star Us On Github!</a>
+          <br>
+          <a href="https://github.com/WebMaka/CageMakerPRCG/issues">Report A Bug/Issue</a>
+          <br>
+          <a href="https://github.com/WebMaka/CageMakerPRCG">Github Repository</a>
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/gift.png" alt="Support"> Support This Project
+        </p>
+        <p>
+          <a href="https://ko-fi.com/webmaka">Donate via Ko-Fi</a>
+          <br>
+          <a href="https://thanks.dev/webmaka">Donate via thanks.dev</a>
+          <br>
+          <a href="https://patreon.com/WebMaka">Join Patreon</a>
+          <br>
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/comments.png" alt="Community"> Community
+        </p>
+        <p>
+          <a href="https://github.com/WebMaka/CageMakerPRCG/discussions">Github Discussions</a>
+          <br>
+          <a href="mailto:general@cagemaker.org?subject=docs" alt="Contact">Contact Devs via email</a>
+        </p>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/gavel.png" alt="Legal"> Legal Notices & Information
+        </p>
+        <p>
+          <a href="Credits.htm">Credits</a> | 
+          <a href="License.htm">License</a>  
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/copyright.png" alt="Copyright"> Copyright/Trademarks
+        </p>
+        <p>
+          This website and its contents are Copyright &copy; 2026 by WebMaka,<br>
+          unless otherwise mentioned. All Rights Reserved.
+        </p>
+        <p>
+          Icons provided by <a href="https://fontawesome.com">Font Awesome</a>. 
+          CSS stylesheets provided by <a href="https://www.w3schools.com/w3css/default.asp">W3C</a>.
+        </p>
+        <p>
+          Any trademarks are the property of their respective owners.
+        </p>
+      </div>
+    </div>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, #20295b, #000000);">
+      &nbsp;
+    </div>
+  </div>
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+</body>
+
+</html>

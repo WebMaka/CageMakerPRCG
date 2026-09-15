@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>History :: CageMaker PRCG Documentation</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="w3-theme-indigo.css">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+
+</head>
+
+<script>
+function w3_open() {
+  document.getElementById("main").style.marginLeft = "25%";
+  document.getElementById("nav_sidebar").style.width = "25%";
+  document.getElementById("nav_sidebar").style.display = "block";
+  document.getElementById("nav_button").style.display = 'none';
+}
+function w3_close() {
+  document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("nav_sidebar").style.display = "none";
+  document.getElementById("nav_button").style.display = "inline-block";
+}
+</script>
+
+<body>
+  <!-- Navigation --!>
+  <div class="w3-sidebar w3-bar-block w3-card-4 w3-animate-left w3-padding" style="display:none" id="nav_sidebar">
+    <div class="w3-theme-dark w3-flex" style="align-items:center">
+      <div class="w3-padding">
+        Site Navigation
+      </div>
+      <div class="" style="margin-left:auto; align-self:center">
+        <a href="#" class="w3-bar-item w3-button w3-hover-red w3-crimson w3-xlarge" onclick="w3_close();">
+          &times;
+        </a>
+      </div>
+    </div>
+    <p>
+      <a href="QuickStartGuide.htm">Quick-Start Guide</a>
+      <br>
+      <a href="BestPractices.htm">Best Practices</a>
+      <br>
+      <a href="MaximumSupportedSizes.htm">Maximum Supported Sizes</a>
+      <br>
+      <a href="SupportedModifications.htm">Supported Modifications</a>
+      <br>
+      <a href="FAQ.htm">FAQ</a>
+    </p>
+    <p>
+      <a href="ConfigOptions.htm">Configuration Options</a>
+      <br>
+      <a href="ConfigOptions_TargetDevicePresets.htm">&rsaquo; Target Device Presets</a>
+      <br>
+      <a href="ConfigOptions_TargetDeviceDimensions.htm">&rsaquo; Target Device Dimensions &amp; Geometry</a>
+      <br>
+      <a href="ConfigOptions_OverallStructureGeometry.htm">&rsaquo; Overall Structure &amp; Geometry</a>
+      <br>
+      <a href="ConfigOptions_RulersGuides.htm">&rsaquo; Rulers/Guides</a>
+      <br>
+      <a href="ConfigOptions_3DPrinterSupport.htm">&rsaquo; 3D Printer Support</a>
+      <br>
+      <a href="ConfigOptions_RackSettings.htm">&rsaquo; Rack Settings</a>
+      <br>
+      <a href="ConfigOptions_FaceplateOptions.htm">&rsaquo; Faceplate Options</a>
+      <br>
+      <a href="ConfigOptions_FaceplateVentilationOptions.htm">&rsaquo; Faceplate Ventillation Options</a>
+      <br>
+      <a href="ConfigOptions_CageOptions.htm">&rsaquo; Cage Options</a>
+      <br>
+      <a href="ConfigOptions_CageTopBottomOptions.htm">&rsaquo; Cage TOP and BOTTOM Geometry &amp; Ventillation Options</a>
+      <br>
+      <a href="ConfigOptions_CageLeftRightOptions.htm">&rsaquo; Cage LEFT and RIGHT SIDE Geometry &amp; Ventillation Options</a>
+      <br>
+      <a href="ConfigOptions_CageBackOptions.htm">&rsaquo; Cage BACK Geometry &amp; Modifications</a>
+      <br>
+      <a href="ConfigOptions_RearSupportOptions.htm">&rsaquo; Rear Support Options</a>
+      <br>
+      <a href="ConfigOptions_AdditionalFaceplateModifications.htm">&rsaquo; Additional Faceplate Modifications</a>
+      <br>
+      <a href="ConfigOptions_CustomCutoutOptions.htm">&rsaquo; Custom Cutout Options</a>
+      <br>
+      <a href="ConfigOptions_IgnoreErrors.htm">&rsaquo; Ignore Errors</a>
+      <br>
+      <a href="ConfigOptions_RarelyChangedOptions.htm">&rsaquo; Rarely-Changed Options</a>
+    </p>
+    <p>
+      <a href="Features.htm">Features</a>
+      <br>
+      <a href="History.htm">History</a>
+      <br>
+      <a href="Credits.htm">Credits</a>
+      <br>
+      <a href="License.htm">License</a>
+    </p>
+  </div>
+
+  <div id="main" style="min-height: 820px;">
+    
+    <!-- Header --!>
+    <div class="w3-container w3-theme-dark w3-padding-small">
+      <img id="nav_button" onclick="w3_open();" src="images/bars-solid.png" alt="Site Navigation">
+      <a href="index.htm"><img src="images/logotype_white_small.png" alt="CageMaker PRCG"></a>
+    </div>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, #20295b, rgba(255,0,0,0));">
+      &nbsp;
+    </div>
+
+    <!-- Content --!>
+    <div id="content" class="w3-container" style="min-height: 820px;">
+      <div class="w3-container w3-section" style="background-color: transparent;">
+        <!-- START CONTENT AREA -->
+      
+        <h1>Version and Revision History</h1>
+        
+        <h3>0.70 - TBA</h3>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <ul>
+            <li><p>Almost completely refactored to break up massive routines into easier-to-
+            modify and easier-to-maintain smaller segments and subroutines. This should
+            make codebase finalization for 1.0 significantly easier, while also making
+            for a more robust generator overall going forward.</p></li>
+            <li><p>Added the option to selectively disable any cage side. (Requested by Github
+            user "Nepherim")</p></li>
+            <li><p>Added options to expand the faceplate upward or downward to cover openings
+            or structures. The downward setting can emulate Homeracker "flush to bottom"
+            for covering reinforcing bars. (Requested by Reddit/Github user "dekonnection")</p></li>
+            <li><p>Added the option to shfit the mounting holes on either side of the faceplate
+            up or down relative to the center of the topmost unit on the faceplate.
+            This can be used to flip upside-down asymmetric cages that are half-unit
+            height multiples, such as Keystone patch panels. (Requested by Reddit/Github user
+            "dekonnection")</p></li>
+            <li><p>Improved the structure of rear support cages to handle heavier weight and
+            greater extension range without sagging. Also changed the cage generation
+            to make horizontal support ribs mandatory when a rear support cage is
+            generated, so as to make a more effective overlapping joint between front
+            and rear cages for greater rigidity.</p></li>
+            <li><p>Added faceplate modifications for 88x56mm SBCs such as Raspberry Pi, or any
+            other SBC with this footprint along with M2 mounting holes in a 49mm x 58mm
+            pattern. These modifications include a standalone support frame for the SBC, 
+            and include horizontal as well as vertical in both left-oriented and right-
+            oriented.</p></li>
+            <li><p>Added faceplate modifications for standard motherboard rear-panel IO shield
+            openings, as well as full-height and half-height PCI slots.</p></li>
+            <li><p>Added the option to generate a cage without opening a corresponding hole in
+            the faceplate for inserting a device. Useful for creating custom rackmount
+            enclosures when combined with faceplate modifications.</p></li>
+            <li><p>Added the option to make the back of the cage solid, which can be useful for
+            creating custom rackmount enclosures with solid backs for mounting connectors,
+            etc., or remove most of the back aside from two 6mm wide retention lips on
+            both short sides.</p></li>
+            <li><p>Added options to remove most of any side of the cage except for its support
+            structure, or remove the side entirely.</p></li>
+            <li><p>Added the capability to place left/centered/right modifications on the back
+            of the cage when said back is set to solid. This makes creating custom rack
+            enclosures significantly easier by generating cutouts directly into the cage
+            back.</p></li>
+            <li><p>Added custom rack widths for 12, 14, and 16 inch racks, as well as a 12.66
+            inch wide, 2/3-width rack for 19 inch racks.</p></li>
+            <li><p>Added direct support for EIA-310 racks using 2020 aluminum extrusion for
+            framing. Since these racks have a reduced internal width, conventional cages
+            often don't fit - selecting this rack geometry sets CageMaker to be more
+            aware of the geometry differences for this rack design.</p></li>
+            <li><p>Added support for more non-EIA-standard rack geometries, including direct
+            support for Homeracker and MR248 rack systems.</p></li>
+            <li><p>Added the ability to set custom rack geometry for non-standard racks. Unit
+            height, hole spacing/centers/size, and mounting reservation space are all
+            adjustable.</p></li>
+            <li><p>Modified the faceplate generator to more accurately locate screw holes on 
+            EIA-compliant racks.</p></li>
+            <li><p>Added the option to generate screw holes for mounting instead of 5mm wide
+            slots. This will make for better aesthetics but may cause alignment issues
+            on racks with slightly off-spec mounting hole centers.</p></li>
+            <li><p>Changed behavior under "error" conditions - CageMaker PRCG will no longer
+            force-correct any problems it detects, such as re-centering faceplate
+            modifications that exceed exclusion zones. This will permit forcing a
+            render operation when the end result will work but might have clearance
+            issues that CageMaker PRCG doesn't like but don't pose a problem in
+            practical application.</p></li>
+            <li><p>Added an option to suppress "CHECK CONSOLE" error warning for rare situations
+            where the generated cage throws an error that doesn't actually cause issues.
+            This should be used VERY SPARINGLY, as it can result in an unprintable cage
+            or one that has fitment issues.</p></li>
+            <li><p>Added a greeting that appears in the console when the script runs, which
+            also displays the maximum width for a single device that can be placed in
+            a single cage with the current settings.</p></li>
+            <li><p>Added a logotype graphic with version number and URLs that can be disabled
+            via option in the "rarely changed options" category in the Customizer.</p></li>
+          </ul>
+        </div>
+        
+        <h3>0.60 - 21 Jun 2026</h3>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <ul>
+            <li><p>Added the option to select popular devices from a list and preconfigured
+            dimensions for the cage for the selected device.</p></li>
+            <li><p>Added an option to reduce a custom faceplate without a cage to a flat/2D
+            object for export as a flat object for cutting or engraving. (Requested by
+            Reddit user "wirehead")</p></li>
+            <li><p>Reduced support_cage_base_size default from 14 to 12. This will allow up to 
+            32mm tall cages to fit in a single unit of height.</p></li>
+            <li><p>Added recess option for snap-in receptacles to custom cutouts, which adds a 
+            3mm wide recess and reduces panel depth to 2mm for the ears of a snap-include
+            receptacle to grab.</p></li>
+            <li><p>Added horizontal and vertical spacing controls to custom cutouts, to increase
+            spacing in grids.</p></li>
+            <li><p>Added an option to modify the geometry of the generated cage, which allows for
+            reducing the size of the cage's structure for lighter devices.</p></li>
+            <li><p>Added vertical offset option to left and right faceplate modifications.
+            (Requested by Thingiverse user "ztilleto")</p></li>
+            <li><p>Fixed an edge-case bug where extremely low values for "support_cage_base_size"
+            would cause the cage to detach from the faceplate.</p></li>
+            <li><p>Fixed an edge-case bug with the cage ventilation code that would generate
+            undersized grids with broken segments.</p></li>
+          </ul>
+        </div>
+        
+        <h3>0.50 - 15 Apr 2026</h3>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <ul>
+            <li><p>Added the capability to replace most of the faceplate with a grid of holes
+            for ventilation. Grid can be one of several different geometries, and both
+            horizontal and vertical offsets are adjustable as is hole diameter, angle,
+            and wall-between-hole thickness. Sides, top/bottom, and faceplate
+            ventilation grids are configured independantly.</p>
+            </li>
+            <li><p>Added the capability to replace the open areas of the sides and top/bottom
+            with ventilation grids. Grid can be one of several geometries, and both
+            horizontal and vertical offsets are adjustable as is hole diameter,angle, 
+            and wall-between-hole thickness. Sides, top/bottom, and faceplate
+            ventilation grids are configured independantly. (The "make bottom a shelf" 
+            and "make sides solid" options override these as required.)</p>
+            </li>
+            <li><p>Added VESA-C/D/E/F mount patterns as faceplate modifications, with sizes
+            up to 200mm, Neutrik D-Series connector mount patterns, 24mm hole for 
+            buttons/lights/etc. DIN cutouts in 1/32- to 1/4-DIN sizes, IEC C13/C14/
+            C19/C20 receptacle cutouts, and 16A/32A power inlet cutouts as faceplate 
+            modifications.</p>
+            </li>
+            <li><p>Replaced faceplate modifications that were groups of a single mod with the
+            ability to create a grid of one mod. Up to 12 columns by 4 rows of any one
+            mod can be placed in one operation if there's enough room to do so on the
+            faceplate. This will make creating custom patch panels and breakout panels
+            substantially easier.</p>
+            </li>
+            <li><p>Added a centered modification option for faceplate blanks without cages. The
+            modifications include the same new choices and options.</p>
+            </li>
+            <li><p>Added three custom cutout modifications, which can be round or rectangular
+            and of a user-defined size.</p>
+            </li>
+            <li><p>Restructured faceplate modification code to make it easier to add new mods
+            without having to repeat code, and reduced six sets of relevant code to two
+            and cut the entire subsystem's size and complexity down substantially.</p>
+            </li>
+            <li><p>Reorganized faceplate modifications in the Customizer to make them easier 
+            to select.</p>
+            </li>
+            <li><p>Added the ability to generate a rear support sub-cage to match the front
+            rack cage and help support it on racks that include a rear rail set. This
+            helps support the rear ends of longer/heavier devices.</p>
+            </li>
+            <li><p>Added support for 5-inch micro-racks, and added a 50%-scaled EIA-310 layout
+            option to support scaled-down 10" rack systems such as the Mini LabRaxx.</p>
+            </li>
+            <li><p>Added a lightweight device option to the "heavy device" setting for small
+            devices like SBCs - this reduces panel thicknesses to 3.175mm or 1/8"
+            instead of the default of 4mm.</p>
+            </li>
+            <li><p>Improved the cooling fan modification's generator code to improve its 
+            functionality and make it work properly within OpenSCAD Playground.</p>
+            </li>
+            <li><p>Increased vertical gap between adjacent Keystone receptacles by 2mm to 
+            provide better clearance.</p>
+            </li>
+            <li><p>Modified the multiple-device-cage generator to reduce the amount of material
+            required to print a multi-device cage.</p>
+            </li>
+            <li><p>HOPEFULLY finally fixed a persistent bug in the faceplate modification
+            placement code that would occasionally overlap left and right mod slots 
+            over each other.</p>
+            </li>
+            <li><p>Fixed a few more edge-case bugs.</p>
+            </li>
+          </ul>
+        </div>
+        
+        <h3>0.40 - 22 Feb 2026</h3>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <ul>
+            <li><p>Added support for non-standard rack geometries, as well as alternative
+            hole patterns for EIA-310 racks. This should allow the creation of usable
+            rack cages for practically any rackmount system on Earth regardless of
+            whether it complies with existing standards, as well as supporting any 
+            newly emergent designs even if they don't match EIA-310 layout.</p>
+            </li>
+            <li><p>Added options for creating quarter-width cages for 19" racks. This allows
+            for projects like placing four Raspberry Pis into a single unit of height
+            on a 19" rack.</p>
+            </li>
+            <li><p>Added an option to round the corners of the faceplate cutout through which
+            the device inserts into the cage. Note that this does NOT round the corners
+            within the cage proper, so using either "extra support" or "make bottom a
+            shelf" options might be advisable depending on the shape of the device.
+            (Requested by MakerWorld user "eriekr".)</p>
+            </li>
+            <li><p>Added an option to create a faceplate without a cage, setting the height
+            to a specific number of units. Modifications are still enabled, but most
+            cage creation features become unavailable.</p>
+            </li>
+            <li><p>Added an option to only provide screw holes for the top-most and bottom-
+            most mounting holes on the faceplate. This makes for neater aesthetics on
+            small cages on small racks where there is no real need for a ton of screws.</p>
+            </li>
+            <li><p>Added options for placing mounting holes in ears along the shorter edge
+            of a cage, or the corners of the cage opening, or both. Holes are aligned
+            with the edge of the cage opening. This is intended to support subrack
+            systems that insert into cage openings and secure with screws.</p>
+            </li>
+            <li><p>Added an option to make the sides of the cage solid instead of removing
+            most of them for ventillation. (Requested by MakerWorld user "Stephen".)</p>
+            </li>
+            <li><p>Added an option to expend the gap between multiple devices, which can be
+            useful for thermal management in densely populated builds. (Requested by
+            MakerWorld user "Stephen".)</p>
+            </li>
+            <li><p>Added the capacity to change mounting hole sizes.</p>
+            </li>
+            <li><p>Expanded faceplate modifications to add support for 10mm, 12mm, 16mm, 
+            and 19mm pushbuttons and panel lights, as well as dual 30mm and 40mm 
+            cooling fans.</p>
+            </li>
+            <li><p>Adjusted spacing on split cages so that a 10" 2U cage can fit within a
+            180mm sqare footprint - print a 10" 2U cage on an A1 Mini!</p>
+            </li>
+            <li><p>Added a "CAGE TOP" marker to the ruler feature, to make it more obvious
+            which way is "up" relative to the faceplate.</p>
+            </li>
+            <li><p>Added a number of example printers to the list of sizes in the build outline
+            option, to make selecting an outline size easier for several popular printers.</p>
+            </li>
+            <li><p>Added a unit-height indicator to the ruler feature, to make the size of
+            the generated cage, in units, more apparent.</p>
+            </li>
+            <li><p>Revamped the layout of options in the Customizer, so as to more intelligently
+            and sensibly group them.</p>
+            </li>
+            <li><p>Fixed a few edge-case bugs.</p>
+            </li>
+          </ul>
+        </div>
+        
+        <h3>0.30 - 20 Jan 2026</h3>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <ul>
+            <li><p>Added an option to print the cage proper separately from the faceplate. On printers with a large enough bed to print a full-width faceplate, this dramatically reduces the amount of support required for printing, and decreases the filament cost by a good 20% or more. Print time is also considerably faster. Cage connects to faceplate with 1.75mm filament pins or M2 screws. A setting "snap_fit_tolerance" has been added to adjust the size of the sockets on the back of the faceplate to make for a better fit.</p>
+            </li>
+            <li><p>Added an option to make the bottom of the cage a shelf, which prints it as a solid side instead of removing most of it for ventillation.</p>
+            </li>
+            <li><p>Added an option to construct a multiple-device cage for housing more than
+            one device of a given size, such as vertically-arranged Raspberry Pis,
+            hard drives, etc. (Swap the device height and width parameters to house
+            a device vertically.) Excellent for creating "sub-cage" style assemblies
+            of same-sized devices. (Requested by Github user "AnthonyGress".)</p>
+            </li>
+            <li><p>Added an option to add a 1mm lip to the front of the cage to act as a
+            retainer for the device in the cage. This also triggers recessing the
+            device 1mm into the cage to compensate for the retention lip.</p>
+            </li>
+            <li><p>Converted number-based setting values to sliders to prevent several out-
+            of-range errors.</p>
+            </li>
+          </ul>
+        </div>
+        
+        <h3>0.21 - 23 Dec 2025</h3>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <ul>
+            <li><p>Added a vertical offset setting, which adds the ability to shift the cage off vertical center.</p>
+            </li>
+            <li><p>Cleaned up code in a number of places (hat tip: Reddit user "oldesole1")</p>
+            </li>
+            <li><p>Fixed a number of new bugs.</p>
+            </li>
+          </ul>
+        </div>
+        
+        <h3>0.20 - 21 Dec 2025</h3>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <ul>
+            <li><p>Added the ability to split any cage in half, for printing within a smaller print volume, e.g., 10" 2U rack cage on a 220mm^2 print bed (e.g., Ender3). This requires additional compute time, however, as the script will create two complete copies of the full cage and then split them each in half so as to handle asymmetric cages.</p>
+            </li>
+            <li><p>Added an option for alignment pin holes on split cages, for better alignment and increased durability.</p>
+            </li>
+            <li><p>Added the capability to shift the cage side-to-side by changing an offset value.</p>
+            </li>
+            <li><p>Added the capability to modify the cage faceplate to add things like Keystone module receptacles and a few common cooling fan sizes.</p>
+            </li>
+            <li><p>Added an on-screen ruler to assist in determining offset values for shifting things around.</p>
+            </li>
+            <li><p>Added a configurable outline to indicate the build volume of the 3D printer to be used to print cages, for easier design planning.</p>
+            </li>
+            <li><p>Added better fastener support, including close-clearance, tapped, and heat- set inserts in multiple sizes (M3 to M6 and 4-40 to 1/4-20).</p>
+            </li>
+            <li><p>Added more verbiage to options in the Customizer to make the script easier to use.</p>
+            </li>
+            <li><p>Made bolt-together ears automatic for half-/third-width cages - selecting a partial-rack width auto-enables the appropriate ears on one or both sides.</p>
+            </li>
+            <li><p>Added the option to reinforce the faceplate by adding a "rolled edge" to the
+            top and mottom edges on the back side of the faceplate.</p>
+            </li>
+            <li><p>Modified the support structure generation code to increase the structure's size when increasing the "heavy device" setting, which allows fitting smaller devices into fewer units when they don't require thickened supports. The new device height limit on otherwise-default settings is 28mm/unit.</p>
+            </li>
+            <li><p>Consolidated some options to make the script easier to use.</p>
+            </li>
+            <li><p>Fixed a number of bugs and consolidated the script's code.</p>
+            </li>
+          </ul>
+        </div>
+        
+        <h3>0.12 - 30 Aug 2025</h3>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <ul>
+            <li>
+              <p>Added support for half-height cages as well as half-width for 10" racks. (Requested by Github user "FlyingT".)</p>
+            </li>
+          </ul>
+        </div>
+        
+        <h3>0.11 - 29 Aug 2025</h3>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <ul>
+            <li>
+              <p>Added support for heat-set threaded inserts on faceplate ears for half- and third-width cages for 19" racks. (Requested by Github user "woolmonkey".)</p>
+            </li>
+          </ul>
+        </div>
+        
+        <h3>0.1 - 10 Aug 2025</h3>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <ul>
+            <li>Initial Release</li>
+          </ul>
+        </div>
+
+
+        <!-- END CONTENT AREA -->        
+      </div>
+      <div class="w3-container w3-section" style="background-color: transparent;">
+        &nbsp;
+      </div>
+    </div>
+
+    <!-- Footer --!>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, rgba(255,0,0,0), #20295b);">
+      &nbsp;
+    </div>
+    <div class="w3-container w3-theme-dark w3-flex w3-small" style="gap:16px; align-items:flex-start">
+      <div>
+        <p>
+          <a href="#"><img src="images/circle-up.png" alt="Back To Top"> Back To Top</a>
+        </p>
+        <p>
+          <a href="#" onclick="window.scroll(0,0); w3_open();"><img src="images/map.png" alt="Navigate Site"> Navigate Site</a>
+        </p>
+      </div>
+      <div style="flex:1">
+        <p>&nbsp;</p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/github-icon.png" alt="Github Logo"> Source Code
+        </p>
+        <p>
+          <!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/WebMaka/CageMakerPRCG" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star WebMaka/CageMakerPRCG on GitHub">Star Us On Github!</a>
+          <br>
+          <a href="https://github.com/WebMaka/CageMakerPRCG/issues">Report A Bug/Issue</a>
+          <br>
+          <a href="https://github.com/WebMaka/CageMakerPRCG">Github Repository</a>
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/gift.png" alt="Support"> Support This Project
+        </p>
+        <p>
+          <a href="https://ko-fi.com/webmaka">Donate via Ko-Fi</a>
+          <br>
+          <a href="https://thanks.dev/webmaka">Donate via thanks.dev</a>
+          <br>
+          <a href="https://patreon.com/WebMaka">Join Patreon</a>
+          <br>
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/comments.png" alt="Community"> Community
+        </p>
+        <p>
+          <a href="https://github.com/WebMaka/CageMakerPRCG/discussions">Github Discussions</a>
+          <br>
+          <a href="mailto:general@cagemaker.org?subject=docs" alt="Contact">Contact Devs via email</a>
+        </p>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/gavel.png" alt="Legal"> Legal Notices & Information
+        </p>
+        <p>
+          <a href="Credits.htm">Credits</a> | 
+          <a href="License.htm">License</a>  
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/copyright.png" alt="Copyright"> Copyright/Trademarks
+        </p>
+        <p>
+          This website and its contents are Copyright &copy; 2026 by WebMaka,<br>
+          unless otherwise mentioned. All Rights Reserved.
+        </p>
+        <p>
+          Icons provided by <a href="https://fontawesome.com">Font Awesome</a>. 
+          CSS stylesheets provided by <a href="https://www.w3schools.com/w3css/default.asp">W3C</a>.
+        </p>
+        <p>
+          Any trademarks are the property of their respective owners.
+        </p>
+      </div>
+    </div>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, #20295b, #000000);">
+      &nbsp;
+    </div>
+  </div>
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+</body>
+
+</html>

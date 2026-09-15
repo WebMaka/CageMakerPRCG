@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Quick-Start Guide :: CageMaker PRCG Documentation</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="w3-theme-indigo.css">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+
+</head>
+
+<script>
+function w3_open() {
+  document.getElementById("main").style.marginLeft = "25%";
+  document.getElementById("nav_sidebar").style.width = "25%";
+  document.getElementById("nav_sidebar").style.display = "block";
+  document.getElementById("nav_button").style.display = 'none';
+}
+function w3_close() {
+  document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("nav_sidebar").style.display = "none";
+  document.getElementById("nav_button").style.display = "inline-block";
+}
+</script>
+
+<body>
+  <!-- Navigation --!>
+  <div class="w3-sidebar w3-bar-block w3-card-4 w3-animate-left w3-padding" style="display:none" id="nav_sidebar">
+    <div class="w3-theme-dark w3-flex" style="align-items:center">
+	  <div class="w3-padding">
+	    Site Navigation
+	  </div>
+	  <div class="" style="margin-left:auto; align-self:center">
+        <a href="#" class="w3-bar-item w3-button w3-hover-red w3-crimson w3-xlarge" onclick="w3_close();">
+		  &times;
+		</a>
+	  </div>
+    </div>
+	<p>
+      <a href="QuickStartGuide.htm">Quick-Start Guide</a>
+	  <br>
+      <a href="BestPractices.htm">Best Practices</a>
+	  <br>
+	  <a href="MaximumSupportedSizes.htm">Maximum Supported Sizes</a>
+	  <br>
+	  <a href="SupportedModifications.htm">Supported Modifications</a>
+	  <br>
+	  <a href="FAQ.htm">FAQ</a>
+	</p>
+	<p>
+	  <a href="ConfigOptions.htm">Configuration Options</a>
+	  <br>
+	  <a href="ConfigOptions_TargetDevicePresets.htm">&rsaquo; Target Device Presets</a>
+	  <br>
+	  <a href="ConfigOptions_TargetDeviceDimensions.htm">&rsaquo; Target Device Dimensions &amp; Geometry</a>
+	  <br>
+	  <a href="ConfigOptions_OverallStructureGeometry.htm">&rsaquo; Overall Structure &amp; Geometry</a>
+	  <br>
+	  <a href="ConfigOptions_RulersGuides.htm">&rsaquo; Rulers/Guides</a>
+	  <br>
+	  <a href="ConfigOptions_3DPrinterSupport.htm">&rsaquo; 3D Printer Support</a>
+	  <br>
+	  <a href="ConfigOptions_RackSettings.htm">&rsaquo; Rack Settings</a>
+	  <br>
+	  <a href="ConfigOptions_FaceplateOptions.htm">&rsaquo; Faceplate Options</a>
+	  <br>
+	  <a href="ConfigOptions_FaceplateVentilationOptions.htm">&rsaquo; Faceplate Ventillation Options</a>
+	  <br>
+	  <a href="ConfigOptions_CageOptions.htm">&rsaquo; Cage Options</a>
+	  <br>
+	  <a href="ConfigOptions_CageTopBottomOptions.htm">&rsaquo; Cage TOP and BOTTOM Geometry &amp; Ventillation Options</a>
+	  <br>
+	  <a href="ConfigOptions_CageLeftRightOptions.htm">&rsaquo; Cage LEFT and RIGHT SIDE Geometry &amp; Ventillation Options</a>
+	  <br>
+	  <a href="ConfigOptions_CageBackOptions.htm">&rsaquo; Cage BACK Geometry &amp; Modifications</a>
+	  <br>
+	  <a href="ConfigOptions_RearSupportOptions.htm">&rsaquo; Rear Support Options</a>
+	  <br>
+	  <a href="ConfigOptions_AdditionalFaceplateModifications.htm">&rsaquo; Additional Faceplate Modifications</a>
+	  <br>
+	  <a href="ConfigOptions_CustomCutoutOptions.htm">&rsaquo; Custom Cutout Options</a>
+	  <br>
+	  <a href="ConfigOptions_IgnoreErrors.htm">&rsaquo; Ignore Errors</a>
+	  <br>
+	  <a href="ConfigOptions_RarelyChangedOptions.htm">&rsaquo; Rarely-Changed Options</a>
+	</p>
+	<p>
+	  <a href="Features.htm">Features</a>
+	  <br>
+	  <a href="History.htm">History</a>
+	  <br>
+	  <a href="Credits.htm">Credits</a>
+	  <br>
+	  <a href="License.htm">License</a>
+    </p>
+  </div>
+
+  <div id="main" style="min-height: 820px;">
+	
+    <!-- Header --!>
+    <div class="w3-container w3-theme-dark w3-padding-small">
+      <img id="nav_button" onclick="w3_open();" src="images/bars-solid.png" alt="Site Navigation">
+      <a href="index.htm"><img src="images/logotype_white_small.png" alt="CageMaker PRCG"></a>
+    </div>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, #20295b, rgba(255,0,0,0));">
+      &nbsp;
+    </div>
+
+    <!-- Content --!>
+    <div id="content" class="w3-container" style="min-height: 820px;">
+      <div class="w3-container w3-section" style="background-color: transparent;">
+	    <!-- START CONTENT AREA -->
+
+      <h1>Quick-Start Guide</h1>
+
+      <div class="w3-container w3-section" style="background-color: transparent;">
+        <p>CageMaker PRCG is a rather powerful toolkit, and as of this writing may well be the most extensive parametric rack-mounting generator toolkit on the planet. This power brings a great number of capabilities to bear, but also makes for complexity - CageMaker PRCG has over one hundred options and controls that allow an insane level of granular control over the design of a rack-mountable object, but that giant wall of options can be quite overwhelming for the first-time homelab creator.</p>
+        <p>To help with this, we've put together a quick-start guide to help get things going. This page will seem long for a "quick-start" guide, but the actual process of creating a basic cage only takes a couple minutes.</p>
+        <p>For this guide, we will use a real-world example: creating a 1U tall cage for a TP-Link TL-SG108 8-port switch to fit into a 10" rack that uses the common EIA-310 layout.</p>
+      </div>
+
+      <div class="w3-flex w3-margin w3-card-4 w3-round-xlarge w3-pale-yellow">
+        <div class="w3-deep-orange w3-padding w3-round-xlarge">
+            <img src="images/circle-exclamation.png" alt="IMPORTANT">
+        </div>
+        <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+            <p>The web-browser version of CageMaker PRCG runs in a special Java-based port of OpenSCAD called OpenSCAD Playground. As of this writing, OpenSCAD Playground presents the entire set of options at once as it defaults to having all option categories open from the start. This can make things a lot more complicated than they need to be, at least initially. Unfortunately, again as of this writing, OpenSCAD Playground does not provide a means of starting off with the options categories closed.</p>
+            <p>It is recommended that the option categories be manually closed when first using CageMaker PRCG within OpenSCAD Playground. To do so, click the "-" symbol at the front of each category to close it. Repeat with the rest of the categories to reduce the giant list of options down to something more easily navigable.</p>
+        </div>		  
+      </div>
+
+      <div class="w3-container w3-section" style="background-color: transparent;">
+	    &nbsp;
+      </div>
+
+      <h2>Creating A Rack Cage Quickly</h2>
+
+      <h3>Step One: Gathering Information</h3>
+	  
+      <div class="w3-container w3-section" style="background-color: transparent;">
+        <p>To create a rack cage for a small device, the following information will be needed:</p>
+        <ul>
+          <li>The dimensions (length, width, and height) of the device.</li>
+          <li>The size of the rack into which the device will be mounted.</li>
+          <li>Whether the rack follows EIA-310 layout, which most will. If not, details on the rack's geometry will be needed.</li>
+        </ul>
+        <p>The dimensions of a device will be the easiest to obtain, either from the manufacturer's information such as the product info on their website or through measuring the device itself.</p>
+      </div>
+
+      <div class="w3-flex w3-margin w3-card-4 w3-round-xlarge w3-pale-blue">
+        <div class="w3-cobalt w3-padding w3-round-xlarge">
+          <img src="images/lightbulb.png" alt="Tip">
+        </div>
+        <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
+          <p>CageMaker PRCG does not use decimal fractions of millimeters for its dimensions, so round up to the next whole number if need be.</p>
+        </div>		  
+      </div>
+
+      <div class="w3-container w3-section" style="background-color: transparent;">
+        <p>The size of the rack should be easy enough to obtain as well, again from the manufacturer's information if the rack is a kit such as a Rackmate, or from the source website for 3D-printable rack systems such as Lab Rax and KWS. The most common home-sized rack is 10".</p>
+      </div>
+	  
+      <div class="w3-container w3-section" style="background-color: transparent;">
+        <p>The potentially tricky part will be EIA-310 layout. If the rack advertises that it works with the vast majority of mounts and accessories, it will in all likelihood use EIA-310 layout. Other hints that this is the case is whether the rack specifies a unit height of 1.75" or 44.45mm, or has staggered 1/2"-5/8'-5/8" hole spacing.</p>
+        <p>If a rack does <em>not</em> follow EIA-310, it will be necessary to obtain the following information:</p>
+        <ul>
+          <li>Unit height, in mm.</li>
+          <li>Either the mounting-hole centerline width or how far in from the edges the mounting holes are positioned (aka, the inset distance).</li>
+          <li>The screw size of the mounting holes.</li>
+          <li>The inside width of the rack, or the mounting reservation area on either side of the rack.</li>
+        </ul>
+        <p>For the sake of brevity and due to the fact that the vast majority of racks and rack systems will follow EIA-310 layout, we will assume this is the case going forward.</p>
+        <p>For information on setting up a custom rack geometry, see <strong>Rack Settings</strong>.</p>
+      </div>
+
+      <div class="w3-container" style="background-color: transparent;">
+       <em>Rack Layout Dimensions (Faceplate Side)</em>
+       <br>
+	     <img src="images/rackmount_dimensions.png" class="w3-image w3-card w3-padding">
+      </div>
+	  
+      <div class="w3-container w3-section" style="background-color: transparent;">
+	    &nbsp;
+      </div>
+	  
+      <h3>Step Two: Creating The Cage</h3>
+
+      <div class="w3-container w3-section" style="background-color: transparent;">
+        <p>We'll start by telling CageMaker PRCG about the device. In the case of our real-world example, a TL-SG108 switch, the dimensions are listed on the TP-Link website as "( W x D x H ) 6.2 x 4.0 x 1.0 in. (158 x 101 x 25 mm)"</p>
+        <p>Open the <strong>Target Device Dimensions &amp; Count</strong> category and look for the three controls for device size, <strong>manual device depth</strong>, <strong>manual device width</strong>, and <strong>manual device height</strong>. Set each as required, which for our example would be a depth of 101mm, a width of 158mm, and a height of 25mm. (Note that the order these are entered into CageMaker PRCG does not match the order they are listed on the product information. Be sure to put the right measurement into the right setting.)</p>
+        <p>We're only mounting a single device, so we can leave <strong>number of devices</strong> and <strong>multiple device gap</strong> alone.</p>
+        <br>
+        <img src="images/prcg_0.7_quick_start_example.png" class="w3-image w3-card">
+        <br>
+        &nbsp;
+      </div>
+
+      <div class="w3-flex w3-margin w3-card-4 w3-round-xlarge w3-pale-blue">
+        <div class="w3-cobalt w3-padding w3-round-xlarge">
+          <img src="images/lightbulb.png" alt="Tip">
+        </div>
+        <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
+          <p>
+            CageMaker PRCG includes presets for a number of common/popular devices, and our example is one of them. Selecting it from the preset list will perform the process above in step two automatically. For more information, see <strong>Configuration Options &rsaquo; Target Device Presets</strong>.
+          </p>
+        </div>		  
+      </div>
+
+      <div class="w3-container w3-section" style="background-color: transparent;">
+	    &nbsp;
+      </div>
+
+      <h3>Step Three: Configuring The Rack</h3>
+
+      <div class="w3-container w3-section" style="background-color: transparent;">
+        <p>The next step is telling CageMaker PRCG about the rack. Open the <strong>Rack Settings</strong> category and look for <strong>rack cage width</strong>. Select the width of the rack for which CageMaker PRCG will design the cage.</p>
+        <p>For our real-world example, we will select the "10 in. Mini-Rack" option if it's not already chosen.</p>
+      </div>
+
+      <div class="w3-flex w3-margin w3-card-4 w3-round-xlarge w3-pale-blue">
+        <div class="w3-cobalt w3-padding w3-round-xlarge">
+          <img src="images/lightbulb.png" alt="Tip">
+        </div>
+        <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
+          <p>
+              CageMaker PRCG defaults to creating for 10" mini-racks. This can be changed by selecting another option for <strong>rack cage width</strong> and saving the change as a preset.
+          </p>
+        </div>		  
+      </div>
+
+      <div class="w3-container w3-section" style="background-color: transparent;">
+	    &nbsp;
+      </div>
+
+      <h3>Step Four: Render, Export, Slice, and Print</h3>
+
+      <div class="w3-container w3-section" style="background-color: transparent;">
+        <p>That's it for a basic single device cage. All that remains is to instruct OpenSCAD (or OpenSCAD Playground, if using the web-browser version) to run CageMaker PRCG in render mode and export the resulting object file for slicing and printing.</p>
+        <p>To do this in OpenSCAD, press F6, and when the render completes (OpenSCAD will play a sound), press F7 to save the cage object as a STL file or use OpenSCAD's export feature to select a different object file format.</p>
+        <p>To do this in OpenSCAD Playground, click the "Render" button at the bottom-left, and once the render completes (OpenSCAD Playground will play a sound) click the "Download STL" button to save the cage object as a STL file or click the down-arrow beside the button to select a different object file format.</p>
+        <p>At this point, the only thing left to do is slice and print! For recommendations on slicer/print settings, see <strong>Best Practices</strong>.</p>
+      </div>
+
+      <div class="w3-container w3-section" style="background-color: transparent;">
+        <p>
+        <img src="images/intro_demo_1.png" class="w3-card">
+        </p>
+        <p>
+        <img src="images/intro_demo_2.png" class="w3-card">
+        </p>
+        <p>
+        <img src="images/intro_demo_3.png" class="w3-card">
+        </p>
+      </div>
+
+      <div class="w3-container w3-section" style="background-color: transparent;">
+	    &nbsp;
+      </div>
+
+    </div>
+
+    <!-- Footer --!>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, rgba(255,0,0,0), #20295b);">
+      &nbsp;
+    </div>
+    <div class="w3-container w3-theme-dark w3-flex w3-small" style="gap:16px; align-items:flex-start">
+      <div>
+        <p>
+          <a href="#"><img src="images/circle-up.png" alt="Back To Top"> Back To Top</a>
+        </p>
+        <p>
+          <a href="#" onclick="window.scroll(0,0); w3_open();"><img src="images/map.png" alt="Navigate Site"> Navigate Site</a>
+        </p>
+      </div>
+      <div style="flex:1">
+        <p>&nbsp;</p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/github-icon.png" alt="Github Logo"> Source Code
+        </p>
+        <p>
+          <!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/WebMaka/CageMakerPRCG" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star WebMaka/CageMakerPRCG on GitHub">Star Us On Github!</a>
+          <br>
+          <a href="https://github.com/WebMaka/CageMakerPRCG/issues">Report A Bug/Issue</a>
+          <br>
+          <a href="https://github.com/WebMaka/CageMakerPRCG">Github Repository</a>
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/gift.png" alt="Support"> Support This Project
+        </p>
+        <p>
+          <a href="https://ko-fi.com/webmaka">Donate via Ko-Fi</a>
+          <br>
+          <a href="https://thanks.dev/webmaka">Donate via thanks.dev</a>
+          <br>
+          <a href="https://patreon.com/WebMaka">Join Patreon</a>
+          <br>
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/comments.png" alt="Community"> Community
+        </p>
+        <p>
+          <a href="https://github.com/WebMaka/CageMakerPRCG/discussions">Github Discussions</a>
+          <br>
+          <a href="mailto:general@cagemaker.org?subject=docs" alt="Contact">Contact Devs via email</a>
+        </p>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/gavel.png" alt="Legal"> Legal Notices & Information
+        </p>
+        <p>
+          <a href="Credits.htm">Credits</a> | 
+          <a href="License.htm">License</a>  
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/copyright.png" alt="Copyright"> Copyright/Trademarks
+        </p>
+        <p>
+          This website and its contents are Copyright &copy; 2026 by WebMaka,<br>
+          unless otherwise mentioned. All Rights Reserved.
+        </p>
+        <p>
+          Icons provided by <a href="https://fontawesome.com">Font Awesome</a>. 
+          CSS stylesheets provided by <a href="https://www.w3schools.com/w3css/default.asp">W3C</a>.
+        </p>
+        <p>
+          Any trademarks are the property of their respective owners.
+        </p>
+      </div>
+    </div>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, #20295b, #000000);">
+      &nbsp;
+    </div>
+  </div>
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+</body>
+
+</html>

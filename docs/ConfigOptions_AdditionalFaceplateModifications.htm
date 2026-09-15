@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Configuration Options :: Additional Faceplate Modifications :: CageMaker PRCG Documentation</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="w3-theme-indigo.css">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+
+</head>
+
+<script>
+function w3_open() {
+  document.getElementById("main").style.marginLeft = "25%";
+  document.getElementById("nav_sidebar").style.width = "25%";
+  document.getElementById("nav_sidebar").style.display = "block";
+  document.getElementById("nav_button").style.display = 'none';
+}
+function w3_close() {
+  document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("nav_sidebar").style.display = "none";
+  document.getElementById("nav_button").style.display = "inline-block";
+}
+</script>
+
+<body>
+  <!-- Navigation --!>
+  <div class="w3-sidebar w3-bar-block w3-card-4 w3-animate-left w3-padding" style="display:none" id="nav_sidebar">
+    <div class="w3-theme-dark w3-flex" style="align-items:center">
+      <div class="w3-padding">
+        Site Navigation
+      </div>
+      <div class="" style="margin-left:auto; align-self:center">
+        <a href="#" class="w3-bar-item w3-button w3-hover-red w3-crimson w3-xlarge" onclick="w3_close();">
+          &times;
+        </a>
+      </div>
+    </div>
+    <p>
+      <a href="QuickStartGuide.htm">Quick-Start Guide</a>
+      <br>
+      <a href="BestPractices.htm">Best Practices</a>
+      <br>
+      <a href="MaximumSupportedSizes.htm">Maximum Supported Sizes</a>
+      <br>
+      <a href="SupportedModifications.htm">Supported Modifications</a>
+      <br>
+      <a href="FAQ.htm">FAQ</a>
+    </p>
+    <p>
+      <a href="ConfigOptions.htm">Configuration Options</a>
+      <br>
+      <a href="ConfigOptions_TargetDevicePresets.htm">&rsaquo; Target Device Presets</a>
+      <br>
+      <a href="ConfigOptions_TargetDeviceDimensions.htm">&rsaquo; Target Device Dimensions &amp; Geometry</a>
+      <br>
+      <a href="ConfigOptions_OverallStructureGeometry.htm">&rsaquo; Overall Structure &amp; Geometry</a>
+      <br>
+      <a href="ConfigOptions_RulersGuides.htm">&rsaquo; Rulers/Guides</a>
+      <br>
+      <a href="ConfigOptions_3DPrinterSupport.htm">&rsaquo; 3D Printer Support</a>
+      <br>
+      <a href="ConfigOptions_RackSettings.htm">&rsaquo; Rack Settings</a>
+      <br>
+      <a href="ConfigOptions_FaceplateOptions.htm">&rsaquo; Faceplate Options</a>
+      <br>
+      <a href="ConfigOptions_FaceplateVentilationOptions.htm">&rsaquo; Faceplate Ventillation Options</a>
+      <br>
+      <a href="ConfigOptions_CageOptions.htm">&rsaquo; Cage Options</a>
+      <br>
+      <a href="ConfigOptions_CageTopBottomOptions.htm">&rsaquo; Cage TOP and BOTTOM Geometry &amp; Ventillation Options</a>
+      <br>
+      <a href="ConfigOptions_CageLeftRightOptions.htm">&rsaquo; Cage LEFT and RIGHT SIDE Geometry &amp; Ventillation Options</a>
+      <br>
+      <a href="ConfigOptions_CageBackOptions.htm">&rsaquo; Cage BACK Geometry &amp; Modifications</a>
+      <br>
+      <a href="ConfigOptions_RearSupportOptions.htm">&rsaquo; Rear Support Options</a>
+      <br>
+      <a href="ConfigOptions_AdditionalFaceplateModifications.htm">&rsaquo; Additional Faceplate Modifications</a>
+      <br>
+      <a href="ConfigOptions_CustomCutoutOptions.htm">&rsaquo; Custom Cutout Options</a>
+      <br>
+      <a href="ConfigOptions_IgnoreErrors.htm">&rsaquo; Ignore Errors</a>
+      <br>
+      <a href="ConfigOptions_RarelyChangedOptions.htm">&rsaquo; Rarely-Changed Options</a>
+    </p>
+    <p>
+      <a href="Features.htm">Features</a>
+      <br>
+      <a href="History.htm">History</a>
+      <br>
+      <a href="Credits.htm">Credits</a>
+      <br>
+      <a href="License.htm">License</a>
+    </p>
+  </div>
+
+  <div id="main" style="min-height: 820px;">
+    
+    <!-- Header --!>
+    <div class="w3-container w3-theme-dark w3-padding-small">
+      <img id="nav_button" onclick="w3_open();" src="images/bars-solid.png" alt="Site Navigation">
+      <a href="index.htm"><img src="images/logotype_white_small.png" alt="CageMaker PRCG"></a>
+    </div>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, #20295b, rgba(255,0,0,0));">
+      &nbsp;
+    </div>
+  
+    <!-- Content --!>
+    <div id="content" class="w3-container" style="min-height: 820px;">
+      <div class="w3-container w3-section" style="background-color: transparent;">
+        <!-- START CONTENT AREA -->
+      
+        <h1>Configuration Options :: Additional Faceplate Modifications</h1>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <p>Faceplates can be modified to add things like Keystone receptacles, cooling fans, and pushbuttons.</p>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="centered_mod_type"></a><strong>centered mod type</strong><br>Select a port, connector, or mounting point to add to the center of a cageless faceplate. Configurable grids of the same modification can be created.</p>
+              <p>For the current list of supported modifications, please consult <a href="SupportedModifications.htm"><strong>Supported Modifications</strong></a>.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-red">
+                <div class="w3-crimson w3-padding w3-round-xlarge">
+                  <img src="images/warning.png" alt="WARNING">
+                </div>
+                <div class="w3-pale-red w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    CageMaker PRCG will enforce space restrictions as needed - if a single modification, or a grid of modifications, is too wide and/or tall to fit, an error message will appear.
+                  </p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-blue">
+                <div class="w3-cobalt w3-padding w3-round-xlarge">
+                  <img src="images/lightbulb.png" alt="Tip">
+                </div>
+                <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
+                  <p>The mod selected here will be centered both horizontally and vertically on the faceplate. When using a VESA mount mod with the intention of supporting any significant amount of weight (e.g., wall-mounting a mini-rack via VESA wallmount), it may be advisable to thicken the faceplate by increasing the <strong>surface thickness</strong> setting and/or enable the <strong>reinforce faceplate</strong> option.</p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>This option is only enabled if EITHER generating a cageless faceplate created by setting the <strong>faceplate only</strong> option to a fixed height OR enabling the <strong>closed faceplate</strong> setting to remove the device opening.</p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>IEC-C13/C14/C19/C20 cutouts are sized to fit most commonly available C-series mains inlets/outlets, but some manual resizing may be required. By default, the cutout sizes are: 32.5x25mm for screw-mount C13/C14, 33x26mm for snap-in C13/C14, 33x25mm for screw-mount C19/C20, and 37.5x29.5mm for snap=in C19/C20.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_centered_mod.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="centered_mod_grid_columns"></a><strong>centered mod grid columns</strong><br>Creates a grid of the selected mod - this setting determines the number of copies of the mod per column, or, how many copies across.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-red">
+                <div class="w3-crimson w3-padding w3-round-xlarge">
+                  <img src="images/warning.png" alt="WARNING">
+                </div>
+                <div class="w3-pale-red w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    CageMaker PRCG will enforce space restrictions as needed - if a single modification, or a grid of modifications, is too wide and/or tall to fit, an error message will appear.
+                  </p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>This option is only enabled if EITHER generating a cageless faceplate created by setting the <strong>faceplate only</strong> option to a fixed height OR enabling the <strong>closed faceplate</strong> setting to remove the device opening.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_centered_mod_cols.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="centered_mod_grid_rows"></a><strong>centered mod grid rows</strong><br>Creates a grid of the selected mod - this setting determines the number of rows of the mod, or, how many copies down.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-red">
+                <div class="w3-crimson w3-padding w3-round-xlarge">
+                  <img src="images/warning.png" alt="WARNING">
+                </div>
+                <div class="w3-pale-red w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    CageMaker PRCG will enforce space restrictions as needed - if a single modification, or a grid of modifications, is too wide and/or tall to fit, an error message will appear.
+                  </p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>This option is only enabled if EITHER generating a cageless faceplate created by setting the <strong>faceplate only</strong> option to a fixed height OR enabling the <strong>closed faceplate</strong> setting to remove the device opening.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_centered_mod_rows.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="left_side_mod_type"></a><strong>left side mod type</strong><br>Select a port, connector, or mounting point to add to the cage. Configurable grids of the same modification can be created.</p>
+              <p>For the current list of supported modifications, please consult <a href="SupportedModifications.htm"><strong>Supported Modifications</strong></a>.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-red">
+                <div class="w3-crimson w3-padding w3-round-xlarge">
+                  <img src="images/warning.png" alt="WARNING">
+                </div>
+                <div class="w3-pale-red w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    CageMaker PRCG will enforce space restrictions as needed - if a single modification, or a grid of modifications, is too wide and/or tall to fit, an error message will appear.
+                  </p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-blue">
+                <div class="w3-cobalt w3-padding w3-round-xlarge">
+                  <img src="images/lightbulb.png" alt="Tip">
+                </div>
+                <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
+                  <p>The right-side mod's settings are similar to the left-side mod's.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_left_mod.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="left_side_mod_grid_columns"></a><strong>left side mod grid columns</strong>
+              <br>
+              <strong>left side mod grid rows</strong>
+              <br>
+              Creates a grid of the selected mod - these settings determine the number of copies of the mod per column or row.
+              CageMaker supports grids of the same modification repeated up to twelve wide by four tall.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-red">
+                <div class="w3-crimson w3-padding w3-round-xlarge">
+                  <img src="images/warning.png" alt="WARNING">
+                </div>
+                <div class="w3-pale-red w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    CageMaker PRCG will enforce space restrictions as needed - if a single modification, or a grid of modifications, is too wide and/or tall to fit, an error message will appear.
+                  </p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-blue">
+                <div class="w3-cobalt w3-padding w3-round-xlarge">
+                  <img src="images/lightbulb.png" alt="Tip">
+                </div>
+                <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
+                  <p>The right-side mod's settings are similar to the left-side mod's.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_left_mod_cols_rows.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="left_side_mod_horizontal_offset"></a><strong>left side mod horizontal offset</strong><br>Sets the horizontal position for the port, connector, or mounting point, relative to the horizontal center of the faceplate. If this is left at zero, CageMaker PRCG will attempt to place it automatically to one side of the cage if there is sufficient room to do so.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-red">
+                <div class="w3-crimson w3-padding w3-round-xlarge">
+                  <img src="images/warning.png" alt="WARNING">
+                </div>
+                <div class="w3-pale-red w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    <p>Horizontal and vertical offset settings for modifications also apply to grids of modifications, in which case the center of the grid is the point about which the grid will be offset. If an offset will push one or more modifications in a grid off the edge of the faceplate or into an area reserved for mouinting space, CageMaker PRCG will display an error warning.</p>
+                  </p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-red">
+                <div class="w3-crimson w3-padding w3-round-xlarge">
+                  <img src="images/warning.png" alt="WARNING">
+                </div>
+                <div class="w3-pale-red w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    CageMaker PRCG will enforce space restrictions as needed - if a single modification, or a grid of modifications, is too wide and/or tall to fit, an error message will appear.
+                  </p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-blue">
+                <div class="w3-cobalt w3-padding w3-round-xlarge">
+                  <img src="images/lightbulb.png" alt="Tip">
+                </div>
+                <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
+                  <p>The right-side mod's settings are similar to the left-side mod's.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_left_mod_h_offset.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="left_side_mod_vertical_offset"></a><strong>left side mod vertical offset</strong><br>Sets the vertical position for the port, connector, or mounting point, relative to the vertical center of the faceplate.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-red">
+                <div class="w3-crimson w3-padding w3-round-xlarge">
+                  <img src="images/warning.png" alt="WARNING">
+                </div>
+                <div class="w3-pale-red w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    <p>Horizontal and vertical offset settings for modifications also apply to grids of modifications, in which case the center of the grid is the point about which the grid will be offset. If an offset will push one or more modifications in a grid off the edge of the faceplate or into an area reserved for mouinting space, CageMaker PRCG will display an error warning.</p>
+                  </p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-red">
+                <div class="w3-crimson w3-padding w3-round-xlarge">
+                  <img src="images/warning.png" alt="WARNING">
+                </div>
+                <div class="w3-pale-red w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    CageMaker PRCG will enforce space restrictions as needed - if a single modification, or a grid of modifications, is too wide and/or tall to fit, an error message will appear.
+                  </p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-blue">
+                <div class="w3-cobalt w3-padding w3-round-xlarge">
+                  <img src="images/lightbulb.png" alt="Tip">
+                </div>
+                <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
+                  <p>The right-side mod's settings are similar to the left-side mod's.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_left_mod_v_offset.png" class="w3-card"></p>
+          </div>
+        </div>
+
+
+        <!-- END CONTENT AREA -->        
+      </div>
+    </div>
+
+    <!-- Footer --!>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, rgba(255,0,0,0), #20295b);">
+      &nbsp;
+    </div>
+    <div class="w3-container w3-theme-dark w3-flex w3-small" style="gap:16px; align-items:flex-start">
+      <div>
+        <p>
+          <a href="#"><img src="images/circle-up.png" alt="Back To Top"> Back To Top</a>
+        </p>
+        <p>
+          <a href="#" onclick="window.scroll(0,0); w3_open();"><img src="images/map.png" alt="Navigate Site"> Navigate Site</a>
+        </p>
+      </div>
+      <div style="flex:1">
+        <p>&nbsp;</p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/github-icon.png" alt="Github Logo"> Source Code
+        </p>
+        <p>
+          <!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/WebMaka/CageMakerPRCG" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star WebMaka/CageMakerPRCG on GitHub">Star Us On Github!</a>
+          <br>
+          <a href="https://github.com/WebMaka/CageMakerPRCG/issues">Report A Bug/Issue</a>
+          <br>
+          <a href="https://github.com/WebMaka/CageMakerPRCG">Github Repository</a>
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/gift.png" alt="Support"> Support This Project
+        </p>
+        <p>
+          <a href="https://ko-fi.com/webmaka">Donate via Ko-Fi</a>
+          <br>
+          <a href="https://thanks.dev/webmaka">Donate via thanks.dev</a>
+          <br>
+          <a href="https://patreon.com/WebMaka">Join Patreon</a>
+          <br>
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/comments.png" alt="Community"> Community
+        </p>
+        <p>
+          <a href="https://github.com/WebMaka/CageMakerPRCG/discussions">Github Discussions</a>
+          <br>
+          <a href="mailto:general@cagemaker.org?subject=docs" alt="Contact">Contact Devs via email</a>
+        </p>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/gavel.png" alt="Legal"> Legal Notices & Information
+        </p>
+        <p>
+          <a href="Credits.htm">Credits</a> | 
+          <a href="License.htm">License</a>  
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/copyright.png" alt="Copyright"> Copyright/Trademarks
+        </p>
+        <p>
+          This website and its contents are Copyright &copy; 2026 by WebMaka,<br>
+          unless otherwise mentioned. All Rights Reserved.
+        </p>
+        <p>
+          Icons provided by <a href="https://fontawesome.com">Font Awesome</a>. 
+          CSS stylesheets provided by <a href="https://www.w3schools.com/w3css/default.asp">W3C</a>.
+        </p>
+        <p>
+          Any trademarks are the property of their respective owners.
+        </p>
+      </div>
+    </div>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, #20295b, #000000);">
+      &nbsp;
+    </div>
+  </div>
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+</body>
+
+</html>

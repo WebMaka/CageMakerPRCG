@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Configuration Options :: Cage TOP and BOTTOM Geometry & Ventilation Options :: CageMaker PRCG Documentation</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="w3-theme-indigo.css">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+
+</head>
+
+<script>
+function w3_open() {
+  document.getElementById("main").style.marginLeft = "25%";
+  document.getElementById("nav_sidebar").style.width = "25%";
+  document.getElementById("nav_sidebar").style.display = "block";
+  document.getElementById("nav_button").style.display = 'none';
+}
+function w3_close() {
+  document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("nav_sidebar").style.display = "none";
+  document.getElementById("nav_button").style.display = "inline-block";
+}
+</script>
+
+<body>
+  <!-- Navigation --!>
+  <div class="w3-sidebar w3-bar-block w3-card-4 w3-animate-left w3-padding" style="display:none" id="nav_sidebar">
+    <div class="w3-theme-dark w3-flex" style="align-items:center">
+      <div class="w3-padding">
+        Site Navigation
+      </div>
+      <div class="" style="margin-left:auto; align-self:center">
+        <a href="#" class="w3-bar-item w3-button w3-hover-red w3-crimson w3-xlarge" onclick="w3_close();">
+          &times;
+        </a>
+      </div>
+    </div>
+    <p>
+      <a href="QuickStartGuide.htm">Quick-Start Guide</a>
+      <br>
+      <a href="BestPractices.htm">Best Practices</a>
+      <br>
+      <a href="MaximumSupportedSizes.htm">Maximum Supported Sizes</a>
+      <br>
+      <a href="SupportedModifications.htm">Supported Modifications</a>
+      <br>
+      <a href="FAQ.htm">FAQ</a>
+    </p>
+    <p>
+      <a href="ConfigOptions.htm">Configuration Options</a>
+      <br>
+      <a href="ConfigOptions_TargetDevicePresets.htm">&rsaquo; Target Device Presets</a>
+      <br>
+      <a href="ConfigOptions_TargetDeviceDimensions.htm">&rsaquo; Target Device Dimensions &amp; Geometry</a>
+      <br>
+      <a href="ConfigOptions_OverallStructureGeometry.htm">&rsaquo; Overall Structure &amp; Geometry</a>
+      <br>
+      <a href="ConfigOptions_RulersGuides.htm">&rsaquo; Rulers/Guides</a>
+      <br>
+      <a href="ConfigOptions_3DPrinterSupport.htm">&rsaquo; 3D Printer Support</a>
+      <br>
+      <a href="ConfigOptions_RackSettings.htm">&rsaquo; Rack Settings</a>
+      <br>
+      <a href="ConfigOptions_FaceplateOptions.htm">&rsaquo; Faceplate Options</a>
+      <br>
+      <a href="ConfigOptions_FaceplateVentilationOptions.htm">&rsaquo; Faceplate Ventillation Options</a>
+      <br>
+      <a href="ConfigOptions_CageOptions.htm">&rsaquo; Cage Options</a>
+      <br>
+      <a href="ConfigOptions_CageTopBottomOptions.htm">&rsaquo; Cage TOP and BOTTOM Geometry &amp; Ventillation Options</a>
+      <br>
+      <a href="ConfigOptions_CageLeftRightOptions.htm">&rsaquo; Cage LEFT and RIGHT SIDE Geometry &amp; Ventillation Options</a>
+      <br>
+      <a href="ConfigOptions_CageBackOptions.htm">&rsaquo; Cage BACK Geometry &amp; Modifications</a>
+      <br>
+      <a href="ConfigOptions_RearSupportOptions.htm">&rsaquo; Rear Support Options</a>
+      <br>
+      <a href="ConfigOptions_AdditionalFaceplateModifications.htm">&rsaquo; Additional Faceplate Modifications</a>
+      <br>
+      <a href="ConfigOptions_CustomCutoutOptions.htm">&rsaquo; Custom Cutout Options</a>
+      <br>
+      <a href="ConfigOptions_IgnoreErrors.htm">&rsaquo; Ignore Errors</a>
+      <br>
+      <a href="ConfigOptions_RarelyChangedOptions.htm">&rsaquo; Rarely-Changed Options</a>
+    </p>
+    <p>
+      <a href="Features.htm">Features</a>
+      <br>
+      <a href="History.htm">History</a>
+      <br>
+      <a href="Credits.htm">Credits</a>
+      <br>
+      <a href="License.htm">License</a>
+    </p>
+  </div>
+
+  <div id="main" style="min-height: 820px;">
+    
+    <!-- Header --!>
+    <div class="w3-container w3-theme-dark w3-padding-small">
+      <img id="nav_button" onclick="w3_open();" src="images/bars-solid.png" alt="Site Navigation">
+      <a href="index.htm"><img src="images/logotype_white_small.png" alt="CageMaker PRCG"></a>
+    </div>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, #20295b, rgba(255,0,0,0));">
+      &nbsp;
+    </div>
+  
+    <!-- Content --!>
+    <div id="content" class="w3-container" style="min-height: 820px;">
+      <div class="w3-container w3-section" style="background-color: transparent;">
+        <!-- START CONTENT AREA -->
+      
+        <h1>Configuration Options :: Cage TOP and BOTTOM Geometry & Ventilation Options</h1>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <p>Starting with version 0.50, the open ventilation areas of cages can optionally be replaced with a configurable ventilation grid. These settings do not apply for cageless faceplates created by setting the <strong>faceplate only</strong> option to a fixed height.</p>
+        </div>
+
+        <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+          <div class="w3-deep-orange w3-padding w3-round-xlarge">
+            <img src="images/circle-exclamation.png" alt="IMPORTANT">
+          </div>
+          <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+            <p>
+              <p>These settings only apply to the top and bottom of the cage proper. Separate controls are present for the sides and back of the cage. These settings do not apply for cageless faceplates created by setting the <strong>faceplate only</strong> option to a fixed height.
+              </p>
+            </p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="cage_top_geometry"></a><strong>cage top geometry</strong><br>
+              <img src="images/new.png"> <em>new for version 0.7</em> :: This setting determines how CageMaker PRCG generates the top of the cage, which can be one of the following:</p>
+              <ul>
+                <li><strong>Open Top</strong> is the default setting, which produces a largely open top with maximum ventilation area.</li>
+                <li><strong>Lidded, Open Top With Tabs &amp; Screw Holes</strong> does what the name implies, and is intended for creating an open top that will be covered by a lid. The screw hole size is adjusted with the <strong>cage top lid screw holes</strong> setting.</li>
+                <li><strong>Solid Top (No Ventilation Cutout)</strong> produces a solid top without any opening. This can be used as a shelf for the space above the cage.</li>
+                <li><strong>Structure Only, Completely Open</strong> provides the maximum amount of open space while still generating a structurally strong cage.</li>
+                <li><strong>No Top At All</strong> instructs CageMaker PRCG to not generate a cage top or support structure.</li>
+                <li>The ventilation grids select grids with the listed hole shapes.</li>
+              </ul>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-red">
+                <div class="w3-crimson w3-padding w3-round-xlarge">
+                  <img src="images/warning.png" alt="WARNING">
+                </div>
+                <div class="w3-pale-red w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    The <strong>no top at all</strong> setting should only be used in rare situations as it reduces structural integrity. For most cases where maximum open space is desired, the <strong>structure only, completely open</strong> setting is a better choice.
+                  </p>
+                </div>
+              </div>
+
+              <p><img src="images/cage_side_geometry.png" class="w3-card"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="cage_top_lid_screw_holes"></a><strong>cage top lid screw holes</strong><br><img src="images/new.png"> <em>new for version 0.7</em> :: This setting determines the diameter of the screw holes created in the cage top for attaching a lid when <strong>cage top geometry</strong> is set to <em>Lidded, Open Top With Tabs &amp; Screw Holes*</em>.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    This setting is ignored if the <strong>cage top geometry</strong> is set to anything other than <strong>Lidded, Open Top With Tabs &amp; Screw Holes</strong>.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_top_lid_holes.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="cage_bottom_geometry"></a><strong>cage bottom geometry</strong><br>
+              <img src="images/new.png"> <em>new for version 0.7</em> :: This setting determines how CageMaker PRCG generates the bottom of the cage, which can be one of the following:</p>
+              <ul>
+                <li><strong>Open Bottom</strong> is the default setting, which produces a largely open bottom with maximum ventilation area.</li>
+                <li><strong>Solid Bottom (No Ventilation Cutout)</strong> produces a solid bottom without any opening. This can be used as a shelf for the interior of the cage.</li>
+                <li><strong>Structure Only, Completely Open</strong> provides the maximum amount of open space while still generating a structurally strong cage.</li>
+                <li><strong>No Bottom At All</strong> instructs CageMaker PRCG to not generate a cage bottom or support structure.</li>
+                <li>The ventilation grids select grids with the listed hole shapes.</li>
+              </ul>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-red">
+                <div class="w3-crimson w3-padding w3-round-xlarge">
+                  <img src="images/warning.png" alt="WARNING">
+                </div>
+                <div class="w3-pale-red w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    The <strong>no bottom at all</strong> setting should only be used in rare situations as it reduces structural integrity. For most cases where maximum open space is desired, the <strong>structure only, completely open</strong> setting is a better choice.
+                  </p>
+                </div>
+              </div>
+
+              <p><img src="images/cage_side_geometry.png" class="w3-card"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="cage_top_bottom_vent_hole_size"></a><strong>cage top bottom vent hole size</strong><br>This setting sets the size of the holes of the ventilation grid. Although the measurement is in mm, what precisely is measured will vary by the grid pattern, so while this will be the actual hole diameter for hole grids, it will be the major width across openings for hexagonal grids, triangle height for triangle grinds, and so on.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge" style="background-color: #E6E6FA;">
+                <div class="w3-deep-purple w3-padding w3-round-xlarge">
+                  <img src="images/circle-info.png" alt="Info">
+                </div>
+                <div class="w3-padding w3-round-xlarge" style="flex:1; background-color: #E6E6FA;">
+                  <p>
+                    The sample picture at right shows a ventilated cage side panel - enabling ventilation for other cage sides and 
+                    the faceplate will have similar results.
+                  </p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge" style="background-color: #E6E6FA;">
+                <div class="w3-deep-purple w3-padding w3-round-xlarge">
+                  <img src="images/circle-info.png" alt="Info">
+                </div>
+                <div class="w3-padding w3-round-xlarge" style="flex:1; background-color: #E6E6FA;">
+                  <p>
+                    This setting affects different ventilation grid types in different ways - experiment with it to find usable results.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_side_vent_hole_size.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="cage_top_bottom_vent_wall_thickness"></a><strong>cage top bottom vent wall thickness</strong><br>This setting sets the size of the solid portions between the holes of the ventilation grid. Higher values provide thicker walls but reduce the effective open area of the grid.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge" style="background-color: #E6E6FA;">
+                <div class="w3-deep-purple w3-padding w3-round-xlarge">
+                  <img src="images/circle-info.png" alt="Info">
+                </div>
+                <div class="w3-padding w3-round-xlarge" style="flex:1; background-color: #E6E6FA;">
+                  <p>
+                    The sample picture at right shows a ventilated cage side panel - enabling ventilation for other cage sides and 
+                    the faceplate will have similar results.
+                  </p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge" style="background-color: #E6E6FA;">
+                <div class="w3-deep-purple w3-padding w3-round-xlarge">
+                  <img src="images/circle-info.png" alt="Info">
+                </div>
+                <div class="w3-padding w3-round-xlarge" style="flex:1; background-color: #E6E6FA;">
+                  <p>
+                    This setting affects different ventilation grid types in different ways - experiment with it to find usable results.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_side_vent_wall_thickness.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="cage_top_bottom_vent_grid_horizontal_offset"></a><strong>cage top bottom vent grid horizontal offset</strong><br>
+              <strong>cage top bottom vent grid vertical offset</strong><br>These settings change the offset of the ventilation grid in each axis. By default, ventilation grids are centered on the cage wall, and these shift that center point.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge" style="background-color: #E6E6FA;">
+                <div class="w3-deep-purple w3-padding w3-round-xlarge">
+                  <img src="images/circle-info.png" alt="Info">
+                </div>
+                <div class="w3-padding w3-round-xlarge" style="flex:1; background-color: #E6E6FA;">
+                  <p>
+                    The sample picture at right shows a ventilated cage side panel - enabling ventilation for other cage sides and 
+                    the faceplate will have similar results.
+                  </p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge" style="background-color: #E6E6FA;">
+                <div class="w3-deep-purple w3-padding w3-round-xlarge">
+                  <img src="images/circle-info.png" alt="Info">
+                </div>
+                <div class="w3-padding w3-round-xlarge" style="flex:1; background-color: #E6E6FA;">
+                  <p>
+                    This setting is generally cosmetic, as it does not generally have any significant effect on ventilation 
+                    or structural integrity.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_side_vent_offset.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="cage_top_bottom_vent_grid_angle"></a><strong>cage top bottom vent grid angle</strong><br>This setting changes the angle of the ventilation grid.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge" style="background-color: #E6E6FA;">
+                <div class="w3-deep-purple w3-padding w3-round-xlarge">
+                  <img src="images/circle-info.png" alt="Info">
+                </div>
+                <div class="w3-padding w3-round-xlarge" style="flex:1; background-color: #E6E6FA;">
+                  <p>
+                    The sample picture at right shows a ventilated cage side panel - enabling ventilation for other cage sides and 
+                    the faceplate will have similar results.
+                  </p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge" style="background-color: #E6E6FA;">
+                <div class="w3-deep-purple w3-padding w3-round-xlarge">
+                  <img src="images/circle-info.png" alt="Info">
+                </div>
+                <div class="w3-padding w3-round-xlarge" style="flex:1; background-color: #E6E6FA;">
+                  <p>
+                    This setting is generally cosmetic, as it does not generally have any significant effect on ventilation 
+                    or structural integrity.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_side_vent_angle.png" class="w3-card"></p>
+          </div>
+        </div>
+
+
+        <!-- END CONTENT AREA -->        
+      </div>
+    </div>
+
+    <!-- Footer --!>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, rgba(255,0,0,0), #20295b);">
+      &nbsp;
+    </div>
+    <div class="w3-container w3-theme-dark w3-flex w3-small" style="gap:16px; align-items:flex-start">
+      <div>
+        <p>
+          <a href="#"><img src="images/circle-up.png" alt="Back To Top"> Back To Top</a>
+        </p>
+        <p>
+          <a href="#" onclick="window.scroll(0,0); w3_open();"><img src="images/map.png" alt="Navigate Site"> Navigate Site</a>
+        </p>
+      </div>
+      <div style="flex:1">
+        <p>&nbsp;</p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/github-icon.png" alt="Github Logo"> Source Code
+        </p>
+        <p>
+          <!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/WebMaka/CageMakerPRCG" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star WebMaka/CageMakerPRCG on GitHub">Star Us On Github!</a>
+          <br>
+          <a href="https://github.com/WebMaka/CageMakerPRCG/issues">Report A Bug/Issue</a>
+          <br>
+          <a href="https://github.com/WebMaka/CageMakerPRCG">Github Repository</a>
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/gift.png" alt="Support"> Support This Project
+        </p>
+        <p>
+          <a href="https://ko-fi.com/webmaka">Donate via Ko-Fi</a>
+          <br>
+          <a href="https://thanks.dev/webmaka">Donate via thanks.dev</a>
+          <br>
+          <a href="https://patreon.com/WebMaka">Join Patreon</a>
+          <br>
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/comments.png" alt="Community"> Community
+        </p>
+        <p>
+          <a href="https://github.com/WebMaka/CageMakerPRCG/discussions">Github Discussions</a>
+          <br>
+          <a href="mailto:general@cagemaker.org?subject=docs" alt="Contact">Contact Devs via email</a>
+        </p>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/gavel.png" alt="Legal"> Legal Notices & Information
+        </p>
+        <p>
+          <a href="Credits.htm">Credits</a> | 
+          <a href="License.htm">License</a>  
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/copyright.png" alt="Copyright"> Copyright/Trademarks
+        </p>
+        <p>
+          This website and its contents are Copyright &copy; 2026 by WebMaka,<br>
+          unless otherwise mentioned. All Rights Reserved.
+        </p>
+        <p>
+          Icons provided by <a href="https://fontawesome.com">Font Awesome</a>. 
+          CSS stylesheets provided by <a href="https://www.w3schools.com/w3css/default.asp">W3C</a>.
+        </p>
+        <p>
+          Any trademarks are the property of their respective owners.
+        </p>
+      </div>
+    </div>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, #20295b, #000000);">
+      &nbsp;
+    </div>
+  </div>
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+</body>
+
+</html>

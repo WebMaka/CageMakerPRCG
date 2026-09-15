@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Features :: CageMaker PRCG Documentation</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="w3-theme-indigo.css">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+
+</head>
+
+<script>
+function w3_open() {
+  document.getElementById("main").style.marginLeft = "25%";
+  document.getElementById("nav_sidebar").style.width = "25%";
+  document.getElementById("nav_sidebar").style.display = "block";
+  document.getElementById("nav_button").style.display = 'none';
+}
+function w3_close() {
+  document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("nav_sidebar").style.display = "none";
+  document.getElementById("nav_button").style.display = "inline-block";
+}
+</script>
+
+<body>
+  <!-- Navigation --!>
+  <div class="w3-sidebar w3-bar-block w3-card-4 w3-animate-left w3-padding" style="display:none" id="nav_sidebar">
+    <div class="w3-theme-dark w3-flex" style="align-items:center">
+      <div class="w3-padding">
+        Site Navigation
+      </div>
+      <div class="" style="margin-left:auto; align-self:center">
+        <a href="#" class="w3-bar-item w3-button w3-hover-red w3-crimson w3-xlarge" onclick="w3_close();">
+          &times;
+        </a>
+      </div>
+    </div>
+    <p>
+      <a href="QuickStartGuide.htm">Quick-Start Guide</a>
+      <br>
+      <a href="BestPractices.htm">Best Practices</a>
+      <br>
+      <a href="MaximumSupportedSizes.htm">Maximum Supported Sizes</a>
+      <br>
+      <a href="SupportedModifications.htm">Supported Modifications</a>
+      <br>
+      <a href="FAQ.htm">FAQ</a>
+    </p>
+    <p>
+      <a href="ConfigOptions.htm">Configuration Options</a>
+      <br>
+      <a href="ConfigOptions_TargetDevicePresets.htm">&rsaquo; Target Device Presets</a>
+      <br>
+      <a href="ConfigOptions_TargetDeviceDimensions.htm">&rsaquo; Target Device Dimensions &amp; Geometry</a>
+      <br>
+      <a href="ConfigOptions_OverallStructureGeometry.htm">&rsaquo; Overall Structure &amp; Geometry</a>
+      <br>
+      <a href="ConfigOptions_RulersGuides.htm">&rsaquo; Rulers/Guides</a>
+      <br>
+      <a href="ConfigOptions_3DPrinterSupport.htm">&rsaquo; 3D Printer Support</a>
+      <br>
+      <a href="ConfigOptions_RackSettings.htm">&rsaquo; Rack Settings</a>
+      <br>
+      <a href="ConfigOptions_FaceplateOptions.htm">&rsaquo; Faceplate Options</a>
+      <br>
+      <a href="ConfigOptions_FaceplateVentilationOptions.htm">&rsaquo; Faceplate Ventillation Options</a>
+      <br>
+      <a href="ConfigOptions_CageOptions.htm">&rsaquo; Cage Options</a>
+      <br>
+      <a href="ConfigOptions_CageTopBottomOptions.htm">&rsaquo; Cage TOP and BOTTOM Geometry &amp; Ventillation Options</a>
+      <br>
+      <a href="ConfigOptions_CageLeftRightOptions.htm">&rsaquo; Cage LEFT and RIGHT SIDE Geometry &amp; Ventillation Options</a>
+      <br>
+      <a href="ConfigOptions_CageBackOptions.htm">&rsaquo; Cage BACK Geometry &amp; Modifications</a>
+      <br>
+      <a href="ConfigOptions_RearSupportOptions.htm">&rsaquo; Rear Support Options</a>
+      <br>
+      <a href="ConfigOptions_AdditionalFaceplateModifications.htm">&rsaquo; Additional Faceplate Modifications</a>
+      <br>
+      <a href="ConfigOptions_CustomCutoutOptions.htm">&rsaquo; Custom Cutout Options</a>
+      <br>
+      <a href="ConfigOptions_IgnoreErrors.htm">&rsaquo; Ignore Errors</a>
+      <br>
+      <a href="ConfigOptions_RarelyChangedOptions.htm">&rsaquo; Rarely-Changed Options</a>
+    </p>
+    <p>
+      <a href="Features.htm">Features</a>
+      <br>
+      <a href="History.htm">History</a>
+      <br>
+      <a href="Credits.htm">Credits</a>
+      <br>
+      <a href="License.htm">License</a>
+    </p>
+  </div>
+
+  <div id="main" style="min-height: 820px;">
+    
+    <!-- Header --!>
+    <div class="w3-container w3-theme-dark w3-padding-small">
+      <img id="nav_button" onclick="w3_open();" src="images/bars-solid.png" alt="Site Navigation">
+      <a href="index.htm"><img src="images/logotype_white_small.png" alt="CageMaker PRCG"></a>
+    </div>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, #20295b, rgba(255,0,0,0));">
+      &nbsp;
+    </div>
+
+    <!-- Content --!>
+    <div id="content" class="w3-container" style="min-height: 820px;">
+      <div class="w3-container w3-section" style="background-color: transparent;">
+        <!-- START CONTENT AREA -->
+      
+        <h1>Features</h1>
+        
+        <h3>Create Widely-Compliant Rackmount Cages To Fit Any Rack System</h3>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <ul>
+            <li>Generates rack faceplates that are by default designed to comply with EIA-310 standard mounting hole patterns, which is used on the vast majority of modern rack systems. Triple-hole, slotted, 1/2"-5/8"-5/8" staggered spacing, 1.75"/44.45mm "unit" height, sized for #10/M5 mounting hardware.</li>
+            <li>Can optionally generate cages for rack systems that don't follow EIA-310, which can be useful for custom 3D printable mini- and micro-rack systems. Simply select the system's "unit" size and mounting hole spacing and CageMaker automatically adjusts accordingly.</li>
+            <li>Generates full width rack cages for 5", 6", 7", 10", and 19" racks.</li>
+            <li>Generates one-half-width, bolt-together cages for 10" and 19" racks. Mounting ears are automatically generated on one side of the cage for bolting two of them together and optionally, alignment pin holes can be added to allow the use of short lengths of filament as alignment pins.</li>
+            <li>Generates one-quarter-width, one-third-width, or two-thirds-width bolt-together cages for 19" racks. Again, mounting ears for bolting cages together are automatically added as required (and again, optionally, alignment pin holes can be added) - outer cages have a single ear on one side and inner cages have two, one on each side.</li>
+            <li>Automatically adjusts height to fit the device to mount in full "unit" multiples by default, and half-unit multiples as an option.</li>
+            <li>Full-unit cages are symmetrical by default as long as the cage proper is left to its default offsets. Half-unit cages are asymmetrical but two half-unit cages can be aligned by rotating one so its half-holes butt against its neighbor's half-holes. If it becomes necessary to "flip" a cage that has a half-unit-multiple height, a single option shifts the mounting holes to make this happen.</li>
+            <li>Partial-width cages can be mixed-and-matched for height - attach two 1U halves to a single 2U half. (NOTE: This requires that the "top and bottom holes only" option NOT be used.)</li>
+            <li>Enforces safe mounting by maintaining a minimum mounting clearance of 15.875mm or 5/8" on both sides of the faceplate (on EIA-compliant racks) and warns if any aspect of the cage design intrudes into that space.</li>
+          </ul>
+        </div>
+
+        <h3>Durable Rack-Mounting For Smaller But Heavier Equipment</h3>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <ul>
+            <li>Adjustable plus-profile corner-support structure for maximum rigidity with minimal material consumption.</li>
+            <li>Supports devices up to 5Kg or 11 lbs. per complete cage.</li>
+            <li>Defaults to 4mm thickness for all flat surfaces, but this can be increased to 5mm, 6mm, or 8mm for greater stiffness and better support for heavier gear.</li>
+            <li>Optionally add faceplate reinforcing to reduce twisting/cantilevering.</li>
+            <li>Optionally generate additional supports on the top and bottom of the cage.</li>
+            <li>Optionally generate the top, bottom, and/or sides as solid surfaces for additional rigidity.</li>
+            <li>Optionally generate a rear-mounted support sub-cage to support larger/heavier devices from both front and rear by attaching to both front and rear rack rails. The rear support cage interlocks into the back of the cage holding the device.</li>
+          </ul>
+        </div>
+        
+        <h3>Loads Of Customizable Cage Options To Fit Any Device</h3>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <ul>
+            <li>The back, sides, top, and bottom of the cage proper are mostly open for ventilation by default as long as the device is at least 20mm deep on any given axis. Optionally make the "top" and/or "bottom" of the cage a solid shelf and/or make the sides of the cage solid.</li>
+            <li>Easily create side-by-side cages for multiple same-sized devices - enter the dimensions of one device and increase the number of devices as needed. Excellent for mounting a lot of smaller things such as tiny-form-factor SBCs or external hard drives in minimal space.</li>
+            <li>Multiple cages can be gapped out from each other for better air circulation, which can be helpful for hot-running devices.</li>
+            <li>Optionally add screw holes in tabs to the short edges of a cage opening, or the corners of the opening, or both, with selectable hardware sizes. Couples well with multiple-same-sized-device cages, and useful for subrack assemblies - excellent for stuffing several Raspberry Pis or other small SBCs into a rack.</li>
+            <li>By default, a cage is centered both horizontally and vertically on its faceplate. Positioning can be adjusted on both axes to move a cage to the top or bottom, to either side, or a combination of both.</li>
+            <li>Add up to three sets of add-on faceplate modifications, one on either side of the cage proper and one in the center when creating a cageless faceplate, each of which can be any one of the following:
+              <ul>
+                <li>Keystone module receptacles</li>
+                <li>Neutrik D-Series connector cutouts</li>
+                <li>Cutouts and mounting bases with M2 screw bosses for mounting 85x58 SBCs such as Raspberry Pi. These can be mounted horizontally, or vertically with the SBC's "top"/"up" side facing left or right.</li>
+                <li>Cable management combs in two widths and two heights.</li>
+                <li>Motherboard rear-port IO shield cutouts.</li>
+                <li>Full-height or low-profile PCI slots for PC expansion cards.</li>
+                <li>30mm, 40mm, 60mm, 80mm, 92mm, 120mm, or 140mm cooling fans</li>
+                <li>10mm, 12mm, 16mm, 19mm, or 24mm holes for things like a pushbutton or panel-mount indicator light</li>
+                <li>Fractional-DIN cutouts in 1/32- to 1/4-DIN sizes</li>
+                <li>VESA FDMI MIS-B/-C/-D/-E/-F mounting patterns up to 200mm for attaching VESA mounting brackets to the rack or the rack to VESA mounting brackets</li>
+                <li>IEC-60309 industrial power inlet cutouts for 16A and 32A inlets</li>
+                <li>IEC AC Mains sockets and outlets - C13/C14 and C19/C20 - in both screw-mount and snap-in formats.</li>
+                <li>Up to three custom cutouts of configurable diameter for round holes or height and width with optional corner rounding for rectangular.</li>
+              </ul>
+            </li>
+            <li>Faceplate modifications can be placed into a grid of up to 12 columns by 4 rows, space permitting.</li>
+            <li>Faceplate modifications can be automatically centered between the device(s) and the edge of safe mounting area, or manually moved. Centered modifications are automatically centered vertically, and side modifications can be shifted from centerlines.</li>
+            <li>Can generate a faceplate without a cage proper, with selected modifications, or as a blank.</li>
+            <li>Can generate a cage with a solid faceplate, which can also have modifications mentioned above, instead of being open for front-loading a device.</li>
+            <li>Optionally add a 1mm retention "lip" on the front of the cage to help retain the device, which is recessed into the cage by 1mm to compensate.</li>
+            <li>Selectable hardware for bolt-together and split cages - both metric (M3 through M6) and US-standard/imperial (4-40 through 1/4-20) hardware are supported, including both clearance and threaded hole diameters as well as common heat-set insert sizes by their thread pitch and mounting hole diameters.</li>
+            <li>Add ventilation to the faceplate of any cage. The pattern, horizontal/vertical offsets, angle, and size are independently adjustable. Ventilation can cover the whole faceplate, or be limited to either side of, or above and below, the device cage.</li>
+            <li>Add ventilation grids to the top/bottom and/or sides of a device cage. The pattern, horizontal/vertical offsets, angle, and size are independently adjustable.</li>
+          </ul>
+        </div>
+        
+        <h3>Create Custom Rackmount Enclosures For Small Projects</h3>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <ul>
+            <li>Create a cage with solid sides and back, and with a top that includes screw tabs for attaching a lid.</li>
+            <li>The rear of a cage can be made solid and accept left oriented, centered, and/or right oriented modifications just like the faceplate. Create custom enclosures with connectors both inside and outside the rack.</li>
+          </ul>
+        </div>
+        
+        <h3>Custom Faceplate Generation Without Device Cages</h3>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <ul>
+            <li>Create a custom faceplate without a cage, in any height from 0.5U to 5.0U in half-unit increments.</li>
+            <li>Faceplates can be ventilated as well. The pattern, horizontal/vertical offsets, angle, and size are independently adjustable.</li>
+            <li>Add a faceplate modification, centered on the faceplate, which can be any one of the following:
+              <ul>
+                <li>Keystone module receptacles</li>
+                <li>Neutrik D-Series connector cutouts</li>
+                <li>Cutouts and mounting bases with M2 screw bosses for mounting 85x58 SBCs such as Raspberry Pi. These can be mounted horizontally, or vertically with the SBC's "top"/"up" side facing left or right.</li>
+                <li>Cable management combs in two widths and two heights.</li>
+                <li>Motherboard rear-port IO shield cutouts.</li>
+                <li>Full-height or low-profile PCI slots for PC expansion cards. * 30mm, 40mm, 60mm, 80mm, 92mm, 120mm, or 140mm cooling fans</li>
+                <li>10mm, 12mm, 16mm, 19mm, or 24mm holes for things like a pushbutton or panel-mount indicator light</li>
+                <li>Fractional-DIN cutouts in 1/32- to 1/4-DIN sizes</li>
+                <li>VESA FDMI MIS-B/-C/-D/-E/-F mounting patterns up to 200mm for attaching VESA mounting brackets to the rack or the rack to VESA mounting brackets</li>
+                <li>IEC-60309 industrial power inlet cutouts for 16A and 32A inlets</li>
+                <li>IEC AC Mains sockets and outlets - C13/C14 and C19/C20 - in both screw-mount and snap-in formats.</li>
+                <li>Up to three custom cutouts of configurable diameter for round holes or height and width for rectangular.</li>
+              </ul>
+            </li>
+            <li>Left and right side modifications from cage generation can also be placed on a custom cageless faceplate - three different mods can be used at one time.</li>
+            <li>Faceplate modifications can be placed into an array or grid of up to 12 columns by 4 rows, space permitting.</li>
+            <li>Faceplates can be generated as flat 2D objects for export - perfect for engraving or laser-cutting a customized faceplate.</li>
+          </ul>
+        </div>
+        
+        <h3>Wide Printer Support, Including Small-Format</h3>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <ul>
+            <li>Adjustable clearance setting allows for "dialing in" dimensions to compensate for the dimensional accuracy of the printer.</li>
+            <li>Can split a cage in half for printing on smaller-volume printers - print a 10" wide 2U tall cage within a 180mm print area. Split cages receive tabs and slots for attaching the halves together.</li>
+            <li>Optionally add alignment pin holes to split cages - use small 1.75mm filament "pegs" to more accurately align the cage halves.</li>
+            <li>Can separate the cage proper and faceplate into two components for faster printing on larger printers. Reduces print time by as much as 15% and reduces filament consumption by as much as 25%. (Separated cage should be attached to its faceplate with 1.75mm filament segments or M2 screws, and a suitable adhesive such as epoxy is used to "weld" the two into a single unit.)</li>
+          </ul>
+        </div>
+        
+        <h3>Making Cage Design Easier Without Requiring CAD Expertise</h3>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <ul>
+            <li>Includes presets for a number of popular devices - simply pick a device from a list to get a ready-to-render design for a 10" rack without requiring any further action. Pick, render, export, slice, print, install into the rack.</li>
+            <li>Includes built-in "ruler" for easier layout. The ruler function automatically switches off when rendering a completed cage for printing.</li>
+            <li>Ruler feature provides a "top" indicator as well as the unit height of the generated cage.</li>
+            <li>Automatically marks estimated print height for the Z-axis when the ruler is enabled.</li>
+            <li>Optionally display an outline of the build volume of the printer, to help determine whether the resulting 3D object will fit the printer's working area.</li>
+            <li>Intelligent problem detection warns of size/fitment issues and overlap, in order to make sure the cage will work as a real thing before spending the time and filament to print the cage.</li>
+            <li>Error messages are sent to OpenSCAD's console.</li>
+            <li>Also runs in OpenSCAD Playground, a web-based port of OpenSCAD - design cages in a browser without having to install any software. OpenSCAD Playground can run in most modern browsers, including those that run on Android/iPhone.</li>
+          </ul>
+        </div>
+
+
+        <!-- END CONTENT AREA -->        
+      </div>
+      <div class="w3-container w3-section" style="background-color: transparent;">
+        &nbsp;
+      </div>
+    </div>
+
+    <!-- Footer --!>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, rgba(255,0,0,0), #20295b);">
+      &nbsp;
+    </div>
+    <div class="w3-container w3-theme-dark w3-flex w3-small" style="gap:16px; align-items:flex-start">
+      <div>
+        <p>
+          <a href="#"><img src="images/circle-up.png" alt="Back To Top"> Back To Top</a>
+        </p>
+        <p>
+          <a href="#" onclick="window.scroll(0,0); w3_open();"><img src="images/map.png" alt="Navigate Site"> Navigate Site</a>
+        </p>
+      </div>
+      <div style="flex:1">
+        <p>&nbsp;</p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/github-icon.png" alt="Github Logo"> Source Code
+        </p>
+        <p>
+          <!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/WebMaka/CageMakerPRCG" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star WebMaka/CageMakerPRCG on GitHub">Star Us On Github!</a>
+          <br>
+          <a href="https://github.com/WebMaka/CageMakerPRCG/issues">Report A Bug/Issue</a>
+          <br>
+          <a href="https://github.com/WebMaka/CageMakerPRCG">Github Repository</a>
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/gift.png" alt="Support"> Support This Project
+        </p>
+        <p>
+          <a href="https://ko-fi.com/webmaka">Donate via Ko-Fi</a>
+          <br>
+          <a href="https://thanks.dev/webmaka">Donate via thanks.dev</a>
+          <br>
+          <a href="https://patreon.com/WebMaka">Join Patreon</a>
+          <br>
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/comments.png" alt="Community"> Community
+        </p>
+        <p>
+          <a href="https://github.com/WebMaka/CageMakerPRCG/discussions">Github Discussions</a>
+          <br>
+          <a href="mailto:general@cagemaker.org?subject=docs" alt="Contact">Contact Devs via email</a>
+        </p>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/gavel.png" alt="Legal"> Legal Notices & Information
+        </p>
+        <p>
+          <a href="Credits.htm">Credits</a> | 
+          <a href="License.htm">License</a>  
+        </p>
+      </div>
+      <div>
+        <p class="w3-border-bottom w3-border-indigo">
+          <img src="images/copyright.png" alt="Copyright"> Copyright/Trademarks
+        </p>
+        <p>
+          This website and its contents are Copyright &copy; 2026 by WebMaka,<br>
+          unless otherwise mentioned. All Rights Reserved.
+        </p>
+        <p>
+          Icons provided by <a href="https://fontawesome.com">Font Awesome</a>. 
+          CSS stylesheets provided by <a href="https://www.w3schools.com/w3css/default.asp">W3C</a>.
+        </p>
+        <p>
+          Any trademarks are the property of their respective owners.
+        </p>
+      </div>
+    </div>
+    <div class="w3-container" style="background-image: linear-gradient(to bottom, #20295b, #000000);">
+      &nbsp;
+    </div>
+  </div>
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+</body>
+
+</html>
