@@ -103,7 +103,7 @@ custom_rack_geometry_unit_height = 44.45;
 
 custom_rack_geometry_mounting_reservation_area = 15.875;
 
-custom_mounting_hole_center_difference = 8.73125;
+custom_mounting_hole_center_inset = 8.73125;
 
 custom_rack_geometry_mounting_hole_diameter = 5.25;
 
@@ -158,10 +158,10 @@ narrow_edge_centered_holes = 0.00; // [0.00:"None/Disabled - DEFAULT",0.00:" ",0
 // Corner mounting holes, for subrack support - adds a hole 10mm deep into each corner of the cage proper, aligned with the edge of the cage opening and surrounded with an ear that protrudes into the opening. - NOTE: This setting should match the recommended hole diameter of the bolt or insert to be used, or use the next smaller diameter.
 edge_corner_holes = 0.00; // [0.00:"None/Disabled - DEFAULT",0.00:" ",0.00:"Clearance Holes",3.15:"  M3 Clearance (3.15mm hole)",4.20:"  M4 Clearance (4.2mm hole)",5.25:"  M5 Clearance (5.25mm hole)",6.30:"  M6 Clearance (6.3mm hole)",2.95:"  4-40 Clearance (.1160 in. hole)",3.66:"  6-32 Clearance (.144 in. hole)",4.31:"  8-32 Clearance (.1695 in. hole)",4.98:"  10-24/10-32 Clearance (.1960 in. hole)",6.53:"  1/4-20 Clearance (.257 in. hole)",0.00:" ",0.00:"Tapped/Threadcutting Holes",2.50:"  M3 Tapped/Threadcutting (2.5mm hole)",3.50:"  M4 Tapped/Threadcutting (3.5mm hole)",4.40:"  M5 Tapped/Threadcutting (4.4mm hole)",5.00:"  M6 Tapped/Threadcutting (5.0mm hole)",2.07:"  4-40 Tapped/Threadcutting (0.0813 in. hole)",2.53:"  6-32 Tapped/Threadcutting (.0997 in. hole)",3.19:"  8-32 Tapped/Threadcutting (.1257 in. hole)",3.53:"  10-24/10-32 Tapped/Threadcutting (.1389 in. hole)",4.79:"  1/4-20 Tapped/Threadcutting (.1887 in. hole)",0.00:" ",0.00:"Heat-Set Inserts",3.98:"  M3 Heat-Set (4mm hole)",4.10:"  M3 Heat-Set (4.1mm hole)",4.80:"  M3 Heat-Set (4.8mm hole)",5.60:"  M4 Heat-Set (5.6mm hole)",5.70:"  M4 Heat-Set (5.7mm hole)",6.40:"  M5 Heat-Set (6.4mm hole)",6.50:"  M5 Heat-Set (6.5mm hole)",8.00:"  M6 Heat-Set (8mm hole)",8.10:"  M6 Heat-Set (8.1mm hole)",3.99:"  4-40 Heat-Set (0.157 in. hole)",4.03:"  4-40 Heat-Set (0.159 in. hole)",4.76:"  6-32 Heat-Set (0.1875 in. hole)",4.85:"  6-32 Heat-Set (0.191 in. hole)",5.61:"  8-32 Heat-Set (0.221 in. hole)",5.74:"  8-32 Heat-Set (0.226 in. hole)",6.41:"  10-24/10-32 Heat-Set (0.252 in. hole)",6.51:"  10-24/10-32 Heat-Set (0.256 in. hole)",8.01:"  1/4-20 Heat-Set (0.315 in. hole)",8.11:"  1/4-20 Heat-Set (0.319 in. hole)"]
 
-// Expand Faceplate Upward - make the faceplate taller without changing any other dimensions, adding holes, etc., so as to cover openings or structures above the cage. Useful for rack systems that add reinforcing bars, such as Homeracker. - NOTE: This option is disabled for partial-width cages.
+// Expand Faceplate Upward - make the faceplate taller without changing any other dimensions, so as to cover openings or structures above the cage. Useful for rack systems that add reinforcing bars, such as Homeracker. - NOTE: This option is disabled for partial-width cages.
 expand_faceplate_upward = 0; // [0:1:50]
 
-// Expand Faceplate Downward - make the faceplate taller without changing any other dimensions, adding holes, etc., so as to cover openings or structures above the cage. Useful for rack systems that add reinforcing bars, such as Homeracker. - NOTE: Set this to 15 to emulate Homecracker's 'flush to bottom' option. - NOTE: This option is disabled for partial-width cages.
+// Expand Faceplate Downward - make the faceplate taller without changing any other dimensions, so as to cover openings or structures above the cage. Useful for rack systems that add reinforcing bars, such as Homeracker. - NOTE: Set this to 15 to emulate Homecracker's 'flush to bottom' option. - NOTE: This option is disabled for partial-width cages.
 expand_faceplate_downward = 0; // [0:1:50]
 
 

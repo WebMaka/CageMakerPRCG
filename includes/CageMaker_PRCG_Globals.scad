@@ -201,12 +201,12 @@ rack_geometry_options = [
   ["50mm_2h", 50.00, [12.50, 37.50], 8.73125, 5.25, 16],
 ];
 // For adding new custom entries, the format is:
-//  ["Name", unit_height, [first_hole, second_hole, third_hole, etc.], mounting_hole_center_difference, mounting_hole_diameter, mounting_reservation_space]
+//  ["Name", unit_height, [first_hole, second_hole, third_hole, etc.], mounting_hole_center_inset, mounting_hole_diameter, mounting_reservation_space]
 // Where:
 //   "Name" is as selected in the rack_geometry variable.
 //   unit_height is what the name implies, what the rack system considers one "unit" of height.
 //   first_hole, second-hole, etc. are the mounting hole spacing in mm from the topmost edge of the unit.
-//   mounting_hole_center_difference is the difference between rack width and mounting centerline. For
+//   mounting_hole_center_inset is the difference between rack width and mounting centerline. For
 //     example, for an EIA-310 rack the mounting centers are 18-5/16" for a 19" rack, or 0.6875" (11/16")
 //     less than the width.
 //   mounting_hole_diameter is also what the name implies.
@@ -214,7 +214,7 @@ rack_geometry_options = [
 //     reserved for mounting space, e.g., the portion of the faceplate that rests against rack rails.
 unit_height_in_mm = rack_geometry == "Custom" ? custom_rack_geometry_unit_height : rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][1];
 mounting_hole_pattern = rack_geometry == "Custom" ? custom_rack_geometry_mounting_hole_pattern : rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][2];
-mounting_hole_center_difference = rack_geometry == "Custom" ? (rack_cage_width - custom_mounting_hole_center_difference) : rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][3];
+mounting_hole_center_inset = rack_geometry == "Custom" ? (rack_cage_width - custom_mounting_hole_center_difference) : rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][3];
 mounting_hole_diameter = rack_geometry == "Custom" ? custom_rack_geometry_mounting_hole_diameter : rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][4];
 mounting_reservation_space = rack_geometry == "Custom" ? custom_rack_geometry_mounting_reservation_area : rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][5];
 

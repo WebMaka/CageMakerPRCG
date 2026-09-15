@@ -122,7 +122,7 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
                 // Note that we're deliberately overshooting by a full unit more, above AND below, than
                 // the actual number of units required for this faceplate. This allows for vertical hole
                 // shifting of up to a full unit.
-                for (unit_number = [-1:round(height_in_units)])
+                for (unit_number = [0 - (vertically_shift_mounting_holes ? 1 : 0):round(height_in_units) - 1])
                 {
                     for (y = mounting_hole_pattern)
                     {
@@ -144,7 +144,7 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
                         }
                         else
                             // If there isn't an ear on this side, create screw holes normally.
-                            faceplate_screw_hole_slot(mounting_hole_diameter, 0 - ((width_in_mm / 2) - mounting_hole_center_difference), top_edge + (unit_number * unit_height_in_mm) + y + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
+                            faceplate_screw_hole_slot(mounting_hole_diameter, 0 - ((width_in_mm / 2) - mounting_hole_center_inset), top_edge + (unit_number * unit_height_in_mm) + y + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
 
                         if (right_ear)
                         {
@@ -160,7 +160,7 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
 
                         }
                         else
-                            faceplate_screw_hole_slot(mounting_hole_diameter, ((width_in_mm / 2) - mounting_hole_center_difference),top_edge + (unit_number * unit_height_in_mm) + y + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
+                            faceplate_screw_hole_slot(mounting_hole_diameter, ((width_in_mm / 2) - mounting_hole_center_inset),top_edge + (unit_number * unit_height_in_mm) + y + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
                     }
                 }
             }
@@ -194,8 +194,8 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
                 }
                 else
                 {
-                    faceplate_screw_hole_slot(mounting_hole_diameter, 0 - ((width_in_mm / 2) - mounting_hole_center_difference), top_edge + mounting_hole_pattern[0] + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
-                    faceplate_screw_hole_slot(mounting_hole_diameter, 0 - ((width_in_mm / 2) - mounting_hole_center_difference), top_edge + ((round(height_in_units) - 1) * unit_height_in_mm) + mounting_hole_pattern[half_unit ? 0 : len(mounting_hole_pattern) - 1] + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
+                    faceplate_screw_hole_slot(mounting_hole_diameter, 0 - ((width_in_mm / 2) - mounting_hole_center_inset), top_edge + mounting_hole_pattern[0] + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
+                    faceplate_screw_hole_slot(mounting_hole_diameter, 0 - ((width_in_mm / 2) - mounting_hole_center_inset), top_edge + ((round(height_in_units) - 1) * unit_height_in_mm) + mounting_hole_pattern[half_unit ? 0 : len(mounting_hole_pattern) - 1] + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
                 }
 
                 if (right_ear)
@@ -221,8 +221,8 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
                 }
                 else
                 {
-                    faceplate_screw_hole_slot(mounting_hole_diameter, (width_in_mm / 2) - mounting_hole_center_difference, top_edge + mounting_hole_pattern[0] + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
-                    faceplate_screw_hole_slot(mounting_hole_diameter, (width_in_mm / 2 - mounting_hole_center_difference), top_edge + ((round(height_in_units) - 1) * unit_height_in_mm) + mounting_hole_pattern[half_unit ? 0 : len(mounting_hole_pattern) - 1] + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
+                    faceplate_screw_hole_slot(mounting_hole_diameter, (width_in_mm / 2) - mounting_hole_center_inset, top_edge + mounting_hole_pattern[0] + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
+                    faceplate_screw_hole_slot(mounting_hole_diameter, (width_in_mm / 2 - mounting_hole_center_inset), top_edge + ((round(height_in_units) - 1) * unit_height_in_mm) + mounting_hole_pattern[half_unit ? 0 : len(mounting_hole_pattern) - 1] + (vertically_shift_mounting_holes ? unit_height_in_mm / 2 : 0), 0);
                 }
             }
 
