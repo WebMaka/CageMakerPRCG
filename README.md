@@ -44,12 +44,15 @@ This script was built to work with/in OpenSCAD version 2021.01. To obtain a copy
 
 To use this script:
 
-1. Launch OpenSCAD.
-2. Open this script.
+1. Download (click the green "&lt;&gt; Code" button then select "Download ZIP") or clone ("git clone https://github.com/WebMaka/CageMakerPRCG.git" in a terminal).
+2. Double-click "CageMaker_PRCG_v0.7.scad" to launch OpenSCAD and load the script. If all goes well, OpenSCAD should show an extreme close-up of a default rack cage design in its preview window - press CTRL-SHIFT-V to zoom out to "show-all" distance.
 3. Use the Customizer to configure the size of the object that you wish to rack-mount. Optionally, configure other settings to suit.
 4. Press F6 to instruct OpenSCAD to fully calculate and render the rack cage as an object.
 5. Press F7 to save the created object as a STL file.
 6. Slice and print the object.
+
+> [!IMPORTANT]
+> If OpenSCAD cannot find the include files, make sure there is an "includes" directory in the same directory as "CageMaker_PRCG_v0.7.scad", and that it contains files. The directory layout and file locations in your copy should be the same as for this repo.
 
 &nbsp;
 
