@@ -267,7 +267,7 @@ cage_sides_vent_grid_angle = 0.0; // [-180:5:180]
 cage_back_geometry = "Open"; // ["Open":"Open Back - DEFAULT","Solid":"Solid Back (No Ventilation Cutout) - REQUIRED for back-of-cage modifications","Sides":"Mostly Open Back With 6mm Retention Lips On Both Sides","None":"No Back At All"]
 
 // Back-Of-Cage CENTERED Mod Type - add a new connector, port, or opening of some form onto the faceplate. - IMPORTANT: This option is only available when the back-of-cage geometry is set to solid. - NOTE: Be aware of fitment, as if there isn't sufficient room for the modification to fit on the faceplate, CageMaker will remove it.
-cage_back_centered_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector (Lock Tab Down)","KeystoneFlipped":"  Keystone Connector (Lock Tab Up)","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
+cage_back_centered_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector (Lock Tab Down)","KeystoneFlipped":"  Keystone Connector (Lock Tab Up)","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Cable Management","CombShortHalf":"   Short Half-Unit Cable Comb","CombTallHalf":"   Tall Half-Unit Cable Comb","CombShortFull":"   Short Full-Unit Cable Comb","CombTallFull":"   Tall Full-Unit Cable Comb","None":" ","None":"Single-Board Computers (Raspberry Pi And Similar)","SBC85x58_H":"   85x58mm SBCs (Raspberry Pi, etc.) - Horizontal","SBC85x58_VR":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Right Oriented)","SBC85x58_VL":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Left Oriented)","None":" ","None":"PC Motherboard Cutouts","RearIO":"   Rear Panel IO Shield","PCISlot":"   Full-Height PCI Slot","PCISlot_LP":"   Low-Profile PCI Slot","MiniITX1Slot":"   Mini-ITX Motherboard + Low-Profile PCI Slot","ATXPSU":"   ATX Power Supply","SFXPSU":"   SFX Power Supply","TFXPSU_SU":"   TFX Power Supply - Power Socket UP","TFXPSU_SD":"   TFX Power Supply - Power Socket DOWN","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
 
 // Back-Of-Cage CENTERED mod grid column count - how many copies of the above modification will be placed into a row on the faceplate? - IMPORTANT: This option is only available when cage generation is disabled by setting "faceplate only" to a height value. Make sure the height setting is tall enough to clear. - NOTE: Be aware of fitment, as if there isn't sufficient room for the modification to fit on the faceplate, CageMaker will remove it.
 cage_back_centered_mod_grid_columns = 1; // [1:12]
@@ -320,7 +320,7 @@ rear_support_overlap = 12; // [0:1:500]
 /* [Additional Faceplate Modifications] */
 
 // CENTERED Mod Type - add a new connector, port, or opening of some form onto the faceplate. - IMPORTANT: This option is only available when cage generation is disabled by setting "faceplate only" to a height value. Make sure the height setting is tall enough to clear. - NOTE: Be aware of fitment, as if there isn't sufficient room for the modification to fit on the faceplate, CageMaker will remove it.
-centered_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector (Lock Tab Down)","KeystoneFlipped":"  Keystone Connector (Lock Tab Up)","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Cable Management","CombShortHalf":"   Short Half-Unit Cable Comb","CombTallHalf":"   Tall Half-Unit Cable Comb","CombShortFull":"   Short Full-Unit Cable Comb","CombTallFull":"   Tall Full-Unit Cable Comb","None":" ","None":"Single-Board Computers (Raspberry Pi And Similar)","SBC85x58_H":"   85x58mm SBCs (Raspberry Pi, etc.) - Horizontal","SBC85x58_VR":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Right Oriented)","SBC85x58_VL":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Left Oriented)","None":" ","None":"PC Motherboard Cutouts","RearIO":"   Rear Panel IO Shield","PCISlot":"   Full-Height PCI Slot","PCISlot_LP":"   Low-Profile PCI Slot","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
+centered_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector (Lock Tab Down)","KeystoneFlipped":"  Keystone Connector (Lock Tab Up)","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Cable Management","CombShortHalf":"   Short Half-Unit Cable Comb","CombTallHalf":"   Tall Half-Unit Cable Comb","CombShortFull":"   Short Full-Unit Cable Comb","CombTallFull":"   Tall Full-Unit Cable Comb","None":" ","None":"Single-Board Computers (Raspberry Pi And Similar)","SBC85x58_H":"   85x58mm SBCs (Raspberry Pi, etc.) - Horizontal","SBC85x58_VR":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Right Oriented)","SBC85x58_VL":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Left Oriented)","None":" ","None":"PC Motherboard Cutouts","RearIO":"   Rear Panel IO Shield","PCISlot":"   Full-Height PCI Slot","PCISlot_LP":"   Low-Profile PCI Slot","MiniITX1Slot":"   Mini-ITX Motherboard + Low-Profile PCI Slot","ATXPSU":"   ATX Power Supply","SFXPSU":"   SFX Power Supply","TFXPSU_SU":"   TFX Power Supply - Power Socket UP","TFXPSU_SD":"   TFX Power Supply - Power Socket DOWN","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
 
 // CENTERED mod grid column count - how many copies of the above modification will be placed into a row on the faceplate? - IMPORTANT: This option is only available when cage generation is disabled by setting "faceplate only" to a height value. Make sure the height setting is tall enough to clear. - NOTE: Be aware of fitment, as if there isn't sufficient room for the modification to fit on the faceplate, CageMaker will remove it.
 centered_mod_grid_columns = 1; // [1:12]
@@ -718,18 +718,25 @@ mod_sizes = [
   ["KeystoneFlipped", 21, 28],
   ["DSeries", 26, 31],
 
-  ["CombShortHalf", 8, 14],
-  ["CombTallHalf", 8, 14],
-  ["CombShortFull", 8, 36],
-  ["CombTallFull", 8, 36],
+  ["CombShortHalf", 16, 14],
+  ["CombTallHalf", 16, 14],
+  ["CombShortFull", 16, 36],
+  ["CombTallFull", 16, 36],
 
   ["SBC85x58_H", 60, 30],
   ["SBC85x58_VR", 30, 60],
   ["SBC85x58_VL", 30, 60],
 
-  ["RearIO", 160, 49],
+  ["RearIO", 162, 49],
   ["PCISlot", 16.51, 116],
   ["PCISlot_LP", 16.51, 76],
+  ["MiniITX1Slot", 184, 84],
+  ["ATXPSU", 154, 89],
+  ["ATXPSU_FU", 154, 89],
+  ["ATXPSU_FD", 154, 89],
+  ["SFXPSU", 124, 64],
+  ["TFXPSU_SU", 89, 69],
+  ["TFXPSU_SD", 89, 69],
 
   ["30mmFan", 34, 34],
   ["40mmFan", 44, 44],
@@ -772,9 +779,9 @@ mod_sizes = [
   ["DIN1/8V", 53, 100],
   ["DIN1/4", 100, 100],
 
-  ["CustomA", (custom_cutout_a_shape == "Round" ? custom_cutout_a_diameter_height : custom_cutout_a_width) + 8 + (custom_cutout_a_snap_in_recess ? 6 : 0) + custom_cutout_a_horizontal_padding, custom_cutout_a_diameter_height + 8 + (custom_cutout_a_snap_in_recess ? 6 : 0) + custom_cutout_a_vertical_padding],
-  ["CustomB", (custom_cutout_b_shape == "Round" ? custom_cutout_b_diameter_height : custom_cutout_b_width) + 8 + (custom_cutout_b_snap_in_recess ? 6 : 0) + custom_cutout_b_horizontal_padding, custom_cutout_b_diameter_height + 8 + (custom_cutout_b_snap_in_recess ? 6 : 0) + custom_cutout_b_vertical_padding],
-  ["CustomC", (custom_cutout_c_shape == "Round" ? custom_cutout_c_diameter_height : custom_cutout_c_width) + 8 + (custom_cutout_c_snap_in_recess ? 6 : 0) + custom_cutout_c_horizontal_padding, custom_cutout_c_diameter_height + 8 + (custom_cutout_c_snap_in_recess ? 6 : 0) + custom_cutout_c_vertical_padding],
+  ["CustomA", (custom_cutout_a_shape == "Round" ? custom_cutout_a_diameter_height : custom_cutout_a_width) + 4 + (custom_cutout_a_snap_in_recess ? 6 : 0) + custom_cutout_a_horizontal_padding, custom_cutout_a_diameter_height + 4 + (custom_cutout_a_snap_in_recess ? 6 : 0) + custom_cutout_a_vertical_padding],
+  ["CustomB", (custom_cutout_b_shape == "Round" ? custom_cutout_b_diameter_height : custom_cutout_b_width) + 4 + (custom_cutout_b_snap_in_recess ? 6 : 0) + custom_cutout_b_horizontal_padding, custom_cutout_b_diameter_height + 4 + (custom_cutout_b_snap_in_recess ? 6 : 0) + custom_cutout_b_vertical_padding],
+  ["CustomC", (custom_cutout_c_shape == "Round" ? custom_cutout_c_diameter_height : custom_cutout_c_width) + 4 + (custom_cutout_c_snap_in_recess ? 6 : 0) + custom_cutout_c_horizontal_padding, custom_cutout_c_diameter_height + 4 + (custom_cutout_c_snap_in_recess ? 6 : 0) + custom_cutout_c_vertical_padding],
 ];
 // For adding new custom entries, the format is:
 //  "ModName", width, height
@@ -1656,22 +1663,127 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
             if (mod_type == "PCISlot")
             {
                 translate([horizontal_offset + x_offset, vertical_offset + y_offset + 5, 5 + surface_thickness])
-                    cube([12, 90, 12], center=true);
-                translate([horizontal_offset + x_offset - 2.54, vertical_offset + y_offset + 55, 5 + surface_thickness])
-                    cube([22, 5, 12], center=true);
+                    cube([15, 90, 12], center=true);
+                translate([horizontal_offset + x_offset - 2.54, vertical_offset + y_offset - 50, 5 + surface_thickness])
+                    cube([22, 10, 12], center=true);
             }
             
             // PC Motherboards - PCI Slot
             if (mod_type == "PCISlot_LP")
             {
                 translate([horizontal_offset + x_offset, vertical_offset + y_offset + 5, 5 + surface_thickness])
-                    cube([12, 55, 12], center=true);
-                translate([horizontal_offset + x_offset - 2.54, vertical_offset + y_offset - 30, 5 + surface_thickness])
-                    cube([22, 5, 12], center=true);
+                    cube([15, 55, 12], center=true);
+                translate([horizontal_offset + x_offset - 2.54, vertical_offset + y_offset - 32.5, 5 + surface_thickness])
+                    cube([22, 10, 12], center=true);
             }
             
+            // PC Motherboards - Mini-ITX motherboard with one low-profile PCI slot
+            if (mod_type == "MiniITX1Slot")
+            {
+                translate([horizontal_offset + x_offset - 9.5, vertical_offset + y_offset + 11.4, 5 + surface_thickness])
+                    cube([159, 44.7, 12], center=true);
+                translate([horizontal_offset + x_offset + 81.9, vertical_offset + y_offset - 14.0 + 15, 5 + surface_thickness])
+                    cube([15, 55, 12], center=true);
+                translate([horizontal_offset + x_offset + 79.36, vertical_offset + y_offset - 48.90 + 15, 5 + surface_thickness])
+                    cube([22, 6, 12], center=true);
+            }
             
-            
+			// PC Motherboards - ATX PSU (Power Supply Unit)
+            if (mod_type == "ATXPSU")
+			{
+				translate([horizontal_offset + x_offset - 69, vertical_offset + y_offset - 37, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset - 69, vertical_offset + y_offset + 27, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset + 45, vertical_offset + y_offset + 37, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset + 69, vertical_offset + y_offset - 37, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+
+				translate([horizontal_offset + x_offset + 69, vertical_offset + y_offset + 37, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset + 69, vertical_offset + y_offset - 27, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset - 45, vertical_offset + y_offset - 37, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset - 69, vertical_offset + y_offset + 37, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+			
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset - 5, 5 + surface_thickness])
+					cube([137, 54, 12], center=true);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset + 5, 5 + surface_thickness])
+					cube([137, 54, 12], center=true);
+				translate([horizontal_offset + x_offset + 12.5, vertical_offset + y_offset - 20, 5 + surface_thickness])
+					cube([104, 40, 12], center=true);
+				translate([horizontal_offset + x_offset - 12.5, vertical_offset + y_offset + 20, 5 + surface_thickness])
+					cube([104, 40, 12], center=true);
+			}
+
+ 			// PC Motherboards - SFX PSU (Power Supply Unit)
+            if (mod_type == "SFXPSU")
+			{
+				translate([horizontal_offset + x_offset + 56.5, vertical_offset + y_offset - 25.75, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset + 56.5, vertical_offset + y_offset, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset + 56.5, vertical_offset + y_offset + 25.75, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset - 56.5, vertical_offset + y_offset - 25.75, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset - 56.5, vertical_offset + y_offset, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset - 56.5, vertical_offset + y_offset + 25.75, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+
+				translate([horizontal_offset + x_offset - 0, vertical_offset + y_offset - 0, 5 + surface_thickness])
+					cube([105, 59, 12], center=true);
+				translate([horizontal_offset + x_offset - 0, vertical_offset + y_offset - 13, 5 + surface_thickness])
+					cube([120, 17, 12], center=true);
+				translate([horizontal_offset + x_offset - 0, vertical_offset + y_offset + 13, 5 + surface_thickness])
+					cube([120, 17, 12], center=true);
+
+			}			
+
+ 			// PC Motherboards - TFX PSU (Power Supply Unit) - Power Socket Up
+            if (mod_type == "TFXPSU_SU")
+			{
+				translate([horizontal_offset + x_offset - 33.5, vertical_offset + y_offset - 24.3, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset - 33.5, vertical_offset + y_offset + 19.7, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset + 37.3, vertical_offset + y_offset + 3.7, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+
+				translate([horizontal_offset + x_offset - 0, vertical_offset + y_offset - 11, 5 + surface_thickness])
+					cube([80, 17, 12], center=true);
+				translate([horizontal_offset + x_offset + 5.5, vertical_offset + y_offset + 20, 5 + surface_thickness])
+					cube([69, 21, 12], center=true);
+				translate([horizontal_offset + x_offset + 5.5, vertical_offset + y_offset - 20, 5 + surface_thickness])
+					cube([69, 21, 12], center=true);
+				translate([horizontal_offset + x_offset - 3.5, vertical_offset + y_offset + 1, 5 + surface_thickness])
+					cube([73, 28, 12], center=true);
+			}
+
+ 			// PC Motherboards - TFX PSU (Power Supply Unit) - Power Socket Down
+            if (mod_type == "TFXPSU_SD")
+			{
+				translate([horizontal_offset + x_offset + 33.5, vertical_offset + y_offset + 24.3, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset + 33.5, vertical_offset + y_offset - 19.7, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset - 37.3, vertical_offset + y_offset - 3.7, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+
+				translate([horizontal_offset + x_offset - 0, vertical_offset + y_offset + 11, 5 + surface_thickness])
+					cube([80, 17, 12], center=true);
+				translate([horizontal_offset + x_offset - 5.5, vertical_offset + y_offset - 20, 5 + surface_thickness])
+					cube([69, 21, 12], center=true);
+				translate([horizontal_offset + x_offset - 5.5, vertical_offset + y_offset + 20, 5 + surface_thickness])
+					cube([69, 21, 12], center=true);
+				translate([horizontal_offset + x_offset + 3.5, vertical_offset + y_offset - 1, 5 + surface_thickness])
+					cube([73, 28, 12], center=true);
+			}
+
             // 85x58 SBCs - Horizontal
             if (mod_type == "SBC85x58_H")
             {
@@ -2089,7 +2201,14 @@ module faceplate_mod_addition(mod_type, horizontal_offset, vertical_offset, mod_
             // Mods that don't need any additional structure won't need any
             // additions here.
             translate([horizontal_offset + x_offset, vertical_offset + y_offset, plate_thickness / 2])
-                cube([mod_width, mod_height, plate_thickness], center=true);
+			{
+				if ($preview)
+				{
+					color("orange")
+						cube([mod_width, mod_height, plate_thickness + 0.002], center=true);
+				} else
+					cube([mod_width, mod_height, plate_thickness + 0.002], center=true);
+			}
 
 
             // Uncommon additions follow...
@@ -2109,33 +2228,57 @@ module faceplate_mod_addition(mod_type, horizontal_offset, vertical_offset, mod_
 			// four_rounded_corner_plate(plate_height, plate_width, plate_thickness, corner_radius)
             if (mod_type == "CombShortHalf")
             {
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset + 5.5, 12 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset + 5.5, 12 + surface_thickness])
 					rotate([90, 0, 0])
 						two_rounded_corner_plate(20, 4, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset + 5.5, 20 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset + 5.5, 20 + surface_thickness])
 					rotate([90, 0, 0])
 						four_rounded_corner_plate(6, 6, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset - 5.5, 12 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset - 5.5, 12 + surface_thickness])
 					rotate([90, 0, 0])
 						two_rounded_corner_plate(20, 4, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset - 5.5, 20 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset - 5.5, 20 + surface_thickness])
+					rotate([90, 0, 0])
+						four_rounded_corner_plate(6, 6, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset + 5.5, 12 + surface_thickness])
+					rotate([90, 0, 0])
+						two_rounded_corner_plate(20, 4, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset + 5.5, 20 + surface_thickness])
+					rotate([90, 0, 0])
+						four_rounded_corner_plate(6, 6, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset - 5.5, 12 + surface_thickness])
+					rotate([90, 0, 0])
+						two_rounded_corner_plate(20, 4, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset - 5.5, 20 + surface_thickness])
 					rotate([90, 0, 0])
 						four_rounded_corner_plate(6, 6, 3, 2);
             }
 
-			// Cable Management - Short Half-Unit Cable Comb
+			// Cable Management - Tall Half-Unit Cable Comb
             if (mod_type == "CombTallHalf")
             {
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset + 5.5, 18 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset + 5.5, 18 + surface_thickness])
 					rotate([90, 0, 0])
 						two_rounded_corner_plate(30, 4, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset + 5.5, 32 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset + 5.5, 32 + surface_thickness])
 					rotate([90, 0, 0])
 						four_rounded_corner_plate(6, 6, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset - 5.5, 18 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset - 5.5, 18 + surface_thickness])
 					rotate([90, 0, 0])
 						two_rounded_corner_plate(30, 4, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset - 5.5, 32 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset - 5.5, 32 + surface_thickness])
+					rotate([90, 0, 0])
+						four_rounded_corner_plate(6, 6, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset + 5.5, 18 + surface_thickness])
+					rotate([90, 0, 0])
+						two_rounded_corner_plate(30, 4, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset + 5.5, 32 + surface_thickness])
+					rotate([90, 0, 0])
+						four_rounded_corner_plate(6, 6, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset - 5.5, 18 + surface_thickness])
+					rotate([90, 0, 0])
+						two_rounded_corner_plate(30, 4, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset - 5.5, 32 + surface_thickness])
 					rotate([90, 0, 0])
 						four_rounded_corner_plate(6, 6, 3, 2);
             }
@@ -2143,33 +2286,57 @@ module faceplate_mod_addition(mod_type, horizontal_offset, vertical_offset, mod_
 			// Cable Management - Short Full-Unit Cable Comb
             if (mod_type == "CombShortFull")
             {
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset + 16.5, 12 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset + 16.5, 12 + surface_thickness])
 					rotate([90, 0, 0])
 						two_rounded_corner_plate(20, 4, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset + 16.5, 20 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset + 16.5, 20 + surface_thickness])
 					rotate([90, 0, 0])
 						four_rounded_corner_plate(6, 6, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset - 16.5, 12 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset - 16.5, 12 + surface_thickness])
 					rotate([90, 0, 0])
 						two_rounded_corner_plate(20, 4, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset - 16.5, 20 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset - 16.5, 20 + surface_thickness])
+					rotate([90, 0, 0])
+						four_rounded_corner_plate(6, 6, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset + 16.5, 12 + surface_thickness])
+					rotate([90, 0, 0])
+						two_rounded_corner_plate(20, 4, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset + 16.5, 20 + surface_thickness])
+					rotate([90, 0, 0])
+						four_rounded_corner_plate(6, 6, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset - 16.5, 12 + surface_thickness])
+					rotate([90, 0, 0])
+						two_rounded_corner_plate(20, 4, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset - 16.5, 20 + surface_thickness])
 					rotate([90, 0, 0])
 						four_rounded_corner_plate(6, 6, 3, 2);
             }
 
-			// Cable Management - Short Full-Unit Cable Comb
+			// Cable Management - Tall Full-Unit Cable Comb
             if (mod_type == "CombTallFull")
             {
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset + 16.5, 18 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset + 16.5, 18 + surface_thickness])
 					rotate([90, 0, 0])
 						two_rounded_corner_plate(30, 4, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset + 16.5, 32 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset + 16.5, 32 + surface_thickness])
 					rotate([90, 0, 0])
 						four_rounded_corner_plate(6, 6, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset - 16.5, 18 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset - 16.5, 18 + surface_thickness])
 					rotate([90, 0, 0])
 						two_rounded_corner_plate(30, 4, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset - 16.5, 32 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset - 16.5, 32 + surface_thickness])
+					rotate([90, 0, 0])
+						four_rounded_corner_plate(6, 6, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset + 16.5, 18 + surface_thickness])
+					rotate([90, 0, 0])
+						two_rounded_corner_plate(30, 4, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset + 16.5, 32 + surface_thickness])
+					rotate([90, 0, 0])
+						four_rounded_corner_plate(6, 6, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset - 16.5, 18 + surface_thickness])
+					rotate([90, 0, 0])
+						two_rounded_corner_plate(30, 4, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset - 16.5, 32 + surface_thickness])
 					rotate([90, 0, 0])
 						four_rounded_corner_plate(6, 6, 3, 2);
             }
@@ -3083,7 +3250,7 @@ module create_device_cage(oversize=false)
                                 // "Structure" is just the outer edges that form the cage support
                                 // structure, with the rest almost completely open.
                                 else if (cage_top_geometry == "Structure")
-                                    ventilated_side_plate(panel_depth, top_bottom_panel_width, plate_thickness + expand, 2 + support_cage_base_size, 0.001, 0.001, extra_support);
+                                    ventilated_side_plate(panel_depth, top_bottom_panel_width, plate_thickness + expand, 2 + support_cage_base_size, 0.001, 0.001, false);
 
                                 // When "Lidded" is selected, we'll largely duplicate open, but
                                 // with screw holes in the corners for attaching a flat plastic
@@ -3094,7 +3261,7 @@ module create_device_cage(oversize=false)
                                     {
                                         union()
                                         {
-                                            ventilated_side_plate(panel_depth, top_bottom_panel_width, plate_thickness + expand, 8 + support_cage_base_size, 0.001, 5, extra_support);
+                                            ventilated_side_plate(panel_depth, top_bottom_panel_width, plate_thickness + expand, 8 + support_cage_base_size, 0.001, 5, false);
 
                                             // Add corner tabs at the back of the opening area.
                                             translate([(device_width / 2) - 7, (device_depth / 2) - plate_thickness - 8, 0])

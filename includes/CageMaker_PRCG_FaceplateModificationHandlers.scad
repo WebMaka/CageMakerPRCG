@@ -87,22 +87,127 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
             if (mod_type == "PCISlot")
             {
                 translate([horizontal_offset + x_offset, vertical_offset + y_offset + 5, 5 + surface_thickness])
-                    cube([12, 90, 12], center=true);
-                translate([horizontal_offset + x_offset - 2.54, vertical_offset + y_offset + 55, 5 + surface_thickness])
-                    cube([22, 5, 12], center=true);
+                    cube([15, 90, 12], center=true);
+                translate([horizontal_offset + x_offset - 2.54, vertical_offset + y_offset - 50, 5 + surface_thickness])
+                    cube([22, 10, 12], center=true);
             }
             
             // PC Motherboards - PCI Slot
             if (mod_type == "PCISlot_LP")
             {
                 translate([horizontal_offset + x_offset, vertical_offset + y_offset + 5, 5 + surface_thickness])
-                    cube([12, 55, 12], center=true);
-                translate([horizontal_offset + x_offset - 2.54, vertical_offset + y_offset - 30, 5 + surface_thickness])
-                    cube([22, 5, 12], center=true);
+                    cube([15, 55, 12], center=true);
+                translate([horizontal_offset + x_offset - 2.54, vertical_offset + y_offset - 32.5, 5 + surface_thickness])
+                    cube([22, 10, 12], center=true);
             }
             
+            // PC Motherboards - Mini-ITX motherboard with one low-profile PCI slot
+            if (mod_type == "MiniITX1Slot")
+            {
+                translate([horizontal_offset + x_offset - 9.5, vertical_offset + y_offset + 11.4, 5 + surface_thickness])
+                    cube([159, 44.7, 12], center=true);
+                translate([horizontal_offset + x_offset + 81.9, vertical_offset + y_offset - 14.0 + 15, 5 + surface_thickness])
+                    cube([15, 55, 12], center=true);
+                translate([horizontal_offset + x_offset + 79.36, vertical_offset + y_offset - 48.90 + 15, 5 + surface_thickness])
+                    cube([22, 6, 12], center=true);
+            }
             
-            
+			// PC Motherboards - ATX PSU (Power Supply Unit)
+            if (mod_type == "ATXPSU")
+			{
+				translate([horizontal_offset + x_offset - 69, vertical_offset + y_offset - 37, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset - 69, vertical_offset + y_offset + 27, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset + 45, vertical_offset + y_offset + 37, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset + 69, vertical_offset + y_offset - 37, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+
+				translate([horizontal_offset + x_offset + 69, vertical_offset + y_offset + 37, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset + 69, vertical_offset + y_offset - 27, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset - 45, vertical_offset + y_offset - 37, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset - 69, vertical_offset + y_offset + 37, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+			
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset - 5, 5 + surface_thickness])
+					cube([137, 54, 12], center=true);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset + 5, 5 + surface_thickness])
+					cube([137, 54, 12], center=true);
+				translate([horizontal_offset + x_offset + 12.5, vertical_offset + y_offset - 20, 5 + surface_thickness])
+					cube([104, 40, 12], center=true);
+				translate([horizontal_offset + x_offset - 12.5, vertical_offset + y_offset + 20, 5 + surface_thickness])
+					cube([104, 40, 12], center=true);
+			}
+
+ 			// PC Motherboards - SFX PSU (Power Supply Unit)
+            if (mod_type == "SFXPSU")
+			{
+				translate([horizontal_offset + x_offset + 56.5, vertical_offset + y_offset - 25.75, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset + 56.5, vertical_offset + y_offset, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset + 56.5, vertical_offset + y_offset + 25.75, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset - 56.5, vertical_offset + y_offset - 25.75, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset - 56.5, vertical_offset + y_offset, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset - 56.5, vertical_offset + y_offset + 25.75, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+
+				translate([horizontal_offset + x_offset - 0, vertical_offset + y_offset - 0, 5 + surface_thickness])
+					cube([105, 59, 12], center=true);
+				translate([horizontal_offset + x_offset - 0, vertical_offset + y_offset - 13, 5 + surface_thickness])
+					cube([120, 17, 12], center=true);
+				translate([horizontal_offset + x_offset - 0, vertical_offset + y_offset + 13, 5 + surface_thickness])
+					cube([120, 17, 12], center=true);
+
+			}			
+
+ 			// PC Motherboards - TFX PSU (Power Supply Unit) - Power Socket Up
+            if (mod_type == "TFXPSU_SU")
+			{
+				translate([horizontal_offset + x_offset - 33.5, vertical_offset + y_offset - 24.3, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset - 33.5, vertical_offset + y_offset + 19.7, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset + 37.3, vertical_offset + y_offset + 3.7, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+
+				translate([horizontal_offset + x_offset - 0, vertical_offset + y_offset - 11, 5 + surface_thickness])
+					cube([80, 17, 12], center=true);
+				translate([horizontal_offset + x_offset + 5.5, vertical_offset + y_offset + 20, 5 + surface_thickness])
+					cube([69, 21, 12], center=true);
+				translate([horizontal_offset + x_offset + 5.5, vertical_offset + y_offset - 20, 5 + surface_thickness])
+					cube([69, 21, 12], center=true);
+				translate([horizontal_offset + x_offset - 3.5, vertical_offset + y_offset + 1, 5 + surface_thickness])
+					cube([73, 28, 12], center=true);
+			}
+
+ 			// PC Motherboards - TFX PSU (Power Supply Unit) - Power Socket Down
+            if (mod_type == "TFXPSU_SD")
+			{
+				translate([horizontal_offset + x_offset + 33.5, vertical_offset + y_offset + 24.3, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset + 33.5, vertical_offset + y_offset - 19.7, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+				translate([horizontal_offset + x_offset - 37.3, vertical_offset + y_offset - 3.7, 5 + surface_thickness])
+					cylinder(16, d=4.3, center=true, $fn=this_fn);
+
+				translate([horizontal_offset + x_offset - 0, vertical_offset + y_offset + 11, 5 + surface_thickness])
+					cube([80, 17, 12], center=true);
+				translate([horizontal_offset + x_offset - 5.5, vertical_offset + y_offset - 20, 5 + surface_thickness])
+					cube([69, 21, 12], center=true);
+				translate([horizontal_offset + x_offset - 5.5, vertical_offset + y_offset + 20, 5 + surface_thickness])
+					cube([69, 21, 12], center=true);
+				translate([horizontal_offset + x_offset + 3.5, vertical_offset + y_offset - 1, 5 + surface_thickness])
+					cube([73, 28, 12], center=true);
+			}
+
             // 85x58 SBCs - Horizontal
             if (mod_type == "SBC85x58_H")
             {
@@ -520,7 +625,14 @@ module faceplate_mod_addition(mod_type, horizontal_offset, vertical_offset, mod_
             // Mods that don't need any additional structure won't need any
             // additions here.
             translate([horizontal_offset + x_offset, vertical_offset + y_offset, plate_thickness / 2])
-                cube([mod_width, mod_height, plate_thickness], center=true);
+			{
+				if ($preview)
+				{
+					color("orange")
+						cube([mod_width, mod_height, plate_thickness + 0.002], center=true);
+				} else
+					cube([mod_width, mod_height, plate_thickness + 0.002], center=true);
+			}
 
 
             // Uncommon additions follow...
@@ -540,33 +652,57 @@ module faceplate_mod_addition(mod_type, horizontal_offset, vertical_offset, mod_
 			// four_rounded_corner_plate(plate_height, plate_width, plate_thickness, corner_radius)
             if (mod_type == "CombShortHalf")
             {
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset + 5.5, 12 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset + 5.5, 12 + surface_thickness])
 					rotate([90, 0, 0])
 						two_rounded_corner_plate(20, 4, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset + 5.5, 20 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset + 5.5, 20 + surface_thickness])
 					rotate([90, 0, 0])
 						four_rounded_corner_plate(6, 6, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset - 5.5, 12 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset - 5.5, 12 + surface_thickness])
 					rotate([90, 0, 0])
 						two_rounded_corner_plate(20, 4, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset - 5.5, 20 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset - 5.5, 20 + surface_thickness])
+					rotate([90, 0, 0])
+						four_rounded_corner_plate(6, 6, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset + 5.5, 12 + surface_thickness])
+					rotate([90, 0, 0])
+						two_rounded_corner_plate(20, 4, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset + 5.5, 20 + surface_thickness])
+					rotate([90, 0, 0])
+						four_rounded_corner_plate(6, 6, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset - 5.5, 12 + surface_thickness])
+					rotate([90, 0, 0])
+						two_rounded_corner_plate(20, 4, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset - 5.5, 20 + surface_thickness])
 					rotate([90, 0, 0])
 						four_rounded_corner_plate(6, 6, 3, 2);
             }
 
-			// Cable Management - Short Half-Unit Cable Comb
+			// Cable Management - Tall Half-Unit Cable Comb
             if (mod_type == "CombTallHalf")
             {
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset + 5.5, 18 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset + 5.5, 18 + surface_thickness])
 					rotate([90, 0, 0])
 						two_rounded_corner_plate(30, 4, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset + 5.5, 32 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset + 5.5, 32 + surface_thickness])
 					rotate([90, 0, 0])
 						four_rounded_corner_plate(6, 6, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset - 5.5, 18 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset - 5.5, 18 + surface_thickness])
 					rotate([90, 0, 0])
 						two_rounded_corner_plate(30, 4, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset - 5.5, 32 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset - 5.5, 32 + surface_thickness])
+					rotate([90, 0, 0])
+						four_rounded_corner_plate(6, 6, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset + 5.5, 18 + surface_thickness])
+					rotate([90, 0, 0])
+						two_rounded_corner_plate(30, 4, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset + 5.5, 32 + surface_thickness])
+					rotate([90, 0, 0])
+						four_rounded_corner_plate(6, 6, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset - 5.5, 18 + surface_thickness])
+					rotate([90, 0, 0])
+						two_rounded_corner_plate(30, 4, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset - 5.5, 32 + surface_thickness])
 					rotate([90, 0, 0])
 						four_rounded_corner_plate(6, 6, 3, 2);
             }
@@ -574,33 +710,57 @@ module faceplate_mod_addition(mod_type, horizontal_offset, vertical_offset, mod_
 			// Cable Management - Short Full-Unit Cable Comb
             if (mod_type == "CombShortFull")
             {
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset + 16.5, 12 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset + 16.5, 12 + surface_thickness])
 					rotate([90, 0, 0])
 						two_rounded_corner_plate(20, 4, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset + 16.5, 20 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset + 16.5, 20 + surface_thickness])
 					rotate([90, 0, 0])
 						four_rounded_corner_plate(6, 6, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset - 16.5, 12 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset - 16.5, 12 + surface_thickness])
 					rotate([90, 0, 0])
 						two_rounded_corner_plate(20, 4, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset - 16.5, 20 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset - 16.5, 20 + surface_thickness])
+					rotate([90, 0, 0])
+						four_rounded_corner_plate(6, 6, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset + 16.5, 12 + surface_thickness])
+					rotate([90, 0, 0])
+						two_rounded_corner_plate(20, 4, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset + 16.5, 20 + surface_thickness])
+					rotate([90, 0, 0])
+						four_rounded_corner_plate(6, 6, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset - 16.5, 12 + surface_thickness])
+					rotate([90, 0, 0])
+						two_rounded_corner_plate(20, 4, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset - 16.5, 20 + surface_thickness])
 					rotate([90, 0, 0])
 						four_rounded_corner_plate(6, 6, 3, 2);
             }
 
-			// Cable Management - Short Full-Unit Cable Comb
+			// Cable Management - Tall Full-Unit Cable Comb
             if (mod_type == "CombTallFull")
             {
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset + 16.5, 18 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset + 16.5, 18 + surface_thickness])
 					rotate([90, 0, 0])
 						two_rounded_corner_plate(30, 4, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset + 16.5, 32 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset + 16.5, 32 + surface_thickness])
 					rotate([90, 0, 0])
 						four_rounded_corner_plate(6, 6, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset - 16.5, 18 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset - 16.5, 18 + surface_thickness])
 					rotate([90, 0, 0])
 						two_rounded_corner_plate(30, 4, 3, 2);
-				translate([horizontal_offset + x_offset, vertical_offset + y_offset - 16.5, 32 + surface_thickness])
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset - 16.5, 32 + surface_thickness])
+					rotate([90, 0, 0])
+						four_rounded_corner_plate(6, 6, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset + 16.5, 18 + surface_thickness])
+					rotate([90, 0, 0])
+						two_rounded_corner_plate(30, 4, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset + 16.5, 32 + surface_thickness])
+					rotate([90, 0, 0])
+						four_rounded_corner_plate(6, 6, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset - 16.5, 18 + surface_thickness])
+					rotate([90, 0, 0])
+						two_rounded_corner_plate(30, 4, 3, 2);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset - 16.5, 32 + surface_thickness])
 					rotate([90, 0, 0])
 						four_rounded_corner_plate(6, 6, 3, 2);
             }

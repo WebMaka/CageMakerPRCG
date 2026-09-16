@@ -241,18 +241,25 @@ mod_sizes = [
   ["KeystoneFlipped", 21, 28],
   ["DSeries", 26, 31],
 
-  ["CombShortHalf", 8, 14],
-  ["CombTallHalf", 8, 14],
-  ["CombShortFull", 8, 36],
-  ["CombTallFull", 8, 36],
+  ["CombShortHalf", 16, 14],
+  ["CombTallHalf", 16, 14],
+  ["CombShortFull", 16, 36],
+  ["CombTallFull", 16, 36],
 
   ["SBC85x58_H", 60, 30],
   ["SBC85x58_VR", 30, 60],
   ["SBC85x58_VL", 30, 60],
 
-  ["RearIO", 160, 49],
+  ["RearIO", 162, 49],
   ["PCISlot", 16.51, 116],
   ["PCISlot_LP", 16.51, 76],
+  ["MiniITX1Slot", 184, 84],
+  ["ATXPSU", 154, 89],
+  ["ATXPSU_FU", 154, 89],
+  ["ATXPSU_FD", 154, 89],
+  ["SFXPSU", 124, 64],
+  ["TFXPSU_SU", 89, 69],
+  ["TFXPSU_SD", 89, 69],
 
   ["30mmFan", 34, 34],
   ["40mmFan", 44, 44],
@@ -295,9 +302,9 @@ mod_sizes = [
   ["DIN1/8V", 53, 100],
   ["DIN1/4", 100, 100],
 
-  ["CustomA", (custom_cutout_a_shape == "Round" ? custom_cutout_a_diameter_height : custom_cutout_a_width) + 8 + (custom_cutout_a_snap_in_recess ? 6 : 0) + custom_cutout_a_horizontal_padding, custom_cutout_a_diameter_height + 8 + (custom_cutout_a_snap_in_recess ? 6 : 0) + custom_cutout_a_vertical_padding],
-  ["CustomB", (custom_cutout_b_shape == "Round" ? custom_cutout_b_diameter_height : custom_cutout_b_width) + 8 + (custom_cutout_b_snap_in_recess ? 6 : 0) + custom_cutout_b_horizontal_padding, custom_cutout_b_diameter_height + 8 + (custom_cutout_b_snap_in_recess ? 6 : 0) + custom_cutout_b_vertical_padding],
-  ["CustomC", (custom_cutout_c_shape == "Round" ? custom_cutout_c_diameter_height : custom_cutout_c_width) + 8 + (custom_cutout_c_snap_in_recess ? 6 : 0) + custom_cutout_c_horizontal_padding, custom_cutout_c_diameter_height + 8 + (custom_cutout_c_snap_in_recess ? 6 : 0) + custom_cutout_c_vertical_padding],
+  ["CustomA", (custom_cutout_a_shape == "Round" ? custom_cutout_a_diameter_height : custom_cutout_a_width) + 4 + (custom_cutout_a_snap_in_recess ? 6 : 0) + custom_cutout_a_horizontal_padding, custom_cutout_a_diameter_height + 4 + (custom_cutout_a_snap_in_recess ? 6 : 0) + custom_cutout_a_vertical_padding],
+  ["CustomB", (custom_cutout_b_shape == "Round" ? custom_cutout_b_diameter_height : custom_cutout_b_width) + 4 + (custom_cutout_b_snap_in_recess ? 6 : 0) + custom_cutout_b_horizontal_padding, custom_cutout_b_diameter_height + 4 + (custom_cutout_b_snap_in_recess ? 6 : 0) + custom_cutout_b_vertical_padding],
+  ["CustomC", (custom_cutout_c_shape == "Round" ? custom_cutout_c_diameter_height : custom_cutout_c_width) + 4 + (custom_cutout_c_snap_in_recess ? 6 : 0) + custom_cutout_c_horizontal_padding, custom_cutout_c_diameter_height + 4 + (custom_cutout_c_snap_in_recess ? 6 : 0) + custom_cutout_c_vertical_padding],
 ];
 // For adding new custom entries, the format is:
 //  "ModName", width, height

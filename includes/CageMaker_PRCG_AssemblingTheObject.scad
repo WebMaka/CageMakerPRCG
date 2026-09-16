@@ -471,7 +471,7 @@ module create_device_cage(oversize=false)
                                 // "Structure" is just the outer edges that form the cage support
                                 // structure, with the rest almost completely open.
                                 else if (cage_top_geometry == "Structure")
-                                    ventilated_side_plate(panel_depth, top_bottom_panel_width, plate_thickness + expand, 2 + support_cage_base_size, 0.001, 0.001, extra_support);
+                                    ventilated_side_plate(panel_depth, top_bottom_panel_width, plate_thickness + expand, 2 + support_cage_base_size, 0.001, 0.001, false);
 
                                 // When "Lidded" is selected, we'll largely duplicate open, but
                                 // with screw holes in the corners for attaching a flat plastic
@@ -482,7 +482,7 @@ module create_device_cage(oversize=false)
                                     {
                                         union()
                                         {
-                                            ventilated_side_plate(panel_depth, top_bottom_panel_width, plate_thickness + expand, 8 + support_cage_base_size, 0.001, 5, extra_support);
+                                            ventilated_side_plate(panel_depth, top_bottom_panel_width, plate_thickness + expand, 8 + support_cage_base_size, 0.001, 5, false);
 
                                             // Add corner tabs at the back of the opening area.
                                             translate([(device_width / 2) - 7, (device_depth / 2) - plate_thickness - 8, 0])
