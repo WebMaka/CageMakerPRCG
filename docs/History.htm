@@ -43,15 +43,18 @@ function w3_close() {
         Site Navigation
       </div>
       <div class="" style="margin-left:auto; align-self:center">
-        <a href="#" class="w3-bar-item w3-button w3-hover-red w3-crimson w3-xlarge" onclick="w3_close();">
-          &times;
-        </a>
+          <a href="#" class="w3-bar-item w3-button w3-hover-red w3-crimson w3-xlarge" onclick="w3_close();">
+        &times;
+      </a>
       </div>
     </div>
     <p>
-      <a href="QuickStartGuide.htm">Quick-Start Guide</a>
+        <a href="index.htm"><img src="images/home.png"> Home</a>
+    </p>
+    <p>
+        <a href="QuickStartGuide.htm">Quick-Start Guide</a>
       <br>
-      <a href="BestPractices.htm">Best Practices</a>
+        <a href="BestPractices.htm">Best Practices</a>
       <br>
       <a href="MaximumSupportedSizes.htm">Maximum Supported Sizes</a>
       <br>
@@ -61,6 +64,8 @@ function w3_close() {
     </p>
     <p>
       <a href="ConfigOptions.htm">Configuration Options</a>
+      <br>
+      <em>Configuration Options By Category:</em>
       <br>
       <a href="ConfigOptions_TargetDevicePresets.htm">&rsaquo; Target Device Presets</a>
       <br>
@@ -154,7 +159,8 @@ function w3_close() {
             and include horizontal as well as vertical in both left-oriented and right-
             oriented.</p></li>
             <li><p>Added faceplate modifications for standard motherboard rear-panel IO shield
-            openings, as well as full-height and half-height PCI slots.</p></li>
+            openings, Mini-ITX motherboards, and full-height and half-height PCI slots.</p></li>
+            <li><p>Added faceplate modifications for mounting ATX, SFX, and TFX power supplies.</p></li>
             <li><p>Added the option to generate a cage without opening a corresponding hole in
             the faceplate for inserting a device. Useful for creating custom rackmount
             enclosures when combined with faceplate modifications.</p></li>
@@ -184,6 +190,9 @@ function w3_close() {
             <li><p>Added the option to generate screw holes for mounting instead of 5mm wide
             slots. This will make for better aesthetics but may cause alignment issues
             on racks with slightly off-spec mounting hole centers.</p></li>
+            <li><p>Added the option to place screw-hole standoffs on the bottom of the cage 
+            when its geometry is set to solid. Screw hole size and standoff height are 
+            configurable.</p></li>
             <li><p>Changed behavior under "error" conditions - CageMaker PRCG will no longer
             force-correct any problems it detects, such as re-centering faceplate
             modifications that exceed exclusion zones. This will permit forcing a

@@ -43,15 +43,18 @@ function w3_close() {
         Site Navigation
       </div>
       <div class="" style="margin-left:auto; align-self:center">
-        <a href="#" class="w3-bar-item w3-button w3-hover-red w3-crimson w3-xlarge" onclick="w3_close();">
-          &times;
-        </a>
+          <a href="#" class="w3-bar-item w3-button w3-hover-red w3-crimson w3-xlarge" onclick="w3_close();">
+        &times;
+      </a>
       </div>
     </div>
     <p>
-      <a href="QuickStartGuide.htm">Quick-Start Guide</a>
+        <a href="index.htm"><img src="images/home.png"> Home</a>
+    </p>
+    <p>
+        <a href="QuickStartGuide.htm">Quick-Start Guide</a>
       <br>
-      <a href="BestPractices.htm">Best Practices</a>
+        <a href="BestPractices.htm">Best Practices</a>
       <br>
       <a href="MaximumSupportedSizes.htm">Maximum Supported Sizes</a>
       <br>
@@ -61,6 +64,8 @@ function w3_close() {
     </p>
     <p>
       <a href="ConfigOptions.htm">Configuration Options</a>
+      <br>
+      <em>Configuration Options By Category:</em>
       <br>
       <a href="ConfigOptions_TargetDevicePresets.htm">&rsaquo; Target Device Presets</a>
       <br>
@@ -182,7 +187,7 @@ function w3_close() {
                 </div>
                 <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
                   <p>
-                    This setting is ignored if the <strong>cage top geometry</strong> is set to anything other than <strong>Lidded, Open Top With Tabs &amp; Screw Holes</strong>.
+                    This feature requires that the <strong>cage top geometry</strong> be set to <strong>Lidded, Open Top With Tabs &amp; Screw Holes</strong>.
                   </p>
                 </div>
               </div>
@@ -201,7 +206,7 @@ function w3_close() {
               <img src="images/new.png"> <em>new for version 0.7</em> :: This setting determines how CageMaker PRCG generates the bottom of the cage, which can be one of the following:</p>
               <ul>
                 <li><strong>Open Bottom</strong> is the default setting, which produces a largely open bottom with maximum ventilation area.</li>
-                <li><strong>Solid Bottom (No Ventilation Cutout)</strong> produces a solid bottom without any opening. This can be used as a shelf for the interior of the cage.</li>
+                <li><strong>Solid Bottom (No Ventilation Cutout)</strong> produces a solid bottom without any opening. This can be used as a shelf for the interior of the cage, and is required if placing standoffs onto the bottom.</li>
                 <li><strong>Structure Only, Completely Open</strong> provides the maximum amount of open space while still generating a structurally strong cage.</li>
                 <li><strong>No Bottom At All</strong> instructs CageMaker PRCG to not generate a cage bottom or support structure.</li>
                 <li>The ventilation grids select grids with the listed hole shapes.</li>
@@ -220,6 +225,100 @@ function w3_close() {
 
               <p><img src="images/cage_side_geometry.png" class="w3-card"></p>
             </div>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="cage_bottom_standoffs"></a><strong>cage bottom standoffs</strong><br>
+              <img src="images/new.png"> <em>new for version 0.7</em> :: This setting adds screw-mount standoffs to the bottom of the cage. Coordinates (in mm) must be provided for each standoff, where the zero-Y/zero-Y point is the front-left corner of the bottom of the cage - X values extend toward the right of the cage, and Y values toward the back of the cage. Standoffs are conical in shape and are 2.5x the screw hole diameter at their tops, widening to 4.5x the screw hole diameter at the base.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>Coordinates must be provided as a series of X and Y pairs separated by commas and enclosed in a set of brackets. For example, in the sample image at right the coordinates are as follows:</p>
+                  <p>[10, 10, 10, 110, 140, 10, 140, 110]</p>
+                  <p>The first pair of coordinates ("10, 10") place a standoff 10mm in from the front and 10mm to the right of the left side of the cage. The second pair of coordinates ("10, 110") place a standoff 110mm in from the front and 10mm to the right of the left side. The third pair ("140, 10") place a standoff 140mm in from the front and 10mm to the right of the left side. Finally, the fourth pair ("140, 110") place a standoff 140mm in from the front and 110mm to the right of the left side.</p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    Although CageMaker PRCG does not (as of this version) limit the number of standoffs, adding them takes compute time during rendering and increases the complexity and filament consumption of the resulting cage.
+                  </p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    This feature requires that the <strong>cage bottom geometry</strong> be set to <strong>Solid Bottom (No Ventilation Cutout)</strong>.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_standoffs.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="cage_bottom_standoff_height"></a><strong>cage bottom standoff height</strong><br>
+              <img src="images/new.png"> <em>new for version 0.7</em> :: This setting sets the height of screw-hole standoffs (in mm) relative to the surface of the bottom of the cage.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    This feature requires that the <strong>cage bottom geometry</strong> be set to <strong>Solid Bottom (No Ventilation Cutout)</strong>.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_standoff_height.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="cage_bottom_standoff_screw_holes"></a><strong>cage bottom standoff screw holes</strong><br>
+              <img src="images/new.png"> <em>new for version 0.7</em> :: This setting adjusts the screw hole and overall diameter of screw-mount standoffs. Screw holes are automatically through-hole - hese extend through the standoffs and completely through the back of the cage. Standoffs are conical in shape and are 2.5x the screw hole diameter at their tops, widening to 4.5x the screw hole diameter at the base.</p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    This feature requires that the <strong>cage bottom geometry</strong> be set to <strong>Solid Bottom (No Ventilation Cutout)</strong>.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_standoff_holes.png" class="w3-card"></p>
           </div>
         </div>
 

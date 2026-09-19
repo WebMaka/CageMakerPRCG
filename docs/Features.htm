@@ -43,15 +43,18 @@ function w3_close() {
         Site Navigation
       </div>
       <div class="" style="margin-left:auto; align-self:center">
-        <a href="#" class="w3-bar-item w3-button w3-hover-red w3-crimson w3-xlarge" onclick="w3_close();">
-          &times;
-        </a>
+          <a href="#" class="w3-bar-item w3-button w3-hover-red w3-crimson w3-xlarge" onclick="w3_close();">
+        &times;
+      </a>
       </div>
     </div>
     <p>
-      <a href="QuickStartGuide.htm">Quick-Start Guide</a>
+        <a href="index.htm"><img src="images/home.png"> Home</a>
+    </p>
+    <p>
+        <a href="QuickStartGuide.htm">Quick-Start Guide</a>
       <br>
-      <a href="BestPractices.htm">Best Practices</a>
+        <a href="BestPractices.htm">Best Practices</a>
       <br>
       <a href="MaximumSupportedSizes.htm">Maximum Supported Sizes</a>
       <br>
@@ -61,6 +64,8 @@ function w3_close() {
     </p>
     <p>
       <a href="ConfigOptions.htm">Configuration Options</a>
+      <br>
+      <em>Configuration Options By Category:</em>
       <br>
       <a href="ConfigOptions_TargetDevicePresets.htm">&rsaquo; Target Device Presets</a>
       <br>
@@ -164,6 +169,7 @@ function w3_close() {
             <li>Multiple cages can be gapped out from each other for better air circulation, which can be helpful for hot-running devices.</li>
             <li>Optionally add screw holes in tabs to the short edges of a cage opening, or the corners of the opening, or both, with selectable hardware sizes. Couples well with multiple-same-sized-device cages, and useful for subrack assemblies - excellent for stuffing several Raspberry Pis or other small SBCs into a rack.</li>
             <li>By default, a cage is centered both horizontally and vertically on its faceplate. Positioning can be adjusted on both axes to move a cage to the top or bottom, to either side, or a combination of both.</li>
+            <li>Standoffs can be positioned on the bottom of a cage, and both height and screw diameter are configurable.</li>
             <li>Add up to three sets of add-on faceplate modifications, one on either side of the cage proper and one in the center when creating a cageless faceplate, each of which can be any one of the following:
               <ul>
                 <li>Keystone module receptacles</li>
@@ -172,6 +178,8 @@ function w3_close() {
                 <li>Cable management combs in two widths and two heights.</li>
                 <li>Motherboard rear-port IO shield cutouts.</li>
                 <li>Full-height or low-profile PCI slots for PC expansion cards.</li>
+                <li>Mini-ITX motherboard backplane with IO hield cutout and low-profile PCI slot.</li>
+                <li>ATX, SFX, and TFX power supplies.</li>
                 <li>30mm, 40mm, 60mm, 80mm, 92mm, 120mm, or 140mm cooling fans</li>
                 <li>10mm, 12mm, 16mm, 19mm, or 24mm holes for things like a pushbutton or panel-mount indicator light</li>
                 <li>Fractional-DIN cutouts in 1/32- to 1/4-DIN sizes</li>
@@ -214,7 +222,10 @@ function w3_close() {
                 <li>Cutouts and mounting bases with M2 screw bosses for mounting 85x58 SBCs such as Raspberry Pi. These can be mounted horizontally, or vertically with the SBC's "top"/"up" side facing left or right.</li>
                 <li>Cable management combs in two widths and two heights.</li>
                 <li>Motherboard rear-port IO shield cutouts.</li>
-                <li>Full-height or low-profile PCI slots for PC expansion cards. * 30mm, 40mm, 60mm, 80mm, 92mm, 120mm, or 140mm cooling fans</li>
+                <li>Full-height or low-profile PCI slots for PC expansion cards.</li>
+                <li>Mini-ITX motherboard backplane with IO hield cutout and low-profile PCI slot.</li>
+                <li>ATX, SFX, and TFX power supplies.</li>
+                <li>30mm, 40mm, 60mm, 80mm, 92mm, 120mm, or 140mm cooling fans</li>
                 <li>10mm, 12mm, 16mm, 19mm, or 24mm holes for things like a pushbutton or panel-mount indicator light</li>
                 <li>Fractional-DIN cutouts in 1/32- to 1/4-DIN sizes</li>
                 <li>VESA FDMI MIS-B/-C/-D/-E/-F mounting patterns up to 200mm for attaching VESA mounting brackets to the rack or the rack to VESA mounting brackets</li>
@@ -247,6 +258,7 @@ function w3_close() {
             <li>Includes presets for a number of popular devices - simply pick a device from a list to get a ready-to-render design for a 10" rack without requiring any further action. Pick, render, export, slice, print, install into the rack.</li>
             <li>Includes built-in "ruler" for easier layout. The ruler function automatically switches off when rendering a completed cage for printing.</li>
             <li>Ruler feature provides a "top" indicator as well as the unit height of the generated cage.</li>
+            <li>Faceplate and cage-back modifications' reservation spaces are color-coded for easier layout planning.</li>
             <li>Automatically marks estimated print height for the Z-axis when the ruler is enabled.</li>
             <li>Optionally display an outline of the build volume of the printer, to help determine whether the resulting 3D object will fit the printer's working area.</li>
             <li>Intelligent problem detection warns of size/fitment issues and overlap, in order to make sure the cage will work as a real thing before spending the time and filament to print the cage.</li>
