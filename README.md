@@ -70,7 +70,6 @@ Be sure to [check out the quick-start guide](https://github.com/WebMaka/CageMake
 
 CageMaker PRCG is extensively documented, with detailed coverage for every single option. That documentation is included with the repo but can also be accessed here:
 
-<p>
 <a href="https://webmaka.github.io/CageMakerPRCG/QuickStartGuide.htm">Quick-Start Guide</a>
 <br />
 <a href="https://webmaka.github.io/CageMakerPRCG/BestPractices.htm">Best Practices</a>
@@ -80,8 +79,7 @@ CageMaker PRCG is extensively documented, with detailed coverage for every singl
 <a href="https://webmaka.github.io/CageMakerPRCG/SupportedModifications.htm">Supported Modifications</a>
 <br />
 <a href="https://webmaka.github.io/CageMakerPRCG/FAQ.htm">FAQ</a>
-</p>
-<p>
+
 <a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions.htm">Configuration Options</a>
 <br />
 <a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_TargetDevicePresets.htm">&rsaquo; Target Device Presets</a>
@@ -98,13 +96,13 @@ CageMaker PRCG is extensively documented, with detailed coverage for every singl
 <br />
 <a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_FaceplateOptions.htm">&rsaquo; Faceplate Options</a>
 <br />
-<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_FaceplateVentilationOptions.htm">&rsaquo; Faceplate Ventillation Options</a>
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_FaceplateVentilationOptions.htm">&rsaquo; Faceplate Ventilation Options</a>
 <br />
 <a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_CageOptions.htm">&rsaquo; Cage Options</a>
 <br />
-<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_CageTopBottomOptions.htm">&rsaquo; Cage TOP and BOTTOM Geometry &amp; Ventillation Options</a>
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_CageTopBottomOptions.htm">&rsaquo; Cage TOP and BOTTOM Geometry &amp; Ventilation Options</a>
 <br />
-<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_CageLeftRightOptions.htm">&rsaquo; Cage LEFT and RIGHT SIDE Geometry &amp; Ventillation Options</a>
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_CageLeftRightOptions.htm">&rsaquo; Cage LEFT and RIGHT SIDE Geometry &amp; Ventilation Options</a>
 <br />
 <a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_CageBackOptions.htm">&rsaquo; Cage BACK Geometry &amp; Modifications</a>
 <br />
@@ -114,11 +112,10 @@ CageMaker PRCG is extensively documented, with detailed coverage for every singl
 <br />
 <a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_CustomCutoutOptions.htm">&rsaquo; Custom Cutout Options</a>
 <br />
-<a href="ConfigOptions_IgnoreErrors.htm">&rsaquo; Ignore Errors</a>
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_IgnoreErrors.htm">&rsaquo; Ignore Errors</a>
 <br />
-<a href="ConfigOptions_RarelyChangedOptions.htm">&rsaquo; Rarely-Changed Options</a>
-</p>
-<p>
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_RarelyChangedOptions.htm">&rsaquo; Rarely-Changed Options</a>
+
 <a href="https://webmaka.github.io/CageMakerPRCG/Features.htm">Features</a>
 <br />
 <a href="https://webmaka.github.io/CageMakerPRCG/History.htm">History</a>
@@ -126,7 +123,6 @@ CageMaker PRCG is extensively documented, with detailed coverage for every singl
 <a href="https://webmaka.github.io/CageMakerPRCG/Credits.htm">Credits</a>
 <br />
 <a href="https://webmaka.github.io/CageMakerPRCG/License.htm">License</a>
-</p>
 
 &nbsp;
 
