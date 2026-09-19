@@ -68,16 +68,65 @@ Be sure to [check out the quick-start guide](https://github.com/WebMaka/CageMake
 <a href="docs"></a>
 ## Documentation
 
-The Wiki contains loads and loads of documentation for CageMaker...
+CageMaker PRCG is extensively documented, with detailed coverage for every single option. That documentation is included with the repo but can also be accessed here:
 
-[Features](https://github.com/WebMaka/CageMakerPRCG/wiki/Features)  
-[Version/Revision History](https://github.com/WebMaka/CageMakerPRCG/wiki/History)  
-[Screenshots and Pictures](https://github.com/WebMaka/CageMakerPRCG/wiki/Screenshots)  
-[Configuration Options](https://github.com/WebMaka/CageMakerPRCG/wiki/ConfigOptions)  
-[Best Usage and Printing Practices](https://github.com/WebMaka/CageMakerPRCG/wiki/BestPractices)  
-[FAQ](https://github.com/WebMaka/CageMakerPRCG/wiki/FAQ)  
-[Credits](https://github.com/WebMaka/CageMakerPRCG/wiki/Credits)  
-[License](https://github.com/WebMaka/CageMakerPRCG/wiki/License)
+<p>
+<a href="https://webmaka.github.io/CageMakerPRCG/QuickStartGuide.htm">Quick-Start Guide</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/BestPractices.htm">Best Practices</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/MaximumSupportedSizes.htm">Maximum Supported Sizes</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/SupportedModifications.htm">Supported Modifications</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/FAQ.htm">FAQ</a>
+</p>
+<p>
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions.htm">Configuration Options</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_TargetDevicePresets.htm">&rsaquo; Target Device Presets</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_TargetDeviceDimensions.htm">&rsaquo; Target Device Dimensions &amp; Geometry</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_OverallStructureGeometry.htm">&rsaquo; Overall Structure &amp; Geometry</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_RulersGuides.htm">&rsaquo; Rulers/Guides</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_3DPrinterSupport.htm">&rsaquo; 3D Printer Support</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_RackSettings.htm">&rsaquo; Rack Settings</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_FaceplateOptions.htm">&rsaquo; Faceplate Options</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_FaceplateVentilationOptions.htm">&rsaquo; Faceplate Ventillation Options</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_CageOptions.htm">&rsaquo; Cage Options</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_CageTopBottomOptions.htm">&rsaquo; Cage TOP and BOTTOM Geometry &amp; Ventillation Options</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_CageLeftRightOptions.htm">&rsaquo; Cage LEFT and RIGHT SIDE Geometry &amp; Ventillation Options</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_CageBackOptions.htm">&rsaquo; Cage BACK Geometry &amp; Modifications</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_RearSupportOptions.htm">&rsaquo; Rear Support Options</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_AdditionalFaceplateModifications.htm">&rsaquo; Additional Faceplate Modifications</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_CustomCutoutOptions.htm">&rsaquo; Custom Cutout Options</a>
+<br />
+<a href="ConfigOptions_IgnoreErrors.htm">&rsaquo; Ignore Errors</a>
+<br />
+<a href="ConfigOptions_RarelyChangedOptions.htm">&rsaquo; Rarely-Changed Options</a>
+</p>
+<p>
+<a href="https://webmaka.github.io/CageMakerPRCG/Features.htm">Features</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/History.htm">History</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/Credits.htm">Credits</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/License.htm">License</a>
+</p>
 
 &nbsp;
 
