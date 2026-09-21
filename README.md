@@ -40,7 +40,7 @@ This script was built to work with/in OpenSCAD version 2021.01. To obtain a copy
   https://openscad.org/
 
 > [!TIP]
-> To make CageMaker PRCG's massive number of options easier to understand, make sure OpenSCAD's Customizer is set to show descriptions by changing the dropdown setting next to the "Reset" button atop the Customizer panel to "Show Details" or "Description Only". Consult the [Configuration Options](https://github.com/WebMaka/CageMakerPRCG/wiki/ConfigOptions) for detailed explanations with screenshots of the function and purpose of each option.
+> To make CageMaker PRCG's massive number of options easier to understand, make sure OpenSCAD's Customizer is set to show descriptions by changing the dropdown setting next to the "Reset" button atop the Customizer panel to "Show Details" or "Description Only". Consult the [Configuration Options](https://webmaka.github.io/CageMakerPRCG/ConfigOptions.htm) for detailed explanations with screenshots of the function and purpose of each option.
 
 To use this script:
 
