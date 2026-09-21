@@ -106,9 +106,9 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
             {
                 translate([horizontal_offset + x_offset - 9.5, vertical_offset + y_offset + 11.4, 5 + surface_thickness])
                     cube([159, 44.7, 12], center=true);
-                translate([horizontal_offset + x_offset + 81.9, vertical_offset + y_offset - 14.0 + 15, 5 + surface_thickness])
+                translate([horizontal_offset + x_offset + 81.9, vertical_offset + y_offset - 19.0 + 15, 5 + surface_thickness])
                     cube([15, 55, 12], center=true);
-                translate([horizontal_offset + x_offset + 79.36, vertical_offset + y_offset - 48.90 + 15, 5 + surface_thickness])
+                translate([horizontal_offset + x_offset + 79.36, vertical_offset + y_offset - 58.1 + 15, 5 + surface_thickness])
                     cube([22, 6, 12], center=true);
             }
             

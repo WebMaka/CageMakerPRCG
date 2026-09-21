@@ -237,7 +237,7 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
         // NOTE: We have deliberately chosen to have each grid generator module use
         // the exact same parameters, so that additional grids can be added easily.
         if (faceplate_vent_hole_pattern != "None")
-            create_ventilation_grid(faceplate_vent_hole_pattern, grid_width + 2, grid_height + 2, plate_thickness, faceplate_vent_hole_size, faceplate_vent_wall_thickness, faceplate_vent_grid_angle, faceplate_vent_grid_horizontal_offset, faceplate_vent_grid_vertical_offset);
+            create_ventilation_grid(faceplate_vent_hole_pattern, grid_width + 2, grid_height + 2, plate_thickness, faceplate_vent_hole_size, faceplate_vent_wall_thickness, faceplate_vent_grid_angle, faceplate_vent_grid_horizontal_offset, faceplate_vent_grid_vertical_offset, faceplate_vent_hole_based_grid_full_holes_only);
 
 
         // Handle faceplate ventilation grid restrictions if enabled. Note
@@ -256,13 +256,13 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
                 {
                     for (index = [1:number_of_devices])
                     {
-                        translate([0 + ((cage_width + multiple_device_gap) * (index - 1)), 0, (plate_thickness / 2) + (print_cage_separately ? 2 : 0)])
+                        translate([0 + ((cage_width + multiple_device_gap) * (index - 1)), 0, (plate_thickness / 2) + (print_cage_separately ? 1 : 0)])
                         {
                             difference()
                             {
-                                cube([device_width + (plate_thickness * 2) + (generate_rear_support_cage ? 8 : support_cage_base_size) + (print_cage_separately ? 4 : 0), 1 + device_height + (plate_thickness * 2) + support_cage_base_size + (print_cage_separately ? 2 : 0), plate_thickness + (print_cage_separately ? 12 : 6)], center=true);
+                                cube([device_width + (plate_thickness * 2) + (generate_rear_support_cage ? 8 : support_cage_base_size) + (print_cage_separately ? 4 : 0), device_height + (plate_thickness * 2) + support_cage_base_size + (print_cage_separately ? 2 : 0), plate_thickness + (print_cage_separately ? 12 : 10)], center=true);
 //                                if (closed_faceplate)
-                                cube([device_width - (plate_thickness * 1) + support_cage_base_size + (print_cage_separately ? 4 : 0) + device_clearance, 1 + device_height - (plate_thickness * 1) + support_cage_base_size + (print_cage_separately ? 2 : 0) + device_clearance, plate_thickness + (print_cage_separately ? 12 : 6) + 2], center=true);
+                                cube([device_width - (plate_thickness * 1) + support_cage_base_size + device_clearance, device_height - (plate_thickness * 1) + support_cage_base_size + device_clearance, plate_thickness + (print_cage_separately ? 12 : 10) + 2], center=true);
                             }
 
                             // If we're printing the cage separately, place support/reinforcing blocks on the
@@ -270,14 +270,14 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
                             if (print_cage_separately)
                             {
                                 translate([0 - (device_width / 2) - (support_cage_base_size / 2) - 2, 0 + cage_vertical_offset + (device_height / 2) + (support_cage_base_size / 2) + 0.75, 3])
-                                    cube([plate_thickness + support_cage_base_size + 4, plate_thickness + support_cage_base_size + 1.5, 21], center=true);
+                                    cube([plate_thickness + support_cage_base_size + 4, plate_thickness + support_cage_base_size + 1.5, 22], center=true);
                                 translate([0 + (device_width / 2) + (support_cage_base_size / 2) + 2, 0 + cage_vertical_offset + (device_height / 2) + (support_cage_base_size / 2) + 0.75, 3])
-                                    cube([plate_thickness + support_cage_base_size + 4, plate_thickness + support_cage_base_size + 1.5, 21], center=true);
+                                    cube([plate_thickness + support_cage_base_size + 4, plate_thickness + support_cage_base_size + 1.5, 22], center=true);
                                 
                                 translate([0 - (device_width / 2) - (support_cage_base_size / 2) - 2, 0 - (cage_vertical_offset + (device_height / 2) + (support_cage_base_size / 2)) - 0.75, 3])
-                                    cube([plate_thickness + support_cage_base_size + 4, plate_thickness + support_cage_base_size + 1.5, 21], center=true);
+                                    cube([plate_thickness + support_cage_base_size + 4, plate_thickness + support_cage_base_size + 1.5, 22], center=true);
                                 translate([0 + (device_width / 2) + (support_cage_base_size / 2) + 2, 0 - (cage_vertical_offset + (device_height / 2) + (support_cage_base_size / 2)) - 0.75, 3])
-                                    cube([plate_thickness + support_cage_base_size + 4, plate_thickness + support_cage_base_size + 1.5, 21], center=true);
+                                    cube([plate_thickness + support_cage_base_size + 4, plate_thickness + support_cage_base_size + 1.5, 22], center=true);
                             }
                         }
                     }
@@ -585,30 +585,7 @@ module create_device_cage(oversize=false)
                                 if (cage_bottom_geometry_override == "Open")
                                     ventilated_side_plate(panel_depth, top_bottom_panel_width, plate_thickness + expand, 8 + support_cage_base_size, 0.001, 5, extra_support);
                                 else if (cage_bottom_geometry_override == "Solid")
-                                {
                                     two_rounded_corner_plate(panel_depth, top_bottom_panel_width, plate_thickness + expand, 0.001);
-                                    
-//                                    // Generate bottom studs, if enabled.
-//                                    // This is tricky because we need to enumerate a simple list of
-//                                    // coordinates, then place a stud. The reason we have to deal
-//                                    // with all this is that the customizer doesn't like nested
-//                                    // lists with variable lengths, but doesn't mind a flat list.
-//                                    if (cage_bottom_geometry_override == "Solid")
-//                                        for (index = [0:2:len(cage_bottom_studs) - 2])
-//                                        {
-//                                            // Grab the next pair of entries.
-//                                            coord_x = cage_bottom_studs[index];
-//                                            coord_y = cage_bottom_studs[index + 1];
-//                                            
-//                                            // If the resulting vector is empty, skip it.
-//                                            if ((coord_x != 0.00) || (coord_y != 0.00))
-//                                            {
-//                                                translate([0 - (device_width / 2) + coord_x, 0 - (device_depth / 2) + coord_y, (cage_bottom_stud_height / 2) + 1])
-//                                                    rotate([0, 180, 0])
-//                                                        tube(cage_bottom_stud_screw_holes * 2.5, cage_bottom_stud_height, ((cage_bottom_stud_screw_holes * 2.5) - cage_bottom_stud_screw_holes) / 2, this_fn, true);
-//                                            }
-//                                        }
-                                }
                                 else if (cage_bottom_geometry_override == "Structure")
                                     ventilated_side_plate(panel_depth, top_bottom_panel_width, plate_thickness + expand, 2 + support_cage_base_size, 0.001, 0.001, extra_support);
                                 else
@@ -640,6 +617,7 @@ module create_device_cage(oversize=false)
                     if (cage_right_geometry != "None")
                         translate([(device_width / 2) + (plate_thickness / 2) + x_offset+ (device_clearance / 2), 0, z_offset])
                             rotate([90, 0, 90])
+							{
                                 if (cage_right_geometry == "Open")
                                     ventilated_side_plate(panel_depth, left_right_panel_width, plate_thickness + expand, 8 + support_cage_base_size, 0.001, 5, false);
                                 else if (cage_right_geometry == "Solid")
@@ -651,6 +629,7 @@ module create_device_cage(oversize=false)
                                     ventilated_side_plate(panel_depth, left_right_panel_width, plate_thickness + expand, 8 + support_cage_base_size, 0.001, 5, false);
                                     create_ventilation_grid(cage_right_geometry, left_right_panel_width - 10 + support_cage_base_size, panel_depth - 10 + support_cage_base_size, plate_thickness, cage_sides_vent_hole_size, cage_sides_vent_wall_thickness, cage_sides_vent_grid_angle, cage_sides_vent_grid_horizontal_offset, cage_sides_vent_grid_vertical_offset);
                                 }
+							}
 
                     // And finally, the back.
                     translate([x_offset, 0, device_depth + (plate_thickness / 2) + (add_retention_lip ? 1 : 0)])
@@ -786,6 +765,8 @@ module create_device_cage(oversize=false)
                     translate([(device_width / 2) + x_offset, (device_height / 2), 5])
                         cylinder(h=12, d=edge_corner_holes, center=true, $fn=this_fn);
                 }
+
+
             }
         } // difference end
 }
@@ -885,20 +866,24 @@ module create_completed_cage(height_required_in_units, safe_left_side_mod_horizo
                             union()
                                 for (index = [1:number_of_devices])
                                 {
-                                    translate([0 + ((cage_width + multiple_device_gap) * (index - 1)), 0, device_depth / 2 - (plate_thickness / 2) - 6])
-                                        linear_extrude(device_depth + device_clearance - 10 - (add_retention_lip ? 4:0), center=true)
+                                    // translate([0 + ((cage_width + multiple_device_gap) * (index - 1)), 0, device_depth / 2 - (plate_thickness / 2) - 6])
+                                        // linear_extrude(device_depth + device_clearance - 10 - (add_retention_lip ? 4:0), center=true)
+                                    translate([0 + ((cage_width + multiple_device_gap) * (index - 1)), 0, 0])
+                                        linear_extrude(plate_thickness + 2, center=true)
                                             offset(r=faceplate_rounded_corners + 0.001, $fn=this_fn)
-                                                square([device_width + device_clearance - (faceplate_rounded_corners * 2), device_height + device_clearance - (faceplate_rounded_corners * 2)], center=true);
+                                                square([device_width + device_clearance - (faceplate_rounded_corners * 2) - (add_retention_lip ? 2 : 0), device_height + device_clearance - (faceplate_rounded_corners * 2) - (add_retention_lip ? 2 : 0)], center=true);
 
                                     // If the retention lip option is enabled, cut a second 
                                     // hole 2mm smaller. The remainder forms the retention
                                     // lip.
                                     if (add_retention_lip)
-                                        translate([0 + ((cage_width + multiple_device_gap) * (index - 1)), 0, device_depth / 2 - (plate_thickness / 2) - 10])
-                                            linear_extrude(device_depth + device_clearance, center=true)
+                                        // translate([0 + ((cage_width + multiple_device_gap) * (index - 1)), 0, device_depth / 2 - (plate_thickness / 2) - 10])
+                                            // linear_extrude(device_depth + device_clearance, center=true)
+                                        translate([0 + ((cage_width + multiple_device_gap) * (index - 1)), 0, 1])
+                                            linear_extrude(plate_thickness, center=true)
                                                 offset(r=faceplate_rounded_corners + 0.001, $fn=this_fn)
-                                                    square([device_width + device_clearance - (faceplate_rounded_corners * 2) - 2, device_height + device_clearance - (faceplate_rounded_corners * 2) - 2], center=true);
-                                }
+                                                    square([device_width + device_clearance - (faceplate_rounded_corners * 2), device_height + device_clearance - (faceplate_rounded_corners * 2)], center=true);
+								}
 
 
                     // Additional faceplate modifications - subtractions
@@ -950,20 +935,59 @@ module create_completed_cage(height_required_in_units, safe_left_side_mod_horizo
                 if ((edge_corner_holes != 0.00) && (faceplate_only == 0.00) && (!print_cage_separately))
                 {
                     translate([0 - ((top_bottom_panel_width / 2) * (number_of_devices - 1)) - ((multiple_device_gap / 2) * (number_of_devices - 1)) + cage_horizontal_offset, cage_vertical_offset, 0])
-                    for (index = [1:number_of_devices])
-                    {
-                        // Determine the X offset value for each cage.
-                        x_offset = (top_bottom_panel_width * (index - 1))  + (multiple_device_gap * (index - 1));
-                        translate([0 - (device_width / 2) + x_offset, 0 - (device_height / 2), 5])
-                            cylinder(h=10, d=edge_corner_holes * 2.5, center=true, $fn=this_fn);
-                        translate([(device_width / 2) + x_offset, 0 - (device_height / 2), 5])
-                            cylinder(h=10, d=edge_corner_holes * 2.5, center=true, $fn=this_fn);
-                        translate([0 - (device_width / 2) + x_offset, (device_height / 2), 5])
-                            cylinder(h=10, d=edge_corner_holes * 2.5, center=true, $fn=this_fn);
-                        translate([(device_width / 2) + x_offset, (device_height / 2), 5])
-                            cylinder(h=10, d=edge_corner_holes * 2.5, center=true, $fn=this_fn);
-                    }
+						for (index = [1:number_of_devices])
+						{
+							// Determine the X offset value for each cage.
+							x_offset = (top_bottom_panel_width * (index - 1))  + (multiple_device_gap * (index - 1));
+							translate([0 - (device_width / 2) + x_offset, 0 - (device_height / 2), 5])
+								cylinder(h=10, d=edge_corner_holes * 2.5, center=true, $fn=this_fn);
+							translate([(device_width / 2) + x_offset, 0 - (device_height / 2), 5])
+								cylinder(h=10, d=edge_corner_holes * 2.5, center=true, $fn=this_fn);
+							translate([0 - (device_width / 2) + x_offset, (device_height / 2), 5])
+								cylinder(h=10, d=edge_corner_holes * 2.5, center=true, $fn=this_fn);
+							translate([(device_width / 2) + x_offset, (device_height / 2), 5])
+								cylinder(h=10, d=edge_corner_holes * 2.5, center=true, $fn=this_fn);
+						}
                 }
+
+				// Generate bottom standoffs, if enabled.
+				// This is tricky because we need to enumerate a simple list of
+				// coordinates, then place a stud. The reason we have to deal
+				// with all this is that the customizer doesn't like nested
+				// lists with variable lengths, but doesn't mind a flat list.
+				if ((cage_bottom_geometry_override == "Solid") && (len(cage_bottom_standoffs) > 1))
+					// This intersection creates a bounding box area the size of the opening of the cage
+					// plus 2mm for overlapping the standoffs into the cage's bottom. This ensures that
+					// standoffs cannot breach the structure or faceplate.
+					intersection()
+					{
+						translate([0, 0, device_depth / 2 + 1])
+							cube([device_width + 2, device_height + 2, device_depth + 2], center=true);
+							
+						translate([0 - (((top_bottom_panel_width + multiple_device_gap) * (number_of_devices - 1)) / 2) + (top_bottom_panel_width + multiple_device_gap) + cage_horizontal_offset, cage_vertical_offset, 0])
+							for (index = [1:number_of_devices])
+							{
+								// Determine the X offset value for each cage.
+								x_offset = (top_bottom_panel_width * ((index / 2) - 1)) + (multiple_device_gap * ((index / 2) - 1));
+								
+								for (coords_index = [0:2:len(cage_bottom_standoffs) - 2])
+								{
+									// Grab the next pair of entries.
+									coord_x = cage_bottom_standoffs[coords_index] + x_offset;
+									coord_y = cage_bottom_standoffs[coords_index + 1] - plate_thickness;
+																	
+									// If the resulting vector is empty, skip it.
+									if ((cage_bottom_standoffs[coords_index] > 0.00) || (cage_bottom_standoffs[coords_index + 1] > 0.00))
+									
+										// Also, if the resulting vector is outside the footprint of the cage, skip it.
+										if ((cage_bottom_standoffs[coords_index] >= 0) && (cage_bottom_standoffs[coords_index] <= device_width) && (cage_bottom_standoffs[coords_index + 1] >= 0) && (cage_bottom_standoffs[coords_index + 1] <= device_depth))
+											translate([x_offset - (device_width / 2) + coord_x, (device_height / 2) - (cage_bottom_standoff_height / 2) + 1, 1 + cage_bottom_standoff_screw_holes + coord_y])
+												rotate([270, 0, 0])
+													tube(cage_bottom_standoff_screw_holes * 2.5, cage_bottom_standoff_height, ((cage_bottom_standoff_screw_holes * 2.5) - cage_bottom_standoff_screw_holes) / 2, this_fn, true);
+								}
+							}
+						}
+
             } // Outer union end
 
 
@@ -1011,6 +1035,36 @@ module create_completed_cage(height_required_in_units, safe_left_side_mod_horizo
                         translate([(device_width / 2) + x_offset, (device_height / 2), 5])
                             cylinder(h=12, d=edge_corner_holes * (print_cage_separately ? 2.5 : 1), center=true, $fn=this_fn);
                     }
+
+
+			// Generate bottom standoff screw holes, if enabled.
+			// This is tricky because we need to enumerate a simple list of
+			// coordinates, then place a stud. The reason we have to deal
+			// with all this is that the customizer doesn't like nested
+			// lists with variable lengths, but doesn't mind a flat list.
+			if ((cage_bottom_geometry_override == "Solid") && (len(cage_bottom_standoffs) > 1))
+				translate([0 - (((top_bottom_panel_width + multiple_device_gap) * (number_of_devices - 1)) / 2) + (top_bottom_panel_width + multiple_device_gap) + cage_horizontal_offset, cage_vertical_offset, 0])
+					for (index = [1:number_of_devices])
+					{
+						// Determine the X offset value for each cage.
+						x_offset = (top_bottom_panel_width * ((index / 2) - 1))  + (multiple_device_gap * ((index / 2) - 1));
+						
+						for (coords_index = [0:2:len(cage_bottom_standoffs) - 2])
+						{
+							// Grab the next pair of entries.
+							coord_x = cage_bottom_standoffs[coords_index] + x_offset;
+							coord_y = cage_bottom_standoffs[coords_index + 1] - plate_thickness;
+							
+							// If the resulting vector is empty, skip it.
+							if ((cage_bottom_standoffs[coords_index] != 0.00) || (cage_bottom_standoffs[coords_index + 1] != 0.00))
+								
+								// Also, if the resulting vector is outside the footprint of the cage, skip it.
+								if ((cage_bottom_standoffs[coords_index] >= 0) && (cage_bottom_standoffs[coords_index] <= device_width) && (cage_bottom_standoffs[coords_index + 1] >= 0) && (cage_bottom_standoffs[coords_index + 1] <= device_depth))
+									translate([x_offset - (device_width / 2) + coord_x, (device_height / 2) - (cage_bottom_standoff_height / 2) + 1, 1 + cage_bottom_standoff_screw_holes + coord_y])
+										rotate([270, 0, 0])
+											cylinder(d=cage_bottom_standoff_screw_holes, h=(cage_bottom_standoff_height + plate_thickness) * 2, center=true, $fn=this_fn);
+						}
+					}
         } // Outer difference end
 }
 
@@ -1262,18 +1316,6 @@ module create_object()
                                 } // union end
                             } // difference end
                     } // union end
-
-                    // Carve out holes in the faceplate to acommodate the device(s) to cage.
-                    // If the retention lip is enabled, stop 1mm short of punching through
-                    // completely so we can form the lip.
-//                    if (faceplate_only == 0.0)
-//                        translate([0 - ((cage_width / 2) * (number_of_devices - 1)) - ((multiple_device_gap / 2) * (number_of_devices - 1)) + cage_horizontal_offset, cage_vertical_offset, device_clearance - 1.75])
-//                            union()
-//                                for (index = [1:number_of_devices])
-//                                    translate([0 + ((cage_width + multiple_device_gap) * (index - 1)), 0, plate_thickness * 1.5])
-//                                        linear_extrude(plate_thickness * 4, center=true)
-//                                            offset(r=faceplate_rounded_corners + 0.001, $fn=this_fn)
-//                                                square([device_width + device_clearance - (faceplate_rounded_corners * 2), device_height + device_clearance - (faceplate_rounded_corners * 2)], center=true);
                 } // difference end
 
             // Show a print height marker over the rear support cage.
