@@ -70,6 +70,8 @@ Be sure to [check out the quick-start guide](https://github.com/WebMaka/CageMake
 
 CageMaker PRCG is extensively documented, with detailed coverage for every single option. That documentation is included with the repo but can also be accessed here:
 
+<a href="https://webmaka.github.io/CageMakerPRCG/index.htm">Documentation Home</a>
+
 <a href="https://webmaka.github.io/CageMakerPRCG/QuickStartGuide.htm">Quick-Start Guide</a>
 <br />
 <a href="https://webmaka.github.io/CageMakerPRCG/BestPractices.htm">Best Practices</a>
