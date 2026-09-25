@@ -51,19 +51,19 @@ preconfigured_device = ""; // ["":"Select device dimensions manually in Target D
 /* [Target Device Dimensions && Count] */
 
 // Depth/length (front-to-back) of device in mm. - NOTE: Selecting a device preset overrides this setting.
-manual_device_depth = 120.0; // [15:1:500]
+manual_device_depth = 120.0; // [15:0.5:500]
 
 // Width (left-to-right) of device in mm. - NOTE: Swap this setting and device_height below to mount the device vertically. - NOTE: Selecting a device preset overrides this setting.
-manual_device_width = 150.0; // [15:1:450]
+manual_device_width = 150.0; // [15:0.5:450]
 
 // Height (top-to-bottom) of device in mm. - NOTE: Swap this setting and device_width above to mount the device vertically. - NOTE: Selecting a device preset overrides this setting.
-manual_device_height = 45.0; // [15:1:500]
+manual_device_height = 45.0; // [15:0.5:500]
 
 // Number of devices to cage - by default, one cage holds one device, but this setting multiplies this. Excellent for side-by-side mounting of smaller devices, e.g., Raspberry Pis, especially when mounted vertically by swapping the device height and width parameters. - NOTE: CageMaker will insert a wall the width of the "surface thickness" setting plus the "multiple device gap" setting between each device. - WARNING: CageMaker will enforce safe boundaries so as to not push a cage into mounting space or off the edge of the faceplate.
 number_of_devices = 1; // [1:1:16]
 
 // Additional gap space between devices - by default, multiple devices are separated by a wall whose thickness is set by the "surface thickness" setting, and this setting adds to that distance. - WARNING: This can dramatically increase cage complexity, which in turn substantially increases both print time and filament consumption.
-multiple_device_gap = 0.0; // [0:1:50]
+multiple_device_gap = 0.0; // [0:0.5:50]
 
 
 /* [Overall Structure && Geometry] */
@@ -159,10 +159,10 @@ narrow_edge_centered_holes = 0.00; // [0.00:"None/Disabled - DEFAULT",0.00:" ",0
 edge_corner_holes = 0.00; // [0.00:"None/Disabled - DEFAULT",0.00:" ",0.00:"Clearance Holes",3.15:"  M3 Clearance (3.15mm hole)",4.20:"  M4 Clearance (4.2mm hole)",5.25:"  M5 Clearance (5.25mm hole)",6.30:"  M6 Clearance (6.3mm hole)",2.95:"  4-40 Clearance (.1160 in. hole)",3.66:"  6-32 Clearance (.144 in. hole)",4.31:"  8-32 Clearance (.1695 in. hole)",4.98:"  10-24/10-32 Clearance (.1960 in. hole)",6.53:"  1/4-20 Clearance (.257 in. hole)",0.00:" ",0.00:"Tapped/Threadcutting Holes",2.50:"  M3 Tapped/Threadcutting (2.5mm hole)",3.50:"  M4 Tapped/Threadcutting (3.5mm hole)",4.40:"  M5 Tapped/Threadcutting (4.4mm hole)",5.00:"  M6 Tapped/Threadcutting (5.0mm hole)",2.07:"  4-40 Tapped/Threadcutting (0.0813 in. hole)",2.53:"  6-32 Tapped/Threadcutting (.0997 in. hole)",3.19:"  8-32 Tapped/Threadcutting (.1257 in. hole)",3.53:"  10-24/10-32 Tapped/Threadcutting (.1389 in. hole)",4.79:"  1/4-20 Tapped/Threadcutting (.1887 in. hole)",0.00:" ",0.00:"Heat-Set Inserts",3.98:"  M3 Heat-Set (4mm hole)",4.10:"  M3 Heat-Set (4.1mm hole)",4.80:"  M3 Heat-Set (4.8mm hole)",5.60:"  M4 Heat-Set (5.6mm hole)",5.70:"  M4 Heat-Set (5.7mm hole)",6.40:"  M5 Heat-Set (6.4mm hole)",6.50:"  M5 Heat-Set (6.5mm hole)",8.00:"  M6 Heat-Set (8mm hole)",8.10:"  M6 Heat-Set (8.1mm hole)",3.99:"  4-40 Heat-Set (0.157 in. hole)",4.03:"  4-40 Heat-Set (0.159 in. hole)",4.76:"  6-32 Heat-Set (0.1875 in. hole)",4.85:"  6-32 Heat-Set (0.191 in. hole)",5.61:"  8-32 Heat-Set (0.221 in. hole)",5.74:"  8-32 Heat-Set (0.226 in. hole)",6.41:"  10-24/10-32 Heat-Set (0.252 in. hole)",6.51:"  10-24/10-32 Heat-Set (0.256 in. hole)",8.01:"  1/4-20 Heat-Set (0.315 in. hole)",8.11:"  1/4-20 Heat-Set (0.319 in. hole)"]
 
 // Expand Faceplate Upward - make the faceplate taller without changing any other dimensions, so as to cover openings or structures above the cage. Useful for rack systems that add reinforcing bars, such as Homeracker. - NOTE: This option is disabled for partial-width cages.
-expand_faceplate_upward = 0; // [0:1:50]
+expand_faceplate_upward = 0; // [0:0.5:50]
 
-// Expand Faceplate Downward - make the faceplate taller without changing any other dimensions, so as to cover openings or structures above the cage. Useful for rack systems that add reinforcing bars, such as Homeracker. - NOTE: Set this to 15 to emulate Homecracker's 'flush to bottom' option. - NOTE: This option is disabled for partial-width cages.
-expand_faceplate_downward = 0; // [0:1:50]
+// Expand Faceplate Downward - make the faceplate taller without changing any other dimensions, so as to cover openings or structures above the cage. Useful for rack systems that add reinforcing bars, such as Homeracker. - NOTE: Set this to 14.5 to emulate Homecracker's 'flush to bottom' option. - NOTE: This option is disabled for partial-width cages.
+expand_faceplate_downward = 0; // [0:0.5:50]
 
 
 /* [Faceplate Ventilation Options] */
@@ -195,10 +195,10 @@ faceplate_vent_grid_angle = 0.0; // [-180:5:180]
 /* [Cage Options] */
 
 // Horizontal offset distance (in mm) - shift the entire cage to "left" (negative values) or "right" (positive values) from horizontal center. - WARNING: CageMaker will enforce safe boundaries so as to not push a cage into mounting space or off the edge of the faceplate.
-cage_horizontal_offset = 0.00; // [-240.00:1:240.0]
+cage_horizontal_offset = 0.00; // [-240.00:0.5:240.0]
 
 // Vertical offset distance (in mm) - shift the entire cage "up" (negative values) or "down" (positive values) from vertical center. - WARNING: CageMaker will enforce safe boundaries so as to not push a cage off the edge of the faceplate.
-cage_vertical_offset = 0.00; // [-150.00:1:150.0]
+cage_vertical_offset = 0.00; // [-150.00:0.5:150.0]
 
 // Additional top/bottom support - divides upper/lower space and adds center reinforcing to help reduce cantilevering, especially on deep devices.
 extra_support = false; 
@@ -288,10 +288,10 @@ cage_back_left_side_mod_grid_columns = 1; // [1:12]
 cage_back_left_side_mod_grid_rows = 1; // [1:4]
 
 // Back-Of-Cage LEFT Side Mod Offset Distance (in mm) - shift the modification above to one side from horizontal center. Positive and negative values are allowed. - NOTE: Set this to zero and CageMaker will attempt to automatically position the modification if it'll fit. - WARNING: CageMaker will enforce safe boundaries so as to not push a modification into mounting space, the actual cage itself, or off the edge of the faceplate.
-cage_back_left_side_mod_horizontal_offset = 0.00; // [-240.00:1:240.0]
+cage_back_left_side_mod_horizontal_offset = 0.00; // [-240.00:0.5:240.0]
 
 // Back-Of-Cage LEFT Side Mod Vertical Offset Distance (in mm) - shift the modification above to one side from vertical center. Positive and negative values are allowed. - WARNING: CageMaker will enforce safe boundaries so as to not push a modification into mounting space, the actual cage itself, or off the edge of the faceplate.
-cage_back_left_side_mod_vertical_offset = 0.00; // [-75.00:1:75.0]
+cage_back_left_side_mod_vertical_offset = 0.00; // [-75.00:0.5:75.0]
 
 // Back-Of-Cage RIGHT Side Mod Type - add a new connector, port, or opening of some form onto the faceplate. - IMPORTANT: This option is only available when the back-of-cage geometry is set to solid.
 cage_back_right_side_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector (Lock Tab Down)","KeystoneFlipped":"  Keystone Connector (Lock Tab Up)","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Cable Management","CombShortHalf":"   Short Half-Unit Cable Comb","CombTallHalf":"   Tall Half-Unit Cable Comb","CombShortFull":"   Short Full-Unit Cable Comb","CombTallFull":"   Tall Full-Unit Cable Comb","None":" ","None":"Single-Board Computers (Raspberry Pi And Similar)","SBC85x58_H":"   85x58mm SBCs (Raspberry Pi, etc.) - Horizontal","SBC85x58_VR":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Right Oriented)","SBC85x58_VL":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Left Oriented)","None":" ","None":"PC Motherboard Cutouts","RearIO":"   Rear Panel IO Shield","PCISlot":"   Full-Height PCI Slot","PCISlot_LP":"   Low-Profile PCI Slot","MiniITX1Slot":"   Mini-ITX Motherboard + Low-Profile PCI Slot","ATXPSU":"   ATX Power Supply","SFXPSU":"   SFX Power Supply","TFXPSU_SU":"   TFX Power Supply - Power Socket UP","TFXPSU_SD":"   TFX Power Supply - Power Socket DOWN","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC-60320 AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
@@ -303,10 +303,10 @@ cage_back_right_side_mod_grid_columns = 1; // [1:12]
 cage_back_right_side_mod_grid_rows = 1; // [1:4]
 
 // Back-Of-Cage RIGHT Side Mod Horizontal Offset Distance (in mm) - shift the modification above to one side from horizontal center. Positive and negative values are allowed. - NOTE: Set this to zero and CageMaker will attempt to automatically position the modification if it'll fit. - WARNING: CageMaker will enforce safe boundaries so as to not push a modification into mounting space, the actual cage itself, or off the edge of the faceplate.
-cage_back_right_side_mod_horizontal_offset = 0.00; // [-240.00:1:240.0]
+cage_back_right_side_mod_horizontal_offset = 0.00; // [-240.00:0.5:240.0]
 
 // Back-Of-Cage RIGHT Side Mod Vertical Offset Distance (in mm) - shift the modification above to one side from vertical center. Positive and negative values are allowed. - WARNING: CageMaker will enforce safe boundaries so as to not push a modification into mounting space, the actual cage itself, or off the edge of the faceplate.
-cage_back_right_side_mod_vertical_offset = 0.00; // [-75.00:1:75.0]
+cage_back_right_side_mod_vertical_offset = 0.00; // [-75.00:0.5:75.0]
 
 
 /* [Rear Support Options] */
@@ -341,10 +341,10 @@ left_side_mod_grid_columns = 1; // [1:12]
 left_side_mod_grid_rows = 1; // [1:4]
 
 // LEFT Side Mod Offset Distance (in mm) - shift the modification above to one side from horizontal center. Positive and negative values are allowed. - NOTE: Set this to zero and CageMaker will attempt to automatically position the modification if it'll fit. - WARNING: CageMaker will enforce safe boundaries so as to not push a modification into mounting space, the actual cage itself, or off the edge of the faceplate.
-left_side_mod_horizontal_offset = 0.00; // [-240.00:1:240.0]
+left_side_mod_horizontal_offset = 0.00; // [-240.00:0.5:240.0]
 
 // LEFT Side Mod Vertical Offset Distance (in mm) - shift the modification above to one side from vertical center. Positive and negative values are allowed. - WARNING: CageMaker will enforce safe boundaries so as to not push a modification into mounting space, the actual cage itself, or off the edge of the faceplate.
-left_side_mod_vertical_offset = 0.00; // [-75.00:1:75.0]
+left_side_mod_vertical_offset = 0.00; // [-75.00:0.5:75.0]
 
 // RIGHT Side Mod Type - add a new connector, port, or opening of some form onto the faceplate. - NOTE: Be aware of fitment, as the device cage takes priority over any modifications selected here and if there isn't sufficient room for the modification CageMaker will remove it.
 right_side_mod_type = "None"; // ["None":"None","None":" ","None":"Universal Receptacles","Keystone":"  Keystone Connector (Lock Tab Down)","KeystoneFlipped":"  Keystone Connector (Lock Tab Up)","DSeries":"  Neutrik D-Series Connector","None":" ","None":"Cable Management","CombShortHalf":"   Short Half-Unit Cable Comb","CombTallHalf":"   Tall Half-Unit Cable Comb","CombShortFull":"   Short Full-Unit Cable Comb","CombTallFull":"   Tall Full-Unit Cable Comb","None":" ","None":"Single-Board Computers (Raspberry Pi And Similar)","SBC85x58_H":"   85x58mm SBCs (Raspberry Pi, etc.) - Horizontal","SBC85x58_VR":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Right Oriented)","SBC85x58_VL":"   85x58mm SBCs (Raspberry Pi, etc.) - Vertical (Left Oriented)","None":" ","None":"PC Motherboard Cutouts","RearIO":"   Rear Panel IO Shield","PCISlot":"   Full-Height PCI Slot","PCISlot_LP":"   Low-Profile PCI Slot","MiniITX1Slot":"   Mini-ITX Motherboard + Low-Profile PCI Slot","ATXPSU":"   ATX Power Supply","SFXPSU":"   SFX Power Supply","TFXPSU_SU":"   TFX Power Supply - Power Socket UP","TFXPSU_SD":"   TFX Power Supply - Power Socket DOWN","None":" ","None":"Custom Cutouts","CustomA":"  Custom Cutout A","CustomB":"  Custom Cutout B","CustomC":"  Custom Cutout C","None":" ","None":"Cooling Fans","30mmFan":"  30mm Fan","40mmFan":"  40mm Fan","60mmFan":"  60mm Fan","80mmFan":"  80mm Fan","92mmFan":"  92mm Fan","120mmFan":"  120mm Fan","140mmFan":"  140mm Fan","None":" ","None":"Round Holes For Buttons, Lights, etc.","10mmButton":"  10mm Hole","12mmButton":"  12mm Hole","16mmButton":"  16mm Hole","19mmButton":"  19mm Hole","24mmButton":"  24mm Hole","None":" ","None":"VESA FDMI Mounting Bolt Patterns","VESAB":"  VESA FDMI MIS-B - 20x50mm","VESAC":"  VESA FDMI MIS-C - 35x75mm","VESAD75":"  VESA FDMI MIS-D - 50/75x75mm","VESAD100":"  VESA FDMI MIS-D - 50/100x100mm","VESAE50":"  VESA FDMI MIS-E - 50x200mm","VESAE100":"  VESA FDMI MIS-E - 100x200mm","VESAF200":"  VESA FDMI MIS-F - 200x200mm","None":" ","None":"Fractional-DIN Cutouts","DIN1/32H":"  1/32-DIN Cutout - Horizontal","DIN1/16":"  1/16-DIN Cutout","DIN1/8H":"  1/8-DIN Cutout - Horizontal","DIN1/8V":"  1/8-DIN Cutout - Vertical","DIN1/4":"  1/4-DIN Cutout","None":" ","None":"IEC-60309 Industrial Power Inlets","16A3":"  16A 3-Wire Power Inlet","16A4":"  16A 4-7 Wire Power Inlet","32A3":"  32A 3-Wire Power Inlet","32A4":"  32A 4-7 Wire Power Inlet","None":" ","None":"IEC-60320 AC Mains Power Sockets/Outlets","C13H":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C13V":"  C13/C14 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C14H":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C14V":"  C13/C14 IEC Power Socket/Outlet (Screw Mount) - Vertical","C19H":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Horizontal","C19V":"  C19/C20 IEC Power Socket/Outlet (Snap-In Mount) - Vertical","C20H":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Horizontal","C20V":"  C19/C20 IEC Power Socket/Outlet (Screw Mount) - Vertical"]
@@ -356,10 +356,10 @@ right_side_mod_grid_columns = 1; // [1:12]
 right_side_mod_grid_rows = 1; // [1:4]
 
 // RIGHT Side Mod Horizontal Offset Distance (in mm) - shift the modification above to one side from horizontal center. Positive and negative values are allowed. - NOTE: Set this to zero and CageMaker will attempt to automatically position the modification if it'll fit. - WARNING: CageMaker will enforce safe boundaries so as to not push a modification into mounting space, the actual cage itself, or off the edge of the faceplate.
-right_side_mod_horizontal_offset = 0.00; // [-240.00:1:240.0]
+right_side_mod_horizontal_offset = 0.00; // [-240.00:0.5:240.0]
 
 // RIGHT Side Mod Vertical Offset Distance (in mm) - shift the modification above to one side from vertical center. Positive and negative values are allowed. - WARNING: CageMaker will enforce safe boundaries so as to not push a modification into mounting space, the actual cage itself, or off the edge of the faceplate.
-right_side_mod_vertical_offset = 0.00; // [-75.00:1:75.0]
+right_side_mod_vertical_offset = 0.00; // [-75.00:0.5:75.0]
 
 
 /* [Custom Cutout Options] */
@@ -368,19 +368,19 @@ right_side_mod_vertical_offset = 0.00; // [-75.00:1:75.0]
 custom_cutout_a_shape = "Round"; // ["Round":"Round","Rectangular":"Rectangular"]
 
 // Custom Cutout A Diameter OR Height - sets cutout's diameter if round or height if rectangular. - NOTE: a solid outer-perimeter space of an additional 8mm will be added to this dimension. Plan accordingly if using grids. - NOTE: Requires selecting 'Custom Cutout A' as a faceplate modification.
-custom_cutout_a_diameter_height = 1; // [1:1:250]
+custom_cutout_a_diameter_height = 1; // [1:0.5:250]
 
 // Custom Cutout A Width - sets cutout's width if rectangular. This setting is ignored if the custom cutout is round. - NOTE: a solid outer-perimeter space of an additional 8mm will be added to this dimension. Plan accordingly if using grids. - NOTE: Requires selecting 'Custom Cutout A' as a faceplate modification.
-custom_cutout_a_width = 1; // [1:1:250]
+custom_cutout_a_width = 1; // [1:0.5:250]
 
 // Custom Cutout A Horizontal Paddding - by default, custom cutouts have a 4mm perimeter area around them, but this setting adds to this to increase the horizontal spacing between each cutout for grids of custom cutouts.
-custom_cutout_a_horizontal_padding = 0; // [0:1:50]
+custom_cutout_a_horizontal_padding = 0; // [0:0.5:50]
 
 // Custom Cutout A Vertical Paddding - by default, custom cutouts have a 4mm perimeter area around them, but this setting adds to this to increase the vertical spacing between each cutout for grids of custom cutouts.
-custom_cutout_a_vertical_padding = 0; // [0:1:50]
+custom_cutout_a_vertical_padding = 0; // [0:0.5:50]
 
 // Custom Cutout A Corner Radius - creates rounded corners if the custom cutout is rectangular. - NOTE: Corner radius is restricted to just under half of the shorter of the length and heigh dimensions of the cutout's size, and increasing the value past that point will have no effect.
-custom_cutout_a_corner_radius = 0; // [0:1:125]
+custom_cutout_a_corner_radius = 0; // [0:0.5:125]
 
 // Custom Cutout A Snap-In Recess - creates a 3mm wide recess around the cutout to reduce the panel thickness to 2mm to support a snap-in receptacle, and expands the outer-perimeter space by a total of 6mm.
 custom_cutout_a_snap_in_recess = false;
@@ -389,19 +389,19 @@ custom_cutout_a_snap_in_recess = false;
 custom_cutout_b_shape = "Round"; // ["Round":"Round","Rectangular":"Rectangular"]
 
 // Custom Cutout B Diameter OR Height - sets cutout's diameter if round or height if rectangular. - NOTE: a solid outer-perimeter space of an additional 8mm will be added to this dimension. Plan accordingly if using grids. - NOTE: Requires selecting 'Custom Cutout B' as a faceplate modification.
-custom_cutout_b_diameter_height = 1; // [1:1:250]
+custom_cutout_b_diameter_height = 1; // [1:0.5:250]
 
 // Custom Cutout B Width - sets cutout's width if rectangular. This setting is ignored if the custom cutout is round. - NOTE: a solid outer-perimeter space of an additional 8mm will be added to this dimension. Plan accordingly if using grids. - NOTE: Requires selecting 'Custom Cutout B' as a faceplate modification.
-custom_cutout_b_width = 1; // [1:1:250]
+custom_cutout_b_width = 1; // [1:0.5:250]
 
 // Custom Cutout B Horizontal Paddding - by default, custom cutouts have a 4mm perimeter area around them, but this setting adds to this to increase the horizontal spacing between each cutout for grids of custom cutouts.
-custom_cutout_b_horizontal_padding = 0; // [0:1:50]
+custom_cutout_b_horizontal_padding = 0; // [0:0.5:50]
 
 // Custom Cutout B Vertical Paddding - by default, custom cutouts have a 4mm perimeter area around them, but this setting adds to this to increase the vertical spacing between each cutout for grids of custom cutouts.
-custom_cutout_b_vertical_padding = 0; // [0:1:50]
+custom_cutout_b_vertical_padding = 0; // [0:0.5:50]
 
 // Custom Cutout B Corner Radius - creates rounded corners if the custom cutout is rectangular. - NOTE: Corner radius is restricted to just under half of the shorter of the length and heigh dimensions of the cutout's size, and increasing the value past that point will have no effect.
-custom_cutout_b_corner_radius = 0; // [0:1:125]
+custom_cutout_b_corner_radius = 0; // [0:0.5:125]
 
 // Custom Cutout B Snap-In Recess - creates a 3mm wide recess around the cutout to reduce the panel thickness to 2mm to support a snap-in receptacle, and expands the outer-perimeter space by a total of 6mm.
 custom_cutout_b_snap_in_recess = false;
@@ -410,19 +410,19 @@ custom_cutout_b_snap_in_recess = false;
 custom_cutout_c_shape = "Round"; // ["Round":"Round","Rectangular":"Rectangular"]
 
 // Custom Cutout C Diameter OR Height - sets cutout's diameter if round or height if rectangular. - NOTE: a solid outer-perimeter space of an additional 8mm will be added to this dimension. Plan accordingly if using grids. - NOTE: Requires selecting 'Custom Cutout C' as a faceplate modification.
-custom_cutout_c_diameter_height = 1; // [1:1:250]
+custom_cutout_c_diameter_height = 1; // [1:0.5:250]
 
 // Custom Cutout C Width - sets cutout's width if rectangular. This setting is ignored if the custom cutout is round. - NOTE: a solid outer-perimeter space of an additional 8mm will be added to this dimension. Plan accordingly if using grids. - NOTE: Requires selecting 'Custom Cutout C' as a faceplate modification.
-custom_cutout_c_width = 1; // [1:1:250]
+custom_cutout_c_width = 1; // [1:0.5:250]
 
 // Custom Cutout C Horizontal Paddding - by default, custom cutouts have a 4mm perimeter area around them, but this setting adds to this to increase the horizontal spacing between each cutout for grids of custom cutouts.
-custom_cutout_c_horizontal_padding = 0; // [0:1:50]
+custom_cutout_c_horizontal_padding = 0; // [0:0.5:50]
 
 // Custom Cutout C Vertical Paddding - by default, custom cutouts have a 4mm perimeter area around them, but this setting adds to this to increase the vertical spacing between each cutout for grids of custom cutouts.
-custom_cutout_c_vertical_padding = 0; // [0:1:50]
+custom_cutout_c_vertical_padding = 0; // [0:0.5:50]
 
 // Custom Cutout C Corner Radius - creates rounded corners if the custom cutout is rectangular. - NOTE: Corner radius is restricted to just under half of the shorter of the length and heigh dimensions of the cutout's size, and increasing the value past that point will have no effect.
-custom_cutout_c_corner_radius = 0; // [0:1:125]
+custom_cutout_c_corner_radius = 0; // [0:0.5:125]
 
 // Custom Cutout C Snap-In Recess - creates a 3mm wide recess around the cutout to reduce the panel thickness to 2mm to support a snap-in receptacle, and expands the outer-perimeter space by a total of 6mm.
 custom_cutout_c_snap_in_recess = false;
