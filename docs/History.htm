@@ -134,8 +134,8 @@ function w3_close() {
         
         <div class="w3-container w3-section" style="background-color: transparent;">
           <ul>
-            <li><p>Almost completely refactored to break up massive routines into easier-to-
-            modify and easier-to-maintain smaller segments and subroutines. This should
+            <li><p>Almost completely refactored to break up massive routines into easier-to-modify
+            and easier-to-maintain smaller segments and subroutines. This should
             make codebase finalization for 1.0 significantly easier, while also making
             for a more robust generator overall going forward.</p></li>
             <li><p>Added the option to selectively disable any cage side. (Requested by Github
@@ -168,12 +168,12 @@ function w3_close() {
             creating custom rackmount enclosures with solid backs for mounting connectors,
             etc., or remove most of the back aside from two 6mm wide retention lips on
             both short sides.</p></li>
-            <li><p>Added options to remove most of any side of the cage except for its support
-            structure, or remove the side entirely.</p></li>
             <li><p>Added the capability to place left/centered/right modifications on the back
             of the cage when said back is set to solid. This makes creating custom rack
             enclosures significantly easier by generating cutouts directly into the cage
             back.</p></li>
+            <li><p>Added options to remove most of any side of the cage except for its support
+            structure, or remove the side entirely.</p></li>
             <li><p>Added custom rack widths for 12, 14, and 16 inch racks, as well as a 12.66
             inch wide, 2/3-width rack for 19 inch racks.</p></li>
             <li><p>Added direct support for EIA-310 racks using 2020 aluminum extrusion for
@@ -194,6 +194,9 @@ function w3_close() {
             when its geometry is set to solid. Screw hole size and standoff height are 
             configurable.</p></li>
             <li><p>Added the option for faceplate ventilation grids to only generate full holes.</p></li>
+            <li><p>Changed the resolution for most sizing and offset options to half-millimeter 
+            increments instead of full-millimeter only.</p></li>
+            <li><p>Improved the retention-lip generation code to make it more reliable.</p></li>
             <li><p>Changed behavior under "error" conditions - CageMaker PRCG will no longer
             force-correct any problems it detects, such as re-centering faceplate
             modifications that exceed exclusion zones. This will permit forcing a

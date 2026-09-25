@@ -171,7 +171,7 @@ function w3_close() {
                   <img src="images/circle-exclamation.png" alt="IMPORTANT">
                 </div>
                 <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
-                  <p>These settings only take effect when <strong>rack geometry</strong> is set to "custom."</p>
+                  <p>These settings only take effect when <a href="#rack_geometry"><strong>rack geometry</strong></a> is set to "custom."</p>
                 </div>
               </div>
               <p>The specific aspects of a custom rack's geometry that CageMaker PRCG will use are illustrated here:</p>
@@ -190,7 +190,7 @@ function w3_close() {
                   <img src="images/circle-exclamation.png" alt="IMPORTANT">
                 </div>
                 <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
-                  <p>CageMaker PRCG will verify that this setting is wide enough to accommodate the device(s) to be caged plus the structure for the cage itself, multiplied by the number of devices to be caged, and will display a warning message in the console if the total size required is too large to fit within the selected rack size. Be aware that the support structure to hold the device will add 16-20mm to its dimensions depending on the current <strong>surface thickness</strong> setting, so a 120mm side device that's 35mm tall will require 136-140mm of width and 51-55mm of height to safely enclose, so be sure to compensate for the extra size requirements when planning on rack-mounting devices.</p>
+                  <p>CageMaker PRCG will verify that this setting is wide enough to accommodate the device(s) to be caged plus the structure for the cage itself, multiplied by the number of devices to be caged, and will display a warning message in the console if the total size required is too large to fit within the selected rack size. Be aware that the support structure to hold the device will add 16-20mm to its dimensions depending on the current <a href="ConfigOptions_OverallStructureGeometry.htm#manual_surface_thickness"><strong>surface thickness</strong></a> setting, so a 120mm side device that's 35mm tall will require 136-140mm of width and 51-55mm of height to safely enclose, so be sure to compensate for the extra size requirements when planning on rack-mounting devices.</p>
                 </div>
               </div>
 
@@ -203,7 +203,7 @@ function w3_close() {
                   <img src="images/lightbulb.png" alt="Tip">
                 </div>
                 <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
-                  <p>Half-, third-, and quarter-width cages will automatically include right-angle ears on one or both sides to allow partial-width cages to be bolted together to become a single unit the full width of the rack, so make sure to change the <strong>tap or heat set holes</strong> setting to select the fasteners to use to bolt these together - Ideally, select a clearance screw size for one side and the corresponding threading or insert size for the other.</p>
+                  <p>Half-, third-, and quarter-width cages will automatically include right-angle ears on one or both sides to allow partial-width cages to be bolted together to become a single unit the full width of the rack, so make sure to change the <a href="#tap_or_heat_set_holes"><strong>tap or heat set holes</strong></a> setting to select the fasteners to use to bolt these together - Ideally, select a clearance screw size for one side and the corresponding threading or insert size for the other.</p>
                 </div>
               </div>
 
@@ -233,7 +233,7 @@ function w3_close() {
                   <img src="images/lightbulb.png" alt="Tip">
                 </div>
                 <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
-                  <p>If the <strong>add alignment pin holes</strong> option is enabled, alignment pin holes will be added to the bolt-together ears below each bolt hole.</p>
+                  <p>If the <a href="#add_alignment_pin_holes"><strong>add alignment pin holes</strong></a> option is enabled, alignment pin holes will be added to the bolt-together ears below each bolt hole.</p>
                 </div>
               </div>
 
@@ -285,7 +285,7 @@ function w3_close() {
                   <img src="images/circle-info.png" alt="Info">
                 </div>
                 <div class="w3-padding w3-round-xlarge" style="flex:1; background-color: #E6E6FA;">
-                  <p>When the <strong>allow half heights</strong> option is enabled and the generated cage is a multiple of half units tall, the bottom-most hole will be the topmost hole closest to the top edge of the half-unit at the bottom of the cage. This is intentional as it prevents creating screw holes in weird places that may not align with screw holes or cage nuts on the rack's rails.</p>
+                  <p>When the <a href="#allow_half_heights"><strong>allow half heights</strong></a> option is enabled and the generated cage is a multiple of half units tall, the bottom-most hole will be the topmost hole closest to the top edge of the half-unit at the bottom of the cage. This is intentional as it prevents creating screw holes in weird places that may not align with screw holes or cage nuts on the rack's rails.</p>
                 </div>
               </div>
 
@@ -321,7 +321,7 @@ function w3_close() {
         <div class="w3-flex w3-stretch" style="background-color: transparent;">
           <div class="w3-container" style="flex:1">
             <div class="w3-container w3-section" style="background-color: transparent;">
-              <p><a name="vertically_shift_mounting_holes"></a><strong>vertically shift mounting holes</strong><br><img src="images/new.png"> <em>new for version 0.70</em> :: When <strong>allow half heights</strong> is enabled, the cages CageMaker PRCG generates are vertically asymmetric. While in most cases this won't cause issues - two half-unit-multiple cages can simply butt against each other - this may cause issues in rare cases such as when Keystone receptacles are used. Enabling this setting moves the mounting holes by the equivalent of one half-unit, essentially "un-flipping" the cage.</p>
+              <p><a name="vertically_shift_mounting_holes"></a><strong>vertically shift mounting holes</strong><br><img src="images/new.png"> <em>new for version 0.70</em> :: When <a href="#allow_half_heights"><strong>allow half heights</strong></a> is enabled, the cages CageMaker PRCG generates are vertically asymmetric. While in most cases this won't cause issues - two half-unit-multiple cages can simply butt against each other - this may cause issues in rare cases such as when Keystone receptacles are used. Enabling this setting moves the mounting holes by the equivalent of one half-unit, essentially "un-flipping" the cage.</p>
             </div>
           </div>
           <div class="w3-container">

@@ -4,7 +4,7 @@
 <head>
 
   <meta charset="UTF-8">
-  <title>TEMPLATE :: CageMaker PRCG Documentation</title>
+  <title>Quick-Start Guide :: CageMaker PRCG Documentation</title>
   
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="w3.css">
@@ -152,8 +152,7 @@ function w3_close() {
         </div>
         <div class="w3-padding w3-round-xlarge" style="flex:1; background-color: #E6E6FA;">
           <p>
-            The order of options and option groups/catgories are the same on both the OpenSCAD version and web-browser OpenSCAD Playground version of
-            CageMaker PRCG.
+            The order of options and option groups/catgories are the same on both the OpenSCAD version and web-browser OpenSCAD Playground version of CageMaker PRCG.
           </p>
         </div>
       </div>
@@ -199,7 +198,7 @@ function w3_close() {
           <li>The inside width of the rack, or the mounting reservation area on either side of the rack.</li>
         </ul>
         <p>For the sake of brevity and due to the fact that the vast majority of racks and rack systems will follow EIA-310 layout, we will assume this is the case going forward.</p>
-        <p>For information on setting up a custom rack geometry, see <strong>Rack Settings</strong>.</p>
+        <p>For information on setting up a custom rack geometry, see <a href="ConfigOptions_RackSettings.htm"><strong>Rack Settings</strong></a>.</p>
       </div>
 
       <div class="w3-container" style="background-color: transparent;">
@@ -216,8 +215,8 @@ function w3_close() {
 
       <div class="w3-container w3-section" style="background-color: transparent;">
         <p>We'll start by telling CageMaker PRCG about the device. In the case of our real-world example, a TL-SG108 switch, the dimensions are listed on the TP-Link website as "( W x D x H ) 6.2 x 4.0 x 1.0 in. (158 x 101 x 25 mm)"</p>
-        <p>Open the <strong>Target Device Dimensions &amp; Count</strong> category and look for the three controls for device size, <strong>manual device depth</strong>, <strong>manual device width</strong>, and <strong>manual device height</strong>. Set each as required, which for our example would be a depth of 101mm, a width of 158mm, and a height of 25mm. (Note that the order these are entered into CageMaker PRCG does not match the order they are listed on the product information. Be sure to put the right measurement into the right setting.)</p>
-        <p>We're only mounting a single device, so we can leave <strong>number of devices</strong> and <strong>multiple device gap</strong> alone.</p>
+        <p>Open the <a href="ConfigOptions_TargetDeviceDimensions.htm"><strong>Target Device Dimensions &amp; Count</strong></a> category and look for the three controls for device size, <a href="ConfigOptions_TargetDeviceDimensions.htm#manual_device_depth"><strong>manual device depth</strong></a>, <a href="ConfigOptions_TargetDeviceDimensions.htm#manual_device_width"><strong>manual device width</strong></a>, and <a href="ConfigOptions_TargetDeviceDimensions.htm#manual_device_height"><strong>manual device height</strong></a>. Set each as required, which for our example would be a depth of 101mm, a width of 158mm, and a height of 25mm. (Note that the order these are entered into CageMaker PRCG does not match the order they are listed on the product information. Be sure to put the right measurement into the right setting.)</p>
+        <p>We're only mounting a single device, so we can leave <a href="ConfigOptions_TargetDeviceDimensions.htm#number_of_devices"><strong>number of devices</strong></a> and <a href="ConfigOptions_TargetDeviceDimensions.htm#multiple_device_gap"><strong>multiple device gap</strong></a> alone.</p>
         <br>
         <img src="images/prcg_0.7_quick_start_example.png" class="w3-image w3-card">
         <br>
@@ -230,7 +229,7 @@ function w3_close() {
         </div>
         <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
           <p>
-            CageMaker PRCG includes presets for a number of common/popular devices, and our example is one of them. Selecting it from the preset list will perform the process above in step two automatically. For more information, see <strong>Configuration Options &rsaquo; Target Device Presets</strong>.
+            CageMaker PRCG includes presets for a number of common/popular devices, and our example is one of them. Selecting it from the preset list will perform the process above in step two automatically. For more information, see <a href="ConfigOptions_TargetDevicePresets.htm"><strong>Configuration Options &rsaquo; Target Device Presets</strong></a>.
           </p>
         </div>		  
       </div>
@@ -242,7 +241,7 @@ function w3_close() {
       <h3>Step Three: Configuring The Rack</h3>
 
       <div class="w3-container w3-section" style="background-color: transparent;">
-        <p>The next step is telling CageMaker PRCG about the rack. Open the <strong>Rack Settings</strong> category and look for <strong>rack cage width</strong>. Select the width of the rack for which CageMaker PRCG will design the cage.</p>
+        <p>The next step is telling CageMaker PRCG about the rack. Open the <a href="ConfigOptions_RackSettings.htm"><strong>Rack Settings</strong></a> category and look for <a href="ConfigOptions_RackSettings.htm#rack_cage_width"><strong>rack cage width</strong></a>. Select the width of the rack for which CageMaker PRCG will design the cage.</p>
         <p>For our real-world example, we will select the "10 in. Mini-Rack" option if it's not already chosen.</p>
       </div>
 
@@ -252,7 +251,7 @@ function w3_close() {
         </div>
         <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
           <p>
-              CageMaker PRCG defaults to creating for 10" mini-racks. This can be changed by selecting another option for <strong>rack cage width</strong> and saving the change as a preset.
+              CageMaker PRCG defaults to creating for 10" mini-racks. This can be changed by selecting another option for <a href="ConfigOptions_RackSettings.htm#rack_cage_width"><strong>rack cage width</strong></a> and saving the change as a preset.
           </p>
         </div>		  
       </div>
@@ -267,7 +266,7 @@ function w3_close() {
         <p>That's it for a basic single device cage. All that remains is to instruct OpenSCAD (or OpenSCAD Playground, if using the web-browser version) to run CageMaker PRCG in render mode and export the resulting object file for slicing and printing.</p>
         <p>To do this in OpenSCAD, press F6, and when the render completes (OpenSCAD will play a sound), press F7 to save the cage object as a STL file or use OpenSCAD's export feature to select a different object file format.</p>
         <p>To do this in OpenSCAD Playground, click the "Render" button at the bottom-left, and once the render completes (OpenSCAD Playground will play a sound) click the "Download STL" button to save the cage object as a STL file or click the down-arrow beside the button to select a different object file format.</p>
-        <p>At this point, the only thing left to do is slice and print! For recommendations on slicer/print settings, see <strong>Best Practices</strong>.</p>
+        <p>At this point, the only thing left to do is slice and print! For recommendations on slicer/print settings, see <a href="BestPractices.htm"><strong>Best Practices</strong></a>.</p>
       </div>
 
       <div class="w3-container w3-section" style="background-color: transparent;">

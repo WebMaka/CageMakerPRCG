@@ -132,14 +132,14 @@ function w3_close() {
         
         <div class="w3-container w3-section" style="background-color: transparent;">
           <p>Special settings for supporting larger or smaller 3D printers.</p>
-          <p>For a list of maximum device sizes and the print volumes they require, see <strong>Maximum Supported Sizes</strong>.</p>
+          <p>For a list of maximum device sizes and the print volumes they require, see <a href="MaximumSupportedSizes.htm"><strong>Maximum Supported Sizes</strong></a>.</p>
         </div>
 
         <div class="w3-flex w3-stretch" style="background-color: transparent;">
           <div class="w3-container" style="flex:1">
             <div class="w3-container w3-section" style="background-color: transparent;">
-              <p><a name="split_cage_into_two_halves"></a><strong>split cage into two halves</strong><br>This setting instructs CageMaker PRCG to split the completed cage into two pieces and add tabs and corresponding slots to enable bolting the pieces together. Note that the split will happen at the center of the cage proper, even if its offset value has been changed and the cage is off-center relative to the faceplate, and if the <strong>extra support</strong> option is enabled the split will also be along the center of those extra support structures. This allows printing cages on 3D printers with smaller build volumes - a 2U tall, 150mm deep, full-width cage for a 10" rack can be printed within a build volume of 180mm<sup>3</sup>.</p>
-              <p>This option pairs very well with <strong>add alignment pin holes</strong> as well as <strong>extra support</strong>.</p>
+              <p><a name="split_cage_into_two_halves"></a><strong>split cage into two halves</strong><br>This setting instructs CageMaker PRCG to split the completed cage into two pieces and add tabs and corresponding slots to enable bolting the pieces together. Note that the split will happen at the center of the cage proper, even if its offset value has been changed and the cage is off-center relative to the faceplate, and if the <a href="ConfigOptions_CageOptions.htm#extra_support"><strong>extra support</strong></a> option is enabled the split will also be along the center of those extra support structures. This allows printing cages on 3D printers with smaller build volumes - a 2U tall, 150mm deep, full-width cage for a 10" rack can be printed within a build volume of 180mm<sup>3</sup>.</p>
+              <p>This option pairs very well with <a href="ConfigOptions_RackSettings.htm#add_alignment_pin_holes"><strong>add alignment pin holes</strong></a> as well as <a href="ConfigOptions_CageOptions.htm#extra_support"><strong>extra support</strong></a>.</p>
 
               <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
                 <div class="w3-deep-orange w3-padding w3-round-xlarge">
@@ -147,7 +147,7 @@ function w3_close() {
                 </div>
                 <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
                   <p>
-                    Enabling this option overrides the <strong>print cage separately</strong> setting.
+                    Enabling this option overrides the <a href="#print_cage_separately"><strong>print cage separately</strong></a> setting.
                   </p>
                 </div>
               </div>
@@ -168,7 +168,7 @@ function w3_close() {
                   <img src="images/lightbulb.png" alt="Tip">
                 </div>
                 <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
-                  <p>Make sure to change the <strong>tap or heat set holes</strong> setting to select the fasteners to use to bolt these together. If a tapped or heat-set hole size is selected, it will be used for the holes in the slots into which the tabs fit, but the holes in the tabs will be whatever the close-fit clearance size is for the selected fastener's thread size. For example, if "M5 tapped (4.4mm hole)" is selected, the slot holes will be that size and the corresponding tab holes will automatically be set to "M5 clearance (5.25mm hole)". Selecting a clearance hole size will use that hole size for both tabs and slots.</p>
+                  <p>Make sure to change the <a href="ConfigOptions_RackSettings.htm#tap_or_heat_set_holes"><strong>tap or heat set holes</strong></a> setting to select the fasteners to use to bolt these together. If a tapped or heat-set hole size is selected, it will be used for the holes in the slots into which the tabs fit, but the holes in the tabs will be whatever the close-fit clearance size is for the selected fastener's thread size. For example, if "M5 tapped (4.4mm hole)" is selected, the slot holes will be that size and the corresponding tab holes will automatically be set to "M5 clearance (5.25mm hole)". Selecting a clearance hole size will use that hole size for both tabs and slots.</p>
                 </div>
               </div>
             </div>
@@ -198,7 +198,7 @@ function w3_close() {
                 <img src="images/circle-exclamation.png" alt="IMPORTANT">
               </div>
               <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
-                <p>Enabling <strong>split cage into two halves</strong> overrides this setting.</p>
+                <p>Enabling <a href="#split_cage_into_two_halves"><strong>split cage into two halves</strong></a> overrides this setting.</p>
               </div>
             </div>
 
@@ -207,7 +207,7 @@ function w3_close() {
                 <img src="images/lightbulb.png" alt="Tip">
               </div>
               <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
-                <p>The <strong>snap fit tolerance</strong> setting adjusts the sizing of the sockets on the back of the faceplate into which the cage's legs will attach. This should be a snug fit but not so tight that assembly is difficult.</p>
+                <p>The <a href="ConfigOptions_RarelyChangedOptions.htm"><strong>snap fit tolerance</strong></a> setting adjusts the sizing of the sockets on the back of the faceplate into which the cage's legs will attach. This should be a snug fit but not so tight that assembly is difficult.</p>
               </div>
             </div>
 

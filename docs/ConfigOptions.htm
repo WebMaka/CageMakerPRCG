@@ -135,7 +135,7 @@ function w3_close() {
           <p>CageMaker PRCG includes a number of safeguards to make it harder to accidentally create a cage that cannot fit into a rack that reasonably follows the EIA-310 standard for 19" racks, which are also very popular dimensional requirements for 6" and 7" micro-racks as well as 10" mini-racks. If setting an option would result in a cage that "breaks" fitment rules, the script will display a warning in the render preview and send text detailing the issue into the console.</p>
           <p><img src="images/prcg0.2_check_console.png" class="w3-image w3-card"></p>
           <p>&nbsp;</p>
-          <p>Starting with version 0.40, CageMaker PRCG can optionally generate cages that do not follow EIA-310 by choosing the rack systems' geometry (namely, its "unit" height and mounting hole spacing) in the <strong>rack geometry</strong> option. In such cases, CageMaker PRCG will still enforce certain fitment rules:</p>
+          <p>Starting with version 0.40, CageMaker PRCG can optionally generate cages that do not follow EIA-310 by choosing the rack systems' geometry (namely, its "unit" height and mounting hole spacing) in the <a href="ConfigOptions_RackSettings.htm#rack_geometry"><strong>rack geometry</strong></a> option. In such cases, CageMaker PRCG will still enforce certain fitment rules:</p>
           <ul>
             <li>Space is reserved on either side for mounting, usually 5/8" or 15.875mm for EIA-compliant cages.</li>
             <li>"Unit" size is changed to suit the non-standard setting, and will still automatically scale to suit the device dimensions.</li>
@@ -175,7 +175,7 @@ function w3_close() {
         <h3>Important Notes On Viewing Angles</h3>
         
         <div class="w3-container w3-section" style="background-color: transparent;">
-          <p>By default, CageMaker PRCG designs cages to be printed faceplate-down, and this orientation means that the default viewing angle in OpenSCAD (and by extension, OpenSCAD Playground) will be as though looking at the cage from behind and above its "top" side. Starting with version 0.40, when the <strong>show ruler</strong> option is enabled, a marker to indicate which edge is "top" will be shown to make it easier to determine "up" and "down" as cages are both vertically and horizontally symmetrical by default and only become asymmetrical by enabling or modifying some options.</p>
+          <p>By default, CageMaker PRCG designs cages to be printed faceplate-down, and this orientation means that the default viewing angle in OpenSCAD (and by extension, OpenSCAD Playground) will be as though looking at the cage from behind and above its "top" side. Starting with version 0.40, when the <a href="ConfigOptions_RulersGuides.htm#show_ruler"><strong>show ruler</strong></a> option is enabled, a marker to indicate which edge is "top" will be shown to make it easier to determine "up" and "down" as cages are both vertically and horizontally symmetrical by default and only become asymmetrical by enabling or modifying some options.</p>
         </div>
 
         <h3>Individual Options</h3>
