@@ -42,6 +42,9 @@ This script was built to work with/in OpenSCAD version 2021.01. To obtain a copy
 > [!TIP]
 > To make CageMaker PRCG's massive number of options easier to understand, make sure OpenSCAD's Customizer is set to show descriptions by changing the dropdown setting next to the "Reset" button atop the Customizer panel to "Show Details" or "Description Only". Consult the [Configuration Options](https://webmaka.github.io/CageMakerPRCG/ConfigOptions.htm) for detailed explanations with screenshots of the function and purpose of each option.
 
+> [!TIP]
+> For a brief overview on using CageMaker PRCG within OpenSCAD (or OpenSCAD Playground), check out the [quick-start guide](https://webmaka.github.io/CageMakerPRCG/QuickStartGuide.htm).
+
 To use this script:
 
 1. Download (click the green "&lt;&gt; Code" button then select "Download ZIP") or clone ("git clone https://github.com/WebMaka/CageMakerPRCG.git" in a terminal). If downloading a ZIP, unpack it into a suitable location.
