@@ -83,9 +83,9 @@ module ventilated_side_plate(plate_height, plate_width, plate_thickness, side_th
             //translate([0, 0, 0])
                 cube([20, plate_height - (side_thickness * 2) + 2, plate_thickness], center=true);
             translate([6, 0, 0 - (support_cage_base_size / 4)])
-                cube([plate_thickness, plate_height, plate_thickness + (support_cage_base_size / 2)], center=true);
+                cube([plate_thickness, plate_height, plate_thickness + (support_cage_base_size / 2) - 0.5], center=true);
             translate([-6, 0, 0 - (support_cage_base_size / 4)])
-                cube([plate_thickness, plate_height, plate_thickness + (support_cage_base_size / 2)], center=true);
+                cube([plate_thickness, plate_height, plate_thickness + (support_cage_base_size / 2) - 0.5], center=true);
         }
     }
 }

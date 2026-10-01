@@ -214,7 +214,7 @@ rack_geometry_options = [
 //     reserved for mounting space, e.g., the portion of the faceplate that rests against rack rails.
 unit_height_in_mm = rack_geometry == "Custom" ? custom_rack_geometry_unit_height : rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][1];
 mounting_hole_pattern = rack_geometry == "Custom" ? custom_rack_geometry_mounting_hole_pattern : rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][2];
-mounting_hole_center_inset = rack_geometry == "Custom" ? (rack_cage_width - custom_mounting_hole_center_difference) : rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][3];
+mounting_hole_center_inset = rack_geometry == "Custom" ? custom_mounting_hole_center_inset : rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][3];
 mounting_hole_diameter = rack_geometry == "Custom" ? custom_rack_geometry_mounting_hole_diameter : rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][4];
 mounting_reservation_space = rack_geometry == "Custom" ? custom_rack_geometry_mounting_reservation_area : rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][5];
 
