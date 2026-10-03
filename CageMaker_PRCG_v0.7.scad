@@ -1,6 +1,6 @@
 /*
 
- CageMaker PRCG - The Parametric Rack Cage Generator v. 0.70 (TBA)
+ CageMaker PRCG - The Parametric Rack Cage Generator v. 0.70 (3 Oct 2026)
  --------------------------------------------------------------------------------
  Copyright © 2025-2026 by WebMaka - this file is licensed under CC BY-NC-SA 4.0.
  To view a copy of this license, visit
