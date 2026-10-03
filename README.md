@@ -11,7 +11,7 @@ To view a copy of this license, visit https://creativecommons.org/licenses/by-nc
 
 &nbsp;
 
-Quickly create a 3D-printable object file for a rack cage for any device of a given size that can fit into practically any size rack or rack system. Simply provide the device's dimensions, and optionally tweak a few settings, then press F6 then F7 to generate and save a STL file.
+Rack-mount almost any small(-ish) device into almost any rack, create custom faceplates with ventilation or mounting points for various connectors and cooling fans, create custom rackmount enclosures for projects, and more.
 
 &nbsp;
 
@@ -20,38 +20,122 @@ Quickly create a 3D-printable object file for a rack cage for any device of a gi
 
 &nbsp;
 
-## CageMaker PRCG + OpenSCAD Playground
+## Contents
 
-I'm happy to announce that CageMaker PRCG is now available in a fork of the Java-based OpenSCAD port [OpenSCAD Playground](https://github.com/openscad/openscad-playground). This allows using CageMaker PRCG right from a web browser without having to install any additional software. The full feature set of CageMaker PRGC is available, and Playground can even export completed STL files for slicing and printing.
+[Installation &amp; Usage](#install)  
+[Run CageMaker PRCG In A Web Browser With OpenSCAD Playground](#playground)  
+[Documentation](#docs)  
+[Please Support The Developer!](#support)  
+[License](LICENSE.md)
+
+&nbsp;
+
+<a href="install"></a>
+## Installation &amp; Usage
+
+This script was built to work with/in OpenSCAD version 2021.01. To obtain a copy of OpenSCAD, visit this URL:
+
+  https://openscad.org/
+
+> [!TIP]
+> To make CageMaker PRCG's massive number of options easier to understand, make sure OpenSCAD's Customizer is set to show descriptions by changing the dropdown setting next to the "Reset" button atop the Customizer panel to "Show Details" or "Description Only". Consult the [Configuration Options](https://webmaka.github.io/CageMakerPRCG/ConfigOptions.htm) for detailed explanations with screenshots of the function and purpose of each option.
+
+> [!TIP]
+> For a brief overview on using CageMaker PRCG within OpenSCAD (or OpenSCAD Playground), check out the [quick-start guide](https://webmaka.github.io/CageMakerPRCG/QuickStartGuide.htm).
+
+To use this script:
+
+1. Download (click the green "&lt;&gt; Code" button then select "Download ZIP") or clone ("git clone https://github.com/WebMaka/CageMakerPRCG.git" in a terminal). If downloading a ZIP, unpack it into a suitable location.
+2. Double-click "CageMaker_PRCG_v0.7.scad" to launch OpenSCAD and load the script. If all goes well, OpenSCAD should show an extreme close-up of a default rack cage design in its preview window - press CTRL-SHIFT-V to zoom out to "show-all" distance.
+3. Use the Customizer to configure the size of the object that you wish to rack-mount. Optionally, configure other settings to suit.
+4. Press F6 to instruct OpenSCAD to fully calculate and render the rack cage as an object.
+5. Press F7 to save the created object as a STL file.
+6. Slice and print the object.
+
+> [!IMPORTANT]
+> If OpenSCAD cannot find the include files, make sure there is an "includes" directory in the same directory as "CageMaker_PRCG_v0.7.scad", and that it contains files. The directory layout and file locations in your copy should be the same as for this repo.
+
+&nbsp;
+
+<a href="playground"></a>
+## Run CageMaker PRCG In A Web Browser With OpenSCAD Playground
+
+CageMaker PRCG is also usable from within any reasonably modern web browser, thanks to a fork of the Java-based OpenSCAD port [OpenSCAD Playground](https://github.com/openscad/openscad-playground). This allows using CageMaker PRCG right from a web browser without having to install any additional software. The full feature set of CageMaker PRGC is available, and Playground can even export completed STL files for slicing and printing.
 
 Be sure to [check out the quick-start guide](https://github.com/WebMaka/CageMakerPRCG/blob/main/openscad_playground_quick_start_guide.md), or [jump over to the Playground and start creating cages](https://cagemaker.org/playground/). Not sure what the options are for? The wiki's [Configuration Options](https://github.com/WebMaka/CageMakerPRCG/wiki/ConfigOptions) page has a complete breakdown of the options, with screenshots of what they do.
 
 &nbsp;
 
-## Minimum & Maximum Sizes
+<a href="docs"></a>
+## Documentation
 
-These are the size limits for printing a complete cage of a given width that is one unit (1.75"/44.45mm) tall and complies with EIA-310-D. These assume default settings for all options, but most notably the **heavy device** setting as this thickens all surfaces and reduces available working space.
+CageMaker PRCG is extensively documented, with detailed coverage for every single option. That documentation is included with the repo but can also be accessed here:
 
-By default, CageMaker PRCG creates a support structure around the device's dimensions that adds 12-20mm to those dimensions, and also enforces a safe mounting space of 5/8" or 15.875mm on either side - the maximum width value listed here is the greatest device width that fits the given rack width setting before automatically scaling to the next wider size. For example, when creating a cage for a 19" rack, a device wider than 67mm won't fit into a quarter-width bolt-together but will fit in a third-width.
+<a href="https://webmaka.github.io/CageMakerPRCG/index.htm">Documentation Home</a>
 
-| Rack Width | Maximum Device Width | Minimum Build Volume For Split Cages | Minimum Build Volume For Full-Width Cages |
-| --- | :---: | :---: | :---: |
-| Quarter-19" Bolt-Together (4.75") | 67mm | 100mm | 130mm |
-| 5" Micro-Rack | 80mm | 100mm | 130mm |
-| Half-10" Bolt-Together (5") | 80mm | 100mm | 130mm |
-| 6" Micro-Rack | 107mm | 110mm | 160mm |
-| Third-19" Bolt-Together (6.33") | 117mm | 110mm | 170mm |
-| 7" Micro-Rack | 132mm | 120mm | 180mm |
-| Half-19" Bolt-Together (9.5") | 197mm | 150mm | 250mm |
-| 10" Mini-Rack | 207mm | 150mm | 260mm |
-| 19" Full Rack | 417mm | 270mm | 490mm |
+<a href="https://webmaka.github.io/CageMakerPRCG/QuickStartGuide.htm">Quick-Start Guide</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/BestPractices.htm">Best Practices</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/MaximumSupportedSizes.htm">Maximum Supported Sizes</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/SupportedModifications.htm">Supported Modifications</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/FAQ.htm">FAQ</a>
+
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions.htm">Configuration Options</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_TargetDevicePresets.htm">&rsaquo; Target Device Presets</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_TargetDeviceDimensions.htm">&rsaquo; Target Device Dimensions &amp; Geometry</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_OverallStructureGeometry.htm">&rsaquo; Overall Structure &amp; Geometry</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_RulersGuides.htm">&rsaquo; Rulers/Guides</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_3DPrinterSupport.htm">&rsaquo; 3D Printer Support</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_RackSettings.htm">&rsaquo; Rack Settings</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_FaceplateOptions.htm">&rsaquo; Faceplate Options</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_FaceplateVentilationOptions.htm">&rsaquo; Faceplate Ventilation Options</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_CageOptions.htm">&rsaquo; Cage Options</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_CageTopBottomOptions.htm">&rsaquo; Cage TOP and BOTTOM Geometry &amp; Ventilation Options</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_CageLeftRightOptions.htm">&rsaquo; Cage LEFT and RIGHT SIDE Geometry &amp; Ventilation Options</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_CageBackOptions.htm">&rsaquo; Cage BACK Geometry &amp; Modifications</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_RearSupportOptions.htm">&rsaquo; Rear Support Options</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_AdditionalFaceplateModifications.htm">&rsaquo; Additional Faceplate Modifications</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_CustomCutoutOptions.htm">&rsaquo; Custom Cutout Options</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_IgnoreErrors.htm">&rsaquo; Ignore Errors</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/ConfigOptions_RarelyChangedOptions.htm">&rsaquo; Rarely-Changed Options</a>
+
+<a href="https://webmaka.github.io/CageMakerPRCG/Features.htm">Features</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/History.htm">History</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/Credits.htm">Credits</a>
+<br />
+<a href="https://webmaka.github.io/CageMakerPRCG/License.htm">License</a>
 
 &nbsp;
 
+<a href="support"></a>
 ## Please Support The Developer!
 
 If this is useful to you, please consider donating or subscribing to my Patreon. I fund my projects entirely out-of-pocket, and any additional funding will help.
- 
+
+https://ko-fi.com/webmaka  
+https://thanks.dev/webmaka  
 https://patreon.com/webmaka
 
 &nbsp;
@@ -64,36 +148,6 @@ https://patreon.com/webmaka
 
 &nbsp;
 
-## Installation &amp; Usage
-
-This script was built to work with/in OpenSCAD version 2021.01. To obtain a copy of OpenSCAD, visit this URL:
-
-  https://openscad.org/
-
-> [!TIP]
-> To make CageMaker PRCG's massive number of options easier to understand, make sure OpenSCAD's Customizer is set to show descriptions by changing the dropdown setting next to the "Reset" button atop the Customizer panel to "Show Details" or "Description Only". Consult the [Configuration Options](https://github.com/WebMaka/CageMakerPRCG/wiki/ConfigOptions) for detailed explanations with screenshots of the function and purpose of each option.
-
-To use this script:
-
-1. Launch OpenSCAD.
-2. Open this script.
-3. Use the Customizer to configure the size of the object that you wish to rack-mount. Optionally, configure other settings to suit.
-4. Press F6 to instruct OpenSCAD to fully calculate and render the rack cage as an object.
-5. Press F7 to save the created object as a STL file.
-6. Slice and print the object.
+Copyright © 2025-2026 by WebMaka - this project is licensed under CC BY-NC-SA 4.0.
 
 &nbsp;
-
-## Documentation
-
-The Wiki contains loads and loads of documentation for CageMaker...
-
-[Features](https://github.com/WebMaka/CageMakerPRCG/wiki/Features)  
-[Version/Revision History](https://github.com/WebMaka/CageMakerPRCG/wiki/History)  
-[Screenshots and Pictures](https://github.com/WebMaka/CageMakerPRCG/wiki/Screenshots)  
-[Configuration Options](https://github.com/WebMaka/CageMakerPRCG/wiki/ConfigOptions)  
-[Best Usage and Printing Practices](https://github.com/WebMaka/CageMakerPRCG/wiki/BestPractices)  
-[FAQ](https://github.com/WebMaka/CageMakerPRCG/wiki/FAQ)  
-[Credits](https://github.com/WebMaka/CageMakerPRCG/wiki/Credits)  
-[License](https://github.com/WebMaka/CageMakerPRCG/wiki/License)
-
