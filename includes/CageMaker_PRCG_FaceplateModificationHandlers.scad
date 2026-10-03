@@ -79,133 +79,133 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
             // PC Motherboards - Rear IO
             if (mod_type == "RearIO")
             {
-                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
-                    cube([159, 44.7, 12], center=true);
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 2 + surface_thickness])
+                    cube([159, 44.7, 16], center=true);
             }
             
             // PC Motherboards - PCI Slot
             if (mod_type == "PCISlot")
             {
-                translate([horizontal_offset + x_offset, vertical_offset + y_offset + 5, 5 + surface_thickness])
-                    cube([15, 90, 12], center=true);
-                translate([horizontal_offset + x_offset - 2.54, vertical_offset + y_offset - 50, 5 + surface_thickness])
-                    cube([22, 10, 12], center=true);
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset + 5, 2 + surface_thickness])
+                    cube([15, 90, 16], center=true);
+                translate([horizontal_offset + x_offset - 2.54, vertical_offset + y_offset - 50, 2 + surface_thickness])
+                    cube([22, 10, 16], center=true);
             }
             
             // PC Motherboards - PCI Slot
             if (mod_type == "PCISlot_LP")
             {
-                translate([horizontal_offset + x_offset, vertical_offset + y_offset + 5, 5 + surface_thickness])
-                    cube([15, 55, 12], center=true);
-                translate([horizontal_offset + x_offset - 2.54, vertical_offset + y_offset - 32.5, 5 + surface_thickness])
-                    cube([22, 10, 12], center=true);
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset + 5, 2 + surface_thickness])
+                    cube([15, 55, 16], center=true);
+                translate([horizontal_offset + x_offset - 2.54, vertical_offset + y_offset - 32.5, 2 + surface_thickness])
+                    cube([22, 10, 16], center=true);
             }
             
             // PC Motherboards - Mini-ITX motherboard with one low-profile PCI slot
             if (mod_type == "MiniITX1Slot")
             {
-                translate([horizontal_offset + x_offset - 9.5, vertical_offset + y_offset + 11.4, 5 + surface_thickness])
-                    cube([159, 44.7, 12], center=true);
-                translate([horizontal_offset + x_offset + 81.9, vertical_offset + y_offset - 19.0 + 15, 5 + surface_thickness])
-                    cube([15, 55, 12], center=true);
-                translate([horizontal_offset + x_offset + 85.86, vertical_offset + y_offset - 58.1 + 16, 5 + surface_thickness])
-                    cube([20, 6, 12], center=true);
+                translate([horizontal_offset + x_offset - 9.5, vertical_offset + y_offset + 11.4, 2 + surface_thickness])
+                    cube([159, 44.7, 16], center=true);
+                translate([horizontal_offset + x_offset + 81.9, vertical_offset + y_offset - 19.0 + 15, 2 + surface_thickness])
+                    cube([15, 55, 16], center=true);
+                translate([horizontal_offset + x_offset + 85.86, vertical_offset + y_offset - 58.1 + 16, 2 + surface_thickness])
+                    cube([20, 6, 16], center=true);
             }
             
 			// PC Motherboards - ATX PSU (Power Supply Unit)
             if (mod_type == "ATXPSU")
 			{
-				translate([horizontal_offset + x_offset - 69, vertical_offset + y_offset - 37, 5 + surface_thickness])
+				translate([horizontal_offset + x_offset - 69, vertical_offset + y_offset - 37, 2 + surface_thickness])
 					cylinder(16, d=4.3, center=true, $fn=this_fn);
-				translate([horizontal_offset + x_offset - 69, vertical_offset + y_offset + 27, 5 + surface_thickness])
+				translate([horizontal_offset + x_offset - 69, vertical_offset + y_offset + 27, 2 + surface_thickness])
 					cylinder(16, d=4.3, center=true, $fn=this_fn);
-				translate([horizontal_offset + x_offset + 45, vertical_offset + y_offset + 37, 5 + surface_thickness])
+				translate([horizontal_offset + x_offset + 45, vertical_offset + y_offset + 37, 2 + surface_thickness])
 					cylinder(16, d=4.3, center=true, $fn=this_fn);
-				translate([horizontal_offset + x_offset + 69, vertical_offset + y_offset - 37, 5 + surface_thickness])
+				translate([horizontal_offset + x_offset + 69, vertical_offset + y_offset - 37, 2 + surface_thickness])
 					cylinder(16, d=4.3, center=true, $fn=this_fn);
 
-				translate([horizontal_offset + x_offset + 69, vertical_offset + y_offset + 37, 5 + surface_thickness])
+				translate([horizontal_offset + x_offset + 69, vertical_offset + y_offset + 37, 2 + surface_thickness])
 					cylinder(16, d=4.3, center=true, $fn=this_fn);
-				translate([horizontal_offset + x_offset + 69, vertical_offset + y_offset - 27, 5 + surface_thickness])
+				translate([horizontal_offset + x_offset + 69, vertical_offset + y_offset - 27, 2 + surface_thickness])
 					cylinder(16, d=4.3, center=true, $fn=this_fn);
-				translate([horizontal_offset + x_offset - 45, vertical_offset + y_offset - 37, 5 + surface_thickness])
+				translate([horizontal_offset + x_offset - 45, vertical_offset + y_offset - 37, 2 + surface_thickness])
 					cylinder(16, d=4.3, center=true, $fn=this_fn);
-				translate([horizontal_offset + x_offset - 69, vertical_offset + y_offset + 37, 5 + surface_thickness])
+				translate([horizontal_offset + x_offset - 69, vertical_offset + y_offset + 37, 2 + surface_thickness])
 					cylinder(16, d=4.3, center=true, $fn=this_fn);
 			
-				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset - 5, 5 + surface_thickness])
-					cube([137, 54, 12], center=true);
-				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset + 5, 5 + surface_thickness])
-					cube([137, 54, 12], center=true);
-				translate([horizontal_offset + x_offset + 12.5, vertical_offset + y_offset - 20, 5 + surface_thickness])
-					cube([104, 40, 12], center=true);
-				translate([horizontal_offset + x_offset - 12.5, vertical_offset + y_offset + 20, 5 + surface_thickness])
-					cube([104, 40, 12], center=true);
+				translate([horizontal_offset + x_offset - 4, vertical_offset + y_offset - 5, 2 + surface_thickness])
+					cube([137, 54, 16], center=true);
+				translate([horizontal_offset + x_offset + 4, vertical_offset + y_offset + 5, 2 + surface_thickness])
+					cube([137, 54, 16], center=true);
+				translate([horizontal_offset + x_offset + 12.5, vertical_offset + y_offset - 20, 2 + surface_thickness])
+					cube([104, 40, 16], center=true);
+				translate([horizontal_offset + x_offset - 12.5, vertical_offset + y_offset + 20, 2 + surface_thickness])
+					cube([104, 40, 16], center=true);
 			}
 
  			// PC Motherboards - SFX PSU (Power Supply Unit)
             if (mod_type == "SFXPSU")
 			{
-				translate([horizontal_offset + x_offset + 56.5, vertical_offset + y_offset - 25.75, 5 + surface_thickness])
+				translate([horizontal_offset + x_offset + 56.5, vertical_offset + y_offset - 25.75, 2 + surface_thickness])
 					cylinder(16, d=4.3, center=true, $fn=this_fn);
-				translate([horizontal_offset + x_offset + 56.5, vertical_offset + y_offset, 5 + surface_thickness])
+				translate([horizontal_offset + x_offset + 56.5, vertical_offset + y_offset, 2 + surface_thickness])
 					cylinder(16, d=4.3, center=true, $fn=this_fn);
-				translate([horizontal_offset + x_offset + 56.5, vertical_offset + y_offset + 25.75, 5 + surface_thickness])
+				translate([horizontal_offset + x_offset + 56.5, vertical_offset + y_offset + 25.75, 2 + surface_thickness])
 					cylinder(16, d=4.3, center=true, $fn=this_fn);
-				translate([horizontal_offset + x_offset - 56.5, vertical_offset + y_offset - 25.75, 5 + surface_thickness])
+				translate([horizontal_offset + x_offset - 56.5, vertical_offset + y_offset - 25.75, 2 + surface_thickness])
 					cylinder(16, d=4.3, center=true, $fn=this_fn);
-				translate([horizontal_offset + x_offset - 56.5, vertical_offset + y_offset, 5 + surface_thickness])
+				translate([horizontal_offset + x_offset - 56.5, vertical_offset + y_offset, 2 + surface_thickness])
 					cylinder(16, d=4.3, center=true, $fn=this_fn);
-				translate([horizontal_offset + x_offset - 56.5, vertical_offset + y_offset + 25.75, 5 + surface_thickness])
+				translate([horizontal_offset + x_offset - 56.5, vertical_offset + y_offset + 25.75, 2 + surface_thickness])
 					cylinder(16, d=4.3, center=true, $fn=this_fn);
 
-				translate([horizontal_offset + x_offset - 0, vertical_offset + y_offset - 0, 5 + surface_thickness])
-					cube([105, 59, 12], center=true);
-				translate([horizontal_offset + x_offset - 0, vertical_offset + y_offset - 13, 5 + surface_thickness])
-					cube([120, 17, 12], center=true);
-				translate([horizontal_offset + x_offset - 0, vertical_offset + y_offset + 13, 5 + surface_thickness])
-					cube([120, 17, 12], center=true);
+				translate([horizontal_offset + x_offset - 0, vertical_offset + y_offset - 0, 2 + surface_thickness])
+					cube([105, 59, 16], center=true);
+				translate([horizontal_offset + x_offset - 0, vertical_offset + y_offset - 13, 2 + surface_thickness])
+					cube([120, 17, 16], center=true);
+				translate([horizontal_offset + x_offset - 0, vertical_offset + y_offset + 13, 2 + surface_thickness])
+					cube([120, 17, 16], center=true);
 
 			}			
 
  			// PC Motherboards - TFX PSU (Power Supply Unit) - Power Socket Up
             if (mod_type == "TFXPSU_SU")
 			{
-				translate([horizontal_offset + x_offset - 33.5, vertical_offset + y_offset - 24.3, 5 + surface_thickness])
+				translate([horizontal_offset + x_offset - 33.5, vertical_offset + y_offset - 24.3, 2 + surface_thickness])
 					cylinder(16, d=4.3, center=true, $fn=this_fn);
-				translate([horizontal_offset + x_offset - 33.5, vertical_offset + y_offset + 19.7, 5 + surface_thickness])
+				translate([horizontal_offset + x_offset - 33.5, vertical_offset + y_offset + 19.7, 2 + surface_thickness])
 					cylinder(16, d=4.3, center=true, $fn=this_fn);
-				translate([horizontal_offset + x_offset + 37.3, vertical_offset + y_offset + 3.7, 5 + surface_thickness])
+				translate([horizontal_offset + x_offset + 37.3, vertical_offset + y_offset + 3.7, 2 + surface_thickness])
 					cylinder(16, d=4.3, center=true, $fn=this_fn);
 
-				translate([horizontal_offset + x_offset - 0, vertical_offset + y_offset - 11, 5 + surface_thickness])
-					cube([80, 17, 12], center=true);
-				translate([horizontal_offset + x_offset + 5.5, vertical_offset + y_offset + 20, 5 + surface_thickness])
-					cube([69, 21, 12], center=true);
-				translate([horizontal_offset + x_offset + 5.5, vertical_offset + y_offset - 20, 5 + surface_thickness])
-					cube([69, 21, 12], center=true);
-				translate([horizontal_offset + x_offset - 3.5, vertical_offset + y_offset + 1, 5 + surface_thickness])
-					cube([73, 28, 12], center=true);
+				translate([horizontal_offset + x_offset - 0, vertical_offset + y_offset - 11, 2 + surface_thickness])
+					cube([80, 17, 16], center=true);
+				translate([horizontal_offset + x_offset + 5.5, vertical_offset + y_offset + 20, 2 + surface_thickness])
+					cube([69, 21, 16], center=true);
+				translate([horizontal_offset + x_offset + 5.5, vertical_offset + y_offset - 20, 2 + surface_thickness])
+					cube([69, 21, 16], center=true);
+				translate([horizontal_offset + x_offset - 3.5, vertical_offset + y_offset + 1, 2 + surface_thickness])
+					cube([73, 28, 16], center=true);
 			}
 
  			// PC Motherboards - TFX PSU (Power Supply Unit) - Power Socket Down
             if (mod_type == "TFXPSU_SD")
 			{
-				translate([horizontal_offset + x_offset + 33.5, vertical_offset + y_offset + 24.3, 5 + surface_thickness])
+				translate([horizontal_offset + x_offset + 33.5, vertical_offset + y_offset + 24.3, 2 + surface_thickness])
 					cylinder(16, d=4.3, center=true, $fn=this_fn);
-				translate([horizontal_offset + x_offset + 33.5, vertical_offset + y_offset - 19.7, 5 + surface_thickness])
+				translate([horizontal_offset + x_offset + 33.5, vertical_offset + y_offset - 19.7, 2 + surface_thickness])
 					cylinder(16, d=4.3, center=true, $fn=this_fn);
-				translate([horizontal_offset + x_offset - 37.3, vertical_offset + y_offset - 3.7, 5 + surface_thickness])
+				translate([horizontal_offset + x_offset - 37.3, vertical_offset + y_offset - 3.7, 2 + surface_thickness])
 					cylinder(16, d=4.3, center=true, $fn=this_fn);
 
-				translate([horizontal_offset + x_offset - 0, vertical_offset + y_offset + 11, 5 + surface_thickness])
-					cube([80, 17, 12], center=true);
-				translate([horizontal_offset + x_offset - 5.5, vertical_offset + y_offset - 20, 5 + surface_thickness])
-					cube([69, 21, 12], center=true);
-				translate([horizontal_offset + x_offset - 5.5, vertical_offset + y_offset + 20, 5 + surface_thickness])
-					cube([69, 21, 12], center=true);
-				translate([horizontal_offset + x_offset + 3.5, vertical_offset + y_offset - 1, 5 + surface_thickness])
-					cube([73, 28, 12], center=true);
+				translate([horizontal_offset + x_offset - 0, vertical_offset + y_offset + 11, 2 + surface_thickness])
+					cube([80, 17, 16], center=true);
+				translate([horizontal_offset + x_offset - 5.5, vertical_offset + y_offset - 20, 2 + surface_thickness])
+					cube([69, 21, 16], center=true);
+				translate([horizontal_offset + x_offset - 5.5, vertical_offset + y_offset + 20, 2 + surface_thickness])
+					cube([69, 21, 16], center=true);
+				translate([horizontal_offset + x_offset + 3.5, vertical_offset + y_offset - 1, 2 + surface_thickness])
+					cube([73, 28, 16], center=true);
 			}
 
             // 85x58 SBCs - Horizontal
