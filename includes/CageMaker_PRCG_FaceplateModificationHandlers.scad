@@ -108,7 +108,7 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
                     cube([159, 44.7, 16], center=true);
                 translate([horizontal_offset + x_offset + 81.9, vertical_offset + y_offset - 19.0 + 15, 2 + surface_thickness])
                     cube([15, 55, 16], center=true);
-                translate([horizontal_offset + x_offset + 85.86, vertical_offset + y_offset - 58.1 + 16, 2 + surface_thickness])
+                translate([horizontal_offset + x_offset + 85.86, vertical_offset + y_offset - 60.6 + 16, 2 + surface_thickness])
                     cube([20, 6, 16], center=true);
             }
             
@@ -771,13 +771,13 @@ module faceplate_mod_addition(mod_type, horizontal_offset, vertical_offset, mod_
             {
                 difference()
                 {
-                    translate([horizontal_offset + x_offset - 1.56, vertical_offset + y_offset + 39.75, 92 /*+ surface_thickness*/])
+                    translate([horizontal_offset + x_offset - 0, vertical_offset + y_offset + 39.75, 92 /*+ surface_thickness*/])
                         rotate([90, 0, 0])
-                            ventilated_side_plate(178, 176, 4, 20, 5, 5, false);
+                            ventilated_side_plate(178, 192, 4, 20, 5, 5, false);
 
 					// Notch for PCIe slot bracket tab
-					translate([horizontal_offset + x_offset + 82, vertical_offset + y_offset + 36, 5 + surface_thickness])
-						cube([12, 12, 2], center=true);
+					// translate([horizontal_offset + x_offset + 82.5, vertical_offset + y_offset + 36, 5 + surface_thickness])
+						// cube([14, 12, 2], center=true);
 					
 
                     // Through holes for support screws
@@ -795,21 +795,30 @@ module faceplate_mod_addition(mod_type, horizontal_offset, vertical_offset, mod_
                             cylinder(h=20, d=2.7, center=true, $fn=this_fn);
                 }
                 
-                // 6-32 screw bosses, 5mm tall
-				// 70 = R edge of IO Cutout
-				// 83.56 = R edge of PCB
-                translate([horizontal_offset + x_offset + 77.21, vertical_offset + y_offset + 36, 16.16 + surface_thickness])
+                // 6-32 screw bosses, 7.35mm tall - these place the bottom of the motherboard 6.35mm above the
+				// surface of the back of the cage.
+                translate([horizontal_offset + x_offset + 77.21, vertical_offset + y_offset + 35, 16.16 + surface_thickness])
                     rotate([0, 90, 90])
-                        tube(5, 5, 1.15, this_fn, true);
-                translate([horizontal_offset + x_offset - 80.27, vertical_offset + y_offset + 36, 39.02 + surface_thickness])
+                        tube(5, 7.35, 1.15, this_fn, true);
+                translate([horizontal_offset + x_offset - 80.27, vertical_offset + y_offset + 35, 39.02 + surface_thickness])
                     rotate([0, 90, 90])
-                        tube(5, 5, 1.15, this_fn, true);
-                translate([horizontal_offset + x_offset + 77.21, vertical_offset + y_offset + 36, 171.1 + surface_thickness])
+                        tube(5, 7.35, 1.15, this_fn, true);
+                translate([horizontal_offset + x_offset + 77.21, vertical_offset + y_offset + 35, 171.1 + surface_thickness])
                     rotate([0, 90, 90])
-                        tube(5, 5, 1.15, this_fn, true);
-                translate([horizontal_offset + x_offset - 80.27, vertical_offset + y_offset + 36, 171.1 + surface_thickness])
+                        tube(5, 7.35, 1.15, this_fn, true);
+                translate([horizontal_offset + x_offset - 80.27, vertical_offset + y_offset + 35, 171.1 + surface_thickness])
                     rotate([0, 90, 90])
-                        tube(5, 5, 1.15, this_fn, true);
+                        tube(5, 7.35, 1.15, this_fn, true);
+
+				// Support ribs on either side to help hold the motherboard without it sagging.
+				//module two_rounded_corner_plate(plate_height, plate_width, plate_thickness, corner_radius)
+				translate([horizontal_offset + x_offset - 96, vertical_offset + y_offset + 32, 88 /*+ surface_thickness*/])
+					rotate([90, 0, 90])
+						two_rounded_corner_plate(170, 24, plate_thickness, 5);
+				translate([horizontal_offset + x_offset + 96, vertical_offset + y_offset + 32, 88 /*+ surface_thickness*/])
+					rotate([90, 0, 90])
+						two_rounded_corner_plate(170, 24, plate_thickness, 5);
+
 			}
 
 
