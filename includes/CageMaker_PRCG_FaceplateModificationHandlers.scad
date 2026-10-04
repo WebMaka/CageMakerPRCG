@@ -775,6 +775,11 @@ module faceplate_mod_addition(mod_type, horizontal_offset, vertical_offset, mod_
                         rotate([90, 0, 0])
                             ventilated_side_plate(178, 176, 4, 20, 5, 5, false);
 
+					// Notch for PCIe slot bracket tab
+					translate([horizontal_offset + x_offset + 82, vertical_offset + y_offset + 36, 5 + surface_thickness])
+						cube([12, 12, 2], center=true);
+					
+
                     // Through holes for support screws
                     translate([horizontal_offset + x_offset + 77.21, vertical_offset + y_offset + 36, 16.16 /*+ surface_thickness*/])
                         rotate([0, 90, 90])
@@ -793,7 +798,6 @@ module faceplate_mod_addition(mod_type, horizontal_offset, vertical_offset, mod_
                 // 6-32 screw bosses, 5mm tall
 				// 70 = R edge of IO Cutout
 				// 83.56 = R edge of PCB
-				// module tube(diameter, height, wall_thickness, facet_count, cone=false)
                 translate([horizontal_offset + x_offset + 77.21, vertical_offset + y_offset + 36, 16.16 + surface_thickness])
                     rotate([0, 90, 90])
                         tube(5, 5, 1.15, this_fn, true);
