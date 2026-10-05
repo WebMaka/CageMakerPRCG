@@ -1,6 +1,6 @@
 /*
 
- CageMaker PRCG - The Parametric Rack Cage Generator v. 0.70 (TBA)
+ CageMaker PRCG - The Parametric Rack Cage Generator v. 0.71 (TBA)
  --------------------------------------------------------------------------------
  Copyright © 2025-2026 by WebMaka - this file is licensed under CC BY-NC-SA 4.0.
  To view a copy of this license, visit
@@ -126,12 +126,18 @@ preconfg_options = [
   ["I-NUC-TALL", 112, 117, 54, 4, 0, 0],
 
   // Miscellaneous
+  ["ATXPSU", 160, 150, 86, 4, 0, 0],
+  ["FATXPSU", 150, 82, 41, 4, 0, 0],
+  ["SFXPSU", 100, 125, 64, 4, 0, 0],
+  ["TFXPSU", 175, 85, 65, 4, 0, 0],
+  
   ["BAY-2.5-H", 101, 70, 19, 4, 0, 0],
   ["BAY-2.5-V", 101, 19, 70, 4, 0, 0],
   ["BAY-2.5H-H", 101, 70, 10, 4, 0, 0],
   ["BAY-2.5H-V", 101, 10, 70, 4, 0, 0],
   ["BAY-3.5-H", 147, 102, 26, 4, 0, 0],
   ["BAY-3.5-V", 147, 26, 102, 4, 0, 0],
+
   ["BAY-E1.S-9.5-H", 119, 34, 10, 4, 0, 0],
   ["BAY-E1.S-9.5-V", 119, 10, 34, 4, 0, 0],
   ["BAY-E1.S-15-H", 119, 34, 15, 4, 0, 0],
@@ -240,6 +246,7 @@ mod_sizes = [
   ["Keystone", 21, 28],
   ["KeystoneFlipped", 21, 28],
   ["DSeries", 26, 31],
+  ["GSeries", 40, 40],
 
   ["CombShortHalf", 16, 14],
   ["CombTallHalf", 16, 14],
@@ -253,7 +260,7 @@ mod_sizes = [
   ["RearIO", 162, 49],
   ["PCISlot", 16.51, 116],
   ["PCISlot_LP", 16.51, 76],
-  ["MiniITX1Slot", 184, 84],
+  ["MiniITX1Slot", 198, 88],
   ["ATXPSU", 154, 89],
   ["ATXPSU_FU", 154, 89],
   ["ATXPSU_FD", 154, 89],
