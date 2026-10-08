@@ -32,7 +32,7 @@
  --------------------------------------------------------------------------------
  
  These got too long to include here - please visit the CageMaker PRCG Github page
- for patch noted for the current release.
+ for patch notes for the current release.
 
 */
 
@@ -110,7 +110,7 @@ custom_rack_geometry_mounting_hole_diameter = 5.25;
 custom_rack_geometry_mounting_hole_pattern = [6.35, 22.225, 38.1, 6.35, 6.35];
 
 // Rack cage width (NOTE: INCHES) - NOTE: CageMaker will automatically enable right-angle mounting ears on one or both sides of partial-width cages depending on where they may be required. - IMPORTANT: Options that affect the number of mounting holes will also affect the holes in these ears.
-rack_cage_width = 10; // [4.75:"4.75 in. Wide - OUTER Quarter-Width for 19 in. Full-Size Rack",4.75001:"4.75 in. Wide - INNER Quarter-Width for 19 in. Full-Size Rack",5:"5 in. Micro-Rack",5.001:"5 in. Half-Width for 10 in. Mini-Rack",6:"6 in. Micro-Rack",6.33:"6.33 in. OUTER Wide - Third-Width for 19 in. Full-Size Rack",6.33001:"6.33 in. CENTER Wide - Third-Width for 19 in. Full-Size Rack",7:"7 in. Micro-Rack",9.5:"9.5 in. Wide - Half-Width for 19 in. Full-Size Rack",9.76378:"MR248 248mm Mini-Rack",10:"10 in. Mini-Rack",12:"12 in. Custom Rack",12.66:"12.66 in. Wide - Two-Thirds-Width for 19 in. Full-Size Rack",14:"14 in. Custom Rack",16:"16 in. Custom Rack",19:"19 in. Full Rack"]
+rack_cage_width = 10; // [4.75:"4.75 in. Wide - OUTER Quarter-Width for 19 in. Full-Size Rack",4.75001:"4.75 in. Wide - INNER Quarter-Width for 19 in. Full-Size Rack",5:"5 in. Micro-Rack",5.001:"5 in. Half-Width for 10 in. Mini-Rack",6:"6 in. Micro-Rack",6.33:"6.33 in. OUTER Wide - Third-Width for 19 in. Full-Size Rack",6.33001:"6.33 in. CENTER Wide - Third-Width for 19 in. Full-Size Rack",6.6929:"DeskPi Rackmate TT - Vertical Orientation",7:"7 in. Micro-Rack",9.5:"9.5 in. Wide - Half-Width for 19 in. Full-Size Rack",9.76378:"MR248 248mm Mini-Rack",10:"10 in. Mini-Rack",12:"12 in. Custom Rack",12.66:"12.66 in. Wide - Two-Thirds-Width for 19 in. Full-Size Rack",14:"14 in. Custom Rack",16:"16 in. Custom Rack",19:"19 in. Full Rack"]
     // Yes, those strange x.xx001s are there for a reason...
 
 // Tapping or heat-set insert holes - sets hole diameters on split cages or bolt-together faceplate ears for tapping, or expands hole diameters to allow the use of heat-set threaded inserts instead of raw bolts. - NOTE: This setting should match the recommended hole diameter of the bolt or insert to be used, or use the next smaller diameter. - ALSO NOTE: This setting is only used for bolt-together cages (split in half or with bolt-together ears).
