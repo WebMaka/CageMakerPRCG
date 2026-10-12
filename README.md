@@ -1,3 +1,9 @@
+> [!IMPORTANT]
+> This is the EXPERIMENTAL branch of CageMaker PRCG. This version is a work-in-progress and may be buggy, have incomplete or unoptimized features, and just generally not be ready for aggressive use.
+> Be sure to verify fitment, dimensions, manifold geometry, etc. before printing anything generated with an experimental build!
+
+&nbsp; 
+
 <img width="835" height="157" alt="cagemaker_full_logotype" src="https://github.com/user-attachments/assets/ce93d3e3-ebee-4622-8a0a-d32a5959471d" />
 
 &nbsp;

@@ -1,7 +1,8 @@
 /*
 
- CageMaker PRCG - The Parametric Rack Cage Generator v. 0.70 (TBA)
+ CageMaker PRCG - The Parametric Rack Cage Generator v. 0.71 (12 Oc 2026)
  --------------------------------------------------------------------------------
+ 
  Copyright © 2025-2026 by WebMaka - this file is licensed under CC BY-NC-SA 4.0.
  To view a copy of this license, visit
    https://creativecommons.org/licenses/by-nc-sa/4.0/
@@ -73,6 +74,15 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
                     cylinder(16, d=24, center=true, $fn=this_fn);
                 translate([horizontal_offset + x_offset, vertical_offset + y_offset, 0])
                     rect_screws(19, 24, 3.2);
+            }
+
+            // Neutrik G-Series Cutout
+            if (mod_type == "GSeries")
+            {
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 5 + surface_thickness])
+                    cylinder(16, d=31, center=true, $fn=this_fn);
+                translate([horizontal_offset + x_offset, vertical_offset + y_offset, 0])
+                    rect_screws(29.2, 29.2, 3.5);
             }
 
 

@@ -147,6 +147,17 @@ function w3_close() {
                   <p>When building cages for non-compliant rack systems, select the "unit" height and mounting hole spacing that matches those of the rack system. Note that the vast majority of racks and rack systems are EIA-310 compliant, and non-compliant cages will not fit on EIA-310 compliant racks, so this option should only be used if it's absolutely necessary.</p>
                 </div>
               </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    When creating cages, faceplates, enclosures, etc. for rack systems that do not follow EIA-310 conventions closely, such as Homeracker, be sure to check for support for the rack system in both <a href="#rack_geometry"><strong>rack geometry</strong></a> and <a href="#rack_cage_width"><strong>rack cage width</strong></a>. Some rack systems will have custom profiles for rack geometry, others for width, and still others for both.
+                  </p>
+                </div>
+              </div>
               
               <p><img src="images/config_geometry.png" class="w3-card"></p>
 
@@ -213,12 +224,19 @@ function w3_close() {
                   <img src="images/circle-exclamation.png" alt="IMPORTANT">
                 </div>
                 <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
-                  <p>CageMaker PRCG will verify that this setting is wide enough to accommodate the device(s) to be caged plus the structure for the cage itself, multiplied by the number of devices to be caged, and will display a warning message in the console if the total size required is too large to fit within the selected rack size. Be aware that the support structure to hold the device will add 16-20mm to its dimensions depending on the current <a href="ConfigOptions_OverallStructureGeometry.htm#manual_surface_thickness"><strong>surface thickness</strong></a> setting, so a 120mm side device that's 35mm tall will require 136-140mm of width and 51-55mm of height to safely enclose, so be sure to compensate for the extra size requirements when planning on rack-mounting devices.</p>
+                  <p>
+                    When creating cages, faceplates, enclosures, etc. for rack systems that do not follow EIA-310 conventions closely, such as Homeracker, be sure to check for support for the rack system in both <a href="#rack_geometry"><strong>rack geometry</strong></a> and <a href="#rack_cage_width"><strong>rack cage width</strong></a>. Some rack systems will have custom profiles for rack geometry, others for width, and still others for both.
+                  </p>
                 </div>
               </div>
 
-              <div class="w3-container w3-section" style="background-color: transparent;">
-                &nbsp;
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>CageMaker PRCG will verify that this setting is wide enough to accommodate the device(s) to be caged plus the structure for the cage itself, multiplied by the number of devices to be caged, and will display a warning message in the console if the total size required is too large to fit within the selected rack size. Be aware that the support structure to hold the device will add 16-20mm to its dimensions depending on the current <a href="ConfigOptions_OverallStructureGeometry.htm#manual_surface_thickness"><strong>surface thickness</strong></a> setting, so a 120mm side device that's 35mm tall will require 136-140mm of width and 51-55mm of height to safely enclose, so be sure to compensate for the extra size requirements when planning on rack-mounting devices.</p>
+                </div>
               </div>
 
               <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-blue">
