@@ -165,7 +165,7 @@ function w3_close() {
         </div>
 
         <div class="w3-container w3-section" style="background-color: transparent;">
-        <p>As of version 0.70, dimensions and basic settings for the following devices are available as presets:</p>
+        <p>As of version 0.71, dimensions and basic settings for the following devices are available as presets:</p>
         <p>Routers/Gateways</p>
         <ul>
           <li><p>Mikrotik CRS309-1G-8S+IN</p>
@@ -309,7 +309,45 @@ function w3_close() {
           <li><p>Minisforum MS-A1</p>
           </li>
         </ul>
-        <p>Miscellaneous</p>
+        <p>PC Power Supplies</p>
+        
+        <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-blue">
+          <div class="w3-cobalt w3-padding w3-round-xlarge">
+            <img src="images/lightbulb.png" alt="Tip">
+          </div>
+          <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
+            <p>
+              For best results, set the <a href="ConfigOptions_CageBackOptions.htm#cage_back_geometry"><strong>cage back geometry</strong></a> to "No Back At All", enable the <a href="ConfigOptions_FaceplateOptions.htm#closed_faceplate"><strong>closed faceplate</strong></a> option, and select the matching PSU's faceplate modification as the centered modification. As long as the cage is left centered and the cage back is disabled, the centered modification will align exactly and allow for easy installation of the PSU from behind.
+            </p>
+          </div>
+        </div>
+
+        <ul>
+          <li><p>ATX PSU</p>
+          </li>
+          <li><p>Flex-ATX PSU</p>
+          </li>
+          <li><p>SFX PSU</p>
+          </li>
+          <li><p>TFX PSU</p>
+          </li>
+        </ul>
+        <p>Drive Bays</p>
+        
+        <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-blue">
+          <div class="w3-cobalt w3-padding w3-round-xlarge">
+            <img src="images/lightbulb.png" alt="Tip">
+          </div>
+          <div class="w3-pale-blue w3-padding w3-round-xlarge" style="flex:1">
+            <p>
+              When using a drive bay with a backplane, it may be necessary to set the <a href="ConfigOptions_CageBackOptions.htm#cage_back_geometry"><strong>cage back geometry</strong></a> to "No Back At All" and reduce the <a href="ConfigOptions_TargetDeviceDimensions.htm#manual_device_depth"><strong>device depth</strong></a> to clear the backplane.
+            </p>
+            <p>
+              Optionally, it may be necessary to set the geometry for the cage's sides to solid and add holes to secure the device within the drive bay. This is generally only needed for devices that will be subjected to pulling forces such as drive-bay mounted USB hubs.
+            </p>
+          </div>
+        </div>
+
         <ul>
           <li><p>2.5-Inch Drive Bay (Horizontal or Vertical)</p>
           </li>
