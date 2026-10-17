@@ -1,6 +1,6 @@
 /*
 
- CageMaker PRCG - The Parametric Rack Cage Generator v. 0.71 (12 Oc 2026)
+ CageMaker PRCG - The Parametric Rack Cage Generator v. 0.72 (12 Oct 2026)
  --------------------------------------------------------------------------------
  Copyright © 2025-2026 by WebMaka - this file is licensed under CC BY-NC-SA 4.0.
  To view a copy of this license, visit
@@ -59,6 +59,12 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
     cage_width = (device_width + (plate_thickness * 2) + support_cage_base_size);
     total_cage_width = (cage_width * number_of_devices) + (multiple_device_gap * (number_of_devices - 1));
     cage_height = device_height + (plate_thickness * 2) + support_cage_base_size;
+	
+	// Determine safe working area inside the rack based on the width and geometry.
+	working_height = height_in_units * unit_height_in_mm;
+	half_working_height = working_height / 2;
+	working_width = width_in_mm - (mounting_reservation_space * 2);
+	half_working_width = working_width / 2;
 
 
     // Note that this process uses union/difference/union - the inner unions builds the faceplate,
@@ -106,6 +112,40 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
                         rotate([90, 0, 0])
                             two_rounded_corner_plate(plate_thickness + 6, width_in_mm - (left_ear ? 0 : 15.875) - (right_ear ? 0 : 15.875), plate_thickness, faceplate_radius);
                 }
+
+
+				// Faceplate-back standoffs
+				if ((closed_faceplate) || (faceplate_only != 0.00))
+				{
+					// This intersection creates a bounding box area the size of the safe working area of the
+					// back of the faceplate. This will automatically "clip" any standoffs that would generate
+					// partially outside the safe zone and interfere with mounting.
+					intersection()
+					{
+						translate([0, 0, plate_thickness / 2])
+							cube([working_width, working_height, plate_thickness + faceplate_back_standoff_height], center=true);
+							
+						for (coords_index = [0:2:len(faceplate_back_standoffs) - 2])
+						{
+							// Grab the next pair of entries.
+							coord_x = faceplate_back_standoffs[coords_index];
+							coord_y = faceplate_back_standoffs[coords_index + 1];
+															
+							// If the resulting vector is outside the safe working area of the faceplate, skip it.
+							if (
+								 (coord_x >= 0 - half_working_width) && (coord_x <= half_working_width)
+								 &&
+								 (coord_y >= 0 - half_working_height) && (coord_y <= half_working_height)
+							   )
+									translate([coord_x, coord_y, plate_thickness])
+										rotate([180, 0, 0])
+											tube(faceplate_back_standoff_screw_holes * 2.5, faceplate_back_standoff_height + 1, ((faceplate_back_standoff_screw_holes * 2.5) - faceplate_back_standoff_screw_holes) / 2, this_fn, true);
+							else
+								error_message("Faceplate-back standoff coordinates are out of bounds.");
+						}
+					}
+				}
+
             } // union end
 
 
@@ -229,6 +269,29 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
             // Carve out a region for ventilation if a grid type is selected.
             if (faceplate_vent_hole_pattern != "None")
                 four_rounded_corner_plate(grid_height, grid_width, plate_thickness + 2, 5);
+
+
+			// Faceplate-back standoff holes
+			// Note that these stop 1mm shy of punching through the faceplate.
+			if ((closed_faceplate) || (faceplate_only != 0.00))
+						
+				for (coords_index = [0:2:len(faceplate_back_standoffs) - 2])
+				{
+					// Grab the next pair of entries.
+					coord_x = faceplate_back_standoffs[coords_index];
+					coord_y = faceplate_back_standoffs[coords_index + 1];
+													
+					// If the resulting vector is outside the safe working area of the faceplate, skip it.
+					if (
+						 (coord_x >= 0 - half_working_width) && (coord_x <= half_working_width)
+						 &&
+						 (coord_y >= 0 - half_working_height) && (coord_y <= half_working_height)
+					   )
+							translate([coord_x, coord_y, 1])
+								rotate([180, 0, 0])
+									cylinder(d=faceplate_back_standoff_screw_holes, h=plate_thickness, center=true, $fn=this_fn);
+				}
+
         } // difference end
 
         // Create a ventilation grid and insert it into the hole we carved into the 
@@ -282,6 +345,7 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
                             }
                         }
                     }
+
                 } // union end
         }
     } // union end

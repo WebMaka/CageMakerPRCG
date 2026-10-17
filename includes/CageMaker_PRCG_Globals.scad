@@ -1,6 +1,6 @@
 /*
 
- CageMaker PRCG - The Parametric Rack Cage Generator v. 0.71 (12 Oc 2026)
+ CageMaker PRCG - The Parametric Rack Cage Generator v. 0.72 (TBA)
  --------------------------------------------------------------------------------
  Copyright © 2025-2026 by WebMaka - this file is licensed under CC BY-NC-SA 4.0.
  To view a copy of this license, visit
@@ -42,6 +42,11 @@
 // a variable is called into being, its value cannot be changed. This is a pretty
 // irritating limitation that requires workarounds that other languages that allow
 // for mutability don't need.
+
+
+
+// Version ID
+cagemaker_version = "0.72";
 
 
 
