@@ -1,6 +1,6 @@
 /*
 
- CageMaker PRCG - The Parametric Rack Cage Generator v. 0.72 (12 Oct 2026)
+ CageMaker PRCG - The Parametric Rack Cage Generator v. 0.72 (TBA)
  --------------------------------------------------------------------------------
  Copyright © 2025-2026 by WebMaka - this file is licensed under CC BY-NC-SA 4.0.
  To view a copy of this license, visit
@@ -120,10 +120,10 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
 					// This intersection creates a bounding box area the size of the safe working area of the
 					// back of the faceplate. This will automatically "clip" any standoffs that would generate
 					// partially outside the safe zone and interfere with mounting.
-					intersection()
-					{
-						translate([0, 0, plate_thickness / 2])
-							cube([working_width, working_height, plate_thickness + faceplate_back_standoff_height], center=true);
+					// intersection()
+					// {
+						// translate([0, 0, plate_thickness / 2])
+							// cube([working_width, working_height, plate_thickness + faceplate_back_standoff_height], center=true);
 							
 						for (coords_index = [0:2:len(faceplate_back_standoffs) - 2])
 						{
@@ -143,9 +143,28 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
 							else
 								error_message("Faceplate-back standoff coordinates are out of bounds.");
 						}
-					}
+					// }
 				}
 
+
+				// Faceplate text - different color
+				// if ((len(faceplate_text) > 4) && (!faceplate_text_is_recessed))
+					// for (text_index = [0:5:len(faceplate_text) - 5])
+					// {
+						// // Grab the next set of entries.
+						// coord_x = faceplate_text[text_index];
+						// coord_y = faceplate_text[text_index + 1];
+						// text_string = faceplate_text[text_index + 2];
+						// font_name = faceplate_text[text_index + 3];
+						// font_size = faceplate_text[text_index + 4];
+														
+						// translate([coord_x, coord_y, -1.51])
+							// color("red")
+								// rotate([180, 0, 0])
+									// linear_extrude(0.5)
+										// text(text_string, font_size, font_name, halign="center", valign="center");
+				
+					// }
             } // union end
 
 
@@ -292,6 +311,26 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
 									cylinder(d=faceplate_back_standoff_screw_holes, h=plate_thickness, center=true, $fn=this_fn);
 				}
 
+/*
+			// Faceplate text - recessed
+			if (len(faceplate_text) > 4)// && (faceplate_text_is_recessed))
+				for (text_index = [0:5:len(faceplate_text) - 5])
+				{
+					// Grab the next set of entries.
+					coord_x = faceplate_text[text_index];
+					coord_y = faceplate_text[text_index + 1];
+					text_string = faceplate_text[text_index + 2];
+					font_name = faceplate_text[text_index + 3];
+					font_size = faceplate_text[text_index + 4];
+													
+					translate([coord_x, coord_y, -1.51])
+						rotate([180, 0, 0])
+							linear_extrude(0.5)
+								text(text_string, font_size, font_name, halign="center", valign="center");
+			
+				}
+ */			
+			
         } // difference end
 
         // Create a ventilation grid and insert it into the hole we carved into the 
@@ -1135,7 +1174,47 @@ module create_completed_cage(height_required_in_units, safe_left_side_mod_horizo
 											cylinder(d=cage_bottom_standoff_screw_holes, h=(cage_bottom_standoff_height + plate_thickness) * 2, center=true, $fn=this_fn);
 						}
 					}
+
+			// Faceplate text - recessed
+			if (len(faceplate_text) > 4)
+			// if ((len(faceplate_text) > 4) && (faceplate_text_is_recessed))
+				for (text_index = [0:5:len(faceplate_text) - 5])
+				{
+					// Grab the next set of entries.
+					coord_x = faceplate_text[text_index];
+					coord_y = faceplate_text[text_index + 1];
+					text_string = faceplate_text[text_index + 2];
+					font_name = faceplate_text[text_index + 3];
+					font_size = faceplate_text[text_index + 4];
+													
+					translate([coord_x, coord_y, 0.49])
+						rotate([180, 0, 0])
+							linear_extrude(0.5)
+								text(text_string, font_size, font_name, halign="center", valign="center");
+			
+				}
         } // Outer difference end
+
+/*
+ 			// Faceplate text - different color
+			if ((len(faceplate_text) > 4) && (!faceplate_text_is_recessed))
+				for (text_index = [0:5:len(faceplate_text) - 5])
+				{
+					// Grab the next set of entries.
+					coord_x = faceplate_text[text_index];
+					coord_y = faceplate_text[text_index + 1];
+					text_string = faceplate_text[text_index + 2];
+					font_name = faceplate_text[text_index + 3];
+					font_size = faceplate_text[text_index + 4];
+													
+					translate([coord_x, coord_y, 0.49])
+						rotate([180, 0, 0])
+							color("red")
+								linear_extrude(0.5)
+									text(text_string, font_size, font_name, halign="center", valign="center");
+				}
+ */			
+
 }
 
 // Create the complete rackmount cage/faceplate/enclosure object.
@@ -1399,7 +1478,7 @@ module create_object()
         // Split cage time!
 
         // Left half
-        translate([(width_in_mm / 4) - 10, 0 - (height_required_in_mm / 2) - 1, 0])
+        translate([(width_in_mm / 4) - 10, 0 - (height_required_in_mm / 2) - 3, 0])
         {
             union()
             {
@@ -1480,7 +1559,7 @@ module create_object()
         }
 
         // Right half
-        translate([0 - (width_in_mm / 4) + 10, (height_required_in_mm / 2) + 1, 0])
+        translate([0 - (width_in_mm / 4) + 10, (height_required_in_mm / 2) + 3, 0])
         {
             union()
             {
