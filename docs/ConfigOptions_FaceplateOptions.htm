@@ -313,6 +313,174 @@ function w3_close() {
         <div class="w3-flex w3-stretch" style="background-color: transparent;">
           <div class="w3-container" style="flex:1">
             <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="faceplate_back_standoffs"></a><strong>faceplate back standoffs</strong><br><img src="images/new.png"> <em>new for version 0.72</em> :: Place standoffs on the backside of the faceplate, using the coordinates (in mm) provided here where 0,0 is the dead-center of the faceplate.            
+              </p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-red">
+                <div class="w3-crimson w3-padding w3-round-xlarge">
+                  <img src="images/warning.png" alt="WARNING">
+                </div>
+                <div class="w3-pale-red w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    This feature is not supported by the web-browser port of CageMaker PRCG running on OpenSCAD Playground, as OpenSCAD Playground does not support text entry. To use this feature, download and install OpenSCAD and run CageMaker PRCG within it.
+                  </p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>Coordinates must be provided as a series of X and Y pairs separated by commas and enclosed in a set of brackets. For example, in the sample image at right the coordinates are as follows:</p>
+                  <p>[10, 10, -10, 10, 10, -10, -10, -10]</p>
+                  <p>The first pair of coordinates ("10, 10") place a standoff 10mm up and to the right of the center of the faceplate. The second pair of coordinates ("-10, 10") place a standoff 10mm up and to the LEFT of the center of the faceplate. Third pair is right and below center, and fourth is left and below center.</p>
+                  <p>To add another standoff, simply add a comma after the last coordinate and add the next pair of coordinates. Please note that CageMaker PRCG does not check these for overlaps and will only seek to prevent any standoffs from being placed in mounting clearance areas.</p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    Although CageMaker PRCG does not (as of this version) limit the number of standoffs, adding them takes compute time during rendering and increases the complexity and filament consumption of the resulting cage.
+                  </p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    This feature requires that EITHER the <a href="#faceplate_only"><strong>faceplate only</strong></a> option be set to a height so that cage generation is disabled, OR <a href="#closed_faceplate"><strong>closed faceplate</strong> option be enabled, or both. If neither is true, standoffs will not be generated.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_faceplate_standoffs.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="faceplate_back_standoff_height"></a><strong>faceplate back standoff height</strong><br><img src="images/new.png"> <em>new for version 0.72</em> :: Standoffs are generated as truncated cones with tapered sides for strength. This setting selects the standoff's height (in millimeters) above the back surface of the faceplate.
+              </p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    This feature is only active when <a href="#faceplate_back_standoffs"><strong>faceplate back standoffs</strong></a> contains at least one pair of usable coordinates.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_faceplate_standoff_height.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="faceplate_back_standoff_screw_holes"></a><strong>faceplate back standoff screw holes</strong><br><img src="images/new.png"> <em>new for version 0.72</em> :: This setting determines the hole diameter at the center of faceplate standoffs, and by extension the outer diameter of each standoff, which is 2.5x the diameter of the hole size.
+              </p>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    This feature is only active when <a href="#faceplate_back_standoffs"><strong>faceplate back standoffs</strong></a> contains at least one pair of usable coordinates.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_faceplate_standoff_screw_holes.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
+              <p><a name="faceplate_text"></a><strong>faceplate text</strong><br><img src="images/new.png"> <em>new for version 0.72</em> :: It is not uncommon to label things like connectors and receptacles on a faceplate. This setting places a recessed (sunken) string of text at a given set of coordinates. Any font that is installed on the computer and supported by OpenSCAD may be used, and when available, styles such as bold and italics can also be used. More than one string of text can be placed, each with its own settings for location, font, and size.
+              </p>
+              
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-red">
+                <div class="w3-crimson w3-padding w3-round-xlarge">
+                  <img src="images/warning.png" alt="WARNING">
+                </div>
+                <div class="w3-pale-red w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    This feature is not supported by the web-browser port of CageMaker PRCG running on OpenSCAD Playground, as OpenSCAD Playground does not support text entry. To use this feature, download and install OpenSCAD and run CageMaker PRCG within it.
+                  </p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>Strings of text and the parameters for their placement must be provided as a series of parameters separated by commas and enclosed in a set of brackets. For example, in the sample image at right the settings are as follows:</p>
+                  <p>[0, 0, "FACEPLATE TEXT", "Liberation Sans:style=bold", 16]</p>
+                  <p>The first two parameters are a X/Y pair of coordinates ("0, 0") in millimeters relative to the dead center of the faceplate. Text will also be centered both horizontally and vertically at these coordinates. The third parameter is the string of text to place. The fourth parameter is the name (and optionally, style) of the font to use to generate the text. The fifth parameter is the size of the text - please note that because OpenSCAD does not undertsand units of measurement, getting the font size correct for any particular application or use may require experimentation as it does not precisely match millimeters or points</p>
+                  <p>The above sequence of parameters can be repeated for additional strings, but be aware that CageMaker PRCG does not perform any checking on text and will allow overlaps and bad positioning. To add another string, simply place a comma after the font size and add the next set of parameters. An example:</p>
+                  <p>[0, -10, "FIRST LINE", "Liberation Sans:style=italics", 16, 0, 10, "SECOND LINE", "Liberation Sans", 16]</p>
+                  <p>For more details on fonts, text strings, sizing, and how to determine what fonts are available, consult <a href="https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Text"><strong>the OpenSCAD documentation for the text() command</strong></a>.</p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    Although CageMaker PRCG does not (as of this version) limit the number of text strings, adding them takes compute time during rendering and increases the complexity and filament consumption of the resulting cage.
+                  </p>
+                </div>
+              </div>
+
+              <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-yellow">
+                <div class="w3-deep-orange w3-padding w3-round-xlarge">
+                  <img src="images/circle-exclamation.png" alt="IMPORTANT">
+                </div>
+                <div class="w3-pale-yellow w3-padding w3-round-xlarge" style="flex:1">
+                  <p>
+                    This feature creates text that is recessed approximately 0.5mm into the front surface of the faceplate. For improved visiblity it may be advisable to fill in the font with a suitable paint in a contrasting color.
+                    <br><br>
+                    As of this version, CageMaker PRCG does not directly support generating cages for multicolor printing, as OpenSCAD does not provide the functionality needed to make this practical. This may be added at a later date if a suitable workaround is found.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><img src="images/config_faceplate_text.png" class="w3-card"></p>
+          </div>
+        </div>
+
+        <div class="w3-flex w3-stretch" style="background-color: transparent;">
+          <div class="w3-container" style="flex:1">
+            <div class="w3-container w3-section" style="background-color: transparent;">
               <p><a name="expand_faceplate_upward"></a><strong>expand faceplate upward</strong><br><img src="images/new.png"> <em>new for version 0.7</em> :: Expands the faceplate upward a given distance (in mm) without adding more holes. Useful for rare situations where a rack has unit space that overlaps structures such as reinforcing bars.</p>
 
               <div class="w3-flex w3-margin w3-card w3-round-xlarge" style="background-color: #E6E6FA;">
