@@ -1,6 +1,6 @@
 /*
 
- CageMaker PRCG - The Parametric Rack Cage Generator v. 0.71 (12 Oct 2026)
+ CageMaker PRCG - The Parametric Rack Cage Generator v. 0.72 (7 Nov 2026)
  --------------------------------------------------------------------------------
  Copyright © 2025-2026 by WebMaka - this file is licensed under CC BY-NC-SA 4.0.
  To view a copy of this license, visit
@@ -158,6 +158,21 @@ narrow_edge_centered_holes = 0.00; // [0.00:"None/Disabled - DEFAULT",0.00:" ",0
 // Corner mounting holes, for subrack support - adds a hole 10mm deep into each corner of the cage proper, aligned with the edge of the cage opening and surrounded with an ear that protrudes into the opening. - NOTE: This setting should match the recommended hole diameter of the bolt or insert to be used, or use the next smaller diameter.
 edge_corner_holes = 0.00; // [0.00:"None/Disabled - DEFAULT",0.00:" ",0.00:"Clearance Holes",3.15:"  M3 Clearance (3.15mm hole)",4.20:"  M4 Clearance (4.2mm hole)",5.25:"  M5 Clearance (5.25mm hole)",6.30:"  M6 Clearance (6.3mm hole)",2.95:"  4-40 Clearance (.1160 in. hole)",3.66:"  6-32 Clearance (.144 in. hole)",4.31:"  8-32 Clearance (.1695 in. hole)",4.98:"  10-24/10-32 Clearance (.1960 in. hole)",6.53:"  1/4-20 Clearance (.257 in. hole)",0.00:" ",0.00:"Tapped/Threadcutting Holes",2.50:"  M3 Tapped/Threadcutting (2.5mm hole)",3.50:"  M4 Tapped/Threadcutting (3.5mm hole)",4.40:"  M5 Tapped/Threadcutting (4.4mm hole)",5.00:"  M6 Tapped/Threadcutting (5.0mm hole)",2.07:"  4-40 Tapped/Threadcutting (0.0813 in. hole)",2.53:"  6-32 Tapped/Threadcutting (.0997 in. hole)",3.19:"  8-32 Tapped/Threadcutting (.1257 in. hole)",3.53:"  10-24/10-32 Tapped/Threadcutting (.1389 in. hole)",4.79:"  1/4-20 Tapped/Threadcutting (.1887 in. hole)",0.00:" ",0.00:"Heat-Set Inserts",3.98:"  M3 Heat-Set (4mm hole)",4.10:"  M3 Heat-Set (4.1mm hole)",4.80:"  M3 Heat-Set (4.8mm hole)",5.60:"  M4 Heat-Set (5.6mm hole)",5.70:"  M4 Heat-Set (5.7mm hole)",6.40:"  M5 Heat-Set (6.4mm hole)",6.50:"  M5 Heat-Set (6.5mm hole)",8.00:"  M6 Heat-Set (8mm hole)",8.10:"  M6 Heat-Set (8.1mm hole)",3.99:"  4-40 Heat-Set (0.157 in. hole)",4.03:"  4-40 Heat-Set (0.159 in. hole)",4.76:"  6-32 Heat-Set (0.1875 in. hole)",4.85:"  6-32 Heat-Set (0.191 in. hole)",5.61:"  8-32 Heat-Set (0.221 in. hole)",5.74:"  8-32 Heat-Set (0.226 in. hole)",6.41:"  10-24/10-32 Heat-Set (0.252 in. hole)",6.51:"  10-24/10-32 Heat-Set (0.256 in. hole)",8.01:"  1/4-20 Heat-Set (0.315 in. hole)",8.11:"  1/4-20 Heat-Set (0.319 in. hole)"]
 
+// Faceplate back mounting standoff - a reasonable number of stud locations can be defined by providing their coordinates in mm, and the zero point is at the dead center, both horizontally and vertically, of the faceplate. Studs are automatically set up as tapered cones for better strength, with walls that are 2.5x the screw diameter. - NOTE: Format must be [x_1, y_1, x_2, y_2, etc.]. - NOTE: Requires that either the faceplate be solid by enabling the "solid faceplate option" or the faceplate be made cageless by setting "faceplate only" to a height value.
+faceplate_back_standoffs = [];
+
+// Faceplate back mounting standoff height - Sets the height above the surface of the cage bottom. - NOTE: Requires that the cage bottom geometry be set to "solid."
+faceplate_back_standoff_height = 5; // [2:0.05:15]
+
+// Faceplate back mounting standoff screw hole diameter - Sets the home size for the studs, and by extension, the outer diameter of the studs (which is 2.5x the hole diameter). - NOTE: Requires that either the faceplate be solid by enabling the "solid faceplate option" or the faceplate be made cageless by setting "faceplate only" to a height value.
+faceplate_back_standoff_screw_holes = 2.50; // [2.50:"Clearance Holes",3.15:"  M3 Clearance (3.15mm hole)",4.20:"  M4 Clearance (4.2mm hole)",5.25:"  M5 Clearance (5.25mm hole)",6.30:"  M6 Clearance (6.3mm hole)",2.95:"  4-40 Clearance (.1160 in. hole)",3.66:"  6-32 Clearance (.144 in. hole)",4.31:"  8-32 Clearance (.1695 in. hole)",4.98:"  10-24/10-32 Clearance (.1960 in. hole)",6.53:"  1/4-20 Clearance (.257 in. hole)",0.00:" ",0.00:"Tapped/Threadcutting Holes",2.50:"  M3 Tapped/Threadcutting (2.5mm hole) - DEFAULT",3.50:"  M4 Tapped/Threadcutting (3.5mm hole)",4.40:"  M5 Tapped/Threadcutting (4.4mm hole)",5.00:"  M6 Tapped/Threadcutting (5.0mm hole)",2.07:"  4-40 Tapped/Threadcutting (0.0813 in. hole)",2.53:"  6-32 Tapped/Threadcutting (.0997 in. hole)",3.19:"  8-32 Tapped/Threadcutting (.1257 in. hole)",3.53:"  10-24/10-32 Tapped/Threadcutting (.1389 in. hole)",4.79:"  1/4-20 Tapped/Threadcutting (.1887 in. hole)",0.00:" ",0.00:"Heat-Set Inserts",3.98:"  M3 Heat-Set (4mm hole)",4.10:"  M3 Heat-Set (4.1mm hole)",4.80:"  M3 Heat-Set (4.8mm hole)",5.60:"  M4 Heat-Set (5.6mm hole)",5.70:"  M4 Heat-Set (5.7mm hole)",6.40:"  M5 Heat-Set (6.4mm hole)",6.50:"  M5 Heat-Set (6.5mm hole)",8.00:"  M6 Heat-Set (8mm hole)",8.10:"  M6 Heat-Set (8.1mm hole)",3.99:"  4-40 Heat-Set (0.157 in. hole)",4.03:"  4-40 Heat-Set (0.159 in. hole)",4.76:"  6-32 Heat-Set (0.1875 in. hole)",4.85:"  6-32 Heat-Set (0.191 in. hole)",5.61:"  8-32 Heat-Set (0.221 in. hole)",5.74:"  8-32 Heat-Set (0.226 in. hole)",6.41:"  10-24/10-32 Heat-Set (0.252 in. hole)",6.51:"  10-24/10-32 Heat-Set (0.256 in. hole)",8.01:"  1/4-20 Heat-Set (0.315 in. hole)",8.11:"  1/4-20 Heat-Set (0.319 in. hole)"]
+
+// Faceplate text - place a string of text at a given set of coordinates (in mm). Format is [X, Y, "text_string", "font_name", font_size, X2, Y2, "text_string2", "font_name2", font_size2, etc.], text is centered on the given coordinates, and coordinates are relative to the dead center of the faceplate. - WARNING: Formatting rules apply - see the CageMaker PRCG documentation on using this feature.
+faceplate_text = [];
+
+// Faceplate text is recessed instead of separate color - when checked, faceplate text will be recessed instead of being flagged as having a different color, which will be useful for single-color printers. Recessed text can be filled in with paint, etc. to make it more visible. - NOTE: recessed text is inset by 0.5mm.
+//faceplate_text_is_recessed = false;
+
 // Expand Faceplate Upward - make the faceplate taller without changing any other dimensions, so as to cover openings or structures above the cage. Useful for rack systems that add reinforcing bars, such as Homeracker. - NOTE: This option is disabled for partial-width cages.
 expand_faceplate_upward = 0; // [0:0.5:50]
 
@@ -168,7 +183,7 @@ expand_faceplate_downward = 0; // [0:0.5:50]
 /* [Faceplate Ventilation Options] */
 
 // Faceplate ventilation hole/grid pattern - creates ventilation holes in a given pattern on the faceplate. - WARNING: Enabling this option will weaken the cage, may require signifiantly longer time to generate the cage, and can dramatically increase print time. NOTE: The cage proper and any active modifications will selectively remove the ventilation holes as required.
-faceplate_vent_hole_pattern = "None"; // ["None":"None - DEFAULT","Hex":"Hexagonal Grid (Hole-Based)","Round":"Round Holes (Hole-Based)","Staggered":"Square Holes In Staggered Pattern (Hole-Based)","Grid":"Square Holes in a Grid Pattern (Line-Based)","Isometric":"Isometric/Diamond Grid (Line-Based)","Triangle":"Triangle/Isometric Grid (Line-Based)","Octagon":"Octagonal Holes (Hole-Based)"]
+faceplate_vent_hole_pattern = "None"; // ["None":"None - DEFAULT","Hex":"Hexagonal Grid (Hole-Based)","Round":"Round Holes (Hole-Based)","Staggered":"Square Holes In Staggered Pattern (Hole-Based)","Grid":"Square Holes in a Grid Pattern (Line-Based)","Isometric":"Isometric/Diamond Grid (Line-Based)","Triangle":"Triangle/Isometric/Mitsukude Grid (Line-Based)","Octagon":"Octagonal Holes (Hole-Based)","Shippo":"Shippo Pattern - Better For Larger Vent Holes (Line-Based)","Skadis":"IKEA Skadis™ Pegboard - 5mm Thickness Recommended (Hole-Based)","Pegboard":"Pegboard - 1/4-inch Holes on 1-inch centers (Hole-Based)"]
 
 // Hole-Based Grid Full Holes Only - for ventilation grids that use holes and not lines, this setting determines whether partial holes are generated around the edges of the grid. - NOTE: This setting has no effect on line-based grids. - NOTE: This setting is disabled when the vent grid andgle is non-zero. - NOTE: This setting only affect the perimeter of the grid, and not along edges of cages when using a ventilated faceplate with a cage.
 faceplate_vent_hole_based_grid_full_holes_only = false;
@@ -524,7 +539,7 @@ function units_to_mm(height_required_in_units) = height_required_in_units * unit
 echo();
 echo();
 echo("   Welcome to CageMaker PRCG   ");
-echo("   Version 0.71   ");
+echo("   Version ", cagemaker_version, "   ");
 echo("   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-   ");
 echo();
 echo(str("   Max SINGLE device width with these settings: ", floor(max_device_width), " mm.   "));
@@ -549,8 +564,12 @@ if (($preview) && (!no_logotype))
 {
     total_height_required = device_height + support_cage_base_size + (plate_thickness * 2);
     height_required_in_units = faceplate_only == 0.0 ? (ceil(total_height_required * (allow_half_heights ? 2:1) / unit_height_in_mm)) / (allow_half_heights ? 2:1) : faceplate_only;
+    
+    panel_depth = device_depth + plate_thickness + support_cage_base_size - 2 + device_clearance + (add_retention_lip ? 1 : 0);
+    
+    desc_string = str("Version ", cagemaker_version, " • cagemaker.org • github.com/WebMaka/CageMakerPRCG");
 
-    translate([0, 0 - (((height_required_in_units / 2) + 0.5 + ((split_cage_into_two_halves || print_cage_separately ||safe_generate_rear_support_cage) ? 0.75 : 0)) * unit_height_in_mm), -150])
+    translate([0, show_build_outline != 0 ? (show_build_outline / 2) + 60 : unit_height_in_mm * ((split_cage_into_two_halves || print_cage_separately || safe_generate_rear_support_cage) ? 3 : 2.5), show_build_outline != 0 ? show_build_outline : panel_depth])
     {
         translate([-220, -85, -0.01])
             color("lightslategray")
@@ -595,7 +614,7 @@ if (($preview) && (!no_logotype))
             color("lightslategray")
                 linear_extrude(height=0.25) 
                     scale([1.5, 1.5, 1.0])
-                        text("Version 0.71 • cagemaker.org • github.com/WebMaka/CageMakerPRCG", size=3.95, font = "Liberation Sans");
+                        text(desc_string, size=3.95, font = "Liberation Sans");
 
         translate([-0, -10, -1])
             color("white")
@@ -620,7 +639,7 @@ if (($preview) && (!no_logotype))
                 color("lightslategray")
                     linear_extrude(height=0.25) 
                         scale([1.5, 1.5, 1.0])
-                            text("Version 0.71 • cagemaker.org • github.com/WebMaka/CageMakerPRCG", size=3.95, font = "Liberation Sans");
+                            text(desc_string, size=3.95, font = "Liberation Sans");
 
         translate([-220, 65, -3])
             rotate([0, 180, 180])

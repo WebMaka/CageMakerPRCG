@@ -46,21 +46,21 @@ This script was built to work with/in OpenSCAD version 2021.01. To obtain a copy
 To use this script:
 
 1. Download (click the green "&lt;&gt; Code" button then select "Download ZIP") or clone ("git clone https://github.com/WebMaka/CageMakerPRCG.git" in a terminal). If downloading a ZIP, unpack it into a suitable location.
-2. Double-click "CageMaker_PRCG_v0.7.scad" to launch OpenSCAD and load the script. If all goes well, OpenSCAD should show an extreme close-up of a default rack cage design in its preview window - press CTRL-SHIFT-V to zoom out to "show-all" distance.
+2. Double-click "CageMaker_PRCG_v0.72.scad" to launch OpenSCAD and load the script. If all goes well, OpenSCAD should show an extreme close-up of a default rack cage design in its preview window - press CTRL-SHIFT-V to zoom out to "show-all" distance.
 3. Use the Customizer to configure the size of the object that you wish to rack-mount. Optionally, configure other settings to suit.
 4. Press F6 to instruct OpenSCAD to fully calculate and render the rack cage as an object.
 5. Press F7 to save the created object as a STL file.
 6. Slice and print the object.
 
 > [!IMPORTANT]
-> If OpenSCAD cannot find the include files, make sure there is an "includes" directory in the same directory as "CageMaker_PRCG_v0.7.scad", and that it contains files. The directory layout and file locations in your copy should be the same as for this repo.
+> If OpenSCAD cannot find the include files, make sure there is an "includes" directory in the same directory as "CageMaker_PRCG_v0.72.scad", and that it contains files. The directory layout and file locations in your copy should be the same as for this repo.
 
 &nbsp;
 
 <a href="playground"></a>
 ## Run CageMaker PRCG In A Web Browser With OpenSCAD Playground
 
-CageMaker PRCG is also usable from within any reasonably modern web browser, thanks to a fork of the Java-based OpenSCAD port [OpenSCAD Playground](https://github.com/openscad/openscad-playground). This allows using CageMaker PRCG right from a web browser without having to install any additional software. The full feature set of CageMaker PRGC is available, and Playground can even export completed STL files for slicing and printing.
+CageMaker PRCG is also usable from within any reasonably modern web browser, thanks to a fork of the Java-based OpenSCAD port [OpenSCAD Playground](https://github.com/openscad/openscad-playground). This allows using CageMaker PRCG right from a web browser without having to install any additional software. ALMOST* the entire feature set of CageMaker PRGC is available, and Playground can even export completed STL files for slicing and printing. (* NOTE: Features that require entering parameters into a textbox are not available in OpenSCAD Playground.)
 
 Be sure to [check out the quick-start guide](https://github.com/WebMaka/CageMakerPRCG/blob/main/openscad_playground_quick_start_guide.md), or [jump over to the Playground and start creating cages](https://cagemaker.org/playground/). Not sure what the options are for? The wiki's [Configuration Options](https://github.com/WebMaka/CageMakerPRCG/wiki/ConfigOptions) page has a complete breakdown of the options, with screenshots of what they do.
 

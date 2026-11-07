@@ -1,6 +1,6 @@
 /*
 
- CageMaker PRCG - The Parametric Rack Cage Generator v. 0.71 (12 Oc 2026)
+ CageMaker PRCG - The Parametric Rack Cage Generator v. 0.72 (7 Nov 2026)
  --------------------------------------------------------------------------------
  Copyright © 2025-2026 by WebMaka - this file is licensed under CC BY-NC-SA 4.0.
  To view a copy of this license, visit
@@ -42,6 +42,11 @@
 // a variable is called into being, its value cannot be changed. This is a pretty
 // irritating limitation that requires workarounds that other languages that allow
 // for mutability don't need.
+
+
+
+// Version ID
+cagemaker_version = "0.72";
 
 
 
@@ -260,7 +265,7 @@ mod_sizes = [
 
   ["RearIO", 162, 49],
   ["PCISlot", 16.51, 116],
-  ["PCISlot_LP", 16.51, 76],
+  ["PCISlot_LP", 24, 76],
   ["MiniITX1Slot", 198, 88],
   ["ATXPSU", 154, 89],
   ["ATXPSU_FU", 154, 89],
