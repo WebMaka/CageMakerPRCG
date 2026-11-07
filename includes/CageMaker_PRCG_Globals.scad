@@ -265,7 +265,7 @@ mod_sizes = [
 
   ["RearIO", 162, 49],
   ["PCISlot", 16.51, 116],
-  ["PCISlot_LP", 16.51, 76],
+  ["PCISlot_LP", 24, 76],
   ["MiniITX1Slot", 198, 88],
   ["ATXPSU", 154, 89],
   ["ATXPSU_FU", 154, 89],

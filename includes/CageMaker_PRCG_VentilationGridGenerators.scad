@@ -68,6 +68,10 @@ module create_ventilation_grid(vent_hole_pattern, grid_width, grid_height, plate
             hexagonal_grid_of_holes(grid_width, grid_height, plate_thickness, faceplate_vent_hole_size, faceplate_vent_wall_thickness, 8, faceplate_vent_grid_angle, faceplate_vent_grid_horizontal_offset, faceplate_vent_grid_vertical_offset, faceplate_vent_grid_angle == 0 ? faceplate_vent_hole_based_grid_generate_full_holes_only : false);
 
 
+        if (vent_hole_pattern == "Shippo")
+            shippo_grid(grid_width, grid_height, plate_thickness, faceplate_vent_hole_size, faceplate_vent_wall_thickness, 4, faceplate_vent_grid_angle, faceplate_vent_grid_horizontal_offset, faceplate_vent_grid_vertical_offset);
+
+
         if (vent_hole_pattern == "Skadis")
 			skadis_grid(grid_width, grid_height, plate_thickness, faceplate_vent_grid_angle, faceplate_vent_grid_horizontal_offset,faceplate_vent_grid_vertical_offset, faceplate_vent_grid_angle == 0 ? faceplate_vent_hole_based_grid_generate_full_holes_only : false);
 
@@ -213,7 +217,7 @@ module hexagonal_grid_of_holes(grid_width, grid_height, plate_thickness, vent_ho
 {
     // Step size - vertical is a cosine of horizontal for hexagonally (30°) staggered holes
     sx = (vent_hole_size * 2) + vent_wall_thickness;
-    sy = sx * cos(30);
+    sy = sx * cos(30); // We can also use "0.8660254" or "sqrt(3) / 2" here as they're functionally identical. 
 
     // Row/column count, which is based on the wider size of the desired grid.
     larger_size = (grid_width >= grid_height ? grid_width : grid_height);
@@ -294,6 +298,83 @@ module hexagonal_grid_of_holes(grid_width, grid_height, plate_thickness, vent_ho
 }
 
 
+// Create a shippo grid, for use as a ventilation grid.
+module shippo_grid(grid_width, grid_height, plate_thickness, vent_hole_size, vent_wall_thickness, vent_hole_facet_count=32, vent_grid_angle=0, vent_grid_horizontal_offset=0,vent_grid_vertical_offset=0)
+{
+    // Determine which dimension of the grid is larger.
+    larger_size = (grid_width >= grid_height ? grid_width : grid_height);
+
+    intersection()
+    {
+        cube([grid_width - 2, grid_height - 2, plate_thickness], center=true);
+
+        // This process is rather simple: draw two grids of rings on staggered centers.
+        translate([vent_grid_horizontal_offset,vent_grid_vertical_offset,0])
+            rotate([0, 0, 0 + vent_grid_angle])
+                union()            
+                {
+					for (x = [0:vent_hole_size + (vent_wall_thickness / 2):larger_size / 2])
+						for (y = [0:vent_hole_size + (vent_wall_thickness / 2):larger_size / 2])
+						{
+							translate([x, y, 0])
+								difference()
+								{
+									cylinder(d=vent_hole_size + vent_wall_thickness, h=plate_thickness, center=true, $fn=this_fn);
+									cylinder(d=vent_hole_size, h=plate_thickness + 2, center=true, $fn=this_fn);
+								}
+							translate([-x, y, 0])
+								difference()
+								{
+									cylinder(d=vent_hole_size + vent_wall_thickness, h=plate_thickness, center=true, $fn=this_fn);
+									cylinder(d=vent_hole_size, h=plate_thickness + 2, center=true, $fn=this_fn);
+								}
+							translate([x, -y, 0])
+								difference()
+								{
+									cylinder(d=vent_hole_size + vent_wall_thickness, h=plate_thickness, center=true, $fn=this_fn);
+									cylinder(d=vent_hole_size, h=plate_thickness + 2, center=true, $fn=this_fn);
+								}
+							translate([-x, -y, 0])
+								difference()
+								{
+									cylinder(d=vent_hole_size + vent_wall_thickness, h=plate_thickness, center=true, $fn=this_fn);
+									cylinder(d=vent_hole_size, h=plate_thickness + 2, center=true, $fn=this_fn);
+								}
+						}
+							
+					for (x = [(vent_hole_size + (vent_wall_thickness / 2)) / 2:vent_hole_size + (vent_wall_thickness / 2):larger_size / 2])
+						for (y = [(vent_hole_size + (vent_wall_thickness / 2)) / 2:vent_hole_size + (vent_wall_thickness / 2):larger_size / 2])
+						{
+							translate([x, y, 0])
+								difference()
+								{
+									cylinder(d=vent_hole_size + vent_wall_thickness, h=plate_thickness, center=true, $fn=this_fn);
+									cylinder(d=vent_hole_size, h=plate_thickness + 2, center=true, $fn=this_fn);
+								}
+							translate([-x, y, 0])
+								difference()
+								{
+									cylinder(d=vent_hole_size + vent_wall_thickness, h=plate_thickness, center=true, $fn=this_fn);
+									cylinder(d=vent_hole_size, h=plate_thickness + 2, center=true, $fn=this_fn);
+								}
+							translate([x, -y, 0])
+								difference()
+								{
+									cylinder(d=vent_hole_size + vent_wall_thickness, h=plate_thickness, center=true, $fn=this_fn);
+									cylinder(d=vent_hole_size, h=plate_thickness + 2, center=true, $fn=this_fn);
+								}
+							translate([-x, -y, 0])
+								difference()
+								{
+									cylinder(d=vent_hole_size + vent_wall_thickness, h=plate_thickness, center=true, $fn=this_fn);
+									cylinder(d=vent_hole_size, h=plate_thickness + 2, center=true, $fn=this_fn);
+								}
+						}
+                }
+    }
+}
+
+
 // Create a IKEA Skadis pegboard grid.
 // This helper creates a 5x15mm slot.
 module skadis_slot()
@@ -334,8 +415,8 @@ module skadis_grid(grid_width, grid_height, plate_thickness, vent_grid_angle=0, 
 						skadis_slot();
 						
 						// First, we place the major slots on 40mm centers...
-						for (x = [0:40:grid_width / 2 - (faceplate_vent_hole_based_grid_generate_full_holes_only ? 5 : 0)])
-							for (y = [0:40:grid_height / 2 - (faceplate_vent_hole_based_grid_generate_full_holes_only ? 15 : 0)])
+						for (x = [0:40:larger_size / 2 - (faceplate_vent_hole_based_grid_generate_full_holes_only ? 5 : 0)])
+							for (y = [0:40:larger_size / 2 - (faceplate_vent_hole_based_grid_generate_full_holes_only ? 15 : 0)])
 							{
 								translate([x, y, 0])
 									skadis_slot();
@@ -348,8 +429,8 @@ module skadis_grid(grid_width, grid_height, plate_thickness, vent_grid_angle=0, 
 							}
 
 						// Then, we place the minor slots on the same 40mm centers but offset 20mm.
-						for (x = [0:40:grid_width / 2 - (faceplate_vent_hole_based_grid_generate_full_holes_only ? 5 : 0)])
-							for (y = [0:40:grid_height / 2 - (faceplate_vent_hole_based_grid_generate_full_holes_only ? 15 : 0)])
+						for (x = [0:40:larger_size / 2 - (faceplate_vent_hole_based_grid_generate_full_holes_only ? 5 : 0)])
+							for (y = [0:40:larger_size / 2 - (faceplate_vent_hole_based_grid_generate_full_holes_only ? 15 : 0)])
 							{
 								translate([x + 20, y + 20, 0])
 									skadis_slot();
@@ -388,8 +469,8 @@ module pegboard_grid(grid_width, grid_height, plate_thickness, vent_grid_angle=0
 					{
 						cylinder(d=6.35, h=plate_thickness + 2, center=true, $fn=this_fn);
 						
-						for (x = [0:25.4:grid_width / 2 - (faceplate_vent_hole_based_grid_generate_full_holes_only ? 6.35 : 0)])
-							for (y = [0:25.4:grid_height / 2 - (faceplate_vent_hole_based_grid_generate_full_holes_only ? 6.35 : 0)])
+						for (x = [0:25.4:larger_size / 2 - (faceplate_vent_hole_based_grid_generate_full_holes_only ? 6.35 : 0)])
+							for (y = [0:25.4:larger_size / 2 - (faceplate_vent_hole_based_grid_generate_full_holes_only ? 6.35 : 0)])
 							{
 								translate([x, y, 0])
 									rotate([0, 0, 90])

@@ -1,7 +1,6 @@
 /*
 
  CageMaker PRCG - The Parametric Rack Cage Generator v. 0.72 (TBA)
- CageMaker PRCG - The Parametric Rack Cage Generator v. 0.72 (TBA)
  --------------------------------------------------------------------------------
  
  Copyright © 2025-2026 by WebMaka - this file is licensed under CC BY-NC-SA 4.0.
@@ -106,10 +105,10 @@ module faceplate_mod_subtraction(mod_type, horizontal_offset, vertical_offset, m
             // PC Motherboards - PCI Slot
             if (mod_type == "PCISlot_LP")
             {
-                translate([horizontal_offset + x_offset, vertical_offset + y_offset + 5, 2 + surface_thickness])
+                translate([horizontal_offset + x_offset - 3.5, vertical_offset + y_offset + 8, 2 + surface_thickness])
                     cube([15, 55, 16], center=true);
-                translate([horizontal_offset + x_offset - 2.54, vertical_offset + y_offset - 32.5, 2 + surface_thickness])
-                    cube([22, 10, 16], center=true);
+                translate([horizontal_offset + x_offset + 0.46, vertical_offset + y_offset - 32.6, 2 + surface_thickness])
+                    cube([20, 6, 16], center=true);
             }
             
             // PC Motherboards - Mini-ITX motherboard with one low-profile PCI slot
