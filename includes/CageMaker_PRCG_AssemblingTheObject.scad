@@ -115,7 +115,7 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
 
 
 				// Faceplate-back standoffs
-				if ((closed_faceplate) || (faceplate_only != 0.00))
+				if (((closed_faceplate) || (faceplate_only != 0.00)) && (len(faceplate_back_standoffs) > 1))
 				{
 					// This intersection creates a bounding box area the size of the safe working area of the
 					// back of the faceplate. This will automatically "clip" any standoffs that would generate
@@ -292,7 +292,7 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
 
 			// Faceplate-back standoff holes
 			// Note that these stop 1mm shy of punching through the faceplate.
-			if ((closed_faceplate) || (faceplate_only != 0.00))
+			if (((closed_faceplate) || (faceplate_only != 0.00)) && (len(faceplate_back_standoffs) > 1))
 						
 				for (coords_index = [0:2:len(faceplate_back_standoffs) - 2])
 				{
