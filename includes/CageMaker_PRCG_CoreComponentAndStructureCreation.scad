@@ -109,19 +109,20 @@ module faceplate_screw_hole_slot(mounting_hole_diameter, xx, yy, zz)
     slot_width = (mounting_hole_diameter) - (mounting_hole_diameter / 2);
 
     translate([xx, yy, zz])
-        linear_extrude(plate_thickness + 2, center=true, twist=0, $fn=this_fn)
-            if (hole_instead_of_slot)
-                circle(d=mounting_hole_diameter, $fn=this_fn, false);
-            else
-            {
-                hull()
-                {
-                    translate([0 - slot_width, 0, 0])
-                        circle(d=mounting_hole_diameter, $fn=this_fn, false);
-                    translate([slot_width, 0, 0])
-                        circle(d=mounting_hole_diameter, $fn=this_fn, false);    
-                }
-            }
+		rotate([0, 0, rotate_holes == 0 ? 0 : 90])
+			linear_extrude(plate_thickness + 2, center=true, twist=0, $fn=this_fn)
+				if (hole_instead_of_slot)
+					circle(d=mounting_hole_diameter, $fn=this_fn, false);
+				else
+				{
+					hull()
+					{
+						translate([0 - slot_width, 0, 0])
+							circle(d=mounting_hole_diameter, $fn=this_fn, false);
+						translate([slot_width, 0, 0])
+							circle(d=mounting_hole_diameter, $fn=this_fn, false);    
+					}
+				}
 }
 
 // Create a hollow tube of a given diameter/height with a given wall thickness

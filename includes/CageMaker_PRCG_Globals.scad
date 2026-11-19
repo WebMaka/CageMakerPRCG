@@ -50,6 +50,11 @@ cagemaker_version = "0.73";
 
 
 
+// Preview facet count - this defaults to 16 during previews and increasing for
+// renders. This will make for faster previews.
+this_fn = $preview ? 16 : facet_count;
+
+
 // Preconfigured device options list - this sets device dimensions when a device is selected.
 //
 // NOTE: This is a different kludge to work around immutable variables: a
@@ -162,8 +167,6 @@ preconfg_options = [
   ["BAY-E3.L-2T-H", 142, 76, 17, 4, 0, 0],
   ["BAY-E3.L-2T-V", 142, 17, 76, 4, 0, 0],
 
-
-//  ["NAME", depth, width, height, 4, 0, 0],
 ];
 // For adding new equipment options, the format is:
 //  ["model#", depth, width, height, default_base_size, default_surface_thickness, force_solid_bottom]
@@ -187,33 +190,41 @@ cage_bottom_geometry_override = use_preconfig ? (preconfg_options[search([precon
 
 // Rack geometry - this sets the "unit" height and mounting hole pattern based on the mode selected by the rack_geometry setting. By default, the size of a single "unit" of rack space is set to 1.75" or 44.45mm, and mounting hole pattern is set to 6.35, 22.225, and 38.1mm relative to the "top" edge of each "unit," for EIA-310-D standard racks.
 rack_geometry_options = [
-  ["EIA-310", 44.45, [6.35, 22.225, 38.1], 8.73125, 5.25, 15.875],
-  ["EIA-310-LH", 44.45, [6.35, 22.225, 38.1], 8.73125, 6.53, 15.875],
-  ["EIA-310-1T", 44.45, [6.35], 8.73125, 5.25, 15.875],
-  ["EIA-310-1C", 44.45, [22.225], 8.73125, 5.25, 15.875],
-  ["EIA-310-2", 44.45, [6.35, 38.1], 8.73125, 5.25, 15.875],
-  ["EIA-310-2020", 44.45, [6.35, 22.225, 38.1], 10.0, 5.25, 20],
-  ["EIA-310-TTV", 44.45, [6.35, 22.225, 38.1], 12.0, 5.25, 17.5],
-  ["HALF-EIA-310", 22.225, [3.175, 11.1125, 19.05], 4.365625, 3.15, 8],
-  ["12mm", 12.00, [6.00], 8.73125, 5.25, 16],
-  ["15mm", 15.00, [7.50], 8.73125, 5.25, 16],
-  ["16mm", 16.00, [8.00], 8.73125, 5.25, 16],
-  ["16.5mm", 16.50, [8.25], 8.73125, 5.25, 20],
-  ["20mm", 20.00, [10.00], 8.73125, 5.25, 16],
-  ["20mm_2h", 20.00, [5.00, 15.00], 8.73125, 5.25, 16],
-  ["24mm", 24.00, [12.00], 8.73125, 5.25, 16],
-  ["25mm", 25.00, [12.50], 8.73125, 5.25, 16],
-  ["25mm_2h", 25.00, [6.25, 18.75], 8.73125, 5.25, 16],
-  ["30mm", 30.00, [15.00], 8.73125, 5.25, 16],
-  ["30mm_2h", 30.00, [7.5, 22.5], 8.73125, 5.25, 16],
-  ["36mm", 30.00, [18.0], 8.73125, 5.25, 16],
-  ["40mm", 40.00, [20.00], 8.73125, 5.25, 16],
-  ["40mm_2h", 40.00, [10.00, 30.00], 8.73125, 5.25, 16],
-  ["50mm", 50.00, [25.00], 8.73125, 5.25, 16],
-  ["50mm_2h", 50.00, [12.50, 37.50], 8.73125, 5.25, 16],
+  // EIA-310 And Compatible
+  ["EIA-310", 44.45, [6.35, 22.225, 38.1], 8.73125, 5.25, 15.875, 0, 0],
+  ["EIA-310-LH", 44.45, [6.35, 22.225, 38.1], 8.73125, 6.53, 15.875, 0, 0],
+  ["EIA-310-1T", 44.45, [6.35], 8.73125, 5.25, 15.875, 0, 0],
+  ["EIA-310-1C", 44.45, [22.225], 8.73125, 5.25, 15.875, 0, 0],
+  ["EIA-310-2", 44.45, [6.35, 38.1], 8.73125, 5.25, 15.875, 0, 0],
+  ["EIA-310-2020", 44.45, [6.35, 22.225, 38.1], 10.0, 5.25, 20, 0, 0],
+  ["EIA-310-TTV", 44.45, [6.35, 22.225, 38.1], 12.0, 5.25, 17.5, 0, 0],
+  ["HALF-EIA-310", 22.225, [3.175, 11.1125, 19.05], 4.365625, 3.15, 8, 0, 0],
+
+  // Eurorack/Synth-Rack
+  ["EURO", 5.08, [2.54], 3.0, 3.2, 8, 9.92, 1],
+  ["INTELLIJEL", 5.08, [2.54], 3.0, 3.2, 8, 9.92, 1],
+  ["PULPLOGIC", 5.08, [2.54], 3.0, 3.2, 8, 9.92, 1],
+  
+  // Non-Standard/Measured
+  ["12mm", 12.00, [6.00], 8.73125, 5.25, 16, 0, 0],
+  ["15mm", 15.00, [7.50], 8.73125, 5.25, 16, 0, 0],
+  ["16mm", 16.00, [8.00], 8.73125, 5.25, 16, 0, 0],
+  ["16.5mm", 16.50, [8.25], 8.73125, 5.25, 20, 0, 0],
+  ["20mm", 20.00, [10.00], 8.73125, 5.25, 16, 0, 0],
+  ["20mm_2h", 20.00, [5.00, 15.00], 8.73125, 5.25, 16, 0, 0],
+  ["24mm", 24.00, [12.00], 8.73125, 5.25, 16, 0, 0],
+  ["25mm", 25.00, [12.50], 8.73125, 5.25, 16, 0, 0],
+  ["25mm_2h", 25.00, [6.25, 18.75], 8.73125, 5.25, 16, 0, 0],
+  ["30mm", 30.00, [15.00], 8.73125, 5.25, 16, 0, 0],
+  ["30mm_2h", 30.00, [7.5, 22.5], 8.73125, 5.25, 16, 0, 0],
+  ["36mm", 30.00, [18.0], 8.73125, 5.25, 16, 0, 0],
+  ["40mm", 40.00, [20.00], 8.73125, 5.25, 16, 0, 0],
+  ["40mm_2h", 40.00, [10.00, 30.00], 8.73125, 5.25, 16, 0, 0],
+  ["50mm", 50.00, [25.00], 8.73125, 5.25, 16, 0, 0],
+  ["50mm_2h", 50.00, [12.50, 37.50], 8.73125, 5.25, 16, 0, 0],
 ];
 // For adding new custom entries, the format is:
-//  ["Name", unit_height, [first_hole, second_hole, third_hole, etc.], mounting_hole_center_inset, mounting_hole_diameter, mounting_reservation_space]
+//  ["Name", unit_height, [first_hole, second_hole, third_hole, etc.], mounting_hole_center_inset, mounting_hole_diameter, mounting_reservation_space, height_overhang, rotate_holes]
 // Where:
 //   "Name" is as selected in the rack_geometry variable.
 //   unit_height is what the name implies, what the rack system considers one "unit" of height.
@@ -229,6 +240,8 @@ mounting_hole_pattern = rack_geometry == "Custom" ? custom_rack_geometry_mountin
 mounting_hole_center_inset = rack_geometry == "Custom" ? custom_mounting_hole_center_inset : rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][3];
 mounting_hole_diameter = rack_geometry == "Custom" ? custom_rack_geometry_mounting_hole_diameter : rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][4];
 mounting_reservation_space = rack_geometry == "Custom" ? custom_rack_geometry_mounting_reservation_area : rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][5];
+height_overhang = rack_geometry == "Custom" ? custom_height_overhang : rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][6];
+rotate_holes = rack_geometry == "Custom" ? (custom_rotate_holes ? 1 : 0) : rack_geometry_options[search([rack_geometry], rack_geometry_options)[0]][7];
 
 
 // Side/top/bottom cutout edge thickness in mm (higher number makes the cutout smaller) - NOTE: This should not normally need to be changed.

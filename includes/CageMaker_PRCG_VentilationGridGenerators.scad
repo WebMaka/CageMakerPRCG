@@ -44,7 +44,7 @@
 // add a new generator module and a new if-then here to call it.
 module create_ventilation_grid(vent_hole_pattern, grid_width, grid_height, plate_thickness, vent_hole_size, vent_wall_thickness, vent_grid_angle, vent_grid_horizontal_offset, vent_grid_vertical_offset, vent_hole_based_grid_generate_full_holes_only=false)
 {
-    if (vent_hole_pattern != "None")
+    if ((vent_hole_pattern != "None") && (vent_hole_pattern != ""))
     {
         if (vent_hole_pattern == "Hex")
             hexagonal_grid_of_holes(grid_width, grid_height, plate_thickness, vent_hole_size, vent_wall_thickness, 6, vent_grid_angle, vent_grid_horizontal_offset, vent_grid_vertical_offset, vent_grid_angle == 0 ? vent_hole_based_grid_generate_full_holes_only : false);
@@ -66,6 +66,13 @@ module create_ventilation_grid(vent_hole_pattern, grid_width, grid_height, plate
 
         if (vent_hole_pattern == "Octagon")
             hexagonal_grid_of_holes(grid_width, grid_height, plate_thickness, vent_hole_size, vent_wall_thickness, 8, vent_grid_angle, vent_grid_horizontal_offset, vent_grid_vertical_offset, vent_grid_angle == 0 ? vent_hole_based_grid_generate_full_holes_only : false);
+
+
+        if (vent_hole_pattern == "DoubleRound")
+            double_hexagonal_grid_of_holes(grid_width, grid_height, plate_thickness, vent_hole_size, vent_wall_thickness, 32, vent_grid_angle, vent_grid_horizontal_offset, vent_grid_vertical_offset, vent_grid_angle == 0 ? vent_hole_based_grid_generate_full_holes_only : false);
+
+        if (vent_hole_pattern == "DoubleHex")
+            double_hexagonal_grid_of_holes(grid_width, grid_height, plate_thickness, vent_hole_size, vent_wall_thickness, 6, vent_grid_angle, vent_grid_horizontal_offset, vent_grid_vertical_offset, vent_grid_angle == 0 ? vent_hole_based_grid_generate_full_holes_only : false);
 
 
         if (vent_hole_pattern == "Worley")
@@ -297,6 +304,152 @@ module hexagonal_grid_of_holes(grid_width, grid_height, plate_thickness, vent_ho
 										rotate([0, 0, rotation_angle])
 											cylinder(r=vent_hole_size, h=plate_thickness + 2, center=true, $fn=vent_hole_facet_count);
                             }
+        }
+    }
+}
+
+
+// Create two hexagonal grids of holes based on the cylinder primitive, for use as a ventilation
+// grid, layered against each other.
+//
+// Hat Tip: Heavily modified from a code snippet from Thingiverse user "M_D_K", aka Marty Kell.
+// Originally posted at: https://www.thingiverse.com/thing:3645932
+// Licensed under the Creative Commons - Attribution license.
+//
+// NOTE: The value used for "vent_hole_facet_count" sets the hole geometry. 3 = triangle, 4 = square, 
+// 6 = hexagon, 8 = octagon, 16+ = round.
+module double_hexagonal_grid_of_holes(grid_width, grid_height, plate_thickness, vent_hole_size, vent_wall_thickness, vent_hole_facet_count=32, vent_grid_angle=0, vent_grid_horizontal_offset=0,vent_grid_vertical_offset=0, vent_hole_based_grid_generate_full_holes_only=false)
+{
+    // Step size - vertical is a cosine of horizontal for hexagonally (30°) staggered holes
+    sx = (vent_hole_size * 2) + vent_wall_thickness;
+    sy = sx * cos(30); // We can also use "0.8660254" or "sqrt(3) / 2" here as they're functionally identical. 
+
+    // Row/column count, which is based on the wider size of the desired grid.
+    larger_size = (grid_width >= grid_height ? grid_width : grid_height);
+    rows = round(larger_size / ((vent_hole_size * 2) + vent_wall_thickness)) * 1.666;
+
+    // Plate size - this is set to be deliberately oversized so it can be trimmed and inserted
+    // into another component via intersection/union operations.
+    plate_size = ((vent_hole_size + vent_wall_thickness) * rows) * 1.666;
+
+    // Rotation angle for faceted holes - different facet counts call for different 
+    // rotation angles for best results.
+    rotation_angle = vent_hole_facet_count == 3 ? 90 : vent_hole_facet_count == 4 ? 45 : vent_hole_facet_count == 6 ? 90 : vent_hole_facet_count == 8 ? 20 : 0;
+
+    intersection()
+    {
+        // Create a cuboid the desired size of the grid - this will be used to trim
+        // the excess grid size down to fit as the grid has to be generated oversized
+        // so that variable angles won't result in incomplete grids.
+        cube([grid_width, grid_height, plate_thickness], center=true);
+
+        difference() 
+        {
+            // Create a cuboid to hole-punch.
+            cube([plate_size, plate_size, plate_thickness], center=true);
+
+            // Note that we're effectively placing the holes from the center out so that
+            // the array can be symmetrical and centered relative to the world coords
+            // of OpenSCAD. The resulting grid should be translated into place afterward
+            // and trimmed/shaped to fit.
+			//
+			// Note that we're punching in from the front but only halfway through the\
+			// cuboid.
+            translate([vent_grid_horizontal_offset,vent_grid_vertical_offset,0])
+                rotate([0, 0, vent_grid_angle])
+                    union()
+                        for(y = [0  : rows / 2 + 1])
+                            for(x = [0 : rows / 2 + 1])
+                            {
+                                // +X/+Y quadrant
+								if ((((sx * x) + (sx / 2) + vent_hole_size < grid_width / 2) && (y * 2 * sy + sy + vent_hole_size< grid_height / 2)) || (!vent_hole_based_grid_generate_full_holes_only))
+									translate([sx * x, y * 2 * sy, plate_thickness / 2])
+										rotate([0, 0, rotation_angle])
+											cylinder(r=vent_hole_size, h=(plate_thickness / 2) + 1, center=true, $fn=vent_hole_facet_count);
+								if ((((sx * x) + (sx / 2) + vent_hole_size < grid_width / 2) && (y * 2 * sy + sy + vent_hole_size< grid_height / 2)) || (!vent_hole_based_grid_generate_full_holes_only))
+									translate([(sx * x) + (sx / 2), y * 2 * sy + sy, plate_thickness / 2])
+										rotate([0, 0, rotation_angle])
+											cylinder(r=vent_hole_size, h=(plate_thickness / 2) + 1, center=true, $fn=vent_hole_facet_count);
+
+                                // -X/+Y quadrant
+								if ((((sx * x) + (sx / 2) + vent_hole_size < grid_width / 2) && (y * 2 * sy + sy + vent_hole_size< grid_height / 2)) || (!vent_hole_based_grid_generate_full_holes_only))
+									translate([0 - (sx * x), y * 2 * sy, plate_thickness / 2])
+										rotate([0, 0, rotation_angle])
+											cylinder(r=vent_hole_size, h=(plate_thickness / 2) + 1, center=true, $fn=vent_hole_facet_count);
+								if ((((sx * x) + (sx / 2) + vent_hole_size < grid_width / 2) && (y * 2 * sy + sy + vent_hole_size< grid_height / 2)) || (!vent_hole_based_grid_generate_full_holes_only))
+									translate([0 - ((sx * x) + (sx / 2)), y * 2 * sy + sy, plate_thickness / 2])
+										rotate([0, 0, rotation_angle])
+											cylinder(r=vent_hole_size, h=(plate_thickness / 2) + 1, center=true, $fn=vent_hole_facet_count);
+
+                                // +X/-Y quadrant
+								if ((((sx * x) + (sx / 2) + vent_hole_size < grid_width / 2) && (y * 2 * sy + sy + vent_hole_size< grid_height / 2)) || (!vent_hole_based_grid_generate_full_holes_only))
+									translate([sx * x, 0 - (y * 2 * sy), plate_thickness / 2])
+										rotate([0, 0, rotation_angle])
+											cylinder(r=vent_hole_size, h=(plate_thickness / 2) + 1, center=true, $fn=vent_hole_facet_count);
+								if ((((sx * x) + (sx / 2) + vent_hole_size < grid_width / 2) && (y * 2 * sy + sy + vent_hole_size< grid_height / 2)) || (!vent_hole_based_grid_generate_full_holes_only))
+									translate([(sx * x) + (sx / 2), 0 - (y * 2 * sy + sy), plate_thickness / 2])
+										rotate([0, 0, rotation_angle])
+											cylinder(r=vent_hole_size, h=(plate_thickness / 2) + 1, center=true, $fn=vent_hole_facet_count);
+
+                                // -X/-Y quadrant
+								if ((((sx * x) + (sx / 2) + vent_hole_size < grid_width / 2) && (y * 2 * sy + sy + vent_hole_size< grid_height / 2)) || (!vent_hole_based_grid_generate_full_holes_only))
+									translate([0 - (sx * x), 0 - (y * 2 * sy), plate_thickness / 2])
+										rotate([0, 0, rotation_angle])
+											cylinder(r=vent_hole_size, h=(plate_thickness / 2) + 1, center=true, $fn=vent_hole_facet_count);
+								if ((((sx * x) + (sx / 2) + vent_hole_size < grid_width / 2) && (y * 2 * sy + sy + vent_hole_size< grid_height / 2)) || (!vent_hole_based_grid_generate_full_holes_only))
+									translate([0 - ((sx * x) + (sx / 2)), 0 - (y * 2 * sy + sy), plate_thickness / 2])
+										rotate([0, 0, rotation_angle])
+											cylinder(r=vent_hole_size, h=(plate_thickness / 2) + 1, center=true, $fn=vent_hole_facet_count);
+                            }
+
+            // Now we do it again, this time from the back but offset by half of a row's height.
+            translate([vent_grid_horizontal_offset, (sy / 2) + (vent_wall_thickness / 2) + vent_grid_vertical_offset,0])
+                rotate([0, 0, vent_grid_angle])
+                    union()
+                        for(y = [0  : rows / 2 + 1])
+                            for(x = [0 : rows / 2 + 1])
+                            {
+                                // +X/+Y quadrant
+								if ((((sx * x) + (sx / 2) + vent_hole_size < grid_width / 2) && (y * 2 * sy + sy + vent_hole_size< grid_height / 2)) || (!vent_hole_based_grid_generate_full_holes_only))
+									translate([sx * x, y * 2 * sy, -1])
+										rotate([0, 0, rotation_angle])
+											cylinder(r=vent_hole_size, h=(plate_thickness / 2) + 1.001, center=true, $fn=vent_hole_facet_count);
+								if ((((sx * x) + (sx / 2) + vent_hole_size < grid_width / 2) && (y * 2 * sy + sy + vent_hole_size< grid_height / 2)) || (!vent_hole_based_grid_generate_full_holes_only))
+									translate([(sx * x) + (sx / 2), y * 2 * sy + sy, -1])
+										rotate([0, 0, rotation_angle])
+											cylinder(r=vent_hole_size, h=(plate_thickness / 2) + 1.001, center=true, $fn=vent_hole_facet_count);
+
+                                // -X/+Y quadrant
+								if ((((sx * x) + (sx / 2) + vent_hole_size < grid_width / 2) && (y * 2 * sy + sy + vent_hole_size< grid_height / 2)) || (!vent_hole_based_grid_generate_full_holes_only))
+									translate([0 - (sx * x), y * 2 * sy, -1])
+										rotate([0, 0, rotation_angle])
+											cylinder(r=vent_hole_size, h=(plate_thickness / 2) + 1.001, center=true, $fn=vent_hole_facet_count);
+								if ((((sx * x) + (sx / 2) + vent_hole_size < grid_width / 2) && (y * 2 * sy + sy + vent_hole_size< grid_height / 2)) || (!vent_hole_based_grid_generate_full_holes_only))
+									translate([0 - ((sx * x) + (sx / 2)), y * 2 * sy + sy, -1])
+										rotate([0, 0, rotation_angle])
+											cylinder(r=vent_hole_size, h=(plate_thickness / 2) + 1.001, center=true, $fn=vent_hole_facet_count);
+
+                                // +X/-Y quadrant
+								if ((((sx * x) + (sx / 2) + vent_hole_size < grid_width / 2) && (y * 2 * sy + sy + vent_hole_size< grid_height / 2)) || (!vent_hole_based_grid_generate_full_holes_only))
+									translate([sx * x, 0 - (y * 2 * sy), -1])
+										rotate([0, 0, rotation_angle])
+											cylinder(r=vent_hole_size, h=(plate_thickness / 2) + 1.001, center=true, $fn=vent_hole_facet_count);
+								if ((((sx * x) + (sx / 2) + vent_hole_size < grid_width / 2) && (y * 2 * sy + sy + vent_hole_size< grid_height / 2)) || (!vent_hole_based_grid_generate_full_holes_only))
+									translate([(sx * x) + (sx / 2), 0 - (y * 2 * sy + sy), -1])
+										rotate([0, 0, rotation_angle])
+											cylinder(r=vent_hole_size, h=(plate_thickness / 2) + 1.001, center=true, $fn=vent_hole_facet_count);
+
+                                // -X/-Y quadrant
+								if ((((sx * x) + (sx / 2) + vent_hole_size < grid_width / 2) && (y * 2 * sy + sy + vent_hole_size< grid_height / 2)) || (!vent_hole_based_grid_generate_full_holes_only))
+									translate([0 - (sx * x), 0 - (y * 2 * sy), -1])
+										rotate([0, 0, rotation_angle])
+											cylinder(r=vent_hole_size, h=(plate_thickness / 2) + 1.001, center=true, $fn=vent_hole_facet_count);
+								if ((((sx * x) + (sx / 2) + vent_hole_size < grid_width / 2) && (y * 2 * sy + sy + vent_hole_size< grid_height / 2)) || (!vent_hole_based_grid_generate_full_holes_only))
+									translate([0 - ((sx * x) + (sx / 2)), 0 - (y * 2 * sy + sy), -1])
+										rotate([0, 0, rotation_angle])
+											cylinder(r=vent_hole_size, h=(plate_thickness / 2) + 1.001, center=true, $fn=vent_hole_facet_count);
+                            }
+
         }
     }
 }

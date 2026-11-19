@@ -77,18 +77,18 @@ module create_faceplate(height_in_units, width_in_mm, left_ear=false, right_ear=
             union()
             {
                 // Create the actual faceplate.
-                four_rounded_corner_plate(height_in_units * unit_height_in_mm, width_in_mm, plate_thickness, faceplate_radius);
+                four_rounded_corner_plate(height_in_units * unit_height_in_mm + height_overhang, width_in_mm, plate_thickness, faceplate_radius);
 
                 // Expand the faceplate upward/downward - this is accomplished via brute-force by
                 // duplicating the faceplate with offsets. Note that none of the modifications to
                 // or cutouts from the faceplate are moved during this process.
                 if (expand_faceplate_upward > 0)
                     translate([0, 0 - expand_faceplate_upward, 0])
-                        four_rounded_corner_plate(height_in_units * unit_height_in_mm, width_in_mm, plate_thickness, faceplate_radius);
+                        four_rounded_corner_plate(height_in_units * unit_height_in_mm + height_overhang, width_in_mm, plate_thickness, faceplate_radius);
 
                 if (expand_faceplate_downward > 0)
                     translate([0, expand_faceplate_downward, 0])
-                        four_rounded_corner_plate(height_in_units * unit_height_in_mm, width_in_mm, plate_thickness, faceplate_radius);
+                        four_rounded_corner_plate(height_in_units * unit_height_in_mm + height_overhang, width_in_mm, plate_thickness, faceplate_radius);
 
                 // Add right-angle mounting ears if making bolt-together partial-width cages.
                 if (left_ear)
