@@ -168,13 +168,15 @@ function w3_close() {
         <div class="w3-flex w3-stretch" style="background-color: transparent;">
           <div class="w3-container" style="flex:1">
             <div class="w3-container w3-section" style="background-color: transparent;">
-              <p><a name="custom_rack_geometry_unit_height"></a><strong>custom rack geometry unit height</strong><br><strong>custom rack geometry mounting reservation area</strong><br><strong>custom rack geometry mounting hole center difference</strong><br><strong>custom rack geometry mounting hole diameter</strong><br><strong>custom rack geometry mounting hole pattern</strong><br><img src="images/new.png"> <em>new for version 0.70</em> :: These settings configure custom rack geometry, for situations where a preset doesn't exist. They are as follows:</p>
+              <p><a name="custom_rack_geometry_unit_height"></a><strong>custom rack geometry unit height</strong><br><strong>custom rack geometry mounting reservation area</strong><br><strong>custom rack geometry mounting hole center difference</strong><br><strong>custom rack geometry mounting hole diameter</strong><br><strong>custom rack geometry mounting hole pattern</strong><br><strong>custom height overhang</strong><br><strong>custom rotate holes</strong><br><img src="images/new.png"> <em>new for version 0.70</em> :: These settings configure custom rack geometry, for situations where a preset doesn't exist. They are as follows:</p>
               <ul>
                 <li><strong>custom rack geometry unit height</strong> determines the height of one rack "unit."</li>
                 <li><strong>custom rack geometry mounting reservation area</strong> sets the space on both sides that CageMaker PRCG reserves for mounting.</li>
                 <li><strong>custom rack geometry mounting hole center inset</strong> sets how far in from the edges the rack rail's mounting holes land.</li>
-                <li><strong>custom rack geometry mounting hole diameter</strong> sets the screw hole diameter for the mounting holes, e.g., 5,25mm for a M5 screw.</li>
+                <li><strong>custom rack geometry mounting hole diameter</strong> sets the screw hole diameter for the mounting holes, e.g., 5.25mm for a M5 screw.</li>
                 <li><strong>custom rack geometry mounting hole pattern</strong> sets how many mounting screw holes are created and how far down from the top edge of each unit a hole is positioned. This setting must consist of one or more values (in mm) separated by commas and surrounded by [square braces, such as [6.35, 22.225, 38.1] for an EIA-310 standard hole pattern.</li>
+                <li><strong>custom height overhang</strong> determines whether the height of the faceplate overhangs its surroundings. This should be left at zero except in specific circumstances, and is only commonly seen in synthesizer racks, where mounted modules are generally installed vertically and have a "buffer" area to either side.</li>
+                <li><strong>custom rotate holes</strong> rotates mounting hole slots to parallel with the side of the faceplate. This is primarily used with synthesizer racks, where mounted modules are generally installed vertically.</li>
               </ul>
 
               <div class="w3-flex w3-margin w3-card w3-round-xlarge w3-pale-red">

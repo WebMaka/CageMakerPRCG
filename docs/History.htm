@@ -130,6 +130,17 @@ function w3_close() {
       
         <h1>Version and Revision History</h1>
         
+        <h3>0.73 - TBA</h3>
+        
+        <div class="w3-container w3-section" style="background-color: transparent;">
+          <ul>
+            <li><p>Added Worley noise (aka, Voronoi noise) pattern to the ventilation grid options for faceplates and cage walls.</p></li>
+            <li><p>Added support for creating module cages and faceplates for Eurorack (3U/128.5mm), Intellijel (1U/39.65mm), and Pulp Logic (1U/43.18mm) synthesizer racks, along with converting unit heights to horizontal pitch (HP) units by setting a "unit" to 5.08mm. Mounting slots automatically rotate to suit. Note that it may be necesary to enable the "top and bottom holes only" option, and the generator will create a synth module cage/faceplate sideways.</p></li>
+            <li><p>Reorganized options lists in a few places to make option selection easier and more logical.</p></li>
+            <li><p>Fixed a rendering bug that affected CageMaker PRCG when run in OpenSCAD Playground, where cageless faceplates would be generated with excess material that would overlap faceplate modifications and ventilation grids. The bug did not manifest when using CageMaker PRCG within OpenSCAD, but only affected WASM ports of OpenSCAD.</p></li>
+          </ul>
+        </div>
+
         <h3>0.72 - 7 Nov 2026</h3>
         
         <div class="w3-container w3-section" style="background-color: transparent;">
